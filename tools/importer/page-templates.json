@@ -612,12 +612,75 @@
         "https://www.komatsu.com/en-us/services-and-support/sourcewell",
         "https://www.komatsu.com/en-us/services-and-support/training-programs/mining-training-descriptions",
         "https://www.komatsu.com/en-us/services-and-support/warranty-programs",
-        "https://www.komatsu.com/en-us/technology",
+        "https://www.komatsu.com/en-us/technology"
+      ],
+      "coverageGaps": [],
+      "description": "Article layout with left meta/share rail, headline, lead image, rich-text body and related-articles card row; also absorbs some category and landing pages",
+      "blocks": [
+        {
+          "name": "columns-article-rail",
+          "instances": [
+            "#articleLeft .articledetail_contents"
+          ]
+        },
+        {
+          "name": "cards-news",
+          "instances": [
+            "div.relatedarticle div.limit > div.grid"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "1",
+          "name": "Breadcrumb (not authored)",
+          "selector": [
+            "div.breadcrumb"
+          ],
+          "style": null,
+          "blocks": [],
+          "defaultContent": []
+        },
+        {
+          "id": "2",
+          "name": "Article",
+          "selector": [
+            ".article__details-container"
+          ],
+          "style": "article",
+          "blocks": [
+            "columns-article-rail"
+          ],
+          "defaultContent": [
+            "#articleRight > div.articleheader",
+            "#articleRight > div.textcontent.text > div.cmp-text"
+          ]
+        },
+        {
+          "id": "3",
+          "name": "Related articles",
+          "selector": [
+            "div.container:has(> .cmp-container div.relatedarticle):not(:has(.article__details-container))",
+            "div.relatedarticle"
+          ],
+          "style": "grey",
+          "blocks": [
+            "cards-news"
+          ],
+          "defaultContent": [
+            "div.relatedarticle div.limit > h2"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "technology-landing",
+      "urls": [
         "https://www.komatsu.com/en-us/technology/smart-construction",
         "https://www.komatsu.com/en-us/technology/smart-quarry"
       ],
       "coverageGaps": [],
-      "description": "Article layout with left meta/share rail, headline, lead image, rich-text body and related-articles card row; also absorbs some category and landing pages",
+      "description": "Technology landing with split hero, tabbed solutions, alternating media-text rows, support cards, solution tile grid and CTA banner",
       "blocks": []
     },
     {

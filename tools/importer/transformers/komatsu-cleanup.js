@@ -21,6 +21,19 @@ export default function transform(hookName, element, payload) {
       '#ZN_7VtV2ILpaHNasQF',
       '#destination_publishing_iframe_komatsu_0',
     ]);
+
+    // Article pages (migration-work/cleaned.html, Newberry newsroom article):
+    //   <div class="breadcrumb"><nav class="cmp-breadcrumb"> - not authored; rebuilt
+    //     from the URL by the header. Removed before parsing so no parser sees it.
+    //   <div class="relatedarticle"> ... <div class="tile d-none"> - hidden
+    //     "load more" related-article tiles; removed so cards-news only gets the
+    //     visible tiles.
+    // Neither exists on the homepage, so these are no-ops there.
+    WebImporter.DOMUtils.remove(element, [
+      'div.breadcrumb',
+      '.cmp-breadcrumb',
+      '.relatedarticle .tile.d-none',
+    ]);
   }
 
   if (hookName === TransformHook.afterTransform) {

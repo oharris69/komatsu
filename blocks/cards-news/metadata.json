@@ -11,10 +11,18 @@
   },
   "contentPattern": "5 rows: image | read-time + date paragraph, h3 title linked, tag list",
   "usage": {
-    "pagesUsing": ["https://www.komatsu.com/en-us"],
-    "reuseCount": 1,
+    "pagesUsing": [
+      "https://www.komatsu.com/en-us",
+      "/en-us/newsroom/2026/komatsu-newberry-facility-celebrates-25-years"
+    ],
+    "reuseCount": 2,
     "lastUsed": "2026-10-12"
   },
-  "options": [],
+  "options": [
+    {
+      "class": "related",
+      "label": "Related articles: equal-width cards, image above text, on white card"
+    }
+  ],
   "memberVariantIds": []
 }

@@ -10,8 +10,10 @@ Single block table. Content: one row, one cell of content.
 
 ## Supported variations
 
-No variations.
+| Variation | Option class |
+| --- | --- |
+| Related articles: equal-width cards, image above text, on white card | `related` |
 
 ## Universal Editor fields
 
-- Content fields derived from the block's decorate contract.
+N/A (Document Authoring project)

@@ -1,7 +1,7 @@
 import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
-const OPTION_CLASSES = [];
+const OPTION_CLASSES = ['related'];
 
 // number of leading items rendered as tall, image-overlay feature cards
 const FEATURED_COUNT = 2;
@@ -27,14 +27,32 @@ function decorateBody(body) {
 }
 
 /**
+ * Split a "3 min read | Sep 17, 2026" meta line into read-time and date spans.
+ * Leaves the line untouched when there is no separator.
+ * @param {Element} meta
+ */
+function splitMeta(meta) {
+  if (!meta || meta.children.length) return;
+  const parts = meta.textContent.split('|').map((t) => t.trim()).filter(Boolean);
+  if (parts.length !== 2) return;
+  const [readTime, date] = parts.map((text, i) => {
+    const span = document.createElement('span');
+    span.className = i === 0 ? 'cards-news-read-time' : 'cards-news-date';
+    span.textContent = text;
+    return span;
+  });
+  meta.replaceChildren(readTime, date);
+}
+
+/**
  * Cards News: article teasers in a featured + list arrangement.
  * Content contract: one row per article ->
  *   image | read-time + date paragraph, linked heading, tag list.
  * The first two items render as tall overlay cards; the rest as a compact list.
+ * Option `related`: equal-width cards, image stacked above the text.
  * @param {Element} block
  */
 export default function decorate(block) {
-  // eslint-disable-next-line no-unused-vars
   const active = [...block.classList].filter((c) => OPTION_CLASSES.includes(c));
 
   const ul = document.createElement('ul');
@@ -63,17 +81,22 @@ export default function decorate(block) {
 
     const body = li.querySelector('.cards-news-card-body');
     if (body && decorateBody(body)?.closest('.cards-news-title')) li.classList.add('cards-news-card-linked');
+    if (active.includes('related')) splitMeta(li.querySelector('.cards-news-meta'));
     ul.append(li);
   });
 
-  [...ul.children].forEach((li, idx) => {
-    li.classList.add(idx < FEATURED_COUNT ? 'cards-news-featured' : 'cards-news-compact');
-  });
-  if (ul.children.length > FEATURED_COUNT) block.classList.add('cards-news-has-list');
+  if (!active.includes('related')) {
+    [...ul.children].forEach((li, idx) => {
+      li.classList.add(idx < FEATURED_COUNT ? 'cards-news-featured' : 'cards-news-compact');
+    });
+    if (ul.children.length > FEATURED_COUNT) block.classList.add('cards-news-has-list');
+  }
 
   ul.querySelectorAll('picture > img').forEach((img) => {
     const featured = img.closest('.cards-news-featured');
-    const optimized = createOptimizedPicture(img.src, img.alt, false, [{ width: featured ? '900' : '300' }]);
+    let width = featured ? '900' : '300';
+    if (active.includes('related')) width = '600';
+    const optimized = createOptimizedPicture(img.src, img.alt, false, [{ width }]);
     moveInstrumentation(img, optimized.querySelector('img'));
     img.closest('picture').replaceWith(optimized);
   });

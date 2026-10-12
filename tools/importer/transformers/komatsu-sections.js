@@ -64,5 +64,19 @@ export default function transform(hookName, element, payload) {
         if (i === 0) marker.remove();
       }
     }
+
+    // Drop a leading section break when nothing authored precedes it (e.g. the
+    // article breadcrumb section is removed by cleanup), so the page does not
+    // start with an empty section.
+    const firstHr = element.querySelector('hr');
+    if (firstHr) {
+      const range = doc.createRange();
+      range.setStart(element, 0);
+      range.setEndBefore(firstHr);
+      const before = range.cloneContents();
+      const hasContent = before.textContent.trim()
+        || before.querySelector('img, picture, table, video, iframe');
+      if (!hasContent) firstHr.remove();
+    }
   }
 }

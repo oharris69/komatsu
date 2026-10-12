@@ -2,8 +2,12 @@
 /* global WebImporter */
 /**
  * Parser for cards-news. Base: cards.
- * Source: https://www.komatsu.com/en-us
- * Instance selector: .relatedarticle .grid.masonry
+ * Sources: https://www.komatsu.com/en-us (homepage), komatsu.com article pages
+ * Instance selectors:
+ *   homepage: .relatedarticle .grid.masonry          -> default block (cards-news)
+ *   article:  div.relatedarticle div.limit > div.grid -> related variant (cards-news (related))
+ *   The variant is chosen from the grid: .masonry keeps the default; any other
+ *   related-article grid is emitted as "cards-news (related)" -> class "cards-news related".
  * Structure (DA block table, 2 columns):
  *   one row per article: [ image |
  *     meta paragraph (read time + date), linked heading, tag list ]
@@ -11,11 +15,20 @@
  *   after the block rather than inside it.
  * Iteration: keyed on the block wrapper .tile > .item (not the wrapping <a>);
  *   the article href is read from the item or its wrapping <a>.
+ *   Hidden tiles (.tile.d-none) are skipped defensively (cleanup normally removes them).
  * Generated: 2026-10-12
  */
 export default function parse(element, { document }) {
-  let items = Array.from(element.querySelectorAll(':scope > .tile > .item'));
-  if (!items.length) items = Array.from(element.querySelectorAll('.tile .item, :scope > .tile'));
+  let items = Array.from(element.querySelectorAll(':scope > .tile:not(.d-none) > .item'));
+  if (!items.length) {
+    items = Array.from(element.querySelectorAll('.tile:not(.d-none) .item'));
+  }
+  if (!items.length) items = Array.from(element.querySelectorAll(':scope > .tile:not(.d-none)'));
+  items = items.filter((item) => !item.closest('.d-none'));
+
+  // Homepage masonry grid -> default block; article related grid -> related variant
+  const isRelated = !element.classList.contains('masonry');
+  const blockName = isRelated ? 'cards-news (related)' : 'cards-news';
 
   // Default content button that lives inside the grid - preserve outside the block
   const relatedButton = element.querySelector(':scope > .related_button, .related_button');
@@ -81,7 +94,7 @@ export default function parse(element, { document }) {
     return;
   }
 
-  const block = WebImporter.Blocks.createBlock(document, { name: 'cards-news', cells });
+  const block = WebImporter.Blocks.createBlock(document, { name: blockName, cells });
 
   if (relatedButton) {
     const btnLink = relatedButton.querySelector('a[href]');
