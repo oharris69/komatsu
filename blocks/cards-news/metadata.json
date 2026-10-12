@@ -1,0 +1,20 @@
+{
+  "variantName": "cards-news",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "dense",
+    "purpose": "article-feed",
+    "imagePattern": "thumbnail-overlay",
+    "structure": "image + meta + heading + tags"
+  },
+  "contentPattern": "5 rows: image | read-time + date paragraph, h3 title linked, tag list",
+  "usage": {
+    "pagesUsing": ["https://www.komatsu.com/en-us"],
+    "reuseCount": 1,
+    "lastUsed": "2026-10-12"
+  },
+  "options": [],
+  "memberVariantIds": []
+}

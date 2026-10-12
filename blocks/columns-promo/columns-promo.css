@@ -1,0 +1,76 @@
+/* Columns Promo - structural layout only (brand styling applied by design pass) */
+.columns-promo-container .columns-promo-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.columns-promo .columns-promo-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.columns-promo .columns-promo-text-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 32px 24px;
+  box-sizing: border-box;
+}
+
+.columns-promo .columns-promo-text-col > :first-child {
+  margin-top: 0;
+}
+
+.columns-promo .columns-promo-text-col > :last-child {
+  margin-bottom: 0;
+}
+
+.columns-promo .columns-promo-img-col {
+  line-height: 0;
+  min-height: 220px;
+}
+
+.columns-promo .columns-promo-img-col picture,
+.columns-promo .columns-promo-img-col img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (width >= 600px) {
+  .columns-promo .columns-promo-img-col {
+    min-height: 300px;
+  }
+}
+
+@media (width >= 900px) {
+  .columns-promo .columns-promo-row {
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .columns-promo.columns-promo-2-cols .columns-promo-text-col {
+    flex: 0 0 33.333%;
+    padding: 40px 32px;
+  }
+
+  .columns-promo .columns-promo-img-col {
+    flex: 1 1 auto;
+    min-height: 0;
+  }
+
+  .columns-promo .columns-promo-row > div {
+    flex: 1 1 0;
+  }
+
+  .columns-promo.columns-promo-2-cols .columns-promo-row > .columns-promo-img-col {
+    flex: 1 1 66.666%;
+  }
+}
+
+@media (width >= 1200px) {
+  .columns-promo.columns-promo-2-cols .columns-promo-text-col {
+    padding: 48px 32px;
+  }
+}

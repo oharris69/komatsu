@@ -1,0 +1,85 @@
+/* Cards Tiles - structural layout only (brand styling applied by design pass) */
+.cards-tiles > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.cards-tiles .cards-tiles-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 180px;
+}
+
+.cards-tiles .cards-tiles-card-image {
+  position: absolute;
+  inset: 0;
+  line-height: 0;
+}
+
+.cards-tiles .cards-tiles-card-image picture,
+.cards-tiles .cards-tiles-card-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cards-tiles .cards-tiles-card-body {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 16px 20px;
+  box-sizing: border-box;
+}
+
+.cards-tiles .cards-tiles-card-body > * {
+  margin: 0;
+}
+
+/* whole tile clickable via the heading link (body covers the tile) */
+.cards-tiles .cards-tiles-card-linked .cards-tiles-card-body a::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+@media (width >= 600px) {
+  .cards-tiles > ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cards-tiles .cards-tiles-card {
+    min-height: 0;
+    aspect-ratio: 3 / 2;
+  }
+
+  .cards-tiles.cards-tiles-mosaic .cards-tiles-card:first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (width >= 900px) {
+  .cards-tiles.cards-tiles-grid > ul {
+    grid-template-columns: repeat(min(var(--cards-tiles-count, 4), 4), 1fr);
+    gap: 24px;
+  }
+
+  .cards-tiles.cards-tiles-mosaic > ul {
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: repeat(2, auto);
+    gap: 16px;
+  }
+
+  .cards-tiles.cards-tiles-mosaic .cards-tiles-card:first-child {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    aspect-ratio: auto;
+  }
+}

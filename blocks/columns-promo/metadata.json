@@ -1,0 +1,20 @@
+{
+  "variantName": "columns-promo",
+  "baseBlock": "columns",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "brand-blue",
+    "density": "minimal",
+    "purpose": "promo-banner",
+    "imagePattern": "split-image",
+    "structure": "heading + text + 1 CTA + image"
+  },
+  "contentPattern": "1 row: h2 + paragraph + CTA | image",
+  "usage": {
+    "pagesUsing": ["https://www.komatsu.com/en-us"],
+    "reuseCount": 1,
+    "lastUsed": "2026-10-12"
+  },
+  "options": [],
+  "memberVariantIds": []
+}

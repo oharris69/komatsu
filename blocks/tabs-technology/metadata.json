@@ -1,0 +1,20 @@
+{
+  "variantName": "tabs-technology",
+  "baseBlock": "tabs",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "moderate",
+    "purpose": "feature-tabs",
+    "imagePattern": "side-image",
+    "structure": "heading + text + link list + CTA + image"
+  },
+  "contentPattern": "3 rows: tab label | h2 + paragraph + list of links + CTA + image",
+  "usage": {
+    "pagesUsing": ["https://www.komatsu.com/en-us"],
+    "reuseCount": 1,
+    "lastUsed": "2026-10-12"
+  },
+  "options": [],
+  "memberVariantIds": []
+}

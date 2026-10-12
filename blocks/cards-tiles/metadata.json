@@ -1,0 +1,20 @@
+{
+  "variantName": "cards-tiles",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "dark-overlay",
+    "density": "minimal",
+    "purpose": "navigation-tiles",
+    "imagePattern": "fullbleed-overlay",
+    "structure": "image + heading link"
+  },
+  "contentPattern": "4 rows: image | h2 title linked (5-row instances render as a 1 large + 2x2 mosaic)",
+  "usage": {
+    "pagesUsing": ["https://www.komatsu.com/en-us"],
+    "reuseCount": 2,
+    "lastUsed": "2026-10-12"
+  },
+  "options": [],
+  "memberVariantIds": []
+}

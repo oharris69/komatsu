@@ -1,0 +1,110 @@
+/* Tabs Technology - structural layout only (brand styling applied by design pass) */
+.tabs-technology .tabs-technology-list {
+  display: flex;
+  justify-content: flex-start;
+  gap: 8px;
+  max-width: 100%;
+  overflow-x: auto;
+  border-bottom: 1px solid;
+  scrollbar-width: none;
+}
+
+.tabs-technology .tabs-technology-list::-webkit-scrollbar {
+  display: none;
+}
+
+.tabs-technology .tabs-technology-tab {
+  flex: 0 0 max-content;
+  margin: 0 0 -1px;
+  padding: 8px 16px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  line-height: inherit;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.tabs-technology .tabs-technology-tab p {
+  margin: 0;
+}
+
+.tabs-technology .tabs-technology-tab[aria-selected='true'] {
+  border-bottom-color: currentcolor;
+  cursor: default;
+}
+
+.tabs-technology .tabs-technology-panel {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  padding: 24px 0;
+}
+
+.tabs-technology .tabs-technology-panel[aria-hidden='true'] {
+  display: none;
+}
+
+.tabs-technology .tabs-technology-panel-text > :first-child {
+  margin-top: 0;
+}
+
+.tabs-technology .tabs-technology-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  margin: 16px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tabs-technology .tabs-technology-links li {
+  margin: 0;
+}
+
+.tabs-technology .tabs-technology-links a {
+  display: inline-block;
+  padding: 4px 12px;
+  border: 1px solid currentcolor;
+}
+
+.tabs-technology .tabs-technology-panel-image {
+  line-height: 0;
+}
+
+.tabs-technology .tabs-technology-panel-image picture,
+.tabs-technology .tabs-technology-panel-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+@media (width >= 600px) {
+  .tabs-technology .tabs-technology-list {
+    justify-content: center;
+  }
+}
+
+@media (width >= 900px) {
+  .tabs-technology .tabs-technology-panel {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    gap: 48px;
+    padding: 32px 24px;
+  }
+
+  .tabs-technology .tabs-technology-panel.tabs-technology-panel-no-image {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (width >= 1200px) {
+  .tabs-technology .tabs-technology-panel {
+    gap: 64px;
+    padding: 40px 32px;
+  }
+}

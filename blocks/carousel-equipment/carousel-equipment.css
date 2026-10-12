@@ -1,0 +1,160 @@
+/* Carousel Equipment - structural layout only (brand styling applied by design pass) */
+.carousel-equipment {
+  --carousel-equipment-per-view: 2;
+  --carousel-equipment-gap: 16px;
+
+  position: relative;
+}
+
+.carousel-equipment .carousel-equipment-viewport {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.carousel-equipment .carousel-equipment-slides,
+.carousel-equipment .carousel-equipment-indicators {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.carousel-equipment .carousel-equipment-slides {
+  display: flex;
+  flex: 1 1 auto;
+  min-width: 0;
+  gap: var(--carousel-equipment-gap);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.carousel-equipment .carousel-equipment-slides::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-equipment .carousel-equipment-slide {
+  position: relative;
+  flex: 0 0 calc(
+    (100% - (var(--carousel-equipment-per-view) - 1) * var(--carousel-equipment-gap))
+    / var(--carousel-equipment-per-view)
+  );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  scroll-snap-align: start;
+  text-align: center;
+}
+
+.carousel-equipment .carousel-equipment-slide-image {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+}
+
+.carousel-equipment .carousel-equipment-slide-image picture,
+.carousel-equipment .carousel-equipment-slide-image img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.carousel-equipment .carousel-equipment-slide-label {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+.carousel-equipment .carousel-equipment-slide-label > * {
+  margin: 0;
+}
+
+/* whole tile clickable via the label link */
+.carousel-equipment .carousel-equipment-slide-linked .carousel-equipment-slide-label a::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+.carousel-equipment .carousel-equipment-prev,
+.carousel-equipment .carousel-equipment-next {
+  position: relative;
+  flex: 0 0 auto;
+  width: 32px;
+  height: 32px;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.carousel-equipment .carousel-equipment-prev::after,
+.carousel-equipment .carousel-equipment-next::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  border: 2px solid currentcolor;
+  border-bottom: 0;
+  border-left: 0;
+  transform: translate(-30%, -50%) rotate(-135deg);
+}
+
+.carousel-equipment .carousel-equipment-next::after {
+  transform: translate(-70%, -50%) rotate(45deg);
+}
+
+.carousel-equipment .carousel-equipment-prev:disabled,
+.carousel-equipment .carousel-equipment-next:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.carousel-equipment.carousel-equipment-static .carousel-equipment-prev,
+.carousel-equipment.carousel-equipment-static .carousel-equipment-next {
+  visibility: hidden;
+}
+
+.carousel-equipment .carousel-equipment-indicators {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 0 0;
+}
+
+.carousel-equipment .carousel-equipment-indicator button {
+  display: block;
+  width: 12px;
+  height: 12px;
+  margin: 0;
+  padding: 0;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+@media (width >= 600px) {
+  .carousel-equipment {
+    --carousel-equipment-per-view: 3;
+  }
+}
+
+@media (width >= 900px) {
+  .carousel-equipment {
+    --carousel-equipment-per-view: 4;
+    --carousel-equipment-gap: 24px;
+  }
+}
+
+@media (width >= 1200px) {
+  .carousel-equipment {
+    --carousel-equipment-per-view: 7;
+  }
+}
