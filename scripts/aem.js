@@ -318,6 +318,18 @@ function createOptimizedPicture(
   // --- END DM dispatch (excat-generated) ---
   const url = new URL(src, window.location.href);
   const picture = document.createElement('picture');
+
+  // externally hosted images can't use the media optimization params; keep the original URL
+  if (url.origin !== window.location.origin) {
+    const img = document.createElement('img');
+    img.setAttribute('loading', eager ? 'eager' : 'lazy');
+    if (fetchpriority || eager) img.setAttribute('fetchpriority', fetchpriority || 'high');
+    img.setAttribute('alt', alt);
+    img.setAttribute('src', url.href);
+    picture.appendChild(img);
+    return picture;
+  }
+
   const { pathname } = url;
   const ext = pathname.substring(pathname.lastIndexOf('.') + 1);
 
