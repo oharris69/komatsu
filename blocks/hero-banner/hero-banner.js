@@ -1,7 +1,8 @@
 import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
-const OPTION_CLASSES = [];
+// compact: content-height category banner (blue fallback bg, regular-weight title)
+const OPTION_CLASSES = ['compact'];
 
 /**
  * Hero Banner: full-bleed background image with centered heading, text and CTA.

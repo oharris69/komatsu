@@ -1,4 +1,13 @@
-/* Hero Banner - structural layout only (brand styling applied by design pass) */
+/*
+ * Hero Banner
+ * Source: komatsu.com div.herocomponent (dark_gradient_overlay)
+ *   default  = .large_hero      (homepage, 700px full-bleed photo, bold title)
+ *   .compact = .blue_bg.hero-max-width (category pages, content-height banner,
+ *              blue fallback background, regular-weight title, 782px content)
+ * Values below are computed styles extracted from the source.
+ */
+
+/* full-bleed: escape the 1200px section container */
 .hero-banner-container .hero-banner-wrapper {
   max-width: unset;
   padding: 0;
@@ -8,11 +17,25 @@
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
-  min-height: 420px;
-  padding: 48px 24px;
+  min-height: 300px;
+  padding: 140px 0 20px;
   overflow: hidden;
   box-sizing: border-box;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22.4px;
+}
+
+/* dark gradient overlay (source: .dark_gradient_overlay::before) */
+.hero-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-image: linear-gradient(0deg, rgb(0 0 0 / 0%), rgb(0 0 0 / 75%));
+  opacity: 0.5;
+  pointer-events: none;
 }
 
 .hero-banner .hero-banner-media {
@@ -27,39 +50,146 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: 50% 50%;
+}
+
+/* neutralise the global picture "shine" hover effect */
+.hero-banner .hero-banner-media picture::before {
+  content: none;
 }
 
 .hero-banner .hero-banner-content {
   position: relative;
-  z-index: 1;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1340px;
   margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+  color: rgb(255 255 255);
   text-align: center;
 }
 
-.hero-banner .hero-banner-content .button-container {
+/* heading (h1 on homepage, demoted h2 on category pages) */
+.hero-banner .hero-banner-content :is(h1, h2, h3) {
+  margin: 0;
+  color: rgb(255 255 255);
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: normal;
+  text-align: center;
+}
+
+.hero-banner .hero-banner-content p {
+  margin: 15px 0 0;
+  color: rgb(255 255 255);
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: center;
+}
+
+/* CTA row (source: .button_div) */
+.hero-banner .hero-banner-content p.button-container {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 16px;
+  margin: 15px 0 0;
+}
+
+/* CTA: reset global link/button styles, apply source .cmp-button.btn-secondary */
+.hero-banner .hero-banner-content a.button,
+.hero-banner .hero-banner-content a.button:any-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 11px 24px;
+  border: 2px solid rgb(37 63 200);
+  border-radius: 4px;
+  background-color: rgb(255 255 255);
+  color: rgb(20 10 154);
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: visible;
+  transition: background-color 0.25s, border-color 0.25s;
+}
+
+.hero-banner .hero-banner-content a.button::after {
+  content: none;
+}
+
+.hero-banner .hero-banner-content a.button:hover {
+  background-color: rgb(237 237 237);
+  color: rgb(20 10 154);
+  text-decoration: none;
+}
+
+.hero-banner .hero-banner-content a.button:focus {
+  color: rgb(20 10 154);
+  text-decoration: none;
+}
+
+.hero-banner .hero-banner-content a.button:focus-visible {
+  background-color: rgb(228 230 230);
+  outline: 2px solid rgb(51 102 204);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255);
+}
+
+/* ---------- compact option (category banner) ---------- */
+.hero-banner.compact {
+  min-height: 190px;
+  padding: 52px 0;
+  background-color: rgb(20 10 154);
+}
+
+.hero-banner.compact .hero-banner-content {
+  max-width: 782px;
+}
+
+.hero-banner.compact .hero-banner-content :is(h1, h2, h3) {
+  font-weight: 400;
+}
+
+main > .section.hero-banner-container:has(.hero-banner.compact) {
+  margin-bottom: 64px;
 }
 
 @media (width >= 600px) {
   .hero-banner {
-    min-height: 520px;
+    min-height: 700px;
+    padding: 82px 0 32px;
+  }
+
+  .hero-banner .hero-banner-content {
+    padding: 0 32px;
+  }
+
+  .hero-banner .hero-banner-content :is(h1, h2, h3) {
+    font-size: 28px;
+    line-height: 34px;
   }
 }
 
 @media (width >= 900px) {
   .hero-banner {
-    min-height: 600px;
-    padding: 64px 32px;
+    padding-bottom: 52px;
   }
-}
 
-@media (width >= 1200px) {
-  .hero-banner {
-    min-height: 700px;
+  .hero-banner .hero-banner-content :is(h1, h2, h3) {
+    font-size: 32px;
+    line-height: 38px;
   }
 }

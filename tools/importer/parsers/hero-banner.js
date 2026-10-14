@@ -47,6 +47,11 @@ export default function parse(element, { document }) {
   });
   cells.push([textCell.length ? textCell : '']);
 
-  const block = WebImporter.Blocks.createBlock(document, { name: 'hero-banner', cells });
+  // homepage hero = large_hero (default); category banners (blue_bg / hero-max-width) = compact
+  const isCompact = !element.classList.contains('large_hero');
+  const block = WebImporter.Blocks.createBlock(document, {
+    name: isCompact ? 'hero-banner (compact)' : 'hero-banner',
+    cells,
+  });
   element.replaceWith(block);
 }
