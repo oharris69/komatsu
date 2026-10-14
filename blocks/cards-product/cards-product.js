@@ -10,7 +10,7 @@ const LABEL_KEYS = ['viewDetails', 'clearAll', 'loadMore', 'metric', 'imperial',
   'displaying', 'of', 'items', 'activeFilters', 'noResults', 'filters', 'removeFilter'];
 const LABEL_DEFAULTS = ['View details', 'Clear all', 'Load more results', 'Metric', 'Imperial (US)',
   'Items per page', 'Displaying', 'of', 'items', 'Active filters', 'No products were returned.',
-  'Filters', 'Remove filter'];
+  'Filter results', 'Remove filter'];
 const PAGE_SIZES = [12, 24, 36, 48, 60];
 const UNITS = ['metric', 'imperial'];
 
@@ -100,7 +100,12 @@ export default async function decorate(block) {
   // ---- skeleton ----
   const facets = el('div', { class: 'cards-product-facets' });
   const clearAll = el('button', { type: 'button', class: 'cards-product-clear' }, L.clearAll);
-  const sidebar = el('aside', { class: 'cards-product-sidebar', id: `${id}-filters`, 'aria-label': L.filters }, facets, clearAll);
+  const sidebar = el(
+    'aside',
+    { class: 'cards-product-sidebar', id: `${id}-filters`, 'aria-label': L.filters },
+    facets,
+    el('div', { class: 'cards-product-clear-wrap' }, clearAll),
+  );
   const filtersToggle = el('button', {
     type: 'button', class: 'cards-product-filters-toggle', 'aria-expanded': 'false', 'aria-controls': sidebar.id,
   }, L.filters);
@@ -111,8 +116,9 @@ export default async function decorate(block) {
   const unitButtons = UNITS.map((u) => el('button', {
     type: 'button', class: 'cards-product-unit', 'data-unit': u, 'aria-pressed': String(u === state.unit),
   }, L[u]));
-  const units = el('div', { class: 'cards-product-units', role: 'group' }, ...unitButtons);
-  const toolbar = el('div', { class: 'cards-product-toolbar' }, count, active, units);
+  // data-unit drives the switch track drawn in CSS
+  const units = el('div', { class: 'cards-product-units', role: 'group', 'data-unit': state.unit }, ...unitButtons);
+  const toolbar = el('div', { class: 'cards-product-toolbar' }, count, filtersToggle, active, units);
 
   const grid = el('ul', { class: 'cards-product-grid' });
   const message = el('p', { class: 'cards-product-message', hidden: true }, L.noResults);
@@ -131,7 +137,8 @@ export default async function decorate(block) {
   );
 
   const results = el('div', { class: 'cards-product-results' }, toolbar, grid, message, pager);
-  block.replaceChildren(el('div', { class: 'cards-product-layout' }, filtersToggle, sidebar, results));
+  const layout = el('div', { class: 'cards-product-layout' }, sidebar, results);
+  block.replaceChildren(layout);
 
   // ---- data helpers ----
   const matches = (row) => cfg.filters.every((f) => {
@@ -232,8 +239,14 @@ export default async function decorate(block) {
         }, label)));
       });
     });
+    // source appends a "Clear all" chip after the active filters
+    if (chips.length) {
+      chips.push(el('li', {}, el('button', {
+        type: 'button', class: 'cards-product-chip cards-product-chip-clear', 'data-clear': true,
+      }, L.clearAll)));
+    }
     activeList.replaceChildren(...chips);
-    active.hidden = !chips.length;
+    active.classList.toggle('is-empty', !chips.length);
     clearAll.disabled = !chips.length;
   };
 
@@ -254,7 +267,8 @@ export default async function decorate(block) {
   activeList.addEventListener('click', (e) => {
     const chip = e.target.closest('.cards-product-chip');
     if (!chip) return;
-    state.selected.get(chip.dataset.key).delete(chip.dataset.slug);
+    if (chip.hasAttribute('data-clear')) state.selected.forEach((s) => s.clear());
+    else state.selected.get(chip.dataset.key).delete(chip.dataset.slug);
     update({ facetsToo: true });
   });
   clearAll.addEventListener('click', () => {
@@ -262,9 +276,12 @@ export default async function decorate(block) {
     update({ facetsToo: true });
   });
   units.addEventListener('click', (e) => {
-    const btn = e.target.closest('.cards-product-unit');
+    // a click on the switch track (outside both labels) flips to the other unit
+    const btn = e.target.closest('.cards-product-unit')
+      || unitButtons.find((b) => b.dataset.unit !== state.unit);
     if (!btn || btn.dataset.unit === state.unit) return;
     state.unit = btn.dataset.unit;
+    units.dataset.unit = state.unit;
     unitButtons.forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
     // unit-dependent facets have different buckets per unit: drop their selections
     cfg.filters.filter((f) => f.unitDependent).forEach((f) => state.selected.get(f.key).clear());
@@ -279,10 +296,24 @@ export default async function decorate(block) {
     state.visible += state.perPage;
     renderResults();
   });
-  filtersToggle.addEventListener('click', () => {
-    const open = filtersToggle.getAttribute('aria-expanded') !== 'true';
+  // filters drawer (below the desktop breakpoint): toggle, backdrop click and Escape close it
+  const setFiltersOpen = (open) => {
     filtersToggle.setAttribute('aria-expanded', String(open));
     sidebar.classList.toggle('is-open', open);
+    layout.classList.toggle('is-filtering', open);
+  };
+  filtersToggle.addEventListener('click', () => {
+    setFiltersOpen(filtersToggle.getAttribute('aria-expanded') !== 'true');
+  });
+  layout.addEventListener('click', (e) => {
+    if (layout.classList.contains('is-filtering') && !sidebar.contains(e.target)
+      && !filtersToggle.contains(e.target)) setFiltersOpen(false);
+  });
+  layout.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && layout.classList.contains('is-filtering')) {
+      setFiltersOpen(false);
+      filtersToggle.focus();
+    }
   });
 
   // ---- initial state: URL params, else authored preset ----

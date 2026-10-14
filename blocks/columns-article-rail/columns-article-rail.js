@@ -80,6 +80,10 @@ function buildAuthor(row) {
   const details = document.createElement('div');
   details.className = 'columns-article-rail-author-details';
 
+  // contact links are plain text links on the source, not buttons
+  row.querySelectorAll('.button-container').forEach((el) => el.classList.remove('button-container'));
+  row.querySelectorAll('a.button').forEach((a) => a.classList.remove('button', 'primary', 'secondary'));
+
   [...row.children].forEach((cell) => {
     const pic = cell.querySelector('picture');
     if (pic && !photo.children.length) {
@@ -137,7 +141,7 @@ function buildShare() {
   const save = document.createElement('button');
   save.type = 'button';
   save.className = 'columns-article-rail-action columns-article-rail-save';
-  save.title = 'Save';
+  save.dataset.tooltip = 'Save';
   save.setAttribute('aria-label', 'Save article');
   save.setAttribute('aria-pressed', String(readSaved().includes(path)));
   save.append(icon('bookmark'));
@@ -159,7 +163,7 @@ function buildShare() {
     a.href = href;
     a.target = '_blank';
     a.rel = 'noopener noreferrer';
-    a.title = label;
+    a.dataset.tooltip = label;
     a.setAttribute('aria-label', label);
     a.append(icon(name));
     return a;
@@ -167,7 +171,7 @@ function buildShare() {
 
   const encoded = encodeURIComponent(pageUrl);
   const facebook = shareLink('facebook', 'Share to Facebook', `https://www.facebook.com/sharer/sharer.php?u=${encoded}`);
-  const linkedin = shareLink('linkedin', 'Share to LinkedIn', `https://www.linkedin.com/sharing/share-offsite/?url=${encoded}&title=${encodeURIComponent(title)}`);
+  const linkedin = shareLink('linkedin', 'Share to Linkedin', `https://www.linkedin.com/sharing/share-offsite/?url=${encoded}&title=${encodeURIComponent(title)}`);
 
   return railItem('share', save, facebook, linkedin);
 }

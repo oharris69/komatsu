@@ -122,6 +122,8 @@ export default function decorate(block) {
           if (a && p.children.length === 1 && p.textContent.trim() === a.textContent.trim()) {
             p.classList.add('button-container');
             a.classList.add('button');
+            // a bold-authored link is the filled (primary) Komatsu button
+            if (a.closest('strong, b') && p.contains(a.closest('strong, b'))) a.classList.add('primary');
           }
         });
         col.querySelectorAll('a[href]').forEach((a) => {

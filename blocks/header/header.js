@@ -33,9 +33,12 @@ async function fetchNav() {
 function parseTree(ul) {
   if (!ul) return [];
   return [...ul.children].filter((li) => li.tagName === 'LI').map((li) => {
-    const a = li.querySelector(':scope > a');
+    // the delivered document wraps items that have sub-lists in <p> (<li><p><a>)
+    const a = li.querySelector(':scope > a, :scope > p > a');
+    const label = a || li.querySelector(':scope > p')
+      || [...li.childNodes].find((n) => n.nodeType === Node.TEXT_NODE && n.textContent.trim());
     return {
-      title: (a || li).textContent.trim(),
+      title: (label || li).textContent.trim(),
       href: a ? a.getAttribute('href') : '',
       children: parseTree(li.querySelector(':scope > ul')),
     };

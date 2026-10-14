@@ -48,9 +48,10 @@ export default function decorate(block) {
 
   const count = ul.children.length;
   const chips = active.includes('chips');
-  const mosaic = count === 5 && !active.includes('solid') && !chips;
-  if (!chips) block.classList.add(mosaic ? 'cards-tiles-mosaic' : 'cards-tiles-grid');
-  block.style.setProperty('--cards-tiles-count', count);
+  const solid = active.includes('solid');
+  const mosaic = count === 5 && !solid && !chips;
+  // photo tiles (default variant) get a layout class; solid/chips style off their option class
+  if (!solid && !chips) block.classList.add(mosaic ? 'cards-tiles-mosaic' : 'cards-tiles-grid');
 
   ul.querySelectorAll('picture > img').forEach((img, idx) => {
     const wide = idx === 0 && mosaic;

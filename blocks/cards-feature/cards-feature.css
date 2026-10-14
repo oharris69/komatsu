@@ -1,60 +1,91 @@
-/* Cards Feature - structural layout only (brand styling applied by design pass) */
+/* Cards Feature - centred feature cards: photo, title, text, outlined CTA.
+   Values extracted from komatsu.com .cardscontainer .cards-container (default). */
+
+/* source heading sits 32px above the cards (collapses with the global 15px h2 margin) */
+.default-content-wrapper + .cards-feature-wrapper {
+  margin-top: 32px;
+}
+
+/* source cards-container inline padding */
+.cards-feature {
+  padding: 0 20px;
+}
+
 .cards-feature > ul {
-  list-style: none;
-  margin: 0 auto;
-  padding: 0;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 32px;
+  row-gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .cards-feature .cards-feature-card {
-  display: flex;
-  flex-direction: column;
+  box-sizing: border-box;
+  width: 100%;
   margin: 0;
+  padding: 0 16px;
+  overflow: hidden;
+  line-height: var(--brand-body-line);
 }
 
 .cards-feature .cards-feature-card-image {
   line-height: 0;
 }
 
-.cards-feature .cards-feature-card-image picture,
+.cards-feature .cards-feature-card-image picture {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+}
+
 .cards-feature .cards-feature-card-image img {
   display: block;
   width: 100%;
   height: auto;
-}
-
-.cards-feature .cards-feature-card-image img {
   aspect-ratio: 3 / 2;
   object-fit: cover;
+  border-radius: 4px;
 }
 
 .cards-feature .cards-feature-card-body {
-  display: flex;
-  flex: 1 1 auto;
-  flex-direction: column;
-  align-items: flex-start;
-  padding-top: 16px;
+  padding: 16px 16px 0 0;
 }
 
-.cards-feature .cards-feature-card-body > * {
+.cards-feature .cards-feature-card-body h1,
+.cards-feature .cards-feature-card-body h2,
+.cards-feature .cards-feature-card-body h3,
+.cards-feature .cards-feature-card-body h4,
+.cards-feature .cards-feature-card-body h5,
+.cards-feature .cards-feature-card-body h6 {
   margin: 0 0 12px;
+  color: var(--text-color);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 28px;
+}
+
+.cards-feature .cards-feature-card-body p {
+  margin: 0 0 15px;
+  color: var(--text-color);
+  font-size: var(--brand-body-size);
+  font-weight: 300;
+  line-height: 24px;
+}
+
+/* CTA follows the text (16px spacer on source), not pinned to the card bottom */
+.cards-feature .cards-feature-card-body p.button-container {
+  margin: 0;
+  padding-top: 16px;
 }
 
 .cards-feature .cards-feature-card-body > :last-child {
   margin-bottom: 0;
 }
 
-/* keep the CTA aligned to the bottom when card texts differ in length */
-.cards-feature .cards-feature-card-body > .button-container:last-child {
-  margin-top: auto;
-  padding-top: 12px;
-}
-
-/* neutralize global link treatment (Font Awesome chevron, ellipsis/nowrap) */
-.cards-feature .cards-feature-card-body a {
+/* neutralize global link treatment for inline links (button look comes from main a.button) */
+.cards-feature .cards-feature-card-body a:not(.button) {
   display: inline;
   overflow: visible;
   text-overflow: clip;
@@ -65,19 +96,23 @@
   content: none;
 }
 
-.cards-feature .cards-feature-card-body .button-container a.button {
-  display: inline-block;
-}
-
 @media (width >= 600px) {
-  /* fixed-width columns, centered; empty tracks collapse so few cards stay centered */
   .cards-feature > ul {
-    grid-template-columns: repeat(auto-fit, minmax(260px, 350px));
+    row-gap: 32px;
+    margin: 0 -16px;
+  }
+
+  .cards-feature .cards-feature-card {
+    width: 50%;
   }
 }
 
 @media (width >= 900px) {
-  .cards-feature > ul {
-    gap: 40px;
+  .cards-feature {
+    padding: 0 32px;
+  }
+
+  .cards-feature .cards-feature-card {
+    width: 33.33%;
   }
 }

@@ -1,0 +1,55 @@
+/* Komatsu brand tokens (extracted from www.komatsu.com, see migration-work/brand.json) */
+:root {
+  /* hooks read by the starter variables in styles.css */
+  --brand-background-color: #fafafa;
+  --brand-text-color: #1b232a;
+  --brand-dark-color: #1b232a;
+  --brand-light-color: #ededed;
+  --brand-link-color: #140a9a;
+  --brand-link-hover-color: #1b232a;
+  --brand-theme-color: #140a9a;
+  --brand-light-text-color: #fff;
+
+  /* Komatsu tokens */
+  --brand-font-family: 'Noto Sans', sans-serif;
+  --surface-color: #fff;
+  --muted-text-color: #4d545a;
+  --brand-blue: #140a9a;
+  --brand-blue-hover: #1e29b4;
+  --brand-button-border: #253fc8;
+  --brand-grey-hover: #ededed;
+  --rule-color: #ededed;
+
+  /* type scale (mobile first; desktop overrides below) */
+  --brand-body-size: 16px;
+  --brand-body-line: 22.4px;
+  --brand-h1-size: 22px;
+  --brand-h1-line: 26px;
+  --brand-h1-gap: 10px;
+  --brand-h2-size: 24px;
+  --brand-h2-line: 28px;
+  --brand-h3-size: 20px;
+  --brand-h3-line: 24px;
+  --brand-h4-size: 18px;
+  --brand-h4-line: 22px;
+  --brand-h5-size: 16px;
+  --brand-h6-size: 16px;
+
+  /* layout */
+  --brand-page-gutter: 0;
+  --brand-content-gutter: 20px;
+  --brand-section-gutter: 20px;
+  --brand-section-gap: 32px;
+  --brand-content-max-width: 1900px;
+}
+
+@media (width >= 900px) {
+  :root {
+    --brand-h1-size: 32px;
+    --brand-h1-line: normal;
+    --brand-h1-gap: 32px;
+    --brand-page-gutter: 20px;
+    --brand-content-gutter: 32px;
+    --brand-section-gutter: 52px;
+  }
+}

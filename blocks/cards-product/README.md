@@ -26,12 +26,19 @@ N/A (Document Authoring project)
 | Filters | `Equipment type: equipment-type, Horsepower range (HP) / Horsepower range (kW): horsepower-range, ...` |
 | Page size | `12` |
 | Units | `imperial` or `metric` (default unit system) |
-| Labels | optional, positional, comma-separated: View details, Clear all, Load more results, Metric, Imperial (US), Items per page, Displaying, of, items, Active filters, No products were returned., Filters, Remove filter |
+| Labels | optional, positional, comma-separated: View details, Clear all, Load more results, Metric, Imperial (US), Items per page, Displaying, of, items, Active filters, No products were returned., Filter results, Remove filter |
 | Preset | optional query string applied when the URL has no filter params, e.g. `equipment-type=small-excavators` |
 
 - A filter label written as `Imperial label / Metric label` makes that facet unit-dependent: it reads the
   `<key>-imperial` / `<key>-metric` columns and shows the buckets of the active unit.
 - Spec values always read `<key>-imperial` / `<key>-metric` (fallback: `<key>`); values include the unit.
+
+## Layout
+
+- Below 1200px the filters live in an off-canvas drawer opened by the "Filter results" button; a backdrop click or
+  Escape closes it. From 1200px the sidebar is inline (220px). Grid: 1 column, 2 from 600px, 3 from 900px.
+- Active filters show as removable chips followed by a "Clear all" chip. The Metric | Imperial switch is two
+  buttons with a CSS-drawn track (`.cards-product-units[data-unit]`); clicking the track flips the unit.
 
 ## Product sheet (`{ data: [ ... ] }`)
 

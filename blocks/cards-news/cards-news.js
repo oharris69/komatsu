@@ -56,8 +56,20 @@ export default function decorate(block) {
   const active = [...block.classList].filter((c) => OPTION_CLASSES.includes(c));
 
   const ul = document.createElement('ul');
+  let cta = null;
   [...block.children].forEach((row) => {
     if (!row.children.length && !row.textContent.trim()) return;
+    // a last row holding only a link (e.g. "Read more news") is the feed's call to action
+    const links = row.querySelectorAll('a[href]');
+    if (row.children.length === 1 && links.length === 1 && !row.querySelector('picture, img')
+      && row.textContent.trim() === links[0].textContent.trim()) {
+      cta = document.createElement('li');
+      cta.className = 'cards-news-cta';
+      moveInstrumentation(row, cta);
+      const cell = row.firstElementChild;
+      while (cell.firstElementChild) cta.append(cell.firstElementChild);
+      return;
+    }
     const li = document.createElement('li');
     li.className = 'cards-news-card';
     moveInstrumentation(row, li);
@@ -81,7 +93,7 @@ export default function decorate(block) {
 
     const body = li.querySelector('.cards-news-card-body');
     if (body && decorateBody(body)?.closest('.cards-news-title')) li.classList.add('cards-news-card-linked');
-    if (active.includes('related')) splitMeta(li.querySelector('.cards-news-meta'));
+    splitMeta(li.querySelector('.cards-news-meta'));
     ul.append(li);
   });
 
@@ -91,12 +103,14 @@ export default function decorate(block) {
     });
     if (ul.children.length > FEATURED_COUNT) block.classList.add('cards-news-has-list');
   }
+  if (cta) ul.append(cta);
 
   ul.querySelectorAll('picture > img').forEach((img) => {
-    const featured = img.closest('.cards-news-featured');
-    let width = featured ? '900' : '300';
-    if (active.includes('related')) width = '600';
-    const optimized = createOptimizedPicture(img.src, img.alt, false, [{ width }]);
+    // compact list items show a 100px thumbnail on desktop but a full-width card below 900px
+    let breakpoints = [{ width: '600' }];
+    if (img.closest('.cards-news-featured')) breakpoints = [{ width: '900' }];
+    if (img.closest('.cards-news-compact')) breakpoints = [{ media: '(min-width: 900px)', width: '300' }, { width: '600' }];
+    const optimized = createOptimizedPicture(img.src, img.alt, false, breakpoints);
     moveInstrumentation(img, optimized.querySelector('img'));
     img.closest('picture').replaceWith(optimized);
   });

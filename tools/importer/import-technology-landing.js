@@ -121,7 +121,7 @@ const PAGE_TEMPLATE = {
       "selector": [
         "div.columncontainer.pdding-top--large"
       ],
-      "style": "grey",
+      "style": "grey, spacing-large",
       "blocks": [
         "cards-tiles"
       ],

@@ -1,15 +1,19 @@
-/* Columns Media - structural layout only (brand styling applied by design pass) */
+/* Columns Media - stacked white cards of text beside a photo or YouTube poster.
+   Values measured on komatsu.com (.splitcontentcomponent), see
+   migration-work/columns-media-extracted.css. */
 .columns-media {
   display: flex;
   flex-direction: column;
-  gap: 24px;
 }
 
+/* card */
 .columns-media .columns-media-row {
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  padding: 16px;
+  margin: 0 0 20px;
+  padding: 20px;
+  border: 1px solid var(--rule-color);
+  background-color: var(--surface-color);
   box-sizing: border-box;
 }
 
@@ -22,15 +26,36 @@
 .columns-media .columns-media-text-col {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   justify-content: center;
+  padding: 16px 0;
+  color: var(--text-color);
 }
 
 .columns-media .columns-media-text-col > :first-child {
   margin-top: 0;
 }
 
-.columns-media .columns-media-text-col > :last-child {
-  margin-bottom: 0;
+.columns-media .columns-media-text-col h2 {
+  margin: 0 0 15px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 28.8px;
+}
+
+/* large-title rows (excavators "Industries we support" is an h1 on the source) */
+.columns-media .columns-media-text-col h1 {
+  margin: 0 0 15px;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 38.4px;
+}
+
+.columns-media .columns-media-text-col p {
+  margin: 0 0 15px;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 24px;
 }
 
 /* neutralize global link treatment (Font Awesome chevron, ellipsis/nowrap) */
@@ -45,8 +70,17 @@
   content: none;
 }
 
+.columns-media .columns-media-text-col p.button-container {
+  margin: 16px 0 0;
+}
+
 .columns-media .columns-media-text-col .button-container a.button {
   display: inline-block;
+}
+
+/* filled CTA (authored as bold link): no border, 46px tall like the source */
+main .columns-media .columns-media-text-col a.button.primary:any-link {
+  border-width: 0;
 }
 
 .columns-media .columns-media-media-col picture,
@@ -59,98 +93,89 @@
 .columns-media .columns-media-media-col img {
   aspect-ratio: 3 / 2;
   object-fit: cover;
+  border-radius: 4px;
 }
 
-/* click-to-play video facade */
+/* photo rows on mobile: source picture box is 20px taller than the image, plus a 20px margin */
+.columns-media .columns-media-media-col > picture {
+  margin: 0 0 20px;
+  padding: 0 0 20px;
+}
+
+/* click-to-play video facade: source frame is 3:2 plus 5px */
 .columns-media .columns-media-video {
   position: relative;
+  height: 0;
+  padding: 0 0 calc(200% / 3 + 5px);
   overflow: hidden;
+  border-radius: 4px;
+}
+
+.columns-media .columns-media-video picture,
+.columns-media .columns-media-media-col .columns-media-video img,
+.columns-media .columns-media-video iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
 }
 
 .columns-media .columns-media-play {
   position: absolute;
   inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
   width: 100%;
   height: 100%;
   margin: 0;
   padding: 0;
   border: 0;
-  background: transparent;
+  border-radius: 0;
+  background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 104 102'%3E%3Cpath fill='white' d='M40.8547 70.125L70.8888 51L40.8547 31.875V70.125ZM51.5812 93.5C45.6458 93.5 40.0681 92.3844 34.8479 90.1531C29.6277 87.9219 25.0868 84.8938 21.2253 81.0687C17.3637 77.2438 14.3067 72.7458 12.0541 67.575C9.80157 62.4042 8.67529 56.8792 8.67529 51C8.67529 45.1208 9.80157 39.5958 12.0541 34.425C14.3067 29.2542 17.3637 24.7563 21.2253 20.9313C25.0868 17.1062 29.6277 14.0781 34.8479 11.8469C40.0681 9.61563 45.6458 8.5 51.5812 8.5C57.5165 8.5 63.0942 9.61563 68.3144 11.8469C73.5347 14.0781 78.0755 17.1062 81.9371 20.9313C85.7986 24.7563 88.8556 29.2542 91.1082 34.425C93.3607 39.5958 94.487 45.1208 94.487 51C94.487 56.8792 93.3607 62.4042 91.1082 67.575C88.8556 72.7458 85.7986 77.2438 81.9371 81.0687C78.0755 84.8938 73.5347 87.9219 68.3144 90.1531C63.0942 92.3844 57.5165 93.5 51.5812 93.5ZM51.5812 85C61.1635 85 69.2798 81.7063 75.9302 75.1188C82.5806 68.5312 85.9058 60.4917 85.9058 51C85.9058 41.5083 82.5806 33.4688 75.9302 26.8813C69.2798 20.2938 61.1635 17 51.5812 17C41.9988 17 33.8825 20.2938 27.2321 26.8813C20.5817 33.4688 17.2565 41.5083 17.2565 51C17.2565 60.4917 20.5817 68.5312 27.2321 75.1188C33.8825 81.7063 41.9988 85 51.5812 85Z'/%3E%3C/svg%3E") center / 70px 70px no-repeat;
   cursor: pointer;
 }
 
-.columns-media .columns-media-play::before {
-  content: '';
-  display: block;
-  width: 56px;
-  height: 56px;
-  border: 2px solid currentcolor;
-  border-radius: 50%;
-  box-sizing: border-box;
-  color: #fff;
-}
-
-.columns-media .columns-media-play::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  margin: -9px 0 0 -5px;
-  border-style: solid;
-  border-width: 9px 0 9px 16px;
-  border-color: transparent transparent transparent #fff;
+.columns-media .columns-media-play:hover,
+.columns-media .columns-media-play:focus {
+  background-color: transparent;
 }
 
 .columns-media .columns-media-play:focus-visible {
-  outline: 2px solid currentcolor;
+  outline: 2px solid #fff;
   outline-offset: -4px;
-}
-
-.columns-media .columns-media-video-playing {
-  aspect-ratio: 16 / 9;
 }
 
 .columns-media .columns-media-video iframe {
   display: block;
-  width: 100%;
-  height: 100%;
   border: 0;
 }
 
 @media (width >= 900px) {
   .columns-media .columns-media-row {
     flex-direction: row;
-    align-items: center;
     gap: 48px;
-    padding: 24px;
+    padding: 32px;
   }
 
   /* desktop follows authored cell order, so rows alternate by cell order */
   .columns-media .columns-media-media-col {
+    flex: 0 0 calc(50% - 16px);
     order: 0;
-  }
-
-  .columns-media .columns-media-row > div {
-    flex: 1 1 0;
     min-width: 0;
   }
 
+  .columns-media .columns-media-media-col > picture {
+    margin: 0;
+    padding: 0;
+  }
+
+  .columns-media .columns-media-text-col {
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 0 0 0 16px;
+  }
+
   .columns-media .columns-media-media-first .columns-media-text-col {
-    padding-right: 24px;
-  }
-
-  .columns-media .columns-media-row:not(.columns-media-media-first) .columns-media-text-col {
-    padding-left: 24px;
-  }
-}
-
-@media (width >= 1200px) {
-  .columns-media .columns-media-row {
-    gap: 64px;
+    padding: 0 16px 0 0;
   }
 }

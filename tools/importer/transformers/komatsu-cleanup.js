@@ -81,6 +81,24 @@ export default function transform(hookName, element, payload) {
       });
     }
 
+    if (templateName === 'homepage') {
+      // "Get in touch" is a styled paragraph (<div class="tiles tilesmall"><p class="tile-title">);
+      // promote it to a real section heading like the other templates.
+      element.querySelectorAll('.tiles.tilesmall > p.tile-title').forEach((p) => {
+        const h2 = doc.createElement('h2');
+        h2.textContent = p.textContent.trim();
+        p.replaceWith(h2);
+      });
+      // "Read more news" is a filled (btn-primary) button on the source: emphasise the link so
+      // EDS decorates it as a primary button.
+      element.querySelectorAll('.relatedarticle .related_button a').forEach((a) => {
+        if (a.closest('strong')) return;
+        const strong = doc.createElement('strong');
+        a.replaceWith(strong);
+        strong.append(a);
+      });
+    }
+
     if (isEquipmentListing) {
       // Single page H1 = hero-split title (<h1 class="split-content-title">Excavators</h1>).
       // Demote the other source H1s before parsing; both parsers keep the source tag:

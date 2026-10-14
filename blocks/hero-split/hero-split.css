@@ -1,41 +1,101 @@
-/* Hero Split - structural layout only (brand styling applied by design pass) */
+/* Hero Split - Komatsu split-content intro card
+   Values measured on www.komatsu.com (.splitcontentcomponent after the breadcrumb),
+   see migration-work/hero-split-extracted.css */
+
+/* the card runs edge to edge (source card starts at x=0 on every viewport) */
+main > .section > .hero-split-wrapper {
+  padding: 0;
+}
+
+main > .section.hero-split-container {
+  margin-bottom: 20px;
+}
+
+/* mobile: white card, media stacked on top of the text */
 .hero-split {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  box-sizing: border-box;
+  padding: 20px;
+  border: 1px solid var(--rule-color);
+  background-color: var(--surface-color);
+  color: var(--text-color);
+}
+
+.hero-split .hero-split-media p {
+  margin: 0;
 }
 
 .hero-split .hero-split-content {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   justify-content: center;
+  padding: 16px 0;
+}
+
+.hero-split .hero-split-content > * {
+  max-width: 100%;
 }
 
 .hero-split .hero-split-content > :first-child {
   margin-top: 0;
 }
 
-.hero-split .hero-split-content > :last-child {
-  margin-bottom: 0;
+/* eyebrow: paragraph directly before the heading */
+.hero-split .hero-split-content > p:has(+ h1, + h2) {
+  margin: 0 0 10px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 19.6px;
 }
 
-/* neutralize global link treatment (Font Awesome chevron, ellipsis/nowrap) */
-.hero-split .hero-split-content a {
-  display: inline;
+.hero-split .hero-split-content h1,
+.hero-split .hero-split-content h2 {
+  margin: 0 0 15px;
+  color: var(--text-color);
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 38.4px;
+}
+
+/* intro text */
+.hero-split .hero-split-content :is(h1, h2) ~ p {
+  margin: 0 0 15px;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 24px;
+}
+
+/* inline text links: brand blue, no underline, wrap as one unit */
+.hero-split .hero-split-content a:any-link {
+  display: inline-block;
   overflow: visible;
+  color: var(--link-color);
+  font-weight: inherit;
+  line-height: inherit;
+  text-decoration: none;
   text-overflow: clip;
   white-space: normal;
+}
+
+.hero-split .hero-split-content a:hover {
+  color: var(--link-hover-color);
 }
 
 .hero-split .hero-split-content a::after {
   content: none;
 }
 
-.hero-split .hero-split-content .button-container a.button {
+.hero-split .hero-split-content .button-container a.button:any-link {
   display: inline-block;
+  font-weight: 400;
+  line-height: 24px;
 }
 
 .hero-split .hero-split-media {
+  order: -1;
+  margin-bottom: 40px;
   line-height: 0;
 }
 
@@ -47,14 +107,21 @@
 }
 
 .hero-split .hero-split-media img {
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 3 / 2;
+  border-radius: 4px;
   object-fit: cover;
 }
 
-/* click-to-play video facade */
+/* click-to-play video facade: no stacked gap on mobile, source video box is ~5px taller than the poster */
+.hero-split .hero-split-media:has(.hero-split-video) {
+  margin-bottom: 0;
+}
+
 .hero-split .hero-split-video {
   position: relative;
   overflow: hidden;
+  margin-bottom: 5px;
+  border-radius: 4px;
 }
 
 .hero-split .hero-split-play {
@@ -72,37 +139,27 @@
   cursor: pointer;
 }
 
+.hero-split .hero-split-play:hover,
+.hero-split .hero-split-play:focus {
+  background: transparent;
+}
+
+/* Komatsu play icon (white ring + triangle, 70px) */
 .hero-split .hero-split-play::before {
   content: '';
   display: block;
-  width: 64px;
-  height: 64px;
-  border: 2px solid currentcolor;
-  border-radius: 50%;
-  box-sizing: border-box;
-  color: #fff;
-}
-
-.hero-split .hero-split-play::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  margin: -10px 0 0 -6px;
-  border-style: solid;
-  border-width: 10px 0 10px 18px;
-  border-color: transparent transparent transparent #fff;
+  width: 70px;
+  height: 70px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 104 102'%3E%3Cpath fill='white' d='M40.8547 70.125L70.8888 51L40.8547 31.875V70.125ZM51.5812 93.5C45.6458 93.5 40.0681 92.3844 34.8479 90.1531C29.6277 87.9219 25.0868 84.8938 21.2253 81.0687C17.3637 77.2438 14.3067 72.7458 12.0541 67.575C9.80157 62.4042 8.67529 56.8792 8.67529 51C8.67529 45.1208 9.80157 39.5958 12.0541 34.425C14.3067 29.2542 17.3637 24.7563 21.2253 20.9313C25.0868 17.1062 29.6277 14.0781 34.8479 11.8469C40.0681 9.61563 45.6458 8.5 51.5812 8.5C57.5165 8.5 63.0942 9.61563 68.3144 11.8469C73.5347 14.0781 78.0755 17.1062 81.9371 20.9313C85.7986 24.7563 88.8556 29.2542 91.1082 34.425C93.3607 39.5958 94.487 45.1208 94.487 51C94.487 56.8792 93.3607 62.4042 91.1082 67.575C88.8556 72.7458 85.7986 77.2438 81.9371 81.0687C78.0755 84.8938 73.5347 87.9219 68.3144 90.1531C63.0942 92.3844 57.5165 93.5 51.5812 93.5ZM51.5812 85C61.1635 85 69.2798 81.7063 75.9302 75.1188C82.5806 68.5312 85.9058 60.4917 85.9058 51C85.9058 41.5083 82.5806 33.4688 75.9302 26.8813C69.2798 20.2938 61.1635 17 51.5812 17C41.9988 17 33.8825 20.2938 27.2321 26.8813C20.5817 33.4688 17.2565 41.5083 17.2565 51C17.2565 60.4917 20.5817 68.5312 27.2321 75.1188C33.8825 81.7063 41.9988 85 51.5812 85Z'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 
 .hero-split .hero-split-play:focus-visible {
-  outline: 2px solid currentcolor;
+  outline: 2px solid #fff;
   outline-offset: -4px;
 }
 
 .hero-split .hero-split-video-playing {
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 3 / 2;
 }
 
 .hero-split .hero-split-video iframe {
@@ -112,25 +169,39 @@
   border: 0;
 }
 
+/* desktop: two equal columns, text vertically centred beside the media */
 @media (width >= 900px) {
   .hero-split {
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     align-items: center;
-    gap: 48px;
+    padding: 32px;
   }
 
-  .hero-split > div {
-    flex: 1 1 0;
-    min-width: 0;
+  .hero-split .hero-split-content {
+    padding: 0 32px 0 16px;
+  }
+
+  .hero-split .hero-split-media {
+    order: 0;
+    margin-bottom: 0;
+    padding-left: 16px;
+  }
+
+  /* media authored first: mirror the gutters */
+  .hero-split.hero-split-media-first .hero-split-media {
+    padding: 0 16px 0 0;
+  }
+
+  .hero-split.hero-split-media-first .hero-split-content {
+    padding: 0 16px 0 32px;
+  }
+
+  .hero-split.hero-split-no-media {
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .hero-split.hero-split-no-media .hero-split-content {
-    flex-basis: 100%;
-  }
-}
-
-@media (width >= 1200px) {
-  .hero-split {
-    gap: 64px;
+    padding: 0 16px;
   }
 }

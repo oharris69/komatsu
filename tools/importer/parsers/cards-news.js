@@ -94,19 +94,25 @@ export default function parse(element, { document }) {
     return;
   }
 
-  const block = WebImporter.Blocks.createBlock(document, { name: blockName, cells });
-
-  if (relatedButton) {
-    const btnLink = relatedButton.querySelector('a[href]');
-    if (btnLink) {
-      const p = document.createElement('p');
-      const a = document.createElement('a');
-      a.href = btnLink.getAttribute('href');
-      a.textContent = btnLink.textContent.replace(/\s+/g, ' ').trim();
+  // "Read more news" sits inside the grid on the source (under the article list): author it as
+  // the block's last row (a lone link); the block renders it as the feed's call to action.
+  const btnLink = relatedButton && relatedButton.querySelector('a[href]');
+  if (btnLink) {
+    const p = document.createElement('p');
+    const a = document.createElement('a');
+    a.href = btnLink.getAttribute('href');
+    a.textContent = btnLink.textContent.replace(/\s+/g, ' ').trim();
+    // keep the transformer's emphasis (filled primary button on the source)
+    if (btnLink.closest('strong')) {
+      const strong = document.createElement('strong');
+      strong.appendChild(a);
+      p.appendChild(strong);
+    } else {
       p.appendChild(a);
-      element.replaceWith(block, p);
-      return;
     }
+    cells.push([p]);
   }
+
+  const block = WebImporter.Blocks.createBlock(document, { name: blockName, cells });
   element.replaceWith(block);
 }

@@ -1,11 +1,28 @@
-/* Columns Promo - structural layout only (brand styling applied by design pass) */
+/* Columns Promo - brand-blue text panel beside a full-bleed photo (komatsu.com .promoblock) */
+
+/* full-bleed: no content max-width or gutter; the next section butts against the promo */
+main > .section.columns-promo-container {
+  margin-bottom: 0;
+}
+
 .columns-promo-container .columns-promo-wrapper {
   max-width: unset;
   padding: 0;
 }
 
+.columns-promo {
+  background-color: var(--brand-blue);
+  color: #fff;
+}
+
+/* mobile: image on top, text below (source flex-flow: column-reverse) */
 .columns-promo .columns-promo-row {
   display: flex;
+  flex-direction: column-reverse;
+  align-items: stretch;
+}
+
+.columns-promo .columns-promo-row.columns-promo-image-first {
   flex-direction: column;
 }
 
@@ -13,64 +30,128 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 32px 24px;
+  row-gap: 16px;
   box-sizing: border-box;
+  width: 100%;
+  padding: 24px 20px;
+  color: #fff;
 }
 
-.columns-promo .columns-promo-text-col > :first-child {
-  margin-top: 0;
+.columns-promo .columns-promo-text-col > * {
+  color: #fff;
 }
 
-.columns-promo .columns-promo-text-col > :last-child {
-  margin-bottom: 0;
+.columns-promo .columns-promo-text-col h2 {
+  margin: 0 0 15px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+}
+
+.columns-promo .columns-promo-text-col p {
+  margin: 0 0 16px;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.columns-promo .columns-promo-text-col .button-container {
+  margin-bottom: 16px;
+  line-height: 22.4px;
+}
+
+/* source wraps the copy in a div with its own 16px bottom margin before the CTA */
+.columns-promo .columns-promo-text-col p:not(.button-container) + .button-container {
+  margin-top: 16px;
+}
+
+.columns-promo .columns-promo-text-col a:any-link:not(.button) {
+  color: #fff;
+}
+
+/* reverse (white outline) button on brand blue */
+main .columns-promo a.button:any-link,
+main .columns-promo a.button.primary:any-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 24px;
+  border: 2px solid #fff;
+  border-radius: 4px;
+  background-color: transparent;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  transition: background-color 0.25s, border-color 0.25s;
+}
+
+main .columns-promo a.button:hover,
+main .columns-promo a.button:active,
+main .columns-promo a.button:focus-visible,
+main .columns-promo a.button.primary:hover,
+main .columns-promo a.button.primary:focus {
+  background-color: var(--brand-button-border);
+  color: #fff;
 }
 
 .columns-promo .columns-promo-img-col {
+  width: 100%;
   line-height: 0;
-  min-height: 220px;
 }
 
-.columns-promo .columns-promo-img-col picture,
+.columns-promo .columns-promo-img-col picture {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  overflow: hidden;
+}
+
 .columns-promo .columns-promo-img-col img {
   display: block;
   width: 100%;
-  height: 100%;
+  height: 260px;
+  border-radius: 4px;
   object-fit: cover;
 }
 
+/* tablet: 50 / 50 side by side */
 @media (width >= 600px) {
-  .columns-promo .columns-promo-img-col {
-    min-height: 300px;
+  .columns-promo .columns-promo-row,
+  .columns-promo .columns-promo-row.columns-promo-image-first {
+    flex-direction: row;
+  }
+
+  .columns-promo.columns-promo-2-cols .columns-promo-row > .columns-promo-text-col,
+  .columns-promo.columns-promo-2-cols .columns-promo-row > .columns-promo-img-col {
+    flex: 0 0 50%;
+    width: 50%;
+  }
+
+  .columns-promo .columns-promo-img-col img {
+    height: 100%;
   }
 }
 
+/* desktop: one-third text panel, two-thirds photo */
 @media (width >= 900px) {
-  .columns-promo .columns-promo-row {
-    flex-direction: row;
-    align-items: stretch;
-  }
-
-  .columns-promo.columns-promo-2-cols .columns-promo-text-col {
-    flex: 0 0 33.333%;
+  .columns-promo .columns-promo-text-col {
+    row-gap: 0;
     padding: 40px 32px;
   }
 
-  .columns-promo .columns-promo-img-col {
-    flex: 1 1 auto;
-    min-height: 0;
+  .columns-promo .columns-promo-text-col h2 {
+    font-size: 22px;
   }
 
-  .columns-promo .columns-promo-row > div {
-    flex: 1 1 0;
+  .columns-promo.columns-promo-2-cols .columns-promo-row > .columns-promo-text-col {
+    flex-basis: 33.3333%;
+    width: 33.3333%;
   }
 
   .columns-promo.columns-promo-2-cols .columns-promo-row > .columns-promo-img-col {
-    flex: 1 1 66.666%;
-  }
-}
-
-@media (width >= 1200px) {
-  .columns-promo.columns-promo-2-cols .columns-promo-text-col {
-    padding: 48px 32px;
+    flex-basis: 66.6667%;
+    width: 66.6667%;
   }
 }

@@ -1,8 +1,14 @@
-/* Carousel Gallery - structural layout only (brand styling applied by design pass) */
+/* Carousel Gallery - in-article image carousel
+   (komatsu.com #articleRight .carousel.panelcontainer: 3:2 photo with 4px radius,
+   14px muted caption, 10px dot indicators, 42px round arrows on desktop) */
 .carousel-gallery {
   position: relative;
   width: 100%;
-  font-family: 'Noto Sans', sans-serif;
+
+  /* source: 32px panel padding + two empty 15px-margin headings above the slide */
+  padding: 62px 0 32px;
+  font-family: var(--brand-font-family);
+  color: var(--text-color);
 }
 
 .carousel-gallery .carousel-gallery-slides-container {
@@ -11,6 +17,9 @@
 
 .carousel-gallery .carousel-gallery-slides {
   display: flex;
+
+  /* keeps sub-pixel slivers of the neighbouring slide out of view */
+  gap: 2px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -29,31 +38,48 @@
   flex: 0 0 100%;
   width: 100%;
   margin: 0;
+  padding: 0;
+  line-height: inherit;
   scroll-snap-align: start;
   scroll-snap-stop: always;
 }
 
 .carousel-gallery .carousel-gallery-figure {
   margin: 0;
+
+  /* space between caption and indicators scales with width (source: 3.25%) */
+  padding-bottom: 3.25%;
 }
 
 .carousel-gallery .carousel-gallery-image {
   line-height: 0;
 }
 
-.carousel-gallery .carousel-gallery-image picture,
+.carousel-gallery .carousel-gallery-image picture {
+  display: block;
+  width: 100%;
+}
+
 .carousel-gallery .carousel-gallery-image img {
   display: block;
   width: 100%;
   height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: 4px;
 }
 
 .carousel-gallery .carousel-gallery-caption {
-  padding-top: 8px;
+  padding: 16px 0;
+  color: var(--muted-text-color);
+  font-size: 14px;
+  line-height: 20px;
 }
 
 .carousel-gallery .carousel-gallery-caption p {
   margin: 0;
+  font-size: inherit;
+  line-height: inherit;
 }
 
 .carousel-gallery .carousel-gallery-caption p + p {
@@ -76,59 +102,21 @@
   content: none;
 }
 
-/* controls row below the slide: prev | dots | next */
+/* controls: dots centred under the slide; arrows (desktop) at the right edge */
 .carousel-gallery .carousel-gallery-controls {
+  position: relative;
   display: flex;
-  align-items: center;
   justify-content: center;
-  gap: 16px;
-  margin-top: 12px;
 }
 
 .carousel-gallery .carousel-gallery-prev,
 .carousel-gallery .carousel-gallery-next {
-  display: flex;
-  flex: 0 0 auto;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  padding: 0;
-  border: 1px solid currentcolor;
-  border-radius: 50%;
-  background-color: transparent;
-  color: inherit;
-  cursor: pointer;
-}
-
-.carousel-gallery .carousel-gallery-prev::before,
-.carousel-gallery .carousel-gallery-next::before {
-  content: '';
-  display: block;
-  width: 10px;
-  height: 10px;
-  border-top: 2px solid currentcolor;
-  border-right: 2px solid currentcolor;
-}
-
-.carousel-gallery .carousel-gallery-prev::before {
-  transform: translateX(2px) rotate(-135deg);
-}
-
-.carousel-gallery .carousel-gallery-next::before {
-  transform: translateX(-2px) rotate(45deg);
-}
-
-.carousel-gallery .carousel-gallery-prev:disabled,
-.carousel-gallery .carousel-gallery-next:disabled {
-  opacity: 0.35;
-  cursor: default;
+  display: none;
 }
 
 /* dot indicators */
 .carousel-gallery .carousel-gallery-indicators {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   gap: 8px;
   margin: 0;
@@ -138,26 +126,87 @@
 
 .carousel-gallery .carousel-gallery-indicator {
   display: flex;
+  margin: 0 7px;
+  padding: 0;
+  line-height: 0;
 }
 
 .carousel-gallery .carousel-gallery-indicator button {
   display: block;
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
+  margin: 0;
   padding: 0;
-  border: 1px solid currentcolor;
+  border: 0;
   border-radius: 50%;
-  background-color: transparent;
+  background-color: #c6cacc;
   cursor: pointer;
 }
 
 .carousel-gallery .carousel-gallery-indicator button[aria-current='true'] {
-  background-color: currentcolor;
+  background-color: var(--text-color);
 }
 
 .carousel-gallery .carousel-gallery-controls button:focus-visible {
-  outline: 2px solid;
+  outline: 2px solid var(--brand-blue);
   outline-offset: 2px;
+}
+
+@media (width >= 900px) {
+  .carousel-gallery .carousel-gallery-prev,
+  .carousel-gallery .carousel-gallery-next {
+    position: absolute;
+    top: -16px;
+    display: block;
+    width: 42px;
+    height: 42px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background-color: rgb(27 35 42 / 10%);
+    cursor: pointer;
+  }
+
+  .carousel-gallery .carousel-gallery-next {
+    right: 0;
+  }
+
+  .carousel-gallery .carousel-gallery-prev {
+    right: calc(42px + 2%);
+  }
+
+  .carousel-gallery .carousel-gallery-prev::before,
+  .carousel-gallery .carousel-gallery-next::before {
+    content: '';
+    position: absolute;
+    top: 11px;
+    left: 11px;
+    width: 20px;
+    height: 20px;
+    background: center / contain no-repeat;
+  }
+
+  .carousel-gallery .carousel-gallery-prev::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='19' height='15' viewBox='0 0 19 15'%3E%3Cpath d='M7.44232 0.925694L9.01732 2.50751L5.02357 6.38024L18.6923 6.38024L18.6923 8.56206L5.02357 8.56206L9.01732 12.4348L7.44232 14.0166L0.692321 7.47115L7.44232 0.925694Z' fill='%231B232A'/%3E%3C/svg%3E");
+  }
+
+  .carousel-gallery .carousel-gallery-next::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='19' height='14' viewBox='0 0 19 14'%3E%3Cpath d='M11.5577 13.7227L9.98268 12.1409L13.9764 8.2682H0.307678V6.08638H13.9764L9.98268 2.21365L11.5577 0.631836L18.3077 7.17729L11.5577 13.7227Z' fill='%231B232A'/%3E%3C/svg%3E");
+  }
+
+  .carousel-gallery .carousel-gallery-prev:disabled,
+  .carousel-gallery .carousel-gallery-next:disabled {
+    opacity: 0.35;
+    cursor: default;
+  }
+}
+
+@media (width >= 1200px) {
+  .carousel-gallery .carousel-gallery-prev,
+  .carousel-gallery .carousel-gallery-next {
+    top: -20px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

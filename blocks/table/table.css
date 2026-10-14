@@ -1,7 +1,11 @@
-/* Table - structural layout only (brand styling applied by design pass) */
+/* Table - inline article data table (komatsu.com #articleRight table:
+   full width, collapsed 1px black cell borders, 8px cell padding) */
 .table {
   width: 100%;
-  font-family: 'Noto Sans', sans-serif;
+  font-family: var(--brand-font-family);
+  font-size: var(--brand-body-size);
+  line-height: var(--brand-body-line);
+  color: var(--text-color);
 }
 
 .table .table-wrapper {
@@ -11,18 +15,29 @@
   -webkit-overflow-scrolling: touch;
 }
 
+/* styles.css turns every table into display:block, which stops cells
+   from stretching to the full width */
 .table table {
+  display: table;
   width: 100%;
+  margin: 0;
+  overflow: visible;
   border-collapse: collapse;
   border-spacing: 0;
+
+  /* tables do not inherit font metrics in quirks mode (local preview) */
+  font: inherit;
+  color: inherit;
 }
 
 .table th,
 .table td {
   padding: 8px;
-  border: 1px solid;
+  border: 1px solid #000;
+  font-size: inherit;
+  line-height: inherit;
   text-align: left;
-  vertical-align: top;
+  vertical-align: middle;
 }
 
 .table th {

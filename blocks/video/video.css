@@ -1,13 +1,18 @@
-/* Video - structural layout only (brand styling applied by design pass) */
+/* Video - in-article video
+   Poster variant matches komatsu.com `.videocomponent.video-size--small`
+   (centred poster at 48.8% of the column from 600px, white outline play icon).
+   Embed variant (no poster) matches the inline YouTube iframe (750px wide, 16:9). */
 .video {
   width: 100%;
-  font-family: 'Noto Sans', sans-serif;
+  margin: 0 0 20px;
+  font-family: var(--brand-font-family);
 }
 
 /* 16:9 responsive frame shared by poster, iframe and <video> */
 .video .video-frame {
   position: relative;
   width: 100%;
+  max-width: 750px;
   aspect-ratio: 16 / 9;
   overflow: hidden;
   background-color: #000;
@@ -42,37 +47,42 @@
   object-fit: cover;
 }
 
-/* centered play button over the poster */
+/* poster variant (source: 16px/32px panel padding + 12px container margin) */
+.video.video-has-poster {
+  margin: 0;
+  padding: 28px 0 44px;
+}
+
+.video.video-has-poster .video-frame {
+  /* the source container is 16:9 plus the ~5.6px inline-video baseline gap */
+  box-sizing: content-box;
+  max-width: none;
+  margin: 0 auto;
+  padding-bottom: 5.6px;
+  background-color: transparent;
+}
+
+/* centred play icon over the poster (Komatsu outline play-circle, 70px) */
 .video .video-play {
   position: absolute;
   top: 50%;
   left: 50%;
   display: block;
-  width: 64px;
-  height: 64px;
+  width: 70px;
+  height: 70px;
   margin: 0;
   padding: 0;
-  border: 2px solid #fff;
+  border: 0;
   border-radius: 50%;
-  background-color: rgb(0 0 0 / 55%);
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='104' height='102' viewBox='0 0 104 102'%3E%3Cpath d='M40.8547 70.125L70.8888 51L40.8547 31.875V70.125ZM51.5812 93.5C45.6458 93.5 40.0681 92.3844 34.8479 90.1531C29.6277 87.9219 25.0868 84.8938 21.2253 81.0687C17.3637 77.2438 14.3067 72.7458 12.0541 67.575C9.80157 62.4042 8.67529 56.8792 8.67529 51C8.67529 45.1208 9.80157 39.5958 12.0541 34.425C14.3067 29.2542 17.3637 24.7563 21.2253 20.9313C25.0868 17.1062 29.6277 14.0781 34.8479 11.8469C40.0681 9.61563 45.6458 8.5 51.5812 8.5C57.5165 8.5 63.0942 9.61563 68.3144 11.8469C73.5347 14.0781 78.0755 17.1062 81.9371 20.9313C85.7986 24.7563 88.8556 29.2542 91.1082 34.425C93.3607 39.5958 94.487 45.1208 94.487 51C94.487 56.8792 93.3607 62.4042 91.1082 67.575C88.8556 72.7458 85.7986 77.2438 81.9371 81.0687C78.0755 84.8938 73.5347 87.9219 68.3144 90.1531C63.0942 92.3844 57.5165 93.5 51.5812 93.5ZM51.5812 85C61.1635 85 69.2798 81.7063 75.9302 75.1188C82.5806 68.5312 85.9058 60.4917 85.9058 51C85.9058 41.5083 82.5806 33.4688 75.9302 26.8813C69.2798 20.2938 61.1635 17 51.5812 17C41.9988 17 33.8825 20.2938 27.2321 26.8813C20.5817 33.4688 17.2565 41.5083 17.2565 51C17.2565 60.4917 20.5817 68.5312 27.2321 75.1188C33.8825 81.7063 41.9988 85 51.5812 85Z' fill='white'/%3E%3C/svg%3E") center / contain no-repeat;
   color: #fff;
   cursor: pointer;
-  transform: translate(-50%, -50%);
+
+  /* source button box is 6px taller than its icon, so the icon sits 3px above centre */
+  transform: translate(-50%, calc(-50% - 3px));
 }
 
-.video .video-play::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: calc(50% + 3px);
-  width: 0;
-  height: 0;
-  border-top: 12px solid transparent;
-  border-bottom: 12px solid transparent;
-  border-left: 20px solid currentcolor;
-  transform: translate(-50%, -50%);
-}
-
+.video .video-play::before,
 .video .video-play::after {
   content: none;
 }
@@ -107,9 +117,9 @@
   cursor: default;
 }
 
-@media (width >= 900px) {
-  .video .video-play {
-    width: 80px;
-    height: 80px;
+@media (width >= 600px) {
+  /* source "small" size: 48.8% of the article column, centred */
+  .video.video-has-poster .video-frame {
+    max-width: 48.8%;
   }
 }

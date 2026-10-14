@@ -1,0 +1,300 @@
+@import url('brand.css');
+
+/* ==========================================================================
+   Komatsu brand layer — overrides the starter styles in styles.css
+   Values measured on www.komatsu.com (migration-work/brand.json).
+   ========================================================================== */
+:root {
+  --body-font-family: var(--brand-font-family);
+  --heading-font-family: var(--brand-font-family);
+  --light-font-family: var(--brand-font-family);
+  --nav-height: 82px;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: var(--brand-font-family);
+  font-size: var(--brand-body-size);
+  line-height: var(--brand-body-line);
+}
+
+/* default content typography */
+main h1,
+main h2,
+main h3,
+main h4,
+main h5,
+main h6 {
+  margin: 0 0 15px;
+  color: inherit;
+  font-family: var(--brand-font-family);
+  scroll-margin: 40px;
+}
+
+main h1 {
+  margin-bottom: var(--brand-h1-gap);
+  font-size: var(--brand-h1-size);
+  font-weight: 400;
+  line-height: var(--brand-h1-line);
+}
+
+main h2 {
+  font-size: var(--brand-h2-size);
+  font-weight: 700;
+  line-height: var(--brand-h2-line);
+}
+
+main h3 {
+  font-size: var(--brand-h3-size);
+  font-weight: 700;
+  line-height: var(--brand-h3-line);
+}
+
+main h4 {
+  font-size: var(--brand-h4-size);
+  font-weight: 400;
+  line-height: var(--brand-h4-line);
+}
+
+main h5 {
+  font-size: var(--brand-h5-size);
+  font-weight: 400;
+  line-height: 22px;
+}
+
+main h6 {
+  font-size: var(--brand-h6-size);
+  font-weight: 700;
+  line-height: 22px;
+}
+
+main p,
+main ul,
+main ol,
+main dl,
+main blockquote {
+  margin: 0 0 15px;
+}
+
+main ul,
+main ol {
+  padding-left: 20px;
+}
+
+main li {
+  line-height: 25.6px;
+}
+
+main .default-content-wrapper li {
+  padding: 0;
+}
+
+/* links: plain text links (the starter adds an icon-font chevron, ellipsis and nowrap) */
+a:any-link {
+  display: inline;
+  overflow: visible;
+  padding: 0;
+  color: var(--link-color);
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  text-align: inherit;
+  text-decoration: none;
+  text-overflow: clip;
+  white-space: normal;
+}
+
+a::after,
+a.button::after {
+  content: none;
+}
+
+a:hover,
+a:focus {
+  color: var(--link-hover-color);
+}
+
+/* body-text links are underlined (nav/footer/block links style themselves) */
+main .default-content-wrapper a:any-link {
+  text-decoration: underline;
+}
+
+/* buttons: default = Komatsu outline button; strong-wrapped links = filled */
+main .button-container {
+  margin: 0 0 15px;
+}
+
+main a.button:any-link,
+main button.button {
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 11px 24px;
+  border: 2px solid var(--brand-button-border);
+  border-radius: 4px;
+  background-color: var(--surface-color);
+  color: var(--brand-blue);
+  font-family: var(--brand-font-family);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: center;
+  text-decoration: none;
+  white-space: normal;
+  cursor: pointer;
+  transition: background-color 0.25s, border-color 0.25s;
+}
+
+main a.button:hover,
+main a.button:focus,
+main button.button:hover {
+  background-color: var(--brand-grey-hover);
+  color: var(--brand-blue);
+  text-decoration: none;
+}
+
+main a.button:focus-visible {
+  outline: 2px solid #36c;
+  outline-offset: 2px;
+}
+
+main a.button.primary:any-link {
+  border-color: transparent;
+  background-color: var(--brand-blue);
+  color: #fff;
+}
+
+main a.button.primary:hover,
+main a.button.primary:focus {
+  background-color: var(--brand-blue-hover);
+  color: #fff;
+}
+
+/* no hover shine on images (starter effect, not on komatsu.com) */
+main picture::before {
+  content: none;
+}
+
+/* sections */
+main > .section {
+  margin: 0 0 var(--brand-section-gap);
+}
+
+/* komatsu.com content sits 20px (page) + 32px (container) in from the edge on desktop, 20px on mobile */
+main > .section > div {
+  max-width: var(--brand-content-max-width);
+  margin: 0 auto;
+  padding: 0 var(--brand-section-gutter);
+}
+
+/* white card sections (homepage) */
+main > .section.white-container {
+  margin: 0 var(--brand-page-gutter) var(--brand-section-gap);
+  padding: 32px 0;
+  background-color: var(--surface-color);
+}
+
+/* the white card already supplies the page margin */
+main > .section.white-container > div {
+  padding: 0 var(--brand-content-gutter);
+}
+
+/* news feed: bordered white panel inside the container gutter (homepage "Dig into the latest") */
+main > .section.white-container:has(.cards-news) {
+  border: 1px solid var(--rule-color);
+}
+
+/* grey sections sit on the page background; blocks draw their own cards */
+main > .section.grey {
+  background-color: var(--background-color);
+}
+
+/* landing-page section headings are centred (24/28 bold; the tab-set heading is 24/32 semibold) */
+main > .section:not(.article) > .default-content-wrapper > h2 {
+  text-align: center;
+}
+
+main > .section:has(.tabs-technology) > .default-content-wrapper > h2 {
+  line-height: 32px;
+  font-weight: 600;
+}
+
+/* the full-width homepage hero sits directly on the next section */
+main > .section.hero-banner-container {
+  margin-bottom: 0;
+}
+
+/* boxed tab sets get the source tab container's 32px top padding */
+main > .section:has(.tabs-technology.boxed) {
+  margin-bottom: 0;
+  padding-top: 32px;
+}
+
+/* source "pdding-top--large / pdding-bottom--large" containers (no extra gap below) */
+main > .section.spacing-large {
+  margin-bottom: 0;
+  padding: 48px 0;
+}
+
+/* brand-blue call-to-action band */
+main > .section.brand-blue {
+  margin-bottom: 0;
+  padding: 52px 0;
+  background-color: var(--brand-blue);
+  color: #fff;
+  text-align: center;
+}
+
+main > .section.brand-blue > .default-content-wrapper h2 {
+  margin: 0 0 15px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+main > .section.brand-blue p {
+  margin: 0;
+}
+
+main > .section.brand-blue a:any-link:not(.button) {
+  color: #fff;
+}
+
+/* article body section */
+main > .section.article > div {
+  padding: 0;
+}
+
+main > .section.article {
+  max-width: var(--brand-content-max-width);
+  margin: 0 auto var(--brand-section-gap);
+  padding: 32px 32px 0;
+  box-sizing: border-box;
+}
+
+main > .section.article h1 {
+  padding-bottom: 10px;
+}
+
+
+/* related articles band on article pages: 32px container gutter (no page margin) */
+main > .section:has(.cards-news.related) > div {
+  padding: 0 var(--brand-content-gutter);
+}
+
+@media (width >= 900px) {
+  main > .section.article h1 {
+    padding-bottom: 16px;
+  }
+
+  main > .section.white-container:has(.cards-news) {
+    margin-inline: var(--brand-section-gutter);
+  }
+
+  main > .section.brand-blue > .default-content-wrapper h2 {
+    font-size: 24px;
+    line-height: 38px;
+  }
+}
