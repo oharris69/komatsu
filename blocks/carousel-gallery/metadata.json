@@ -1,0 +1,14 @@
+{
+  "variantName": "carousel-gallery",
+  "baseBlock": "carousel",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "single-slide image carousel within article column width, caption under image, arrow buttons + dots",
+  "contentPattern": "image + caption per slide",
+  "usage": {
+    "pagesUsing": [],
+    "reuseCount": 0,
+    "lastUsed": null
+  },
+  "options": [],
+  "memberVariantIds": []
+}

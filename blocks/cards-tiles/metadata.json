@@ -9,12 +9,25 @@
     "imagePattern": "fullbleed-overlay",
     "structure": "image + heading link"
   },
-  "contentPattern": "4 rows: image | h2 title linked (5-row instances render as a 1 large + 2x2 mosaic)",
+  "contentPattern": "4 rows: image | h2 title linked (5-row instances render as a 1 large + 2x2 mosaic); chips option: one row per chip, one cell: link",
   "usage": {
-    "pagesUsing": ["https://www.komatsu.com/en-us"],
-    "reuseCount": 2,
-    "lastUsed": "2026-10-12"
+    "pagesUsing": [
+      "https://www.komatsu.com/en-us",
+      "/en-us/technology/smart-construction",
+      "/en-us/products/equipment/excavators"
+    ],
+    "reuseCount": 4,
+    "lastUsed": "2026-10-13T20:44:59.024Z"
   },
-  "options": [],
+  "options": [
+    {
+      "class": "solid",
+      "label": "Solid: no-image link tiles on solid brand blue, title + arrow, 6 per row"
+    },
+    {
+      "class": "chips",
+      "label": "Chips: outlined pill links in a wrapping row, text only (category/filter shortcuts)"
+    }
+  ],
   "memberVariantIds": []
 }

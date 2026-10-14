@@ -1,0 +1,17 @@
+{
+  "variantName": "hero-split",
+  "baseBlock": "hero",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "Two-column split: left column has H1 'Smart Construction' (regular weight, ~32px) and one intro paragraph, vertically centered; right column has a rounded-corner photo used as a YouTube video poster with a centered circular play button (video https://www.youtube.com/embed/TxTMlN7y_aQ). No CTA.",
+  "contentPattern": "Row 1: H1 + paragraph | poster image + YouTube link (https://www.youtube.com/watch?v=TxTMlN7y_aQ)",
+  "usage": {
+    "pagesUsing": [
+      "/en-us/technology/smart-construction",
+      "/en-us/products/equipment/excavators"
+    ],
+    "reuseCount": 2,
+    "lastUsed": "2026-10-13T20:44:59.024Z"
+  },
+  "options": [],
+  "memberVariantIds": []
+}

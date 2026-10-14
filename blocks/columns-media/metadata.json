@@ -1,0 +1,17 @@
+{
+  "variantName": "columns-media",
+  "baseBlock": "columns",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "Four stacked white card rows, each 50/50 text and media, media side alternating: (1) text left 'Try Smart Construction Remote for free' H2 + paragraph + outlined 'Download now' button (external, new tab) | photo right; (2) video poster left with play button | 'Vision' H2 + paragraph; (3) 'Digital transformation' H2 + paragraph | video poster right; (4) video poster left | 'Suite of solutions' H2 + paragraph.",
+  "contentPattern": "4 rows x 2 cols: [text | image], [poster+video link | text], [text | poster+video link], [poster+video link | text]",
+  "usage": {
+    "pagesUsing": [
+      "/en-us/technology/smart-construction",
+      "/en-us/products/equipment/excavators"
+    ],
+    "reuseCount": 2,
+    "lastUsed": "2026-10-13T20:44:59.024Z"
+  },
+  "options": [],
+  "memberVariantIds": []
+}

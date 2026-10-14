@@ -1,0 +1,83 @@
+/* Cards Feature - structural layout only (brand styling applied by design pass) */
+.cards-feature > ul {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  justify-content: center;
+  gap: 32px;
+}
+
+.cards-feature .cards-feature-card {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.cards-feature .cards-feature-card-image {
+  line-height: 0;
+}
+
+.cards-feature .cards-feature-card-image picture,
+.cards-feature .cards-feature-card-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.cards-feature .cards-feature-card-image img {
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+
+.cards-feature .cards-feature-card-body {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 16px;
+}
+
+.cards-feature .cards-feature-card-body > * {
+  margin: 0 0 12px;
+}
+
+.cards-feature .cards-feature-card-body > :last-child {
+  margin-bottom: 0;
+}
+
+/* keep the CTA aligned to the bottom when card texts differ in length */
+.cards-feature .cards-feature-card-body > .button-container:last-child {
+  margin-top: auto;
+  padding-top: 12px;
+}
+
+/* neutralize global link treatment (Font Awesome chevron, ellipsis/nowrap) */
+.cards-feature .cards-feature-card-body a {
+  display: inline;
+  overflow: visible;
+  text-overflow: clip;
+  white-space: normal;
+}
+
+.cards-feature .cards-feature-card-body a::after {
+  content: none;
+}
+
+.cards-feature .cards-feature-card-body .button-container a.button {
+  display: inline-block;
+}
+
+@media (width >= 600px) {
+  /* fixed-width columns, centered; empty tracks collapse so few cards stay centered */
+  .cards-feature > ul {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 350px));
+  }
+}
+
+@media (width >= 900px) {
+  .cards-feature > ul {
+    gap: 40px;
+  }
+}

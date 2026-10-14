@@ -1,0 +1,17 @@
+{
+  "variantName": "video",
+  "baseBlock": "video",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "16:9 video within article column, poster with play button until clicked",
+  "contentPattern": "poster image + video link",
+  "usage": {
+    "pagesUsing": [],
+    "reuseCount": 0,
+    "lastUsed": null
+  },
+  "options": [
+    { "class": "autoplay", "label": "Autoplay (ambient): muted, looped, no controls, starts when in view" },
+    { "class": "playonload", "label": "Play on load: starts muted as soon as the player loads" }
+  ],
+  "memberVariantIds": []
+}

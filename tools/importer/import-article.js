@@ -4,6 +4,9 @@
 // PARSER IMPORTS
 import columnsArticleRailParser from './parsers/columns-article-rail.js';
 import cardsNewsParser from './parsers/cards-news.js';
+import tableParser from './parsers/table.js';
+import carouselGalleryParser from './parsers/carousel-gallery.js';
+import videoParser from './parsers/video.js';
 
 // TRANSFORMER IMPORTS
 import cleanupTransformer from './transformers/komatsu-cleanup.js';
@@ -15,6 +18,9 @@ import articleMetadataTransformer from './transformers/komatsu-article-metadata.
 const parsers = {
   'columns-article-rail': columnsArticleRailParser,
   'cards-news': cardsNewsParser,
+  table: tableParser,
+  'carousel-gallery': carouselGalleryParser,
+  video: videoParser,
 };
 
 // PAGE TEMPLATE CONFIGURATION - Embedded from page-templates.json
@@ -35,6 +41,25 @@ const PAGE_TEMPLATE = {
       "name": "cards-news",
       "instances": [
         "div.relatedarticle div.limit > div.grid"
+      ]
+    },
+    {
+      "name": "table",
+      "instances": [
+        "#articleRight table"
+      ]
+    },
+    {
+      "name": "carousel-gallery",
+      "instances": [
+        "#articleRight .carousel.panelcontainer"
+      ]
+    },
+    {
+      "name": "video",
+      "instances": [
+        "#articleRight .videocomponent",
+        "#articleRight iframe[src*=\"youtube\"]"
       ]
     }
   ],
@@ -57,7 +82,10 @@ const PAGE_TEMPLATE = {
       ],
       "style": "article",
       "blocks": [
-        "columns-article-rail"
+        "columns-article-rail",
+        "table",
+        "carousel-gallery",
+        "video"
       ],
       "defaultContent": [
         "#articleRight > div.articleheader",

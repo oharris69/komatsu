@@ -11,9 +11,12 @@
   },
   "contentPattern": "Row 1: background image | Row 2: h1, paragraph, CTA link",
   "usage": {
-    "pagesUsing": ["https://www.komatsu.com/en-us"],
-    "reuseCount": 1,
-    "lastUsed": "2026-10-12"
+    "pagesUsing": [
+      "https://www.komatsu.com/en-us",
+      "/en-us/products/equipment/excavators"
+    ],
+    "reuseCount": 2,
+    "lastUsed": "2026-10-13T20:44:59.024Z"
   },
   "options": [],
   "memberVariantIds": []

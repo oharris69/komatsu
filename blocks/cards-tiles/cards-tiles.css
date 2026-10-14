@@ -83,3 +83,95 @@
     aspect-ratio: auto;
   }
 }
+
+/* Option: solid - image-less link tiles, title bottom-left with arrow, dense grid */
+.cards-tiles.solid > ul {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.cards-tiles.solid .cards-tiles-card {
+  min-height: 0;
+  aspect-ratio: 7 / 6;
+}
+
+.cards-tiles.solid .cards-tiles-card-body {
+  padding: 16px;
+}
+
+.cards-tiles.solid .cards-tiles-card-body a {
+  display: inline;
+  overflow: visible;
+  text-overflow: clip;
+  white-space: normal;
+}
+
+.cards-tiles.solid .cards-tiles-card-body::after {
+  content: '\2192';
+  display: block;
+  margin-top: 8px;
+  line-height: 1;
+}
+
+@media (width >= 600px) {
+  .cards-tiles.solid > ul {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (width >= 900px) {
+  .cards-tiles.solid.cards-tiles-grid > ul {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (width >= 1200px) {
+  .cards-tiles.solid.cards-tiles-grid > ul {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 24px;
+  }
+}
+
+/* Option: chips - text-only outlined pill links in a wrapping row */
+.cards-tiles.chips > ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.cards-tiles.chips .cards-tiles-card {
+  min-height: 0;
+  overflow: visible;
+}
+
+.cards-tiles.chips .cards-tiles-card-image {
+  display: none;
+}
+
+.cards-tiles.chips .cards-tiles-card-body {
+  position: static;
+  display: block;
+  padding: 0;
+}
+
+.cards-tiles.chips .cards-tiles-card-body a {
+  display: inline-block;
+  overflow: visible;
+  padding: 8px 16px;
+  border: 1px solid currentcolor;
+  border-radius: 999px;
+  font-family: 'Noto Sans', sans-serif;
+  text-overflow: clip;
+  white-space: normal;
+}
+
+.cards-tiles.chips .cards-tiles-card-body a::after {
+  content: none;
+}
+
+@media (width >= 900px) {
+  .cards-tiles.chips > ul {
+    gap: 16px;
+  }
+}

@@ -1,0 +1,60 @@
+/* Table - structural layout only (brand styling applied by design pass) */
+.table {
+  width: 100%;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.table .table-wrapper {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.table th,
+.table td {
+  padding: 8px;
+  border: 1px solid;
+  text-align: left;
+  vertical-align: top;
+}
+
+.table th {
+  font-weight: 700;
+}
+
+.table th p,
+.table td p {
+  margin: 0;
+}
+
+.table td p + p,
+.table th p + p {
+  margin-top: 0.25em;
+}
+
+/* neutralize global link styles (ellipsis, chevron, hover underline) */
+.table a {
+  display: inline;
+  overflow: visible;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  text-overflow: clip;
+  white-space: normal;
+}
+
+.table a::after {
+  content: none;
+}
+
+/* no-header option: first row is data, rendered entirely in tbody */
+.table.no-header td {
+  font-weight: inherit;
+}

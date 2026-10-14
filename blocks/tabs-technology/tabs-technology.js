@@ -1,16 +1,37 @@
 import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
-const OPTION_CLASSES = [];
+const OPTION_CLASSES = ['boxed'];
 
 // keep track globally of the number of tab blocks on the page
 let tabBlockCnt = 0;
 
 /**
+ * Boxed option: only the first standalone link stays a button; any further
+ * standalone links (e.g. "Press release") become arrow text links set off
+ * by a divider.
+ * @param {Element} textCol
+ */
+function boxSecondaryLinks(textCol) {
+  const ctas = [...textCol.querySelectorAll(':scope > p.button-container')];
+  ctas.slice(1).forEach((p, i) => {
+    p.classList.remove('button-container');
+    p.classList.add('tabs-technology-text-link');
+    p.querySelector('a.button')?.classList.remove('button');
+    if (i === 0) {
+      const divider = document.createElement('hr');
+      divider.className = 'tabs-technology-divider';
+      p.before(divider);
+    }
+  });
+}
+
+/**
  * Split a panel's content cell into a text column and an image column.
  * @param {Element} panel
+ * @param {string[]} active option classes present on the block
  */
-function layoutPanel(panel) {
+function layoutPanel(panel, active = []) {
   const textCol = document.createElement('div');
   textCol.className = 'tabs-technology-panel-text';
   const imageCol = document.createElement('div');
@@ -43,6 +64,8 @@ function layoutPanel(panel) {
     }
   });
 
+  if (active.includes('boxed')) boxSecondaryLinks(textCol);
+
   imageCol.querySelectorAll('picture > img').forEach((img) => {
     const optimized = createOptimizedPicture(img.src, img.alt, false, [{ width: '900' }]);
     moveInstrumentation(img, optimized.querySelector('img'));
@@ -61,7 +84,6 @@ function layoutPanel(panel) {
  * @param {Element} block
  */
 export default function decorate(block) {
-  // eslint-disable-next-line no-unused-vars
   const active = [...block.classList].filter((c) => OPTION_CLASSES.includes(c));
 
   tabBlockCnt += 1;
@@ -101,7 +123,7 @@ export default function decorate(block) {
     row.setAttribute('role', 'tabpanel');
     row.setAttribute('aria-labelledby', button.id);
     row.setAttribute('aria-hidden', i !== 0);
-    layoutPanel(row);
+    layoutPanel(row, active);
 
     button.addEventListener('click', () => {
       rows.forEach((panel) => panel.setAttribute('aria-hidden', panel !== row));

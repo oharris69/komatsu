@@ -1,0 +1,167 @@
+/* Carousel Gallery - structural layout only (brand styling applied by design pass) */
+.carousel-gallery {
+  position: relative;
+  width: 100%;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.carousel-gallery .carousel-gallery-slides-container {
+  position: relative;
+}
+
+.carousel-gallery .carousel-gallery-slides {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.carousel-gallery .carousel-gallery-slides::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-gallery .carousel-gallery-slide {
+  flex: 0 0 100%;
+  width: 100%;
+  margin: 0;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+.carousel-gallery .carousel-gallery-figure {
+  margin: 0;
+}
+
+.carousel-gallery .carousel-gallery-image {
+  line-height: 0;
+}
+
+.carousel-gallery .carousel-gallery-image picture,
+.carousel-gallery .carousel-gallery-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.carousel-gallery .carousel-gallery-caption {
+  padding-top: 8px;
+}
+
+.carousel-gallery .carousel-gallery-caption p {
+  margin: 0;
+}
+
+.carousel-gallery .carousel-gallery-caption p + p {
+  margin-top: 0.5em;
+}
+
+/* neutralize global link styles (ellipsis, chevron, hover underline) */
+.carousel-gallery a {
+  display: inline;
+  overflow: visible;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  text-overflow: clip;
+  white-space: normal;
+}
+
+.carousel-gallery a::after,
+.carousel-gallery button::after {
+  content: none;
+}
+
+/* controls row below the slide: prev | dots | next */
+.carousel-gallery .carousel-gallery-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.carousel-gallery .carousel-gallery-prev,
+.carousel-gallery .carousel-gallery-next {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid currentcolor;
+  border-radius: 50%;
+  background-color: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.carousel-gallery .carousel-gallery-prev::before,
+.carousel-gallery .carousel-gallery-next::before {
+  content: '';
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid currentcolor;
+  border-right: 2px solid currentcolor;
+}
+
+.carousel-gallery .carousel-gallery-prev::before {
+  transform: translateX(2px) rotate(-135deg);
+}
+
+.carousel-gallery .carousel-gallery-next::before {
+  transform: translateX(-2px) rotate(45deg);
+}
+
+.carousel-gallery .carousel-gallery-prev:disabled,
+.carousel-gallery .carousel-gallery-next:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+/* dot indicators */
+.carousel-gallery .carousel-gallery-indicators {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.carousel-gallery .carousel-gallery-indicator {
+  display: flex;
+}
+
+.carousel-gallery .carousel-gallery-indicator button {
+  display: block;
+  width: 12px;
+  height: 12px;
+  padding: 0;
+  border: 1px solid currentcolor;
+  border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.carousel-gallery .carousel-gallery-indicator button[aria-current='true'] {
+  background-color: currentcolor;
+}
+
+.carousel-gallery .carousel-gallery-controls button:focus-visible {
+  outline: 2px solid;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carousel-gallery .carousel-gallery-slides {
+    scroll-behavior: auto;
+  }
+}

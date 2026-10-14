@@ -12,6 +12,10 @@
 
   main .section:has(> .columns-article-rail-wrapper) > :not(.columns-article-rail-wrapper) {
     grid-column: 2;
+
+    /* auto margins on block wrappers would shrink grid items to content (e.g. 16:9 video) */
+    width: 100%;
+    min-width: 0;
   }
 
   main .section:has(> .columns-article-rail-wrapper) > .columns-article-rail-wrapper {

@@ -628,6 +628,25 @@
           "instances": [
             "div.relatedarticle div.limit > div.grid"
           ]
+        },
+        {
+          "name": "table",
+          "instances": [
+            "#articleRight table"
+          ]
+        },
+        {
+          "name": "carousel-gallery",
+          "instances": [
+            "#articleRight .carousel.panelcontainer"
+          ]
+        },
+        {
+          "name": "video",
+          "instances": [
+            "#articleRight .videocomponent",
+            "#articleRight iframe[src*=\"youtube\"]"
+          ]
         }
       ],
       "sections": [
@@ -649,7 +668,10 @@
           ],
           "style": "article",
           "blocks": [
-            "columns-article-rail"
+            "columns-article-rail",
+            "table",
+            "carousel-gallery",
+            "video"
           ],
           "defaultContent": [
             "#articleRight > div.articleheader",
@@ -681,7 +703,119 @@
       ],
       "coverageGaps": [],
       "description": "Technology landing with split hero, tabbed solutions, alternating media-text rows, support cards, solution tile grid and CTA banner",
-      "blocks": []
+      "blocks": [
+        {
+          "name": "hero-split",
+          "instances": [
+            "div.breadcrumb + div.splitcontentcomponent"
+          ]
+        },
+        {
+          "name": "tabs-technology",
+          "instances": [
+            ".tabs.panelcontainer .cmp-tabs"
+          ]
+        },
+        {
+          "name": "columns-media",
+          "instances": [
+            ".columncontainer-main > .aem-Grid > .splitcontentcomponent"
+          ]
+        },
+        {
+          "name": "cards-feature",
+          "instances": [
+            ".cardscontainer .cards-container .cards-row"
+          ]
+        },
+        {
+          "name": "cards-tiles",
+          "instances": [
+            ".tilescolorblocks.tilesmall .tiles_color_blocks"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "1",
+          "name": "Split hero (H1 + intro | video)",
+          "selector": [
+            "div.breadcrumb + div.splitcontentcomponent"
+          ],
+          "style": null,
+          "blocks": [
+            "hero-split"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "2",
+          "name": "Solutions tabs",
+          "selector": [
+            ".columncontainer .tabs.panelcontainer"
+          ],
+          "style": "grey",
+          "blocks": [
+            "tabs-technology"
+          ],
+          "defaultContent": [
+            ".cmp-tabs > div:first-child > h3"
+          ]
+        },
+        {
+          "id": "3",
+          "name": "Alternating media/text rows",
+          "selector": [
+            ".columncontainer-main > .aem-Grid > .splitcontentcomponent"
+          ],
+          "style": "grey",
+          "blocks": [
+            "columns-media"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "4",
+          "name": "Customer support cards",
+          "selector": [
+            ".columncontainer .cardscontainer"
+          ],
+          "style": "grey",
+          "blocks": [
+            "cards-feature"
+          ],
+          "defaultContent": [
+            ".cardscontainer .cards-container > h2"
+          ]
+        },
+        {
+          "id": "5",
+          "name": "Solution link tiles (resources fragment)",
+          "selector": [
+            "div.columncontainer.pdding-top--large"
+          ],
+          "style": "grey",
+          "blocks": [
+            "cards-tiles"
+          ],
+          "defaultContent": [
+            ".tilescolorblocks.tilesmall > p.tile-title"
+          ]
+        },
+        {
+          "id": "6",
+          "name": "CTA banner",
+          "selector": [
+            "div.herocomponent.blue_bg"
+          ],
+          "style": "brand-blue",
+          "blocks": [],
+          "defaultContent": [
+            "div.herocomponent.blue_bg .hero-field > h2",
+            "div.herocomponent.blue_bg .hero-field a.cmp-button"
+          ]
+        }
+      ]
     },
     {
       "name": "content-hub",
@@ -1024,7 +1158,115 @@
       ],
       "coverageGaps": [],
       "description": "Equipment category page with split hero, sub-category chips, faceted filter sidebar, product tile grid and industries/find-what-works CTA tiles",
-      "blocks": []
+      "blocks": [
+        {
+          "name": "hero-split",
+          "instances": [
+            "div.breadcrumb + div.splitcontentcomponent"
+          ]
+        },
+        {
+          "name": "cards-tiles",
+          "instances": [
+            "div.columncontainer.column-horizontal-center .buttongroup .cmp-container",
+            ".tilescolorblocks.tilesmall .tiles_color_blocks"
+          ]
+        },
+        {
+          "name": "hero-banner",
+          "instances": [
+            "div.herocomponent.dark_gradient_overlay"
+          ]
+        },
+        {
+          "name": "cards-product",
+          "instances": [
+            ".equipmentlisting .cmp-equipmentlisting"
+          ]
+        },
+        {
+          "name": "columns-media",
+          "instances": [
+            ".columncontainer-main > .aem-Grid > .splitcontentcomponent"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "1",
+          "name": "Split hero (eyebrow, H1, intro | photo)",
+          "selector": [
+            "div.breadcrumb + div.splitcontentcomponent"
+          ],
+          "style": null,
+          "blocks": [
+            "hero-split"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "2",
+          "name": "Category chips",
+          "selector": [
+            "div.columncontainer.column-horizontal-center"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-tiles"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "3",
+          "name": "Photo banner (future of excavation)",
+          "selector": [
+            "div.herocomponent.dark_gradient_overlay"
+          ],
+          "style": null,
+          "blocks": [
+            "hero-banner"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "4",
+          "name": "Product listing (filters + grid)",
+          "selector": [
+            "div.columncontainer:has(.equipmentlisting)"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-product"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "5",
+          "name": "Industries we support",
+          "selector": [
+            "div.columncontainer:has(> .columncontainer-main > .aem-Grid > .splitcontentcomponent)"
+          ],
+          "style": "grey",
+          "blocks": [
+            "columns-media"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "6",
+          "name": "Find what works for you (link tiles)",
+          "selector": [
+            "div.columncontainer.margin-bottom--large"
+          ],
+          "style": "grey",
+          "blocks": [
+            "cards-tiles"
+          ],
+          "defaultContent": [
+            ".tilescolorblocks.tilesmall > p.tile-title"
+          ]
+        }
+      ]
     },
     {
       "name": "dealer-locator",

@@ -1,0 +1,22 @@
+{
+  "variantName": "cards-product",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "dense",
+    "purpose": "product-listing",
+    "imagePattern": "cutout-product",
+    "structure": "filters + image + heading + specs + CTA"
+  },
+  "contentPattern": "Config block (key | value rows): Products | <sheet>.json ; Specs | Label: key, ... ; Filters | Label: key or Imperial label / Metric label: key, ... ; Page size | 12 ; Units | imperial ; Labels | comma list (optional) ; Preset | <filter>=<slug> (optional). Products come from a DA sheet { data: [ { model, description, link, image, image-alt, <spec>-imperial/-metric, <filter>, <filter>-imperial/-metric } ] }.",
+  "usage": {
+    "pagesUsing": [
+      "/en-us/products/equipment/excavators"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-10-13T00:00:00.000Z"
+  },
+  "options": [],
+  "memberVariantIds": []
+}

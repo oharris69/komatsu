@@ -1,0 +1,14 @@
+{
+  "variantName": "cards-feature",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "Two equal items centered (~350px each, not full width): photo on top, title (source h5, regular ~20px), paragraph, outlined 'Learn more' button. No border/background on items.",
+  "contentPattern": "2 rows: image | H3 title + paragraph + 'Learn more' link",
+  "usage": {
+    "pagesUsing": ["/en-us/technology/smart-construction"],
+    "reuseCount": 1,
+    "lastUsed": "2026-10-13"
+  },
+  "options": [],
+  "memberVariantIds": []
+}

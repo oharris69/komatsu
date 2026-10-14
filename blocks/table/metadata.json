@@ -1,0 +1,19 @@
+{
+  "variantName": "table",
+  "baseBlock": "table",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "full-width bordered grid table, text cells, no header styling",
+  "contentPattern": "rows x columns of short text cells",
+  "usage": {
+    "pagesUsing": [],
+    "reuseCount": 0,
+    "lastUsed": null
+  },
+  "options": [
+    {
+      "class": "no-header",
+      "label": "No header: first row is data, not a header row"
+    }
+  ],
+  "memberVariantIds": []
+}
