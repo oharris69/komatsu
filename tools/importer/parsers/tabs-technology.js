@@ -17,7 +17,7 @@
  * Structure: block "tabs-technology (boxed)", 2 columns, one row per tab:
  *   [ tab label | h2, bold subheading + paragraph(s), "Learn more" link,
  *     optional "Press release" link, image ]
- * Generated: 2026-10-12 (boxed variant added 2026-10-13)
+ * Generated: 2026-10-12 (boxed variant added 2026-10-13; default-path title links kept 2026-10-14)
  */
 function linkParagraph(a, document) {
   const label = (a.querySelector('.cmp-button__buttontext') || a).textContent.trim();
@@ -142,7 +142,16 @@ export default function parse(element, { document }) {
 
     if (headingEl) {
       const h = document.createElement(/^H[2-6]$/.test(headingEl.tagName) ? headingEl.tagName.toLowerCase() : 'h2');
-      h.textContent = headingEl.textContent.trim();
+      // Keep the panel title link (a.cmp-title__link) when the source title is linked
+      const titleLink = headingEl.querySelector('a[href]');
+      if (titleLink) {
+        const link = document.createElement('a');
+        link.href = titleLink.getAttribute('href');
+        link.textContent = headingEl.textContent.trim();
+        h.appendChild(link);
+      } else {
+        h.textContent = headingEl.textContent.trim();
+      }
       contentCell.push(h);
     }
 

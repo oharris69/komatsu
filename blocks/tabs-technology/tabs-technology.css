@@ -50,11 +50,11 @@
   outline-offset: -2px;
 }
 
+/* default variant keeps the pointer on the active tab, like the source */
 .tabs-technology .tabs-technology-tab[aria-selected='true'] {
   margin-bottom: -1px;
   border-bottom: 2px solid #36c;
   font-weight: 700;
-  cursor: default;
 }
 
 /* ---------- panel (default: text, then image; side by side on wide screens) ---------- */
@@ -298,6 +298,19 @@ main .tabs-technology:not(.boxed) a.button:focus {
   .tabs-technology.boxed .tabs-technology-panel-text {
     padding: 0 32px;
   }
+}
+
+/* linked panel title (source a.cmp-title__link): brand blue, no underline, text colour on hover;
+   placed after the other link rules for ascending specificity */
+.tabs-technology:not(.boxed) .tabs-technology-panel-text h2 a:any-link {
+  display: inline-block;
+  color: var(--brand-blue);
+  text-decoration: none;
+}
+
+.tabs-technology:not(.boxed) .tabs-technology-panel-text h2 a:hover {
+  color: var(--text-color);
+  text-decoration: none;
 }
 
 /* inactive panels (kept last so layout rules above never re-show them) */

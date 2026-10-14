@@ -2,11 +2,6 @@
 
 /* ---------- shared card (related, and the homepage feed below 900px) ---------- */
 
-/* source grid row-gap before the "Read more news" CTA that follows the feed */
-.cards-news:not(.related) {
-  margin-bottom: 20px;
-}
-
 .cards-news > ul {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -317,8 +312,10 @@
 }
 
 /* ---------- call to action row ("Read more news") ---------- */
+
+/* the CTA is the last grid item on the source: only the 20px grid gap above it */
 .cards-news .cards-news-cta {
-  margin: 24px 0 0;
+  margin: 0;
   text-align: center;
   list-style: none;
 }
@@ -327,13 +324,22 @@
   margin: 0;
 }
 
+/* source .btn-primary: borderless (172.9 x 46), hover lifts with a two-layer shadow */
+main .cards-news .cards-news-cta a.button:any-link {
+  border: 0;
+}
+
+main .cards-news .cards-news-cta a.button:hover {
+  background-color: var(--brand-button-border);
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 30%), 0 1px 3px 1px rgb(0 0 0 / 15%);
+}
+
 @media (width >= 900px) {
-  /* on the source the button sits in the list column, under the three compact items */
+  /* on the source the button sits in the list column, centred in the 110px fourth row */
   .cards-news:not(.related) .cards-news-cta {
     grid-column: 4 / 5;
     grid-row: 4 / 5;
-    align-self: end;
-    margin: 0 0 15px;
+    align-self: center;
     text-align: left;
   }
 }
