@@ -1,7 +1,22 @@
 import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
-const OPTION_CLASSES = ['solid', 'chips'];
+const OPTION_CLASSES = ['solid', 'chips', 'anchors'];
+
+/** true when an in-page link's target is missing (e.g. #videos on a page without videos) */
+function isDeadAnchor(li) {
+  const a = li.querySelector('a[href*="#"]');
+  if (!a) return false;
+  const url = new URL(a.href, window.location.href);
+  if (url.pathname !== window.location.pathname || !url.hash) return false;
+  let id = url.hash.slice(1);
+  try {
+    id = decodeURIComponent(id);
+  } catch (e) {
+    // keep the raw id
+  }
+  return !document.getElementById(id);
+}
 
 /**
  * Cards Tiles: linked photo tiles with the title overlaid on the image.
@@ -12,6 +27,8 @@ const OPTION_CLASSES = ['solid', 'chips'];
  * equal-width grid; never uses the mosaic layout.
  * Option `chips`: text-only link chips (one cell: link) in a wrapping row;
  * never uses the mosaic/grid layouts.
+ * Option `anchors`: in-page jump links (one cell: link to #heading-id) in a centered row;
+ * links whose target id is not on the page are dropped.
  * @param {Element} block
  */
 export default function decorate(block) {
@@ -46,12 +63,24 @@ export default function decorate(block) {
     ul.append(li);
   });
 
+  const anchors = active.includes('anchors');
+  if (anchors) {
+    [...ul.children].filter(isDeadAnchor).forEach((li) => li.remove());
+    // plain text links, not the auto-decorated outline buttons
+    ul.querySelectorAll('.cards-tiles-card-body a').forEach((a) => {
+      a.classList.remove('button', 'primary', 'secondary');
+      a.classList.add('cards-tiles-anchor');
+    });
+    ul.querySelectorAll('.button-container').forEach((c) => c.classList.remove('button-container'));
+  }
+
   const count = ul.children.length;
   const chips = active.includes('chips');
   const solid = active.includes('solid');
-  const mosaic = count === 5 && !solid && !chips;
-  // photo tiles (default variant) get a layout class; solid/chips style off their option class
-  if (!solid && !chips) block.classList.add(mosaic ? 'cards-tiles-mosaic' : 'cards-tiles-grid');
+  const textOnly = solid || chips || anchors;
+  const mosaic = count === 5 && !textOnly;
+  // photo tiles (default variant) get a layout class; text-only options style off their class
+  if (!textOnly) block.classList.add(mosaic ? 'cards-tiles-mosaic' : 'cards-tiles-grid');
 
   ul.querySelectorAll('picture > img').forEach((img, idx) => {
     const wide = idx === 0 && mosaic;

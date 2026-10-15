@@ -14,14 +14,24 @@
  */
 const SECTION_MARKER_ATTR = 'data-excat-section-id';
 
-// section.selector is an array of candidate selectors - first match wins.
+// Global chrome (header.header-xf / footer.footer-xf, removed by komatsu-cleanup.js).
+// Section matches inside it are ignored: e.g. the equipment-model-detail infographic
+// selector `div.columncontainer:has(> .columncontainer-main > .aem-Grid > .image)` also
+// matches the footer logo container (cleaned.html) on model pages without an infographic.
+// Output-neutral for the other templates: a match inside the chrome was always dropped
+// together with the header/footer by the cleanup transformer, which runs first.
+const CHROME_SELECTOR = 'header.header-xf, footer.footer-xf';
+
+// section.selector is an array of candidate selectors - first match (outside chrome) wins.
 function querySection(root, selectors) {
   const list = Array.isArray(selectors) ? selectors : [selectors];
   for (const sel of list) {
     if (!sel) continue;
-    let el = null;
-    try { el = root.querySelector(sel); } catch (e) { el = null; }
-    if (el) return el;
+    let matches = [];
+    try { matches = root.querySelectorAll(sel); } catch (e) { matches = []; }
+    for (const el of matches) {
+      if (!el.closest(CHROME_SELECTOR)) return el;
+    }
   }
   return null;
 }

@@ -118,16 +118,20 @@ export default function parse(element, { document }) {
     const headingEl = panel.querySelector('.cmp-title__text, h1, h2, h3, h4, h5, h6');
     const labelText = labelEl ? labelEl.textContent.trim() : (headingEl ? headingEl.textContent.trim() : '');
 
+    // Technology content-fragment panels (equipment-model-detail only - absent on the homepage):
+    //   .technology-content-fragment > .tech-desc > div > h1 | div > p | div > a.cmp-button  + .tech-img > img
+    const techDesc = panel.querySelector('.technology-content-fragment .tech-desc, .tech-desc');
+
     // Description paragraphs
-    const paragraphs = Array.from(panel.querySelectorAll('.cmp-text p')).filter((p) => p.textContent.trim());
+    const paragraphs = Array.from(panel.querySelectorAll(techDesc ? '.tech-desc p' : '.cmp-text p')).filter((p) => p.textContent.trim());
 
     // Pill links (button group)
     const pillLinks = Array.from(panel.querySelectorAll('.buttongroup .button a, .cmp-container.justify-start .button a'))
       .filter((a, idx, arr) => arr.indexOf(a) === idx);
 
-    // Primary CTA (button outside the button group)
-    const ctaLinks = Array.from(panel.querySelectorAll('.button.primary a, a.btn-primary'))
-      .filter((a, idx, arr) => arr.indexOf(a) === idx && !a.closest('.buttongroup'));
+    // Primary CTA (button outside the button group); content-fragment panels: the tech-desc button
+    const ctaLinks = Array.from(panel.querySelectorAll(techDesc ? '.tech-desc a.cmp-button[href], .tech-desc .button a[href]' : '.button.primary a, a.btn-primary'))
+      .filter((a, idx, arr) => arr.indexOf(a) === idx && !a.closest('.buttongroup') && !a.closest('h1, h2, h3, h4, h5, h6'));
 
     // Panel image
     const image = panel.querySelector('.cmp-image picture') || panel.querySelector('picture, img');

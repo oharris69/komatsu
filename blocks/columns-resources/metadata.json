@@ -1,0 +1,22 @@
+{
+  "variantName": "columns-resources",
+  "baseBlock": "columns",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "moderate",
+    "purpose": "overview-resources-rail",
+    "imagePattern": "icons",
+    "structure": "heading + text + list + rail heading + icon links"
+  },
+  "contentPattern": "One row, 2 cells: [H3 + paragraph(s) + list] | [H3 'Resources' + list of links] ; Link icons are derived from the link: .pdf -> download, other host -> external (both open in a new tab), else chevron; an authored :icon-name: token in the link overrides ; Section style: white-container",
+  "usage": {
+    "pagesUsing": [
+      "/en-us/products/equipment/dozers/crawler-dozers/d71exi-24"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-10-15T00:00:00.000Z"
+  },
+  "options": [],
+  "memberVariantIds": []
+}

@@ -9,14 +9,20 @@
     "imagePattern": "cutout-product",
     "structure": "filters + image + heading + specs + CTA"
   },
-  "contentPattern": "Config block (key | value rows): Products | <sheet>.json ; Specs | Label: key, ... ; Filters | Label: key or Imperial label / Metric label: key, ... ; Page size | 12 ; Units | imperial ; Labels | comma list (optional) ; Preset | <filter>=<slug> (optional). Products come from a DA sheet { data: [ { model, description, link, image, image-alt, <spec>-imperial/-metric, <filter>, <filter>-imperial/-metric } ] }.",
+  "contentPattern": "Config block (key | value rows): Products | <sheet>.json ; Specs | Label: key, ... ; Filters | Label: key or Imperial label / Metric label: key, ... ; Page size | 12 ; Units | imperial ; Labels | comma list (optional) ; Preset | <filter>=<slug> (optional). Products come from a DA sheet { data: [ { model, description, link, image, image-alt, <spec>-imperial/-metric, <filter>, <filter>-imperial/-metric } ] }. ; related option: Products | <sheet>.json ; Models | comma-separated model names in display order (unknown models skipped) ; Specs | Label: key, ... ; Units | imperial. Units follow the shared page preference (scripts/units.js).",
   "usage": {
     "pagesUsing": [
-      "/en-us/products/equipment/excavators"
+      "/en-us/products/equipment/excavators",
+      "/en-us/products/equipment/dozers/crawler-dozers/d71exi-24"
     ],
-    "reuseCount": 1,
-    "lastUsed": "2026-10-13T00:00:00.000Z"
+    "reuseCount": 2,
+    "lastUsed": "2026-10-15T19:00:38.763Z"
   },
-  "options": [],
+  "options": [
+    {
+      "class": "related",
+      "label": "Related: only the models listed in a Models row, as one row of tiles (3 across desktop, swipe on mobile); no filters, toolbar, paging or unit switch"
+    }
+  ],
   "memberVariantIds": []
 }

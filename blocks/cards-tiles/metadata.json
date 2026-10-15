@@ -9,15 +9,16 @@
     "imagePattern": "fullbleed-overlay",
     "structure": "image + heading link"
   },
-  "contentPattern": "4 rows: image | h2 title linked (5-row instances render as a 1 large + 2x2 mosaic); chips option: one row per chip, one cell: link",
+  "contentPattern": "4 rows: image | h2 title linked (5-row instances render as a 1 large + 2x2 mosaic); chips option: one row per chip, one cell: link ; anchors option: one row per jump link, one cell: link to #<heading-id>",
   "usage": {
     "pagesUsing": [
       "https://www.komatsu.com/en-us",
       "/en-us/technology/smart-construction",
-      "/en-us/products/equipment/excavators"
+      "/en-us/products/equipment/excavators",
+      "/en-us/products/equipment/dozers/crawler-dozers/d71exi-24"
     ],
-    "reuseCount": 4,
-    "lastUsed": "2026-10-13T20:44:59.024Z"
+    "reuseCount": 5,
+    "lastUsed": "2026-10-15T19:00:38.763Z"
   },
   "options": [
     {
@@ -27,6 +28,10 @@
     {
       "class": "chips",
       "label": "Chips: outlined pill links in a wrapping row, text only (category/filter shortcuts)"
+    },
+    {
+      "class": "anchors",
+      "label": "Anchors: in-page jump links (one cell: link to #heading-id) in a centered text row; links to ids missing on the page are hidden"
     }
   ],
   "memberVariantIds": []

@@ -147,7 +147,67 @@ function readLabels(element) {
   return defaults.map((d, i) => values[i] || d);
 }
 
+// Related products (equipment-model-detail): div.relatedproducts > div > div.related-products
+//   > div.related-products_container > div.product-card > a[href] > div.product-card__wrapper
+//     > img + div.product-card__content > h5.product-card__title (model)
+//       + ul > li.product-card__description-specs > span.product-card__description-lable (sic) + value
+//       + button "View details"  (button nested in <a>: invalid, flattened on re-parse - never used)
+// Model names are read from the h5.product-card__title headings in document order (one per
+// card; headings are not affected by the anchor/button flattening).
+// Output (project config-block contract, not the library Cards rows - tiles are rendered
+// from the family sheet; cards-product "related" option, 2 columns key | value):
+//   Products | link to /<lang>/products/equipment/<family>/products.json (family = path segment after /equipment/)
+//   Models   | related model names, comma-separated, display order
+//   Specs    | "<Label>: <key>, ..." from the card spec labels (unit suffix dropped), same as the family listing
+//   Units    | imperial
+function parseRelated(element, document, url, params) {
+  const pagePath = currentPagePath(document, url, params);
+  const m = pagePath.match(/^(.*?\/equipment\/[^/]+)/);
+  if (!m) {
+    element.replaceWith(...element.childNodes);
+    return;
+  }
+  const productsPath = `${m[1]}/products.json`;
+
+  let titles = Array.from(element.querySelectorAll('.product-card__title'));
+  if (!titles.length) titles = Array.from(element.querySelectorAll('.product-card h1, .product-card h2, .product-card h3, .product-card h4, .product-card h5, .product-card h6'));
+  const models = [];
+  titles.forEach((title) => {
+    const name = safe(title.textContent);
+    if (name && !models.includes(name)) models.push(name);
+  });
+  if (!models.length) {
+    element.replaceWith(...element.childNodes);
+    return;
+  }
+
+  const seen = new Set();
+  const specs = [];
+  element.querySelectorAll('.product-card__description-lable, .product-card__description-label').forEach((l) => {
+    const label = safe(l.textContent).replace(/\s*\([^)]*\)\s*$/, '').trim();
+    const key = slugify(label);
+    if (!key || seen.has(key)) return;
+    seen.add(key);
+    specs.push(`${label}: ${key}`);
+  });
+
+  const productsLink = document.createElement('a');
+  productsLink.href = productsPath;
+  productsLink.textContent = productsPath;
+
+  const cells = [['Products', productsLink], ['Models', models.join(', ')]];
+  if (specs.length) cells.push(['Specs', specs.join(', ')]);
+  cells.push(['Units', 'imperial']);
+
+  const block = WebImporter.Blocks.createBlock(document, { name: 'cards-product (related)', cells });
+  element.replaceWith(block);
+}
+
 export default function parse(element, { document, url, params }) {
+  if (element.classList.contains('relatedproducts') || element.querySelector(':scope .related-products')) {
+    parseRelated(element, document, url, params);
+    return;
+  }
   const pagePath = currentPagePath(document, url, params);
   if (!pagePath) {
     element.replaceWith(...element.childNodes);

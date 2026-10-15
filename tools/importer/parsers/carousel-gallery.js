@@ -40,7 +40,123 @@ function itemTitle(item) {
   }
 }
 
+// --- videos option (equipment-model-detail, live DOM d65px-18-wh / d475a-8) ---
+//   .cmp-carousel__item > [.columncontainer > ... >] .videocomponent > .video-container
+//     > .video-thumb-btn-wrapper > img.video-thumbnail (poster) + button.play-btn (dropped)
+//     + iframe.youtube-frame[src=https://www.youtube.com/embed/<id>?mute=1]
+//   optional .textcontent .cmp-text > p > b (title) + p (description)
+// Output (Carousel convention, 2 columns), one row per slide:
+//   [ poster img (YouTube hqdefault when the slide has none) | watch link + <strong> title + description p(s) ]
+function youtubeId(root) {
+  const candidates = [];
+  root.querySelectorAll('iframe[src], iframe[data-src]').forEach((f) => {
+    candidates.push(f.getAttribute('src'), f.getAttribute('data-src'));
+  });
+  root.querySelectorAll('[data-video-id], [data-youtube-id], [data-video-url]').forEach((el) => {
+    candidates.push(el.getAttribute('data-video-url'));
+    const id = el.getAttribute('data-video-id') || el.getAttribute('data-youtube-id');
+    if (id && /^[\w-]{6,}$/.test(id)) candidates.push(`https://www.youtube.com/watch?v=${id}`);
+  });
+  root.querySelectorAll('img[src*="img.youtube.com/vi/"], img[src*="ytimg.com/vi/"]').forEach((img) => {
+    candidates.push(img.getAttribute('src'));
+  });
+  for (const c of candidates) {
+    if (!c) continue;
+    let m = c.match(/youtube(?:-nocookie)?\.com\/(?:embed|shorts|live)\/([\w-]+)/);
+    if (!m) m = c.match(/youtube\.com\/watch\?(?:.*&)?v=([\w-]+)/);
+    if (!m) m = c.match(/youtu\.be\/([\w-]+)/);
+    if (!m) m = c.match(/(?:img\.youtube\.com|ytimg\.com)\/vi\/([\w-]+)\//);
+    if (m) return m[1];
+  }
+  return '';
+}
+
+function parseVideos(element, document, items) {
+  const cells = [];
+  items.forEach((item) => {
+    const id = youtubeId(item);
+    const posterEl = item.querySelector('img.video-thumbnail')
+      || [...item.querySelectorAll('img')].find((img) => !img.closest('button, .textcontent'));
+    const posterSrc = (posterEl && (posterEl.getAttribute('src') || posterEl.getAttribute('data-src')))
+      || (id ? `https://img.youtube.com/vi/${id}/hqdefault.jpg` : '');
+    if (!id && !posterSrc) return;
+
+    // Title: first bold-only paragraph; description: the other non-empty paragraphs
+    let title = '';
+    const desc = [];
+    item.querySelectorAll('.textcontent p, .cmp-text p').forEach((p) => {
+      const t = clean(p.textContent);
+      if (!t) return;
+      const bold = p.querySelector('b, strong');
+      if (!title && bold && clean(bold.textContent) === t) title = t;
+      else desc.push(t);
+    });
+    const caption = clean((item.querySelector('.video-title, .cmp-video__title, figcaption') || {}).textContent);
+    if (!title && caption) title = caption;
+
+    const text = [];
+    if (id) {
+      const href = `https://www.youtube.com/watch?v=${id}`;
+      const p = document.createElement('p');
+      const a = document.createElement('a');
+      a.href = href;
+      a.textContent = href;
+      p.append(a);
+      text.push(p);
+    }
+    if (title) {
+      const p = document.createElement('p');
+      const strong = document.createElement('strong');
+      strong.textContent = title;
+      p.append(strong);
+      text.push(p);
+    }
+    desc.forEach((t) => {
+      const p = document.createElement('p');
+      p.textContent = t;
+      text.push(p);
+    });
+
+    let poster = '';
+    if (posterSrc) {
+      poster = document.createElement('img');
+      poster.setAttribute('src', posterSrc);
+      poster.setAttribute('alt', title || 'Video');
+    }
+    cells.push([poster, text.length ? text : '']);
+  });
+  return cells;
+}
+
 export default function parse(element, { document }) {
+  // Video slides (YouTube video component inside the slides) -> videos option
+  const videoItems = [...element.querySelectorAll('.cmp-carousel__item')]
+    .filter((item) => item.querySelector('.videocomponent, .video-container, iframe[src*="youtube"]'));
+  if (videoItems.length) {
+    const cells = parseVideos(element, document, videoItems);
+    if (!cells.length) {
+      element.remove();
+      return;
+    }
+    const before = [];
+    const title = element.querySelector('.carousel-header .carousel-title');
+    if (title && clean(title.textContent)) {
+      const h = document.createElement('h2');
+      h.textContent = clean(title.textContent);
+      before.push(h);
+    }
+    const desc = element.querySelector('.carousel-header .carousel-desc');
+    if (desc && clean(desc.textContent)) {
+      const p = document.createElement('p');
+      p.textContent = clean(desc.textContent);
+      before.push(p);
+    }
+    const block = WebImporter.Blocks.createBlock(document, { name: 'carousel-gallery (videos)', cells });
+    element.replaceWith(block);
+    if (before.length) block.before(...before);
+    return;
+  }
+
   let items = [...element.querySelectorAll('.cmp-carousel__item')];
   if (!items.length) {
     // Fallback: any slide-like panel that holds an image

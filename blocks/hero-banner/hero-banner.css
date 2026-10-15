@@ -2,7 +2,7 @@
  * Hero Banner
  * Source: komatsu.com div.herocomponent (dark_gradient_overlay)
  *   default  = .large_hero      (homepage, 700px full-bleed photo, bold title)
- *   .compact = .blue_bg.hero-max-width (category pages, content-height banner,
+ *   .compact = source classes blue_bg + hero-max-width (category pages, content-height banner,
  *              blue fallback background, regular-weight title, 782px content)
  * Values below are computed styles extracted from the source.
  */

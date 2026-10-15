@@ -1,9 +1,14 @@
 import { createOptimizedPicture } from '../../scripts/aem.js';
+import {
+  createUnitSwitch, getUnit, onUnitChange, toUnit,
+} from '../../scripts/units.js';
 
 /*
  * Cards Product: filterable product listing fed by a DA spreadsheet (products.json).
  * Authored as key | value rows: Products, Specs, Filters, Page size, Units, Labels
  * (+ optional Preset). See README.md for the full data contract.
+ * Option `related`: only the models listed in a `Models` row (in that order) as one row of tiles;
+ * no sidebar, toolbar or paging. Units follow the shared page preference (scripts/units.js).
  */
 
 const LABEL_KEYS = ['viewDetails', 'clearAll', 'loadMore', 'metric', 'imperial', 'itemsPerPage',
@@ -12,7 +17,6 @@ const LABEL_DEFAULTS = ['View details', 'Clear all', 'Load more results', 'Metri
   'Items per page', 'Displaying', 'of', 'items', 'Active filters', 'No products were returned.',
   'Filter results', 'Remove filter'];
 const PAGE_SIZES = [12, 24, 36, 48, 60];
-const UNITS = ['metric', 'imperial'];
 
 let instance = 0;
 
@@ -68,8 +72,9 @@ function readConfig(block) {
     specs: parseEntries(cfg.specs),
     filters: parseEntries(cfg.filters),
     pageSize,
-    units: UNITS.includes((cfg.units || '').toLowerCase()) ? cfg.units.toLowerCase() : 'imperial',
+    units: toUnit(cfg.units) || 'imperial',
     preset: cfg.preset || cfg.filter || '',
+    models: (cfg.models || '').split(',').map((m) => m.trim()).filter(Boolean),
     labels,
   };
 }
@@ -82,14 +87,88 @@ const col = (row, key, unit, unitDependent) => {
 /** multi-value cells are ", " separated (thousands separators like 5,000 stay intact) */
 const values = (row, f, unit) => col(row, f.key, unit, f.unitDependent).split(/,\s+/).map((s) => s.trim()).filter(Boolean);
 
+function buildTile(row, L) {
+  const link = row.link || row.path || '';
+  const model = row.model || '';
+  const heading = el('h3', { class: 'cards-product-title' }, link ? el('a', { href: link }, model) : model);
+  const media = el('div', { class: 'cards-product-image' });
+  if (row.image) media.append(createOptimizedPicture(row.image, row['image-alt'] || model, false, [{ width: '750' }]));
+  const specs = el('dl', { class: 'cards-product-specs' });
+  const body = el(
+    'div',
+    { class: 'cards-product-body' },
+    heading,
+    row.description ? el('p', { class: 'cards-product-description' }, row.description) : null,
+    specs,
+    el('span', { class: 'cards-product-cta', 'aria-hidden': 'true' }, L.viewDetails),
+  );
+  const li = el('li', { class: `cards-product-card${link ? ' cards-product-card-linked' : ''}` }, media, body);
+  return { li, specs };
+}
+
+/** (re)render a tile's spec rows for the unit, once per unit change */
+function renderTileSpecs(tile, row, specs, unit) {
+  if (tile.unit === unit) return;
+  tile.specs.replaceChildren(...specs.map((s) => {
+    const v = col(row, s.key, unit, true);
+    return v ? el('div', {}, el('dt', {}, s.label[unit]), el('dd', {}, v)) : null;
+  }).filter(Boolean));
+  tile.unit = unit;
+}
+
+async function loadProducts(source) {
+  try {
+    if (!source) throw new Error('cards-product: no Products source configured');
+    let resp = await fetch(source);
+    // local preview serves documents under /content
+    if (!resp.ok && source.startsWith('/') && !source.startsWith('/content/')) {
+      resp = await fetch(`/content${source}`);
+    }
+    if (!resp.ok) throw new Error(`cards-product: ${resp.status} ${source}`);
+    const json = await resp.json();
+    return (json.data || json[json[':names']?.[0]]?.data || []).filter((r) => r.model);
+  } catch (err) {
+    // eslint-disable-next-line no-console
+    console.error(err);
+    return [];
+  }
+}
+
+/** related option: the listed models only, in authored order; unknown models are skipped */
+async function decorateRelated(block, cfg) {
+  let unit = getUnit(cfg.units);
+  const grid = el('ul', { class: 'cards-product-grid' });
+  block.replaceChildren(grid);
+  const products = await loadProducts(cfg.source);
+  const byModel = new Map(products.map((r) => [String(r.model).trim().toLowerCase(), r]));
+  const wanted = cfg.models.length ? cfg.models : products.map((r) => String(r.model));
+  const tiles = wanted.map((m) => byModel.get(m.toLowerCase()))
+    .filter(Boolean)
+    .map((row) => ({ row, tile: buildTile(row, cfg.labels) }));
+  const render = () => tiles.forEach(({ row, tile }) => {
+    renderTileSpecs(tile, row, cfg.specs, unit);
+  });
+  render();
+  grid.replaceChildren(...tiles.map(({ tile }) => tile.li));
+  block.classList.toggle('cards-product-empty', !tiles.length);
+  onUnitChange((u) => {
+    unit = u;
+    render();
+  });
+}
+
 export default async function decorate(block) {
   const cfg = readConfig(block);
+  if (block.classList.contains('related')) {
+    await decorateRelated(block, cfg);
+    return;
+  }
   const { labels: L } = cfg;
   instance += 1;
   const id = `cards-product-${instance}`;
 
   const state = {
-    unit: cfg.units,
+    unit: getUnit(cfg.units),
     perPage: cfg.pageSize,
     visible: cfg.pageSize,
     selected: new Map(cfg.filters.map((f) => [f.key, new Set()])),
@@ -113,11 +192,13 @@ export default async function decorate(block) {
   const count = el('p', { class: 'cards-product-count', role: 'status', 'aria-live': 'polite' });
   const activeList = el('ul', { class: 'cards-product-active-list' });
   const active = el('div', { class: 'cards-product-active' }, el('span', { class: 'cards-product-active-label' }, L.activeFilters), activeList);
-  const unitButtons = UNITS.map((u) => el('button', {
-    type: 'button', class: 'cards-product-unit', 'data-unit': u, 'aria-pressed': String(u === state.unit),
-  }, L[u]));
-  // data-unit drives the switch track drawn in CSS
-  const units = el('div', { class: 'cards-product-units', role: 'group', 'data-unit': state.unit }, ...unitButtons);
+  // shared Metric | Imperial switch (scripts/units.js); data-unit drives the track drawn in CSS
+  const units = createUnitSwitch({
+    unit: state.unit,
+    labels: { metric: L.metric, imperial: L.imperial },
+    className: 'cards-product-units',
+    buttonClassName: 'cards-product-unit',
+  });
   const toolbar = el('div', { class: 'cards-product-toolbar' }, count, filtersToggle, active, units);
 
   const grid = el('ul', { class: 'cards-product-grid' });
@@ -163,35 +244,10 @@ export default async function decorate(block) {
     window.history.replaceState(window.history.state, '', url);
   };
 
-  const buildTile = (row) => {
-    const link = row.link || row.path || '';
-    const model = row.model || '';
-    const heading = el('h3', { class: 'cards-product-title' }, link ? el('a', { href: link }, model) : model);
-    const media = el('div', { class: 'cards-product-image' });
-    if (row.image) media.append(createOptimizedPicture(row.image, row['image-alt'] || model, false, [{ width: '750' }]));
-    const specs = el('dl', { class: 'cards-product-specs' });
-    const body = el(
-      'div',
-      { class: 'cards-product-body' },
-      heading,
-      row.description ? el('p', { class: 'cards-product-description' }, row.description) : null,
-      specs,
-      el('span', { class: 'cards-product-cta', 'aria-hidden': 'true' }, L.viewDetails),
-    );
-    const li = el('li', { class: `cards-product-card${link ? ' cards-product-card-linked' : ''}` }, media, body);
-    return { li, specs };
-  };
-
   const tileFor = (row) => {
-    if (!tileCache.has(row)) tileCache.set(row, buildTile(row));
+    if (!tileCache.has(row)) tileCache.set(row, buildTile(row, L));
     const tile = tileCache.get(row);
-    if (tile.unit !== state.unit) {
-      tile.specs.replaceChildren(...cfg.specs.map((s) => {
-        const v = col(row, s.key, state.unit, true);
-        return v ? el('div', {}, el('dt', {}, s.label[state.unit]), el('dd', {}, v)) : null;
-      }).filter(Boolean));
-      tile.unit = state.unit;
-    }
+    renderTileSpecs(tile, row, cfg.specs, state.unit);
     return tile.li;
   };
 
@@ -275,14 +331,10 @@ export default async function decorate(block) {
     state.selected.forEach((s) => s.clear());
     update({ facetsToo: true });
   });
-  units.addEventListener('click', (e) => {
-    // a click on the switch track (outside both labels) flips to the other unit
-    const btn = e.target.closest('.cards-product-unit')
-      || unitButtons.find((b) => b.dataset.unit !== state.unit);
-    if (!btn || btn.dataset.unit === state.unit) return;
-    state.unit = btn.dataset.unit;
-    units.dataset.unit = state.unit;
-    unitButtons.forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
+  // the switch (here or on any other block) calls setUnit(); every block re-renders on the event
+  onUnitChange((unit) => {
+    if (unit === state.unit) return;
+    state.unit = unit;
     // unit-dependent facets have different buckets per unit: drop their selections
     cfg.filters.filter((f) => f.unitDependent).forEach((f) => state.selected.get(f.key).clear());
     update({ facetsToo: true });
@@ -324,21 +376,7 @@ export default async function decorate(block) {
     .forEach((v) => state.selected.get(f.key).add(slugify(v))));
 
   // ---- load ----
-  try {
-    if (!cfg.source) throw new Error('cards-product: no Products source configured');
-    let resp = await fetch(cfg.source);
-    // local preview serves documents under /content
-    if (!resp.ok && cfg.source.startsWith('/') && !cfg.source.startsWith('/content/')) {
-      resp = await fetch(`/content${cfg.source}`);
-    }
-    if (!resp.ok) throw new Error(`cards-product: ${resp.status} ${cfg.source}`);
-    const json = await resp.json();
-    products = (json.data || json[json[':names']?.[0]]?.data || []).filter((r) => r.model);
-  } catch (err) {
-    // eslint-disable-next-line no-console
-    console.error(err);
-    products = [];
-  }
+  products = await loadProducts(cfg.source);
   // drop preset/URL values that match no option for the active unit
   cfg.filters.forEach((f) => {
     const opts = optionsFor(f);

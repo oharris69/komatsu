@@ -1,0 +1,22 @@
+{
+  "variantName": "hero-product",
+  "baseBlock": "hero",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "dense",
+    "purpose": "product-detail-header",
+    "imagePattern": "gallery-thumbnails",
+    "structure": "gallery + eyebrow + heading + subtitle + unit specs + 2 CTAs"
+  },
+  "contentPattern": "Key | value rows (first cell = key, case-insensitive). images | all gallery pictures in one cell (first = main, alt = model) ; intro | eyebrow <p> (family), <h1> model, <p> subtitle ; spec | Label | Value | Units (imperial, metric or empty = always shown), one row per quick spec ; actions | <p> 'Purchase options', <strong><a> primary CTA, <em><a> secondary CTA. Section style: white-container. Follows the shared unit preference (scripts/units.js).",
+  "usage": {
+    "pagesUsing": [
+      "/en-us/products/equipment/dozers/crawler-dozers/d71exi-24"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-10-15T00:00:00.000Z"
+  },
+  "options": [],
+  "memberVariantIds": []
+}

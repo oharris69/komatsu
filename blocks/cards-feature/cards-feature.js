@@ -1,18 +1,20 @@
 import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
-const OPTION_CLASSES = [];
+const OPTION_CLASSES = ['outlined'];
 
 /**
  * Cards Feature: a small, centered set of feature cards — image on top,
  * then title, text and an outlined CTA.
  * Content contract: one row per card -> image | heading + paragraph(s) + CTA link.
  * Image and text authored in a single cell are split automatically.
+ * Option `outlined`: text-only bordered cards (one cell: heading + paragraph + CTA link);
+ * the CTA renders as the filled (primary) button.
  * @param {Element} block
  */
 export default function decorate(block) {
-  // eslint-disable-next-line no-unused-vars
   const active = [...block.classList].filter((c) => OPTION_CLASSES.includes(c));
+  const outlined = active.includes('outlined');
 
   const ul = document.createElement('ul');
   [...block.children].forEach((row) => {
@@ -45,6 +47,7 @@ export default function decorate(block) {
       if (a && p.children.length === 1 && p.textContent.trim() === a.textContent.trim()) {
         p.classList.add('button-container');
         a.classList.add('button');
+        if (outlined) a.classList.add('primary');
       }
     });
 

@@ -29,7 +29,16 @@
  *   and rewritten to ?<filter-key>=<slug> (cards-product URL preset contract).
  *   Broken/unresolvable hrefs fall back to matching the chip text against the
  *   facet option labels ("Demolition excavators" -> specialties "Demolition").
- * Generated: 2026-10-12 (solid variant added 2026-10-13, chips variant added 2026-10-13)
+ * Anchors variant (equipment-model-detail, https://www.komatsu.com/en-us/products/equipment/dozers/crawler-dozers/d71exi-24):
+ * Instance selector: .anchorlink .anchor-links  (ul > li > a[href="#<source id>"])
+ * Structure: block "cards-tiles (anchors)", 1 column, one row per jump link: [ link ]
+ * Hrefs: the source ids (#features, #specifications, #serviceandsupport, #technology,
+ *   #infographic, #videos, ...) are rewritten to the EDS id of the target section heading:
+ *   the H2 komatsu-cleanup.js lifted in front of the target (or one of its close ancestors),
+ *   else the first H1-H3 inside the target, slugified like aem.js toClassName. Links whose
+ *   target id is not on the page are dropped (e.g. hidden #videos, removed #threesixty).
+ * Generated: 2026-10-12 (solid variant added 2026-10-13, chips variant added 2026-10-13,
+ *   anchors variant added 2026-10-15)
  */
 
 // --- chips helpers (keep in sync with parsers/cards-product.js and blocks/cards-product) ---
@@ -180,7 +189,74 @@ function parseSolid(element, document) {
   element.replaceWith(block);
 }
 
+// --- anchors helpers (equipment-model-detail; Cards "no images" convention: 1 column) ---
+// Same as aem.js toClassName (EDS heading ids / readBlockConfig keys)
+const toClassName = (name) => (typeof name === 'string'
+  ? name.toLowerCase().replace(/[^0-9a-z]/gi, '-').replace(/-+/g, '-').replace(/^-|-$/g, '')
+  : '');
+// Marker komatsu-cleanup.js puts on section headings it lifts out of model-page blocks
+// (removed again in afterTransform, i.e. after all parsers ran).
+const LIFTED_HEADING_ATTR = 'data-km-lifted-heading';
+const anchorClean = (s) => String(s || '').replace(/ /g, ' ').replace(/\s+/g, ' ').trim();
+
+// Heading text of the section that holds the jump-link target element.
+function anchorHeading(target) {
+  // 1. A section heading lifted by cleanup sits right before the target or one of its
+  //    close ancestors (e.g. #specifications = .cmp-tabs inside the lifted .cmp-machinespecs).
+  let node = target;
+  for (let depth = 0; node && depth < 4; depth += 1) {
+    if (node.tagName === 'BODY' || node.classList.contains('aem-Grid')) break;
+    let prev = node.previousElementSibling;
+    while (prev && prev.tagName === 'HR') prev = prev.previousElementSibling;
+    if (prev && /^H[1-6]$/.test(prev.tagName) && prev.hasAttribute(LIFTED_HEADING_ATTR)) {
+      return anchorClean(prev.textContent);
+    }
+    node = node.parentElement;
+  }
+  // 2. Otherwise the first H1-H3 inside the target (infographic title promoted to h2 by
+  //    cleanup, carousel title "Videos" emitted as h2 by the carousel-gallery parser).
+  const inner = [...target.querySelectorAll('h1, h2, h3')].find((h) => anchorClean(h.textContent));
+  return inner ? anchorClean(inner.textContent) : '';
+}
+
+function parseAnchors(element, document) {
+  let items = Array.from(element.querySelectorAll(':scope > ul > li'));
+  if (!items.length) items = Array.from(element.querySelectorAll('li'));
+
+  const cells = [];
+  items.forEach((li) => {
+    const link = li.querySelector('a[href]');
+    if (!link) return;
+    const text = anchorClean(link.textContent);
+    const raw = link.getAttribute('href') || '';
+    if (!text || !raw.startsWith('#') || raw.length < 2) return;
+    let id = raw.slice(1);
+    try { id = decodeURIComponent(id); } catch (e) { /* keep raw */ }
+    const target = document.getElementById(id);
+    if (!target || target.closest('header, footer')) return; // target not on this page: drop
+    const slug = toClassName(anchorHeading(target));
+    if (!slug) return;
+    const a = document.createElement('a');
+    a.href = `#${slug}`;
+    a.textContent = text;
+    cells.push([a]);
+  });
+
+  if (!cells.length) {
+    element.remove();
+    return;
+  }
+
+  const block = WebImporter.Blocks.createBlock(document, { name: 'cards-tiles (anchors)', cells });
+  element.replaceWith(block);
+}
+
 export default function parse(element, { document, url, params }) {
+  // In-page jump links (equipment-model-detail): div.anchorlink > div.anchor-links > ul > li > a[href^="#"]
+  if (element.classList.contains('anchor-links') || element.closest('.anchorlink')) {
+    parseAnchors(element, document);
+    return;
+  }
   if (element.classList.contains('tiles_color_blocks') || element.querySelector(':scope > .tiles_column')) {
     parseSolid(element, document);
     return;

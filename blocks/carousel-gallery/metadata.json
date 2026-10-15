@@ -3,12 +3,17 @@
   "baseBlock": "carousel",
   "canonicalModel": "standalone",
   "visualCharacteristics": "single-slide image carousel within article column width, caption under image, arrow buttons + dots",
-  "contentPattern": "image + caption per slide",
+  "contentPattern": "image + caption per slide ; videos option: one row per slide: poster picture | YouTube link (https://www.youtube.com/watch?v=<id>), optional <strong> title paragraph and description paragraph(s)",
   "usage": {
     "pagesUsing": [],
     "reuseCount": 0,
     "lastUsed": null
   },
-  "options": [],
+  "options": [
+    {
+      "class": "videos",
+      "label": "Videos: YouTube slides (poster + play button, click plays the nocookie embed in place), title and description below"
+    }
+  ],
   "memberVariantIds": []
 }

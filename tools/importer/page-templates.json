@@ -1318,6 +1318,43 @@
     {
       "name": "equipment-model-detail",
       "urls": [
+        "https://www.komatsu.com/en-us/products/equipment/dozers/crawler-dozers/d37px-24",
+        "https://www.komatsu.com/en-us/products/equipment/dozers/crawler-dozers/d37ex-24",
+        "https://www.komatsu.com/en-us/products/equipment/dozers/crawler-dozers/d39ex-24",
+        "https://www.komatsu.com/en-us/products/equipment/dozers/crawler-dozers/d39exi-24",
+        "https://www.komatsu.com/en-us/products/equipment/dozers/crawler-dozers/d39px-24",
+        "https://www.komatsu.com/en-us/products/equipment/dozers/crawler-dozers/d39pxi-24",
+        "https://www.komatsu.com/en-us/products/equipment/dozers/crawler-dozers/d51ex-24",
+        "https://www.komatsu.com/en-us/products/equipment/dozers/crawler-dozers/d51exi-24",
+        "https://www.komatsu.com/en-us/products/equipment/dozers/crawler-dozers/d51px-24",
+        "https://www.komatsu.com/en-us/products/equipment/dozers/crawler-dozers/d51pxi-24",
+        "https://www.komatsu.com/en-us/products/equipment/dozers/crawler-dozers/d61ex-24",
+        "https://www.komatsu.com/en-us/products/equipment/dozers/crawler-dozers/d61exi-24",
+        "https://www.komatsu.com/en-us/products/equipment/dozers/crawler-dozers/d61px-24",
+        "https://www.komatsu.com/en-us/products/equipment/dozers/crawler-dozers/d155axi-8",
+        "https://www.komatsu.com/en-us/products/equipment/dozers/crawler-dozers/d61pxi-24",
+        "https://www.komatsu.com/en-us/products/equipment/dozers/crawler-dozers/d65ex-18",
+        "https://www.komatsu.com/en-us/products/equipment/dozers/crawler-dozers/d375a-8",
+        "https://www.komatsu.com/en-us/products/equipment/dozers/crawler-dozers/d65ex-18-wh",
+        "https://www.komatsu.com/en-us/products/equipment/dozers/crawler-dozers/d475a-8",
+        "https://www.komatsu.com/en-us/products/equipment/dozers/crawler-dozers/d65exi-18",
+        "https://www.komatsu.com/en-us/products/equipment/dozers/crawler-dozers/d65px-18",
+        "https://www.komatsu.com/en-us/products/equipment/dozers/crawler-dozers/d65px-18-wh",
+        "https://www.komatsu.com/en-us/products/equipment/dozers/crawler-dozers/d65pxi-18",
+        "https://www.komatsu.com/en-us/products/equipment/dozers/crawler-dozers/d65wx-18",
+        "https://www.komatsu.com/en-us/products/equipment/dozers/crawler-dozers/d65wx-18-wh",
+        "https://www.komatsu.com/en-us/products/equipment/dozers/crawler-dozers/d71ex-24",
+        "https://www.komatsu.com/en-us/products/equipment/dozers/crawler-dozers/d71exi-24",
+        "https://www.komatsu.com/en-us/products/equipment/dozers/crawler-dozers/d71px-24",
+        "https://www.komatsu.com/en-us/products/equipment/dozers/crawler-dozers/d71pxi-24",
+        "https://www.komatsu.com/en-us/products/equipment/dozers/crawler-dozers/d85ex-18",
+        "https://www.komatsu.com/en-us/products/equipment/dozers/crawler-dozers/d85ex-18-wh",
+        "https://www.komatsu.com/en-us/products/equipment/dozers/crawler-dozers/d85px-18",
+        "https://www.komatsu.com/en-us/products/equipment/dozers/crawler-dozers/d85px-18-wh",
+        "https://www.komatsu.com/en-us/products/equipment/dozers/crawler-dozers/d155ax-8",
+        "https://www.komatsu.com/en-us/products/equipment/dozers/crawler-dozers/d155ax-8-wh",
+        "https://www.komatsu.com/en-us/products/equipment/dozers/crawler-dozers/d155cx-8-k170",
+        "https://www.komatsu.com/en-us/products/equipment/dozers/crawler-dozers/d155px-8-lgp",
         "https://www.komatsu.com/en-us/products/attachments/hydraulic-breakers/jmhb-h",
         "https://www.komatsu.com/en-us/products/attachments/hydraulic-breakers/jmhb-v",
         "https://www.komatsu.com/en-us/products/equipment/blasthole-drills/rotary-drill/320xpc",
@@ -1343,43 +1380,6 @@
         "https://www.komatsu.com/en-us/products/equipment/crushing/surface-feeder-breakers/sfb-38",
         "https://www.komatsu.com/en-us/products/equipment/crushing/surface-feeder-breakers/sfb-40",
         "https://www.komatsu.com/en-us/products/equipment/crushing/surface-feeder-breakers/sfb-43",
-        "https://www.komatsu.com/en-us/products/equipment/dozers/large-dozers/d155ax-8",
-        "https://www.komatsu.com/en-us/products/equipment/dozers/large-dozers/d155ax-8-wh",
-        "https://www.komatsu.com/en-us/products/equipment/dozers/large-dozers/d155axi-8",
-        "https://www.komatsu.com/en-us/products/equipment/dozers/large-dozers/d155cx-8-k170",
-        "https://www.komatsu.com/en-us/products/equipment/dozers/large-dozers/d155px-8-lgp",
-        "https://www.komatsu.com/en-us/products/equipment/dozers/large-dozers/d85ex-18",
-        "https://www.komatsu.com/en-us/products/equipment/dozers/large-dozers/d85ex-18-wh",
-        "https://www.komatsu.com/en-us/products/equipment/dozers/large-dozers/d85px-18",
-        "https://www.komatsu.com/en-us/products/equipment/dozers/large-dozers/d85px-18-wh",
-        "https://www.komatsu.com/en-us/products/equipment/dozers/mid-size-dozers/d61ex-24",
-        "https://www.komatsu.com/en-us/products/equipment/dozers/mid-size-dozers/d61exi-24",
-        "https://www.komatsu.com/en-us/products/equipment/dozers/mid-size-dozers/d61px-24",
-        "https://www.komatsu.com/en-us/products/equipment/dozers/mid-size-dozers/d61pxi-24",
-        "https://www.komatsu.com/en-us/products/equipment/dozers/mid-size-dozers/d65ex-18",
-        "https://www.komatsu.com/en-us/products/equipment/dozers/mid-size-dozers/d65ex-18-wh",
-        "https://www.komatsu.com/en-us/products/equipment/dozers/mid-size-dozers/d65exi-18",
-        "https://www.komatsu.com/en-us/products/equipment/dozers/mid-size-dozers/d65px-18",
-        "https://www.komatsu.com/en-us/products/equipment/dozers/mid-size-dozers/d65px-18-wh",
-        "https://www.komatsu.com/en-us/products/equipment/dozers/mid-size-dozers/d65pxi-18",
-        "https://www.komatsu.com/en-us/products/equipment/dozers/mid-size-dozers/d65wx-18",
-        "https://www.komatsu.com/en-us/products/equipment/dozers/mid-size-dozers/d65wx-18-wh",
-        "https://www.komatsu.com/en-us/products/equipment/dozers/mid-size-dozers/d71ex-24",
-        "https://www.komatsu.com/en-us/products/equipment/dozers/mid-size-dozers/d71exi-24",
-        "https://www.komatsu.com/en-us/products/equipment/dozers/mid-size-dozers/d71px-24",
-        "https://www.komatsu.com/en-us/products/equipment/dozers/mid-size-dozers/d71pxi-24",
-        "https://www.komatsu.com/en-us/products/equipment/dozers/small-dozers/d37ex-24",
-        "https://www.komatsu.com/en-us/products/equipment/dozers/small-dozers/d37px-24",
-        "https://www.komatsu.com/en-us/products/equipment/dozers/small-dozers/d39ex-24",
-        "https://www.komatsu.com/en-us/products/equipment/dozers/small-dozers/d39exi-24",
-        "https://www.komatsu.com/en-us/products/equipment/dozers/small-dozers/d39px-24",
-        "https://www.komatsu.com/en-us/products/equipment/dozers/small-dozers/d39pxi-24",
-        "https://www.komatsu.com/en-us/products/equipment/dozers/small-dozers/d51ex-24",
-        "https://www.komatsu.com/en-us/products/equipment/dozers/small-dozers/d51exi-24",
-        "https://www.komatsu.com/en-us/products/equipment/dozers/small-dozers/d51px-24",
-        "https://www.komatsu.com/en-us/products/equipment/dozers/small-dozers/d51pxi-24",
-        "https://www.komatsu.com/en-us/products/equipment/dozers/surface-mining-dozers/d375a-8",
-        "https://www.komatsu.com/en-us/products/equipment/dozers/surface-mining-dozers/d475a-8",
         "https://www.komatsu.com/en-us/products/equipment/entry-development/entry-drivers/14ed25",
         "https://www.komatsu.com/en-us/products/equipment/entry-development/miner-bolter/14cm09-16bdx",
         "https://www.komatsu.com/en-us/products/equipment/excavators/large-excavators/pc1250lc-11",
@@ -1635,7 +1635,250 @@
       ],
       "coverageGaps": [],
       "description": "Equipment model detail with image gallery and key specs header, quote CTAs, overview with resources rail, features grid, specifications accordion and related products",
-      "blocks": []
+      "blocks": [
+        {
+          "name": "hero-product",
+          "instances": [
+            ".equipmentdetail .equipment-details"
+          ]
+        },
+        {
+          "name": "hero-banner",
+          "instances": [
+            ".experiencefragment .herocomponent"
+          ]
+        },
+        {
+          "name": "cards-tiles",
+          "instances": [
+            ".anchorlink .anchor-links",
+            ".tilescolorblocks.tilesmall .tiles_color_blocks"
+          ]
+        },
+        {
+          "name": "columns-resources",
+          "instances": [
+            ".machineresources .cmp-machineresources"
+          ]
+        },
+        {
+          "name": "cards-feature",
+          "instances": [
+            ".featuresandbenefits .features-and-benefits",
+            ".cardscontainer .cards-container"
+          ]
+        },
+        {
+          "name": "table-specs",
+          "instances": [
+            ".machinespecs .cmp-machinespecs"
+          ]
+        },
+        {
+          "name": "tabs-technology",
+          "instances": [
+            ".tabs.panelcontainer .cmp-tabs"
+          ]
+        },
+        {
+          "name": "columns-media",
+          "instances": [
+            ".splitcontentcomponent .split_content_module--area"
+          ]
+        },
+        {
+          "name": "carousel-gallery",
+          "instances": [
+            ".carousel.panelcontainer .cmp-carousel"
+          ]
+        },
+        {
+          "name": "cards-product",
+          "instances": [
+            ".relatedproducts"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "1",
+          "name": "Product header (gallery, quick specs, purchase options)",
+          "selector": [
+            "div.equipmentdetail"
+          ],
+          "style": "white-container",
+          "blocks": [
+            "hero-product"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "2",
+          "name": "Promo banner (experience fragment)",
+          "selector": [
+            "div.experiencefragment:has(.herocomponent)"
+          ],
+          "style": null,
+          "blocks": [
+            "hero-banner"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "3",
+          "name": "Anchor links",
+          "selector": [
+            "div.anchorlink"
+          ],
+          "style": "white-container",
+          "blocks": [
+            "cards-tiles"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "4",
+          "name": "Overview + resources rail",
+          "selector": [
+            "div.machineresources"
+          ],
+          "style": "white-container",
+          "blocks": [
+            "columns-resources"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "5",
+          "name": "Features and benefits",
+          "selector": [
+            "div.featuresandbenefits"
+          ],
+          "style": "white-container",
+          "blocks": [
+            "cards-feature"
+          ],
+          "defaultContent": [
+            ".features-and-benefits > h2"
+          ]
+        },
+        {
+          "id": "6",
+          "name": "Specifications",
+          "selector": [
+            "div.machinespecs"
+          ],
+          "style": "white-container",
+          "blocks": [
+            "table-specs"
+          ],
+          "defaultContent": [
+            ".cmp-machinespecs h3:first-of-type"
+          ]
+        },
+        {
+          "id": "7",
+          "name": "Support you can count on (outlined cards)",
+          "selector": [
+            "div.cardscontainer"
+          ],
+          "style": "white-container",
+          "blocks": [
+            "cards-feature"
+          ],
+          "defaultContent": [
+            ".cards-container > h2"
+          ]
+        },
+        {
+          "id": "8",
+          "name": "Technology tabs",
+          "selector": [
+            "div.tabs.panelcontainer"
+          ],
+          "style": "white-container",
+          "blocks": [
+            "tabs-technology"
+          ],
+          "defaultContent": [
+            ".tabs.panelcontainer h3:first-of-type"
+          ]
+        },
+        {
+          "id": "9",
+          "name": "Infographic",
+          "selector": [
+            "div.columncontainer:has(> .columncontainer-main > .aem-Grid > .image)"
+          ],
+          "style": "white-container",
+          "blocks": [],
+          "defaultContent": [
+            ".columncontainer-title",
+            ".image .cmp-image"
+          ]
+        },
+        {
+          "id": "10",
+          "name": "Split promo with video (IMC 2.0)",
+          "selector": [
+            "div.splitcontentcomponent"
+          ],
+          "style": "grey",
+          "blocks": [
+            "columns-media"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "11",
+          "name": "Videos carousel",
+          "selector": [
+            "div.carousel.panelcontainer"
+          ],
+          "style": "white-container",
+          "blocks": [
+            "carousel-gallery"
+          ],
+          "defaultContent": [
+            ".carousel-header .carousel-title"
+          ]
+        },
+        {
+          "id": "12",
+          "name": "Related products",
+          "selector": [
+            "div.relatedproducts"
+          ],
+          "style": "white-container",
+          "blocks": [
+            "cards-product"
+          ],
+          "defaultContent": [
+            ".related-products > h2"
+          ]
+        },
+        {
+          "id": "13",
+          "name": "Find what works for you (solid tiles)",
+          "selector": [
+            "div.tilescolorblocks.tilesmall"
+          ],
+          "style": "grey",
+          "blocks": [
+            "cards-tiles"
+          ],
+          "defaultContent": [
+            ".tilescolorblocks.tilesmall > p.tile-title"
+          ]
+        }
+      ],
+      "excluded": [
+        {
+          "selector": "div.webrotate360",
+          "reason": "360 viewer (1 of 37 dozer pages); dropped with its #360 anchor link"
+        }
+      ],
+      "representativeUrl": "https://www.komatsu.com/en-us/products/equipment/dozers/crawler-dozers/d71exi-24"
     },
     {
       "name": "equipment-directory",

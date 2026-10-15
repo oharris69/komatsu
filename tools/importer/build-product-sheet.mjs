@@ -64,24 +64,15 @@ async function feed(origin, locale, uid, params = {}) {
   return JSON.parse(await getText(`${origin}/${locale}/gql/productlisting/equipment?${q}`));
 }
 
-function catalogUrls() {
-  try {
-    return new Set(fs.readFileSync('catalog/urls-all.json', 'utf8').match(/https:\/\/[^"\s]+/g) || []);
-  } catch (e) {
-    return new Set();
-  }
+/**
+ * The feed's aemUrl is the model page's canonical path (e.g. crawler-dozers/<slug>); the older
+ * size-based paths in the catalog (small-dozers/<slug>) only redirect there.
+ */
+function productLink(locale, aemUrl) {
+  return `/${locale}/products/${aemUrl.replace(/^\/+/, '')}`;
 }
 
-/** Prefer the catalog's sub-category model page (small-excavators/<slug>) over the feed path. */
-function productLink(origin, locale, aemUrl, catalog) {
-  const feedPath = `/${locale}/products/${aemUrl.replace(/^\/+/, '')}`;
-  const slug = feedPath.split('/').pop();
-  const family = feedPath.split('/').slice(0, 5).join('/'); // /en-us/products/equipment/<family>
-  const match = [...catalog].find((u) => u.startsWith(`${origin}${family}/`) && u.endsWith(`/${slug}`));
-  return match ? new URL(match).pathname : feedPath;
-}
-
-async function buildSheet(pageUrl, catalog) {
+async function buildSheet(pageUrl) {
   const page = new URL(pageUrl);
   const locale = page.pathname.split('/')[1];
   const html = await getText(pageUrl);
@@ -112,7 +103,7 @@ async function buildSheet(pageUrl, catalog) {
     const row = {
       model: p.sku,
       description: p.shortDescription || '',
-      link: productLink(page.origin, locale, p.aemUrl, catalog),
+      link: productLink(locale, p.aemUrl),
       image: p.imageUrl || '',
       'image-alt': p.sku,
     };
@@ -162,13 +153,12 @@ async function main() {
     console.error('Usage: node tools/importer/build-product-sheet.mjs <listing-url>... [--upload]');
     process.exit(2);
   }
-  const catalog = catalogUrls();
   let failed = 0;
   // eslint-disable-next-line no-restricted-syntax
   for (const url of urls) {
     try {
       // eslint-disable-next-line no-await-in-loop
-      const { pagePath, sheet, summary } = await buildSheet(url, catalog);
+      const { pagePath, sheet, summary } = await buildSheet(url);
       const json = `${JSON.stringify(sheet, null, 2)}\n`;
       [path.join('content', pagePath, 'products.json'), path.join(OUT_DIR, pagePath, 'products.json')].forEach((f) => {
         fs.mkdirSync(path.dirname(f), { recursive: true });

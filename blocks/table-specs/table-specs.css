@@ -1,0 +1,168 @@
+/* table-specs: tabs, unit switch + expand all, accordion groups of label/value rows. Structural only. */
+.table-specs {
+  max-width: 918px;
+  margin: 0 auto;
+}
+
+/* ---------- tabs ---------- */
+.table-specs .table-specs-tabs {
+  display: flex;
+  justify-content: flex-start;
+  gap: 0;
+  overflow-x: auto;
+  border-bottom: 2px solid var(--rule-color);
+  scrollbar-width: none;
+}
+
+.table-specs .table-specs-tab {
+  flex: none;
+  margin-bottom: -2px;
+  padding: 8px 16px;
+  border-bottom: 2px solid transparent;
+  background: none;
+  color: var(--text-color);
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.table-specs .table-specs-tab[aria-selected='true'] {
+  border-bottom-color: var(--brand-blue);
+  font-weight: 700;
+}
+
+/* ---------- toolbar: switch left, expand all right ---------- */
+.table-specs .table-specs-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 32px 0 24px;
+}
+
+.table-specs .table-specs-toggle-all {
+  margin-left: auto;
+  padding: 0;
+  background: none;
+  color: var(--link-color);
+  font-weight: 400;
+}
+
+.table-specs .table-specs-toggle-all[hidden] {
+  display: none;
+}
+
+/* ---------- groups (accordions) ---------- */
+.table-specs .table-specs-panel[hidden],
+.table-specs .table-specs-group[hidden],
+.table-specs .table-specs-row[hidden],
+.table-specs .table-specs-rich[hidden] {
+  display: none;
+}
+
+.table-specs .table-specs-group {
+  border-bottom: 1px solid var(--rule-color);
+}
+
+.table-specs .table-specs-group-plain {
+  border-bottom: 0;
+}
+
+.table-specs .table-specs-group-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 20px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.table-specs .table-specs-group-title::-webkit-details-marker {
+  display: none;
+}
+
+/* plus / minus drawn in CSS */
+.table-specs .table-specs-group-title::after {
+  content: '';
+  flex: none;
+  width: 12px;
+  height: 12px;
+  margin-right: 10px;
+  background:
+    linear-gradient(currentcolor, currentcolor) center / 12px 2px no-repeat,
+    linear-gradient(currentcolor, currentcolor) center / 2px 12px no-repeat;
+}
+
+.table-specs .table-specs-group[open] > .table-specs-group-title::after {
+  background: linear-gradient(currentcolor, currentcolor) center / 12px 2px no-repeat;
+}
+
+.table-specs .table-specs-group-body {
+  padding: 0 20px 20px;
+}
+
+.table-specs .table-specs-group-plain .table-specs-group-body {
+  padding: 0;
+}
+
+.table-specs .table-specs-subtitle {
+  margin: 16px 0 8px;
+  font-size: var(--brand-body-size);
+  font-weight: 700;
+}
+
+.table-specs .table-specs-group-body > .table-specs-subtitle:first-child {
+  margin-top: 0;
+}
+
+/* label | value rows: 2 columns */
+.table-specs .table-specs-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 16px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--rule-color);
+}
+
+.table-specs .table-specs-row:last-child {
+  border-bottom: 0;
+}
+
+.table-specs .table-specs-row p,
+.table-specs .table-specs-rich > p:first-child {
+  margin: 0;
+}
+
+.table-specs .table-specs-value {
+  overflow-wrap: anywhere;
+}
+
+/* equipment lists: full width, 2 columns of bullets on wide screens */
+.table-specs .table-specs-rich ul {
+  margin: 0 0 16px;
+  padding-left: 20px;
+}
+
+/* focus ring */
+.table-specs .table-specs-tab:focus-visible,
+.table-specs .table-specs-toggle-all:focus-visible,
+.table-specs .table-specs-group-title:focus-visible {
+  outline: 2px solid #36c;
+  outline-offset: 2px;
+}
+
+@media (width >= 900px) {
+  .table-specs .table-specs-tabs {
+    justify-content: center;
+  }
+
+  .table-specs .table-specs-rich ul {
+    column-count: 2;
+    column-gap: 32px;
+  }
+
+  .table-specs .table-specs-rich li {
+    break-inside: avoid;
+  }
+}

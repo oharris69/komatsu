@@ -1,6 +1,6 @@
 /* Cards Tiles - values from komatsu.com computed styles (migration-work/cards-tiles-extracted.css)
    Default: photo tiles (.cards-tiles-grid / .cards-tiles-mosaic, set by JS)
-   Options: .solid (brand-blue link tiles), .chips (outline button links) */
+   Options: .solid (brand-blue link tiles), .chips (outline button links), .anchors (in-page jump links) */
 
 .cards-tiles > ul {
   list-style: none;
@@ -338,6 +338,49 @@
 @media (width >= 1200px) {
   .cards-tiles.solid .cards-tiles-card {
     width: 16.6666%;
+  }
+}
+
+/* ==========================================================================
+   Option: anchors - in-page jump links in a centered row (Overview, Features, ...)
+   ========================================================================== */
+.cards-tiles.anchors > ul {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  gap: 16px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.cards-tiles.anchors .cards-tiles-card {
+  flex: none;
+}
+
+.cards-tiles.anchors .cards-tiles-card-image {
+  display: none;
+}
+
+.cards-tiles.anchors .cards-tiles-anchor {
+  display: block;
+  padding: 10px 15px;
+  border-bottom: 2px solid var(--rule-color);
+  color: var(--text-color);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.cards-tiles.anchors .cards-tiles-anchor:hover,
+.cards-tiles.anchors .cards-tiles-anchor:focus-visible {
+  border-bottom-color: var(--brand-blue);
+  color: var(--brand-blue);
+}
+
+@media (width >= 900px) {
+  .cards-tiles.anchors > ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow-x: visible;
   }
 }
 

@@ -5,9 +5,67 @@ import { createOptimizedPicture } from '../../scripts/aem.js';
  * One block row per slide: image | caption (caption optional).
  * Single slide visible, prev/next buttons, dot indicators, swipe via scroll-snap.
  * No autoplay.
+ * Option `videos`: cell 1 poster picture | cell 2 YouTube link + optional <strong> title and
+ * description. A play button over the poster swaps in the (nocookie) YouTube embed; leaving the
+ * slide restores the poster.
  */
 
+const OPTION_CLASSES = ['videos'];
 let instanceCount = 0;
+
+/** YouTube id from watch / youtu.be / embed / shorts URLs */
+function getYoutubeId(href) {
+  try {
+    const url = new URL(href, window.location.href);
+    if (url.hostname.endsWith('youtu.be')) return url.pathname.split('/')[1] || null;
+    if (!url.hostname.includes('youtube')) return null;
+    if (url.searchParams.get('v')) return url.searchParams.get('v');
+    const match = url.pathname.match(/\/(?:embed|shorts|live)\/([^/?#]+)/);
+    return match ? match[1] : null;
+  } catch (e) {
+    return null;
+  }
+}
+
+/** videos option: turn a built slide into a click-to-play YouTube facade */
+function decorateVideoSlide(li) {
+  const link = [...li.querySelectorAll('.carousel-gallery-caption a')].find((a) => getYoutubeId(a.href));
+  if (!link) return;
+  const videoId = getYoutubeId(link.href);
+  const holder = link.closest('p');
+  if (holder && holder.textContent.trim() === link.textContent.trim()) holder.remove();
+  else link.remove();
+
+  const caption = li.querySelector('.carousel-gallery-caption');
+  const titleEl = caption?.querySelector('strong');
+  if (titleEl) titleEl.closest('p')?.classList.add('carousel-gallery-video-title');
+  if (caption && !caption.textContent.trim()) caption.remove();
+  const title = titleEl?.textContent.trim() || '';
+
+  const media = li.querySelector('.carousel-gallery-image');
+  media.classList.add('carousel-gallery-video');
+  const poster = [...media.childNodes];
+  const play = document.createElement('button');
+  play.type = 'button';
+  play.className = 'carousel-gallery-play';
+  play.setAttribute('aria-label', title ? `Play video: ${title}` : 'Play video');
+  media.append(play);
+
+  play.addEventListener('click', () => {
+    const iframe = document.createElement('iframe');
+    iframe.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(videoId)}?autoplay=1&rel=0`;
+    iframe.title = title || 'YouTube video';
+    iframe.allow = 'autoplay; encrypted-media; fullscreen; picture-in-picture';
+    media.replaceChildren(iframe);
+    li.classList.add('is-playing');
+    iframe.focus();
+  });
+  // leaving the slide stops playback by restoring the poster + play button
+  li.addEventListener('carousel-gallery-stop', () => {
+    media.replaceChildren(...poster, play);
+    li.classList.remove('is-playing');
+  });
+}
 
 function getCurrentIndex(block) {
   return Number(block.dataset.activeSlide || 0);
@@ -20,6 +78,9 @@ function updateActive(block, index) {
 
   slides.forEach((slide, i) => {
     const isActive = i === index;
+    if (!isActive && slide.classList.contains('is-playing')) {
+      slide.dispatchEvent(new Event('carousel-gallery-stop'));
+    }
     slide.setAttribute('aria-hidden', String(!isActive));
     slide.querySelectorAll('a, button, input, select, textarea, [tabindex]').forEach((el) => {
       if (isActive) el.removeAttribute('tabindex');
@@ -104,10 +165,12 @@ export default function decorate(block) {
   const id = `carousel-gallery-${instanceCount}`;
   const rows = [...block.children].filter((row) => row.textContent.trim() || row.querySelector('picture, img'));
   const total = rows.length;
+  const active = [...block.classList].filter((c) => OPTION_CLASSES.includes(c));
+  const videos = active.includes('videos');
 
   block.setAttribute('role', 'region');
   block.setAttribute('aria-roledescription', 'carousel');
-  if (!block.hasAttribute('aria-label')) block.setAttribute('aria-label', 'Image gallery');
+  if (!block.hasAttribute('aria-label')) block.setAttribute('aria-label', videos ? 'Video gallery' : 'Image gallery');
 
   const container = document.createElement('div');
   container.className = 'carousel-gallery-slides-container';
@@ -116,7 +179,11 @@ export default function decorate(block) {
   track.className = 'carousel-gallery-slides';
   track.id = `${id}-slides`;
   track.setAttribute('aria-live', 'polite');
-  rows.forEach((row, i) => track.append(buildSlide(row, i, total)));
+  rows.forEach((row, i) => {
+    const slide = buildSlide(row, i, total);
+    if (videos) decorateVideoSlide(slide);
+    track.append(slide);
+  });
   container.append(track);
 
   block.replaceChildren(container);

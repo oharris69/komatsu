@@ -11,11 +11,18 @@
  * no-ops for the other templates.
  */
 const TransformHook = { beforeTransform: 'beforeTransform', afterTransform: 'afterTransform' };
+// Temporary marker on section headings lifted out of model-page blocks (removed in afterTransform).
+const LIFTED_HEADING_ATTR = 'data-km-lifted-heading';
 
 export default function transform(hookName, element, payload) {
   const templateName = payload && payload.template && payload.template.name;
   const isTechLanding = templateName === 'technology-landing';
   const isEquipmentListing = templateName === 'equipment-category-listing';
+  // Dozer model pages (Run 7). Gated on the template name AND the model-page-only
+  // product header component (div.equipmentdetail), so every rule below is a no-op
+  // on homepage / article / technology-landing / equipment-category-listing.
+  const isModelDetail = templateName === 'equipment-model-detail'
+    && !!element.querySelector('div.equipmentdetail');
   // Templates whose hero-split / section 1 selector is `div.breadcrumb + div.splitcontentcomponent`.
   const keepBreadcrumbForParsing = isTechLanding || isEquipmentListing;
   const doc = element.ownerDocument || document;
@@ -67,11 +74,12 @@ export default function transform(hookName, element, payload) {
       '.tabs.panelcontainer .cmp-tabs > select.dropdown',
     ]);
 
-    if (isTechLanding || isEquipmentListing) {
+    if (isTechLanding || isEquipmentListing || isModelDetail) {
       // Tiles heading is a styled paragraph (cleaned.html):
       //   technology-landing section 5: <p class="tile-title">Learn more about ...</p>
       //   equipment-category-listing section 6: <p class="tile-title">Find what works for you</p>
-      //   (both inside <div class="tilescolorblocks tilesmall">)
+      //   equipment-model-detail section 13: <p class="tile-title">Find what works for you</p>
+      //   (all inside <div class="tilescolorblocks tilesmall">)
       // Promote to a real h2 (default content). The cards-tiles instance is
       // `.tilescolorblocks.tilesmall .tiles_color_blocks`, so the parser never sees it.
       element.querySelectorAll('.tilescolorblocks.tilesmall > p.tile-title').forEach((p) => {
@@ -125,6 +133,91 @@ export default function transform(hookName, element, payload) {
         'div.equipmentlisting > template',
       ]);
     }
+
+    if (isModelDetail) {
+      // Non-authorable widgets (cleaned.html, d71exi-24):
+      //   <div class="metricimperialconverter ..."> page-level Metric | Imperial switch next
+      //     to the breadcrumb (replaced by the blocks' shared units switch, scripts/units.js)
+      //   <div class="columncontainer ..."><div id="webthreesixty" class="columncontainer-main none">
+      //     <div class="aem-Grid"><div class="webrotate360 ..."> - 360 viewer, excluded by decision
+      //   <div class="anchor-links"> ... <li><a href="#threesixty"> 360° </a></li> - its jump link
+      //   <span class="cmp-link__screen-reader-only">opens in a new tab</span> - SR-only suffix
+      //     inside links (request-a-quote, resources rail, tiles); the blocks decide new-tab
+      //     behaviour from host/extension, so the suffix must not leak into link text.
+      //   <div class="machinespecs"> ... <br> - stray break before div.cmp-machinespecs
+      // Hidden-but-real content (collapsed spec groups .cmp-accordion__panel--hidden, inactive
+      // tab panels, gallery/carousel slides, equipment lists) is deliberately NOT touched.
+      WebImporter.DOMUtils.remove(element, [
+        '.metricimperialconverter',
+        'div.columncontainer:has(> .columncontainer-main > .aem-Grid > .webrotate360)',
+        'div.webrotate360',
+        'span.cmp-link__screen-reader-only',
+        'div.machinespecs > br',
+      ]);
+      element.querySelectorAll('.anchor-links li').forEach((li) => {
+        if (li.querySelector('a[href="#threesixty"]')) li.remove();
+      });
+
+      // Single page H1 = hero-product model name (h1.equipment-details__sku). Demote other
+      // source H1s that parsers copy by tag (none on d71exi-24; the components' default
+      // heading level is h1 when no headingType is set, per the split component comment):
+      //   promo XF hero (hero-banner parser picks `.hero-field h1, .hero-field h2, ...`)
+      //   split promo h1.split-content-title (columns-media parser copies heading.tagName)
+      // (The carousel's h1.carousel-title "Videos" is emitted as h2 by the carousel-gallery parser.)
+      element.querySelectorAll(
+        'div.experiencefragment div.herocomponent .hero-field h1, '
+        + 'div.splitcontentcomponent h1.split-content-title',
+      ).forEach((h1) => retag(h1, 'h2'));
+
+      // Section headings -> H2 default content at the top of each section, outside the block
+      // element the parser replaces (cleaned.html):
+      //   s5  div.featuresandbenefits > div.features-and-benefits#features > h2 "Features and benefits"
+      //   s6  div.machinespecs > div.cmp-machinespecs > div#specifications.cmp-tabs > h3 "Specifications"
+      //   s7  div.cardscontainer > div.cards-container#serviceandsupport > h2 "Support you can count on"
+      //   s8  div.tabs.panelcontainer > div#technology.cmp-tabs > div > h3 "Technology"
+      //   s12 div.relatedproducts > div > div.related-products > h2 "Related products"
+      //       (block instance is div.relatedproducts itself, so the heading goes before it;
+      //       komatsu-sections.js then puts the section <hr> between the two, so the heading
+      //       is moved back below that <hr> in afterTransform - see LIFTED_HEADING_ATTR)
+      const lift = (heading, target) => {
+        if (!heading || !target || !heading.textContent.trim()) return;
+        const h2 = doc.createElement('h2');
+        h2.setAttribute(LIFTED_HEADING_ATTR, '');
+        h2.textContent = heading.textContent.trim();
+        target.before(h2);
+        heading.remove();
+      };
+      element.querySelectorAll('div.featuresandbenefits > .features-and-benefits').forEach((block) => {
+        lift(block.querySelector(':scope > h2'), block);
+      });
+      element.querySelectorAll('div.machinespecs > .cmp-machinespecs').forEach((block) => {
+        lift(block.querySelector(':scope > .cmp-tabs > h3'), block);
+      });
+      element.querySelectorAll('div.cardscontainer > .cards-container').forEach((block) => {
+        lift(block.querySelector(':scope > h2'), block);
+      });
+      element.querySelectorAll('div.tabs.panelcontainer > .cmp-tabs').forEach((block) => {
+        const h3 = block.querySelector(':scope > div:first-child > h3');
+        if (!h3) return;
+        const wrapper = h3.parentElement;
+        lift(h3, block);
+        if (!wrapper.textContent.trim() && !wrapper.querySelector('img, picture')) wrapper.remove();
+      });
+      element.querySelectorAll('div.relatedproducts').forEach((block) => {
+        lift(block.querySelector('.related-products > h2'), block);
+      });
+
+      // s9 infographic (default content, no block):
+      //   div.columncontainer > div#infographic.columncontainer-main > div.columncontainer-title > h2
+      //   + div.aem-Grid > div.image > div.cmp-image > picture (kept as-is)
+      element.querySelectorAll('.columncontainer-main > .columncontainer-title').forEach((title) => {
+        const text = title.textContent.trim();
+        if (!text) { title.remove(); return; }
+        const h2 = doc.createElement('h2');
+        h2.textContent = text;
+        title.replaceWith(h2);
+      });
+    }
   }
 
   if (hookName === TransformHook.afterTransform) {
@@ -146,6 +239,17 @@ export default function transform(hookName, element, payload) {
     if (keepBreadcrumbForParsing) {
       // Breadcrumb deferred from beforeTransform (needed by the hero-split selector).
       WebImporter.DOMUtils.remove(element, ['div.breadcrumb', '.cmp-breadcrumb']);
+    }
+
+    if (isModelDetail) {
+      // Section headings lifted in beforeTransform must open their own section. Where the
+      // block element is also the section element (div.relatedproducts), komatsu-sections.js
+      // inserted the section <hr> between heading and block: move the heading below it.
+      element.querySelectorAll(`[${LIFTED_HEADING_ATTR}]`).forEach((h2) => {
+        const next = h2.nextElementSibling;
+        if (next && next.tagName === 'HR') next.after(h2);
+        h2.removeAttribute(LIFTED_HEADING_ATTR);
+      });
     }
 
     if (isEquipmentListing) {

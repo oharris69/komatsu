@@ -3,12 +3,20 @@
   "baseBlock": "cards",
   "canonicalModel": "standalone",
   "visualCharacteristics": "Two equal items centered (~350px each, not full width): photo on top, title (source h5, regular ~20px), paragraph, outlined 'Learn more' button. No border/background on items.",
-  "contentPattern": "2 rows: image | H3 title + paragraph + 'Learn more' link",
+  "contentPattern": "2 rows: image | H3 title + paragraph + 'Learn more' link ; outlined option: one row per card, one cell: H3 title + paragraph + link (no image)",
   "usage": {
-    "pagesUsing": ["/en-us/technology/smart-construction"],
-    "reuseCount": 1,
-    "lastUsed": "2026-10-13"
+    "pagesUsing": [
+      "/en-us/technology/smart-construction",
+      "/en-us/products/equipment/dozers/crawler-dozers/d71exi-24"
+    ],
+    "reuseCount": 2,
+    "lastUsed": "2026-10-15T19:00:38.763Z"
   },
-  "options": [],
+  "options": [
+    {
+      "class": "outlined",
+      "label": "Outlined: text-only cards with a 1px border (H3, paragraph, filled Learn more button), 3 per row"
+    }
+  ],
   "memberVariantIds": []
 }

@@ -1,5 +1,6 @@
 /* Cards Feature - centred feature cards: photo, title, text, outlined CTA.
-   Values extracted from komatsu.com .cardscontainer .cards-container (default). */
+   Values extracted from komatsu.com cardscontainer > cards-container (default).
+   Option .outlined: text-only bordered cards with a filled CTA ("Support you can count on"). */
 
 /* source heading sits 32px above the cards (collapses with the global 15px h2 margin) */
 .default-content-wrapper + .cards-feature-wrapper {
@@ -96,6 +97,33 @@
   content: none;
 }
 
+/* ---------- option: outlined (text-only bordered cards) ---------- */
+.cards-feature.outlined {
+  padding: 0;
+}
+
+.cards-feature.outlined > ul {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+  margin: 0;
+}
+
+.cards-feature.outlined .cards-feature-card {
+  width: auto;
+  padding: 32px;
+  border: 1px solid var(--rule-color);
+  border-radius: 4px;
+}
+
+.cards-feature.outlined .cards-feature-card-image {
+  display: none;
+}
+
+.cards-feature.outlined .cards-feature-card-body {
+  padding: 0;
+}
+
 @media (width >= 600px) {
   .cards-feature > ul {
     row-gap: 32px;
@@ -114,5 +142,18 @@
 
   .cards-feature .cards-feature-card {
     width: 33.33%;
+  }
+
+  .cards-feature.outlined {
+    padding: 0;
+  }
+
+  .cards-feature.outlined > ul {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 32px;
+  }
+
+  .cards-feature.outlined .cards-feature-card {
+    width: auto;
   }
 }

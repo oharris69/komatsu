@@ -296,6 +296,55 @@ main > .section:has(.cards-tiles:not(.solid, .chips, .cards-tiles-mosaic)) > .de
   margin-bottom: 32px;
 }
 
+/* shared Metric | Imperial (US) switch (scripts/units.js createUnitSwitch); track drawn from data-unit */
+main .units-switch {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #6e757a;
+  font-size: 14px;
+  line-height: 19px;
+  cursor: pointer;
+}
+
+main .units-switch::before {
+  content: '';
+  order: 1;
+  flex: none;
+  width: 52px;
+  height: 24px;
+  margin: 0 5px;
+  border-radius: 25px;
+  background: radial-gradient(circle 8px at 12px 50%, #fff 96%, transparent 100%) #ccc;
+  transition: background-color 0.4s;
+}
+
+main .units-switch[data-unit='imperial']::before {
+  background: radial-gradient(circle 8px at 38px 50%, #fff 96%, transparent 100%) var(--brand-blue);
+}
+
+main .units-switch .units-switch-option {
+  padding: 0;
+  background: none;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 19px;
+}
+
+main .units-switch .units-switch-option[data-unit='imperial'] {
+  order: 2;
+}
+
+main .units-switch .units-switch-option[aria-pressed='true'] {
+  font-weight: 700;
+}
+
+main .units-switch .units-switch-option:focus-visible {
+  outline: 2px solid #36c;
+  outline-offset: 2px;
+}
+
 @media (width >= 900px) {
   main > .section.article h1 {
     padding-bottom: 16px;

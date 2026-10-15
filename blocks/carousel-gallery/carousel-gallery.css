@@ -1,5 +1,5 @@
 /* Carousel Gallery - in-article image carousel
-   (komatsu.com #articleRight .carousel.panelcontainer: 3:2 photo with 4px radius,
+   (komatsu.com #articleRight carousel panelcontainer: 3:2 photo with 4px radius,
    14px muted caption, 10px dot indicators, 42px round arrows on desktop) */
 .carousel-gallery {
   position: relative;
@@ -213,4 +213,68 @@
   .carousel-gallery .carousel-gallery-slides {
     scroll-behavior: auto;
   }
+}
+
+/* ---------- option: videos (poster + play button, click swaps in the YouTube embed) ---------- */
+.carousel-gallery.videos .carousel-gallery-video {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 4px;
+  background-color: #000;
+}
+
+.carousel-gallery.videos .carousel-gallery-video picture,
+.carousel-gallery.videos .carousel-gallery-video img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+  object-fit: cover;
+}
+
+.carousel-gallery.videos .carousel-gallery-video iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.carousel-gallery.videos .carousel-gallery-play {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  width: 64px;
+  height: 64px;
+  padding: 0;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  background-color: rgb(0 0 0 / 35%);
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+/* play triangle */
+.carousel-gallery.videos .carousel-gallery-play::before {
+  content: '';
+  position: absolute;
+  inset: 50% auto auto 54%;
+  border-width: 12px 0 12px 20px;
+  border-style: solid;
+  border-color: transparent transparent transparent #fff;
+  transform: translate(-50%, -50%);
+}
+
+.carousel-gallery.videos .carousel-gallery-play:hover,
+.carousel-gallery.videos .carousel-gallery-play:focus-visible {
+  background-color: rgb(0 0 0 / 60%);
+}
+
+.carousel-gallery.videos .carousel-gallery-play:focus-visible {
+  outline: 2px solid #36c;
+  outline-offset: 2px;
+}
+
+.carousel-gallery.videos .carousel-gallery-video-title {
+  color: var(--text-color);
+  font-size: 16px;
+  line-height: 22px;
 }
