@@ -106,24 +106,56 @@ function findImages(html, host) {
   return [...found];
 }
 
+/**
+ * Edge Delivery refuses to preview a document with an image over 20MB, and multi-megabyte DAM
+ * originals are slow anyway: originals over this size are replaced by the DAM's web rendition.
+ */
+const MAX_IMAGE_BYTES = 10 * 1024 * 1024;
+const RENDITIONS = ['cq5dam.zoom.2048.2048.jpeg', 'cq5dam.web.1280.1280.jpeg'];
+
+/** first DAM rendition of an oversized asset that is within the size limit, or null */
+async function downloadRendition(key, file) {
+  // eslint-disable-next-line no-restricted-syntax
+  for (const name of RENDITIONS) {
+    try {
+      // eslint-disable-next-line no-await-in-loop
+      const meta = await download(`${key}/jcr:content/renditions/${name}`, file);
+      if (meta.bytes <= MAX_IMAGE_BYTES) return meta;
+    } catch (e) { /* rendition missing: try the next one */ }
+  }
+  return null;
+}
+
 async function copyImage(raw, ctx) {
   const url = new URL(raw.replace(/&amp;/g, '&'));
   const key = `${url.origin}${url.pathname}`;
-  if (ctx.manifest[key]) return { raw, entry: ctx.manifest[key], status: 'cached' };
+  const oversized = ctx.manifest[key] && ctx.manifest[key].bytes > MAX_IMAGE_BYTES;
+  if (ctx.manifest[key] && !oversized) return { raw, entry: ctx.manifest[key], status: 'cached' };
   let daPath = mediaPath(url);
   if (!path.extname(daPath)) daPath += '.jpg';
-  const type = TYPES[path.extname(daPath).toLowerCase()];
-  const entry = { daPath, url: `https://content.da.live/${ctx.target.org}/${ctx.target.repo}/${daPath}` };
+  let type = TYPES[path.extname(daPath).toLowerCase()];
+  let entry = { daPath, url: `https://content.da.live/${ctx.target.org}/${ctx.target.repo}/${daPath}` };
   if (ctx.dryRun) return { raw, entry, status: 'dry-run' };
-  if (await daExists(ctx.target, daPath)) {
+  if (!oversized && await daExists(ctx.target, daPath)) {
     ctx.manifest[key] = entry;
     return { raw, entry, status: 'exists' };
   }
   const file = path.join(ctx.tmp, path.basename(daPath));
-  const meta = await download(key, file);
+  let meta = await download(key, file);
+  if (meta.bytes > MAX_IMAGE_BYTES) {
+    const rendition = await downloadRendition(key, file);
+    if (!rendition) {
+      throw new Error(`${key}: ${(meta.bytes / 1e6).toFixed(1)}MB and no web rendition under the limit`);
+    }
+    meta = { ...rendition, original: meta.bytes };
+    daPath = `${daPath.replace(/\.[^./]+$/, '')}.jpg`;
+    type = 'image/jpeg';
+    entry = { daPath, url: `https://content.da.live/${ctx.target.org}/${ctx.target.repo}/${daPath}` };
+  }
   await daUpload(ctx.target, daPath, file, type || meta.type);
   fs.rmSync(file);
   ctx.manifest[key] = { ...entry, bytes: meta.bytes, type: meta.type };
+  if (meta.original) ctx.manifest[key].originalBytes = meta.original;
   return { raw, entry: ctx.manifest[key], status: 'uploaded' };
 }
 
