@@ -215,24 +215,43 @@
   }
 }
 
-/* ---------- option: videos (poster + play button, click swaps in the YouTube embed) ---------- */
+/* ---------- option: videos (poster + play button, click swaps in the YouTube embed) ----------
+   komatsu.com model-page "Videos" carousel: 960px centred column, 3:2 poster with no radius,
+   70px white ring play icon, 16px/22.4px dark captions, arrows level with the dots. */
+.carousel-gallery.videos {
+  max-width: 960px;
+  margin-inline: auto;
+
+  /* section h2 supplies the title; source leaves an empty 15px-margin heading above the slide */
+  padding: 15px 0 0;
+}
+
 .carousel-gallery.videos .carousel-gallery-video {
   position: relative;
-  aspect-ratio: 16 / 9;
+  box-sizing: content-box;
+  aspect-ratio: 3 / 2;
+
+  /* source iframe sits inline under the poster, adding a 5px black strip below the 3:2 frame */
+  padding-bottom: 5px;
   overflow: hidden;
-  border-radius: 4px;
+  border-radius: 0;
   background-color: #000;
 }
 
 .carousel-gallery.videos .carousel-gallery-video picture,
 .carousel-gallery.videos .carousel-gallery-video img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   aspect-ratio: auto;
   object-fit: cover;
+  border-radius: 0;
 }
 
 .carousel-gallery.videos .carousel-gallery-video iframe {
+  position: absolute;
+  inset: 0;
   display: block;
   width: 100%;
   height: 100%;
@@ -241,40 +260,58 @@
 
 .carousel-gallery.videos .carousel-gallery-play {
   position: absolute;
-  inset: 50% auto auto 50%;
-  width: 64px;
-  height: 64px;
+
+  /* centred on the 3:2 frame, above the 5px strip */
+  inset: calc(50% - 2.5px) auto auto 50%;
+  width: 70px;
+  height: 70px;
+  margin: 0;
   padding: 0;
-  border: 3px solid #fff;
+  border: 0;
   border-radius: 50%;
-  background-color: rgb(0 0 0 / 35%);
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='104' height='102' viewBox='0 0 104 102' fill='none'%3E%3Cpath d='M40.8547 70.125L70.8888 51L40.8547 31.875V70.125ZM51.5812 93.5C45.6458 93.5 40.0681 92.3844 34.8479 90.1531C29.6277 87.9219 25.0868 84.8938 21.2253 81.0687C17.3637 77.2438 14.3067 72.7458 12.0541 67.575C9.80157 62.4042 8.67529 56.8792 8.67529 51C8.67529 45.1208 9.80157 39.5958 12.0541 34.425C14.3067 29.2542 17.3637 24.7563 21.2253 20.9313C25.0868 17.1062 29.6277 14.0781 34.8479 11.8469C40.0681 9.61563 45.6458 8.5 51.5812 8.5C57.5165 8.5 63.0942 9.61563 68.3144 11.8469C73.5347 14.0781 78.0755 17.1062 81.9371 20.9313C85.7986 24.7563 88.8556 29.2542 91.1082 34.425C93.3607 39.5958 94.487 45.1208 94.487 51C94.487 56.8792 93.3607 62.4042 91.1082 67.575C88.8556 72.7458 85.7986 77.2438 81.9371 81.0687C78.0755 84.8938 73.5347 87.9219 68.3144 90.1531C63.0942 92.3844 57.5165 93.5 51.5812 93.5ZM51.5812 85C61.1635 85 69.2798 81.7063 75.9302 75.1188C82.5806 68.5312 85.9058 60.4917 85.9058 51C85.9058 41.5083 82.5806 33.4688 75.9302 26.8813C69.2798 20.2938 61.1635 17 51.5812 17C41.9988 17 33.8825 20.2938 27.2321 26.8813C20.5817 33.4688 17.2565 41.5083 17.2565 51C17.2565 60.4917 20.5817 68.5312 27.2321 75.1188C33.8825 81.7063 41.9988 85 51.5812 85Z' fill='white'/%3E%3C/svg%3E") center / contain no-repeat;
   transform: translate(-50%, -50%);
   cursor: pointer;
 }
 
-/* play triangle */
-.carousel-gallery.videos .carousel-gallery-play::before {
-  content: '';
-  position: absolute;
-  inset: 50% auto auto 54%;
-  border-width: 12px 0 12px 20px;
-  border-style: solid;
-  border-color: transparent transparent transparent #fff;
-  transform: translate(-50%, -50%);
-}
-
-.carousel-gallery.videos .carousel-gallery-play:hover,
 .carousel-gallery.videos .carousel-gallery-play:focus-visible {
-  background-color: rgb(0 0 0 / 60%);
-}
-
-.carousel-gallery.videos .carousel-gallery-play:focus-visible {
-  outline: 2px solid #36c;
+  outline: 2px solid #fff;
   outline-offset: 2px;
 }
 
-.carousel-gallery.videos .carousel-gallery-video-title {
+/* caption: source text component directly under the frame, 15px after every paragraph */
+.carousel-gallery.videos .carousel-gallery-caption {
+  padding: 0;
   color: var(--text-color);
   font-size: 16px;
-  line-height: 22px;
+  line-height: 22.4px;
+}
+
+.carousel-gallery.videos .carousel-gallery-caption p {
+  margin: 0 0 15px;
+}
+
+.carousel-gallery.videos .carousel-gallery-caption p + p {
+  margin-top: 0;
+}
+
+.carousel-gallery.videos .carousel-gallery-video-title {
+  font-weight: 700;
+}
+
+/* source swaps slides in place, so the carousel takes the active slide's height: drop the
+   captions of off-screen slides so a long description does not pad every other slide */
+.carousel-gallery.videos .carousel-gallery-slides {
+  align-items: flex-start;
+}
+
+.carousel-gallery.videos .carousel-gallery-slide[aria-hidden='true'] .carousel-gallery-caption {
+  display: none;
+}
+
+@media (width >= 900px) {
+  .carousel-gallery.videos .carousel-gallery-prev,
+  .carousel-gallery.videos .carousel-gallery-next {
+    top: -20px;
+  }
 }

@@ -7,7 +7,7 @@ import { createOptimizedPicture } from '../../scripts/aem.js';
  * No autoplay.
  * Option `videos`: cell 1 poster picture | cell 2 YouTube link + optional <strong> title and
  * description. A play button over the poster swaps in the (nocookie) YouTube embed; leaving the
- * slide restores the poster.
+ * slide restores the poster. Arrows/keys wrap around (first <-> last) in this option.
  */
 
 const OPTION_CLASSES = ['videos'];
@@ -95,14 +95,19 @@ function updateActive(block, index) {
 
   const prev = block.querySelector('.carousel-gallery-prev');
   const next = block.querySelector('.carousel-gallery-next');
-  if (prev) prev.disabled = index === 0;
-  if (next) next.disabled = index === slides.length - 1;
+  // `videos` wraps around like the source carousel, so its arrows never disable
+  const loops = block.classList.contains('videos');
+  if (prev) prev.disabled = !loops && index === 0;
+  if (next) next.disabled = !loops && index === slides.length - 1;
 }
 
 function showSlide(block, index) {
   const slides = block.querySelectorAll('.carousel-gallery-slide');
   if (!slides.length) return;
-  const target = Math.max(0, Math.min(index, slides.length - 1));
+  const total = slides.length;
+  const target = block.classList.contains('videos')
+    ? ((index % total) + total) % total
+    : Math.max(0, Math.min(index, total - 1));
   const track = block.querySelector('.carousel-gallery-slides');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   track.scrollTo({

@@ -6,7 +6,7 @@ import {
  * Table Specs: machine specifications.
  * Rows:
  *   single cell <h3>  -> tab (tabs render only when there is more than one)
- *   single cell <h4>  -> collapsible group inside the current tab (first group open)
+ *   single cell <h4>  -> collapsible group in the current tab (all closed initially, as on source)
  *   single cell <h5>  -> sub-group title inside the current group
  *   Label | Value | Units -> data row; Units = imperial | metric | empty (always shown)
  *   equipment rows: list content in the Value cell, Label empty or "Equipment", Units per system
@@ -130,14 +130,13 @@ export default function decorate(block) {
   const panels = tabs.map((t, ti) => {
     const panel = el('div', 'table-specs-panel');
     panel.id = `${id}-panel-${ti}`;
-    t.groups.forEach((g, gi) => {
+    t.groups.forEach((g) => {
       const body = el('div', 'table-specs-group-body', ...g.items.map(renderItem));
       if (!g.title) {
         panel.append(el('div', 'table-specs-group table-specs-group-plain', body));
         return;
       }
       const details = el('details', 'table-specs-group', el('summary', 'table-specs-group-title', g.title), body);
-      details.open = gi === 0;
       groupsAll.push({ details, panel });
       panel.append(details);
     });
@@ -176,8 +175,12 @@ export default function decorate(block) {
     tablist = el('div', 'table-specs-tabs');
     tablist.setAttribute('role', 'tablist');
     tabs.forEach((t, i) => {
-      const btn = el('button', 'table-specs-tab', t.title);
+      // first word always visible; the rest is hidden on mobile (source shows "Full", "Standard")
+      const [first, ...rest] = t.title.split(' ');
+      const more = rest.length ? el('span', 'table-specs-tab-more', ` ${rest.join(' ')}`) : null;
+      const btn = el('button', 'table-specs-tab', first, more);
       btn.type = 'button';
+      if (more) btn.setAttribute('aria-label', t.title);
       btn.id = `${id}-tab-${i}`;
       btn.setAttribute('role', 'tab');
       btn.setAttribute('aria-controls', panels[i].id);

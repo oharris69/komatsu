@@ -97,22 +97,24 @@
   content: none;
 }
 
-/* ---------- option: outlined (text-only bordered cards) ---------- */
+/* ---------- option: outlined (text-only bordered cards) ----------
+   Values from komatsu.com cards-container.noImage ("Support you can count on"):
+   bordered card is the whole-card link; hover bolds the title and lifts the CTA. */
 .cards-feature.outlined {
   padding: 0;
 }
 
 .cards-feature.outlined > ul {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 16px;
+  row-gap: 20px;
   margin: 0;
+  padding: 0 16px;
 }
 
 .cards-feature.outlined .cards-feature-card {
-  width: auto;
-  padding: 32px;
-  border: 1px solid var(--rule-color);
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  border: 1px solid #8f969a;
   border-radius: 4px;
 }
 
@@ -124,6 +126,44 @@
   padding: 0;
 }
 
+.cards-feature.outlined .cards-feature-card-body :is(h1, h2, h3, h4, h5, h6) {
+  transition: font-weight 0.3s;
+}
+
+.cards-feature.outlined .cards-feature-card:hover .cards-feature-card-body :is(h1, h2, h3, h4, h5, h6) {
+  font-weight: 500;
+}
+
+/* CTA sits directly under the text (15px paragraph margin on source) */
+.cards-feature.outlined .cards-feature-card-body p.button-container {
+  padding-top: 0;
+}
+
+main .cards-feature.outlined a.button:any-link {
+  border: 0;
+  background-color: var(--brand-blue);
+  color: #fff;
+}
+
+main .cards-feature.outlined .cards-feature-card:is(:hover, :focus-within) a.button:any-link {
+  background-color: var(--brand-button-border);
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 30%), 0 1px 3px 1px rgb(0 0 0 / 15%);
+  color: #fff;
+}
+
+/* whole card is clickable, like the source card link */
+main .cards-feature.outlined a.button:any-link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  float: none;
+  width: auto;
+  height: auto;
+  padding: 0;
+  border-radius: 4px;
+}
+
 @media (width >= 600px) {
   .cards-feature > ul {
     row-gap: 32px;
@@ -132,6 +172,17 @@
 
   .cards-feature .cards-feature-card {
     width: 50%;
+  }
+
+  .cards-feature.outlined > ul {
+    gap: 32px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .cards-feature.outlined .cards-feature-card {
+    width: calc((100% - 32px) / 2);
+    padding: 32px;
   }
 }
 
@@ -148,12 +199,7 @@
     padding: 0;
   }
 
-  .cards-feature.outlined > ul {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 32px;
-  }
-
   .cards-feature.outlined .cards-feature-card {
-    width: auto;
+    width: calc((100% - 64px) / 3);
   }
 }

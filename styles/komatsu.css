@@ -296,6 +296,40 @@ main > .section:has(.cards-tiles:not(.solid, .chips, .cards-tiles-mosaic)) > .de
   margin-bottom: 32px;
 }
 
+/*
+ * Equipment model pages (main has a hero-product): komatsu.com sets every component on the grey page
+ * as an inset white card (1px rule, 4px radius, soft shadow) at the section gutter (52px desktop,
+ * 20px mobile). The product header, resources and anchor bar draw their own frame, so those
+ * sections only keep the gutter.
+ */
+main:has(.hero-product) > .section.white-container {
+  margin-inline: 0;
+  padding: 0;
+  background-color: transparent;
+}
+
+main:has(.hero-product) > .section.white-container > div {
+  padding: 0 var(--brand-section-gutter);
+}
+
+main:has(.hero-product) > .section.white-container:not(:has(.hero-product, .columns-resources, .cards-tiles.anchors)) {
+  margin-inline: var(--brand-section-gutter);
+  padding: 32px 0;
+  border: 1px solid var(--rule-color);
+  border-radius: 4px;
+  background-color: var(--surface-color);
+  box-shadow: rgb(0 0 0 / 16%) 0 1px 2px 0;
+}
+
+main:has(.hero-product) > .section.white-container:not(:has(.hero-product, .columns-resources, .cards-tiles.anchors)) > div {
+  padding: 0 var(--brand-content-gutter);
+}
+
+/* the promo banner is inset at the gutter and runs straight into the anchor bar */
+main:has(.hero-product) > .section.hero-banner-container:has(.hero-banner.compact) {
+  margin: 0 var(--brand-section-gutter);
+}
+
 /* shared Metric | Imperial (US) switch (scripts/units.js createUnitSwitch); track drawn from data-unit */
 main .units-switch {
   display: flex;
@@ -315,12 +349,20 @@ main .units-switch::before {
   height: 24px;
   margin: 0 5px;
   border-radius: 25px;
-  background: radial-gradient(circle 8px at 12px 50%, #fff 96%, transparent 100%) #ccc;
-  transition: background-color 0.4s;
+
+  /* 16px knob, 4px inset; slides 26px (source .slider::before translateX(26px), 0.4s) */
+  background: #ccc radial-gradient(circle 8px at 12px 50%, #fff 96%, transparent 100%) no-repeat 0 0 / 100% 100%;
+  cursor: pointer;
+  transition: background-color 0.4s, background-position 0.4s;
 }
 
 main .units-switch[data-unit='imperial']::before {
-  background: radial-gradient(circle 8px at 38px 50%, #fff 96%, transparent 100%) var(--brand-blue);
+  background-color: var(--brand-blue);
+  background-position: 26px 0;
+}
+
+main .units-switch:focus-within::before {
+  box-shadow: var(--brand-blue) 0 0 1px;
 }
 
 main .units-switch .units-switch-option {
@@ -352,6 +394,11 @@ main .units-switch .units-switch-option:focus-visible {
 
   main > .section.white-container:has(.cards-news) {
     margin-inline: var(--brand-section-gutter);
+  }
+
+  /* model-page anchor bar: 32px above and below the links on desktop (none on mobile) */
+  main:has(.hero-product) > .section.white-container:has(.cards-tiles.anchors) {
+    padding: 32px 0;
   }
 
   main > .section.brand-blue > .default-content-wrapper h2 {

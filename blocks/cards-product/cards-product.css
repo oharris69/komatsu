@@ -635,37 +635,98 @@
   }
 }
 
-/* ---------- option: related (listed models only, one row; no sidebar/toolbar/pager) ---------- */
-.cards-product.related .cards-product-grid {
-  grid-template-columns: none;
-  grid-auto-columns: 85%;
-  grid-auto-flow: column;
-  margin: 0;
-  padding: 0 0 8px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  list-style: none;
-}
-
-.cards-product.related .cards-product-card {
-  scroll-snap-align: start;
+/* ---------- option: related (listed models only, one row; no sidebar/toolbar/pager) ----------
+   Values from www.komatsu.com .relatedproducts (see migration-work/cards-product-related-extracted.css).
+   Centred wrapping row of fixed-width tiles: 1 per row, 2 from 450px, up to 282px each from 900px. */
+.cards-product.related {
+  padding: 0;
+  background-color: transparent;
 }
 
 .cards-product.related.cards-product-empty {
   display: none;
 }
 
-@media (width >= 600px) {
-  .cards-product.related .cards-product-grid {
-    grid-template-columns: none;
-    grid-auto-columns: calc((100% - 16px) / 2);
+.cards-product.related .cards-product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px;
+}
+
+.cards-product.related .cards-product-card {
+  flex: 1 1 100%;
+  max-width: 100%;
+  padding: 0;
+  border-color: var(--rule-color);
+}
+
+.cards-product.related .cards-product-card:hover {
+  box-shadow: rgb(0 0 0 / 25%) 0 4px 4px 0;
+}
+
+.cards-product.related .cards-product-image {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.cards-product.related .cards-product-image img {
+  object-fit: fill;
+}
+
+.cards-product.related .cards-product-body {
+  gap: 0;
+  padding: 10px;
+}
+
+.cards-product.related .cards-product-title {
+  margin: 0 0 12px;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+.cards-product.related .cards-product-specs {
+  margin: 0 0 12px;
+}
+
+.cards-product.related .cards-product-specs > div {
+  gap: 0;
+}
+
+.cards-product.related .cards-product-specs dt,
+.cards-product.related .cards-product-specs dd {
+  flex: 0 1 50%;
+  padding: 8px 4px;
+  color: var(--muted-text-color);
+  font-size: clamp(0.66rem, 1vw, 0.75rem);
+  line-height: clamp(0.99rem, 1.6vw, 1.0675rem);
+}
+
+.cards-product.related .cards-product-cta {
+  margin-top: auto;
+  padding: 8px 32px;
+  border: 2px solid var(--brand-blue);
+  transition: 0.3s;
+}
+
+.cards-product.related .cards-product-card:hover .cards-product-cta {
+  border-color: #36c;
+  background-color: var(--brand-button-border);
+}
+
+@media (width >= 450px) {
+  .cards-product.related .cards-product-card {
+    max-width: calc(50% - 32px);
   }
 }
 
 @media (width >= 900px) {
-  .cards-product.related .cards-product-grid {
-    grid-template-columns: none;
-    grid-auto-columns: calc((100% - 56px) / 3);
-    justify-content: center;
+  .cards-product.related .cards-product-card {
+    max-width: 282px;
+  }
+
+  .cards-product.related .cards-product-cta {
+    margin-top: auto;
   }
 }

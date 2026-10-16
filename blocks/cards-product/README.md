@@ -12,7 +12,7 @@ Single block table. Content: one row, one cell of content.
 
 | Variation | Option class |
 | --- | --- |
-| Related: only the models listed in a Models row, as one row of tiles (3 across desktop, swipe on mobile); no filters, toolbar, paging or unit switch | `related` |
+| Related: only the models listed in a Models row, as a centred row of tiles (282px tiles from 900px, 2 per row from 450px, stacked below); no filters, toolbar, paging or unit switch | `related` |
 
 ## Universal Editor fields
 
@@ -65,6 +65,6 @@ params OR within a group. The block keeps the URL in sync via `history.replaceSt
 | Specs | `Blade capacity (yd³) / Blade capacity (m³): blade-capacity, Horsepower (HP) / Horsepower (kW): horsepower, ...` |
 | Units | `imperial` |
 
-Renders only the listed models with the listing tile markup, in a single row (3 across from 900px, 2 from 600px,
-one per view with horizontal swipe below). No sidebar, toolbar, paging or unit switch: spec rows follow the shared
+Renders only the listed models with the listing tile markup, as a centred, wrapping row like the source
+"Related products" module (tiles up to 282px wide from 900px, 2 per row from 450px, stacked below; no carousel). No sidebar, toolbar, paging or unit switch: spec rows follow the shared
 page unit preference. "Related products" H2 is default content above the block.

@@ -20,7 +20,7 @@ N/A (Document Authoring project)
 
 - Single block, rows in order
 - single-cell <h3> row = tab (Full specs, Standard equipment, Optional equipment; tabs render only when more than one)
-- single-cell <h4> row = collapsible group in the current tab (first group open, Expand all / Close all)
+- single-cell <h4> row = collapsible group in the current tab (all closed initially as on komatsu.com; Expand all / Close all)
 - single-cell <h5> row = sub-group title
 - data row: Label | Value | Units (imperial, metric or empty = always shown)
 - equipment rows: Label empty or 'Equipment' | list content (bullets, sub-headings, footnotes) | Units

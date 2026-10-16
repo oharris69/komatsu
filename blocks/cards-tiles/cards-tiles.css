@@ -344,43 +344,66 @@
 /* ==========================================================================
    Option: anchors - in-page jump links in a centered row (Overview, Features, ...)
    ========================================================================== */
+
+/* mobile: one scrollable row (source: nowrap, 16px gap + 15px item margin, 10px bottom pad) */
 .cards-tiles.anchors > ul {
   display: flex;
   flex-wrap: nowrap;
   justify-content: flex-start;
   gap: 16px;
+  margin: 0;
+  padding: 0 0 10px;
   overflow-x: auto;
   scrollbar-width: none;
+  text-align: center;
+}
+
+.cards-tiles.anchors > ul::-webkit-scrollbar {
+  display: none;
 }
 
 .cards-tiles.anchors .cards-tiles-card {
   flex: none;
+  margin: 0 15px 0 0;
 }
 
 .cards-tiles.anchors .cards-tiles-card-image {
   display: none;
 }
 
-.cards-tiles.anchors .cards-tiles-anchor {
+.cards-tiles.anchors .cards-tiles-card-body p {
+  margin: 0;
+}
+
+/* source: li padding 0 15px 16px, 1px #ededed underline, 16px/22px text, no hover change */
+.cards-tiles.anchors .cards-tiles-anchor:any-link {
   display: block;
-  padding: 10px 15px;
-  border-bottom: 2px solid var(--rule-color);
-  color: var(--text-color);
+  padding: 0 15px 16px;
+  border-bottom: 1px solid var(--rule-color);
+  color: var(--brand-text-color);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
   text-decoration: none;
   white-space: nowrap;
 }
 
-.cards-tiles.anchors .cards-tiles-anchor:hover,
-.cards-tiles.anchors .cards-tiles-anchor:focus-visible {
-  border-bottom-color: var(--brand-blue);
-  color: var(--brand-blue);
+.cards-tiles.anchors .cards-tiles-anchor:any-link:hover {
+  color: var(--brand-link-hover-color);
+  text-decoration: none;
 }
 
 @media (width >= 900px) {
   .cards-tiles.anchors > ul {
     flex-wrap: wrap;
     justify-content: center;
+    padding: 0;
     overflow-x: visible;
+  }
+
+  .cards-tiles.anchors .cards-tiles-card {
+    margin: 0;
   }
 }
 

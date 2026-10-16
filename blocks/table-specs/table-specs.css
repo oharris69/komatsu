@@ -1,58 +1,92 @@
-/* table-specs: tabs, unit switch + expand all, accordion groups of label/value rows. Structural only. */
+/*
+ * table-specs: komatsu.com machine specifications (.cmp-machinespecs).
+ * Tabs, unit switch + expand all, accordion groups of label/value rows, equipment lists.
+ * Source breakpoints: < 450px (mobile), 450-1279px, >= 1280px.
+ * The white card is the section style (white-container); the h2 is section default content.
+ */
+
+/* inline padding = source card border (1px) + tab container padding (0 / 32px / 128px) */
 .table-specs {
-  max-width: 918px;
-  margin: 0 auto;
+  padding: 0 1px;
+  color: var(--text-color);
+  font-size: var(--brand-body-size);
+  line-height: var(--brand-body-line);
 }
 
 /* ---------- tabs ---------- */
 .table-specs .table-specs-tabs {
   display: flex;
-  justify-content: flex-start;
-  gap: 0;
-  overflow-x: auto;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0 5px;
   border-bottom: 2px solid var(--rule-color);
-  scrollbar-width: none;
+  text-align: center;
 }
 
-.table-specs .table-specs-tab {
-  flex: none;
-  margin-bottom: -2px;
+main .table-specs .table-specs-tab {
+  margin: 0;
   padding: 8px 16px;
-  border-bottom: 2px solid transparent;
+  border: 0;
+  border-bottom: 1px solid transparent;
+  border-radius: 0;
   background: none;
   color: var(--text-color);
+  font-size: 16px;
   font-weight: 400;
+  line-height: 22px;
+  text-align: center;
   white-space: nowrap;
+  cursor: pointer;
 }
 
-.table-specs .table-specs-tab[aria-selected='true'] {
-  border-bottom-color: var(--brand-blue);
+main .table-specs .table-specs-tab[aria-selected='true'] {
+  margin-bottom: -1px;
+  border-bottom: 2px solid #36c;
   font-weight: 700;
 }
 
-/* ---------- toolbar: switch left, expand all right ---------- */
-.table-specs .table-specs-toolbar {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 32px 0 24px;
-}
-
-.table-specs .table-specs-toggle-all {
-  margin-left: auto;
-  padding: 0;
-  background: none;
-  color: var(--link-color);
-  font-weight: 400;
-}
-
-.table-specs .table-specs-toggle-all[hidden] {
+/* mobile tab labels show the first word only ("Full", "Standard", "Optional") */
+.table-specs .table-specs-tab-more {
   display: none;
 }
 
-/* ---------- groups (accordions) ---------- */
+/* ---------- toolbar: unit switch + expand / close all ---------- */
+.table-specs .table-specs-toolbar {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin-bottom: 32px;
+  padding: 20px 0 0;
+}
+
+.table-specs .table-specs-toolbar .units-switch {
+  justify-content: center;
+  min-height: 34px;
+  margin-bottom: 16px;
+}
+
+/* mobile: outlined full-width button */
+main .table-specs .table-specs-toggle-all {
+  display: block;
+  margin: 8px 20px 0;
+  padding: 10px 0;
+  border: 1px solid var(--brand-blue);
+  border-radius: 4px;
+  background-color: var(--surface-color);
+  color: var(--brand-blue);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: var(--brand-body-line);
+  text-align: center;
+  cursor: pointer;
+}
+
+/* ---------- panels / visibility ---------- */
+.table-specs .table-specs-panel {
+  padding-bottom: 20px;
+}
+
+.table-specs .table-specs-toggle-all[hidden],
 .table-specs .table-specs-panel[hidden],
 .table-specs .table-specs-group[hidden],
 .table-specs .table-specs-row[hidden],
@@ -60,91 +94,25 @@
   display: none;
 }
 
-.table-specs .table-specs-group {
-  border-bottom: 1px solid var(--rule-color);
-}
-
-.table-specs .table-specs-group-plain {
-  border-bottom: 0;
-}
-
+/* ---------- accordion groups ---------- */
 .table-specs .table-specs-group-title {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 18px 20px;
-  cursor: pointer;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--rule-color);
+  color: var(--text-color);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
   list-style: none;
+  cursor: pointer;
 }
 
 .table-specs .table-specs-group-title::-webkit-details-marker {
   display: none;
 }
 
-/* plus / minus drawn in CSS */
-.table-specs .table-specs-group-title::after {
-  content: '';
-  flex: none;
-  width: 12px;
-  height: 12px;
-  margin-right: 10px;
-  background:
-    linear-gradient(currentcolor, currentcolor) center / 12px 2px no-repeat,
-    linear-gradient(currentcolor, currentcolor) center / 2px 12px no-repeat;
-}
-
-.table-specs .table-specs-group[open] > .table-specs-group-title::after {
-  background: linear-gradient(currentcolor, currentcolor) center / 12px 2px no-repeat;
-}
-
-.table-specs .table-specs-group-body {
-  padding: 0 20px 20px;
-}
-
-.table-specs .table-specs-group-plain .table-specs-group-body {
-  padding: 0;
-}
-
-.table-specs .table-specs-subtitle {
-  margin: 16px 0 8px;
-  font-size: var(--brand-body-size);
-  font-weight: 700;
-}
-
-.table-specs .table-specs-group-body > .table-specs-subtitle:first-child {
-  margin-top: 0;
-}
-
-/* label | value rows: 2 columns */
-.table-specs .table-specs-row {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 16px;
-  padding: 10px 0;
-  border-bottom: 1px solid var(--rule-color);
-}
-
-.table-specs .table-specs-row:last-child {
-  border-bottom: 0;
-}
-
-.table-specs .table-specs-row p,
-.table-specs .table-specs-rich > p:first-child {
-  margin: 0;
-}
-
-.table-specs .table-specs-value {
-  overflow-wrap: anywhere;
-}
-
-/* equipment lists: full width, 2 columns of bullets on wide screens */
-.table-specs .table-specs-rich ul {
-  margin: 0 0 16px;
-  padding-left: 20px;
-}
-
-/* focus ring */
+/* ---------- focus ---------- */
 .table-specs .table-specs-tab:focus-visible,
 .table-specs .table-specs-toggle-all:focus-visible,
 .table-specs .table-specs-group-title:focus-visible {
@@ -152,17 +120,160 @@
   outline-offset: 2px;
 }
 
-@media (width >= 900px) {
+/* +/- glyph: 1.3rem bold, 32px line box (sets the 60px row height) */
+.table-specs .table-specs-group-title::after {
+  content: '+';
+  flex: none;
+  margin-left: auto;
+  margin-right: 10px;
+  padding-left: 16px;
+  font-size: 20.8px;
+  font-weight: 700;
+  line-height: 32px;
+}
+
+.table-specs .table-specs-group[open] > .table-specs-group-title {
+  border-bottom: 3px solid var(--brand-blue);
+  color: var(--brand-blue);
+  font-weight: 700;
+}
+
+.table-specs .table-specs-group[open] > .table-specs-group-title::after {
+  content: '\2212';
+}
+
+.table-specs .table-specs-group-body {
+  padding: 0 32px 44px;
+  border-bottom: 1px solid var(--rule-color);
+}
+
+.table-specs .table-specs-group-plain .table-specs-group-body {
+  padding: 0;
+  border-bottom: 0;
+}
+
+/* sub-group title (source .cmp-machinespecs__child-char) */
+.table-specs .table-specs-subtitle {
+  margin: 44px 0 0;
+  padding: 13px 0;
+  border-bottom: 2px solid var(--brand-blue);
+  color: var(--text-color);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: var(--brand-body-line);
+}
+
+.table-specs .table-specs-group-body > .table-specs-subtitle:first-child,
+.table-specs .table-specs-rich > .table-specs-subtitle:first-child {
+  margin-top: 0;
+}
+
+/* ---------- label | value rows (50 / 50) ---------- */
+.table-specs .table-specs-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  padding: 16px 0;
+  border-top: 1px solid #8f969a;
+}
+
+/* first row of a segment has no rule (a hidden first row leaves the rule on the next, as on the source) */
+.table-specs .table-specs-subtitle + .table-specs-row,
+.table-specs .table-specs-group-body > .table-specs-row:first-child {
+  border-top: 0;
+}
+
+.table-specs .table-specs-row p {
+  margin: 0;
+}
+
+.table-specs .table-specs-label p {
+  display: inline;
+}
+
+.table-specs .table-specs-label::after {
+  content: ':';
+}
+
+.table-specs .table-specs-value {
+  overflow-wrap: anywhere;
+}
+
+/* ---------- equipment lists ---------- */
+.table-specs .table-specs-rich ul {
+  margin: 0 0 0 20px;
+  padding: 0;
+  list-style: none;
+}
+
+.table-specs .table-specs-rich li {
+  padding: 8px;
+  font-size: 14px;
+  line-height: 19px;
+  list-style: disc inside;
+}
+
+/* list sub-headings and footnotes (source .cmp-machinespecs__equipment-list p) */
+.table-specs .table-specs-rich > p,
+.table-specs .table-specs-rich li > p + p {
+  margin: 20px 0 15px;
+  padding: 6px 30px;
+  border-bottom: 1px solid var(--rule-color);
+  color: var(--text-color);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.table-specs .table-specs-rich li > p:first-child {
+  display: inline;
+  margin: 0;
+}
+
+@media (width >= 450px) {
+  .table-specs {
+    padding: 0 33px;
+  }
+
   .table-specs .table-specs-tabs {
-    justify-content: center;
+    padding: 0;
   }
 
-  .table-specs .table-specs-rich ul {
-    column-count: 2;
-    column-gap: 32px;
+  .table-specs .table-specs-tab-more {
+    display: inline;
   }
 
-  .table-specs .table-specs-rich li {
-    break-inside: avoid;
+  .table-specs .table-specs-toolbar {
+    box-sizing: border-box;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 66px;
+    padding-top: 32px;
+  }
+
+  .table-specs .table-specs-toolbar .units-switch {
+    justify-content: flex-start;
+    margin-bottom: 0;
+  }
+
+  /* desktop: plain text link, top-aligned like the source */
+  main .table-specs .table-specs-toggle-all {
+    align-self: flex-start;
+    margin: 0 0 0 auto;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: none;
+    font-weight: 400;
+    text-align: start;
+  }
+
+  .table-specs .table-specs-panel {
+    padding-bottom: 32px;
+  }
+}
+
+@media (width >= 1280px) {
+  .table-specs {
+    padding: 0 129px;
   }
 }
