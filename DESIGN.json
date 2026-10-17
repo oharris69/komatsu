@@ -1,0 +1,1098 @@
+{
+  "_provenance": {
+    "writtenBy": "stardust:direct",
+    "writtenAt": "2026-10-17T16:05:00Z",
+    "mode": "target (redesign direction, not current state)",
+    "againstDirection": "stardust/direction.md",
+    "readArtifacts": [
+      "stardust/current/_brand-extraction.json",
+      "stardust/current/DESIGN.json",
+      "stardust/current/brand-review.html",
+      "stardust/current/pages/en-us.json",
+      "stardust/prototypes/en-us-improvements.md",
+      "PRODUCT.md",
+      "DESIGN.md",
+      "https://www.volvoce.com/united-states/en-us/",
+      "https://www.liebherr.com/en-us/",
+      "https://www.mcmaster.com/"
+    ],
+    "synthesizedInputs": [
+      "typography sizes (1.25 scale)",
+      "spacing section padding (balanced tier)",
+      "Search Input component (no captured input)"
+    ],
+    "researchTier": "websearch-tier (WebFetch only; refero MCP and WebSearch unavailable; 3 of 7 fetch attempts succeeded)",
+    "scope": "site-level system for the modernized homepage copy at /en-us/home-modern; stardust target spec only — does not edit the EDS project styles/, blocks/, scripts/",
+    "stardustVersion": "0.29.1"
+  },
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-17T16:05:00Z",
+  "title": "Design System: Komatsu — modernized homepage",
+  "extensions": {
+    "colorMeta": {
+      "komatsu-blue": {
+        "role": "komatsu-blue",
+        "use": "primary actions, links, the one saturated band",
+        "displayName": "Komatsu Blue",
+        "canonical": "oklch(32.3% 0.206 268.4)",
+        "hex": "#140a9a",
+        "tonalRamp": [
+          "#140a9a",
+          "#253fc8",
+          "#3366cc",
+          "#e2f2ff",
+          "#f0f8ff"
+        ],
+        "rampSource": "site CSS .bg-primary-10/30/60/90/100 (_brand-extraction.json#cssUtilityRamps.primary)"
+      },
+      "boom-blue": {
+        "role": "boom-blue",
+        "use": "outline borders, hover fills, focus ring on light grounds",
+        "displayName": "Boom Blue",
+        "canonical": "oklch(44.9% 0.212 267.6)",
+        "hex": "#253fc8",
+        "tonalRamp": [
+          "#140a9a",
+          "#253fc8",
+          "#3366cc",
+          "#e2f2ff",
+          "#f0f8ff"
+        ],
+        "rampSource": ".bg-primary-30"
+      },
+      "survey-blue": {
+        "role": "survey-blue",
+        "use": "active tab indicator, current-state marks",
+        "displayName": "Survey Blue",
+        "canonical": "oklch(53.2% 0.168 262.3)",
+        "hex": "#3366cc",
+        "tonalRamp": [
+          "#140a9a",
+          "#253fc8",
+          "#3366cc",
+          "#e2f2ff",
+          "#f0f8ff"
+        ],
+        "rampSource": ".bg-primary-60"
+      },
+      "track-steel": {
+        "role": "track-steel",
+        "use": "headings and body text; scrim and shadow tint",
+        "displayName": "Track Steel",
+        "canonical": "oklch(25.1% 0.018 245.0)",
+        "hex": "#1b232a",
+        "tonalRamp": [
+          "#1b232a",
+          "#6e757a",
+          "#8f969a",
+          "#a9afb2",
+          "#c6cacc",
+          "#e4e6e6",
+          "#ededed",
+          "#f4f5f5",
+          "#fafafa",
+          "#ffffff"
+        ],
+        "rampSource": ".bg-neutral-0..100"
+      },
+      "cab-slate": {
+        "role": "cab-slate",
+        "use": "secondary text, meta, footer copy",
+        "displayName": "Cab Slate",
+        "canonical": "oklch(44.2% 0.013 243.9)",
+        "hex": "#4d545a",
+        "tonalRamp": [
+          "#1b232a",
+          "#6e757a",
+          "#8f969a",
+          "#a9afb2",
+          "#c6cacc",
+          "#e4e6e6",
+          "#ededed",
+          "#f4f5f5",
+          "#fafafa",
+          "#ffffff"
+        ],
+        "rampSource": "computed only (not in declared neutral ramp); sits between neutral-0 and neutral-10"
+      },
+      "grade-line": {
+        "role": "grade-line",
+        "use": "dividers, tab rule, secondary-button hover fill",
+        "displayName": "Grade Line",
+        "canonical": "oklch(94.6% 0 0)",
+        "hex": "#ededed",
+        "tonalRamp": [
+          "#1b232a",
+          "#6e757a",
+          "#8f969a",
+          "#a9afb2",
+          "#c6cacc",
+          "#e4e6e6",
+          "#ededed",
+          "#f4f5f5",
+          "#fafafa",
+          "#ffffff"
+        ],
+        "rampSource": ".bg-neutral-60"
+      },
+      "daylight": {
+        "role": "daylight",
+        "use": "page ground, default section surface",
+        "displayName": "Daylight",
+        "canonical": "oklch(100% 0 0)",
+        "hex": "#ffffff",
+        "tonalRamp": [
+          "#1b232a",
+          "#6e757a",
+          "#8f969a",
+          "#a9afb2",
+          "#c6cacc",
+          "#e4e6e6",
+          "#ededed",
+          "#f4f5f5",
+          "#fafafa",
+          "#ffffff"
+        ],
+        "rampSource": ".bg-neutral-100"
+      },
+      "yard-gray": {
+        "role": "yard-gray",
+        "use": "alternating section surface",
+        "displayName": "Yard Gray",
+        "canonical": "oklch(96.9% 0.001 197.1)",
+        "hex": "#f4f5f5",
+        "tonalRamp": [
+          "#1b232a",
+          "#6e757a",
+          "#8f969a",
+          "#a9afb2",
+          "#c6cacc",
+          "#e4e6e6",
+          "#ededed",
+          "#f4f5f5",
+          "#fafafa",
+          "#ffffff"
+        ],
+        "rampSource": ".bg-neutral-80 (declared ramp; not computed on home)"
+      },
+      "site-ground": {
+        "role": "site-ground",
+        "use": "footer surface",
+        "displayName": "Site Ground",
+        "canonical": "oklch(98.5% 0 0)",
+        "hex": "#fafafa",
+        "tonalRamp": [
+          "#1b232a",
+          "#6e757a",
+          "#8f969a",
+          "#a9afb2",
+          "#c6cacc",
+          "#e4e6e6",
+          "#ededed",
+          "#f4f5f5",
+          "#fafafa",
+          "#ffffff"
+        ],
+        "rampSource": ".bg-neutral-90; captured body background"
+      },
+      "komatsu-yellow": {
+        "role": "komatsu-yellow",
+        "use": "RESERVED — focus ring / inverse hover / one accent rule on Komatsu Blue or dark photo grounds only",
+        "displayName": "Komatsu Yellow",
+        "canonical": "oklch(85.9% 0.165 86.9)",
+        "hex": "#ffc82f",
+        "tonalRamp": [
+          "#45360d",
+          "#665013",
+          "#ffc82f",
+          "#ffe9ac",
+          "#fef5d8",
+          "#fefaeb"
+        ],
+        "rampSource": ".bg-secondary-30 (declared; computed once on home — T-yellow-dormant)"
+      }
+    },
+    "contrastAudit": [
+      {
+        "fg": "track-steel",
+        "bg": "daylight",
+        "ratio": 15.9
+      },
+      {
+        "fg": "komatsu-blue",
+        "bg": "daylight",
+        "ratio": 13.64
+      },
+      {
+        "fg": "komatsu-blue",
+        "bg": "yard-gray",
+        "ratio": 12.49
+      },
+      {
+        "fg": "cab-slate",
+        "bg": "daylight",
+        "ratio": 7.69
+      },
+      {
+        "fg": "cab-slate",
+        "bg": "yard-gray",
+        "ratio": 7.04
+      },
+      {
+        "fg": "daylight",
+        "bg": "boom-blue",
+        "ratio": 8
+      },
+      {
+        "fg": "daylight",
+        "bg": "survey-blue",
+        "ratio": 5.37
+      },
+      {
+        "fg": "survey-blue",
+        "bg": "daylight",
+        "ratio": 5.37
+      },
+      {
+        "fg": "komatsu-yellow",
+        "bg": "komatsu-blue",
+        "ratio": 8.8
+      },
+      {
+        "fg": "track-steel",
+        "bg": "komatsu-yellow",
+        "ratio": 10.27
+      },
+      {
+        "fg": "komatsu-yellow",
+        "bg": "daylight",
+        "ratio": 1.55,
+        "verdict": "FAIL — forbidden pairing"
+      }
+    ],
+    "colorReservations": [
+      {
+        "color": "komatsu-yellow",
+        "reservedTo": "marks on komatsu-blue or dark photographic grounds (focus ring, inverse-button hover fill, one accent rule on the saturated band)",
+        "maxPerViewport": 2,
+        "forbidden": [
+          "text",
+          "any use on daylight / yard-gray / site-ground"
+        ],
+        "basis": "improvements #5 (T-yellow-dormant); 1.55:1 on white"
+      },
+      {
+        "color": "komatsu-blue",
+        "reservedTo": "full-section ground exactly once per page (parts-ordering band)",
+        "basis": "The One Band Rule; seed ground_family \"saturated\" redirected to alt surface (Mode C)"
+      }
+    ],
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero headline only; 39px at 390 → 61px at 1440."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section titles, left-aligned; 31 → 39px."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Photo-tile labels, panel headings, featured news headlines; 20 → 25px."
+      },
+      "subtitle": {
+        "displayName": "Subtitle",
+        "purpose": "Tab-panel heading, list news headlines."
+      },
+      "lede": {
+        "displayName": "Lede",
+        "purpose": "Hero lede and section intros; max 60ch."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running copy; max 70ch."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Equipment-category names, footer column headings."
+      },
+      "button": {
+        "displayName": "Button",
+        "purpose": "Buttons and primary nav."
+      },
+      "meta": {
+        "displayName": "Meta",
+        "purpose": "Read time, dates, topics; sentence case."
+      }
+    },
+    "typeScale": {
+      "ratio": 1.25,
+      "base": "16px",
+      "steps": [
+        "12.8px",
+        "16px",
+        "20px",
+        "25px",
+        "31.25px",
+        "39.06px",
+        "48.83px",
+        "61.04px"
+      ],
+      "basis": "expressive axis committed → ratio 1.25 (direct Phase 4); fixes T-scale (captured ad-hoc 32/24/22/20/18/16)"
+    },
+    "shadows": [
+      {
+        "name": "tile-rest",
+        "value": "0 1px 2px oklch(25.1% 0.018 245 / 0.16)",
+        "purpose": "Photo tiles at rest (captured --wrap-shadow, steel-tinted)."
+      },
+      {
+        "name": "tile-lift",
+        "value": "0 6px 16px oklch(25.1% 0.018 245 / 0.18)",
+        "purpose": "Tiles on hover / focus-within."
+      },
+      {
+        "name": "action-lift",
+        "value": "0 1px 3px oklch(25.1% 0.018 245 / 0.30)",
+        "purpose": "Primary button hover (captured hover shadow, steel-tinted)."
+      }
+    ],
+    "gradients": [
+      {
+        "name": "photo-scrim",
+        "value": "linear-gradient(to top, oklch(25.1% 0.018 245 / 0.78) 0%, oklch(25.1% 0.018 245 / 0.40) 45%, transparent 75%)",
+        "purpose": "Under any text on photography; must yield ≥ 4.5:1 (replaces captured 0.375-peak hero overlay)."
+      }
+    ],
+    "motion": {
+      "register": "kinetic-grid",
+      "registerRationale": "PRODUCT.md § Brand Commitments personality trait \"modular-catalogue\" (equipment rail, bento tiles, news grid as primary IA) → kinetic-grid per motion-registers.md § Selection heuristic. Selected only: no motion was requested in the phrase or plan; the canonical prototype renders static (no --cinematic).",
+      "applied": false,
+      "easings": {
+        "entrance": "cubic-bezier(0.42, 0, 0, 1)",
+        "transition": "cubic-bezier(0.42, 0, 0, 1)"
+      },
+      "durations": {
+        "enter": 500,
+        "stagger": 70
+      },
+      "lift": {
+        "translate": -4,
+        "duration": 380
+      },
+      "parallax": null,
+      "refuses": [
+        "page-level parallax",
+        "letter-by-letter reveals",
+        "tickers"
+      ],
+      "stateTransitions": {
+        "default": "200ms ease-out",
+        "note": "hover/focus state changes only in the static render; prefers-reduced-motion respected"
+      },
+      "captured": [
+        {
+          "value": "transform .5s ease",
+          "purpose": "carousel track slide (most frequent transition in clientlib-site CSS)"
+        },
+        {
+          "value": "opacity .4s ease-in-out",
+          "purpose": "fades"
+        },
+        {
+          "value": "all .3s ease",
+          "purpose": "general state transitions"
+        }
+      ]
+    },
+    "breakpoints": {
+      "containerMaxWidth": "1920px",
+      "probeWidth": 2560,
+      "shellMaxWidth": null,
+      "caps": [
+        {
+          "kind": "module",
+          "px": 1920,
+          "via": "max-width",
+          "selector": "div.aem-Grid.aem-Grid--12 > div.columncontainer.container > div.columncontainer-main.white-container > div.aem-Grid.aem-Grid--12",
+          "pages": [
+            "https://www.komatsu.com/en-us"
+          ]
+        },
+        {
+          "kind": "module",
+          "px": 1856,
+          "via": "other",
+          "selector": "div.tilesmall.horizontal_scroll > div.tilesmall-outer-current > div.carousel-wrapper > div.tiles_small_list",
+          "pages": [
+            "https://www.komatsu.com/en-us"
+          ]
+        }
+      ],
+      "modules": [
+        {
+          "url": "https://www.komatsu.com/en-us",
+          "section": 0,
+          "selector": "div.root.container > div.cmp-container > div.aem-Grid.aem-Grid--12 > header.experiencefragment.header-xf",
+          "px": null
+        },
+        {
+          "url": "https://www.komatsu.com/en-us",
+          "section": 1,
+          "selector": "div.root.container > div.cmp-container > div.aem-Grid.aem-Grid--12 > div.container.responsivegrid",
+          "px": 1920
+        },
+        {
+          "url": "https://www.komatsu.com/en-us",
+          "section": 2,
+          "selector": "div.root.container > div.cmp-container > div.aem-Grid.aem-Grid--12 > footer.experiencefragment.footer-xf",
+          "px": null
+        }
+      ],
+      "capRegister": [],
+      "capProvenance": {
+        "writtenBy": "skills/replica/scripts/cap-probe.mjs",
+        "writtenAt": "2026-10-17T15:42:48.608Z",
+        "baseWidth": 1440,
+        "urls": [
+          "https://www.komatsu.com/en-us"
+        ]
+      },
+      "_copiedFrom": "stardust/current/DESIGN.json#extensions.breakpoints (cap-probe model, verbatim)",
+      "responsive": [
+        {
+          "name": "mobile",
+          "value": "449px",
+          "basis": "captured @media max-width 449px (267 rules)"
+        },
+        {
+          "name": "tablet",
+          "value": "899px",
+          "basis": "captured @media max-width 899px (233 rules)"
+        },
+        {
+          "name": "desktop",
+          "value": "1279px",
+          "basis": "captured @media max-width 1279px (37 rules)"
+        }
+      ]
+    },
+    "spacing": {
+      "baseUnit": 4,
+      "density": "balanced (from approved plan)",
+      "sectionPadding": {
+        "desktop": "64px",
+        "tablet": "48px",
+        "mobile": "32px"
+      },
+      "hardFloor": {
+        "fired": true,
+        "reason": "captured home has 7 modules (> 5 sections)",
+        "boundedDesktop": "40px–64px"
+      },
+      "gutter": "24px",
+      "outerMargin": {
+        "mobile": "24px",
+        "tablet": "32px",
+        "desktop": "48px"
+      },
+      "textMeasure": {
+        "lede": "60ch",
+        "body": "70ch"
+      }
+    },
+    "componentStyle": {
+      "buttons": {
+        "primary": {
+          "background": "komatsu-blue",
+          "color": "daylight",
+          "borderRadius": "4px",
+          "padding": "12px 24px",
+          "border": "0",
+          "font": "button (600 16px)",
+          "hover": {
+            "background": "boom-blue",
+            "shadow": "action-lift"
+          },
+          "focus": "2px boom-blue outline, 2px offset"
+        },
+        "secondary": {
+          "background": "daylight",
+          "color": "komatsu-blue",
+          "borderRadius": "4px",
+          "padding": "10px 22px",
+          "border": "2px solid boom-blue",
+          "font": "button",
+          "hover": {
+            "background": "grade-line"
+          },
+          "focus": "2px komatsu-yellow outline on photo/dark grounds; boom-blue on light"
+        },
+        "inverse": {
+          "background": "transparent",
+          "color": "daylight",
+          "borderRadius": "4px",
+          "padding": "10px 22px",
+          "border": "2px solid daylight",
+          "context": "komatsu-blue band only",
+          "hover": {
+            "background": "komatsu-yellow",
+            "color": "track-steel"
+          },
+          "focus": "2px komatsu-yellow outline"
+        },
+        "perModuleLimit": 1
+      },
+      "links": {
+        "default": {
+          "color": "komatsu-blue",
+          "textDecoration": "none",
+          "hover": "underline 2px, 3px offset"
+        },
+        "secondaryRoutes": "text links with trailing arrow in a 2-column list; replaces captured bordered chip-links"
+      },
+      "cards": {
+        "kind": "whole-tile photo link with bottom-left title over photo-scrim",
+        "borderRadius": "4px",
+        "shadow": "tile-rest → tile-lift on hover",
+        "border": null,
+        "labelType": "title (700 20→25px) daylight"
+      },
+      "tags": {
+        "kind": "inline meta text, middot-separated",
+        "type": "meta (600 12.8px) cab-slate",
+        "fill": null,
+        "clamp": "2 lines on feature cards; full list retained in markup",
+        "retired": [
+          "20px pill radius",
+          "Roboto 9pt",
+          "#3366cc pill fill"
+        ]
+      },
+      "tabs": {
+        "indicator": "3px survey-blue",
+        "rule": "1px grade-line",
+        "active": "track-steel 600",
+        "inactive": "cab-slate"
+      },
+      "inputs": {
+        "border": "1px cab-slate",
+        "radius": "4px",
+        "height": "48px",
+        "focus": "2px boom-blue outline",
+        "synthesized": true
+      },
+      "dualCTAPattern": null
+    },
+    "systemComponentRoles": {
+      "header": {
+        "purpose": "global navigation, wordmark, utilities (search, locations, region, account)",
+        "positionClass": "top, overlays the hero photo, not sticky",
+        "constraint": "white wordmark on photo, blue wordmark on light surfaces; focus trapped in mobile panel"
+      },
+      "campaign-hero": {
+        "purpose": "brand campaign statement with a single action",
+        "positionClass": "first viewport, full-bleed photo",
+        "constraint": "display type over directional photo-scrim ≥ 4.5:1; single CTA; image reused at same position"
+      },
+      "category-rail": {
+        "purpose": "route to equipment categories",
+        "positionClass": "immediately after the hero",
+        "constraint": "cut-out images on daylight, no card chrome; horizontal scroll with arrow controls and dots"
+      },
+      "routing-tiles": {
+        "purpose": "route buyers and owners to the top-level offer areas",
+        "positionClass": "directly after the category rail",
+        "constraint": "one lead tile + equal secondary tiles; whole-tile links"
+      },
+      "cta-band": {
+        "purpose": "single conversion promo on a saturated ground",
+        "positionClass": "mid-page, full-bleed",
+        "constraint": "komatsu-blue ground (once per page), inverse button, photo beside copy; komatsu-yellow accent permitted"
+      },
+      "contact-router": {
+        "purpose": "direct contact / quote / account / locator paths",
+        "positionClass": "last module before the footer",
+        "constraint": "equal-weight photo tiles"
+      },
+      "footer": {
+        "purpose": "mega footer: link columns, brand block, social, legal row",
+        "positionClass": "page end, site-ground surface",
+        "constraint": "legal disclosures carried verbatim; social links named by destination"
+      }
+    },
+    "voice": {
+      "register": "brand",
+      "tone": "serious — credible, industrial B2B (pinned); hero may stay aspirational as captured",
+      "case": "sentence case for all headings, labels and CTAs (0% uppercase captured)",
+      "do": [
+        "Reuse captured CTA labels verbatim: \"Explore more\", \"Learn more\", \"Order now\", \"Read more news\", \"Request a quote\", \"Contact us\".",
+        "Lead with product nouns and plain invitations, as captured: \"Parts purchasing made easy\", \"Dig into the latest\", \"Get in touch\".",
+        "Name icon links by destination (\"Komatsu on YouTube (opens in a new tab)\").",
+        "Ground every claim in captured copy: century of manufacturing, Smart Construction / Smart Mining / Smart Quarry, Genuine and Reman parts."
+      ],
+      "dont": [
+        "Invent statistics, customer names, quotes, prices or certifications.",
+        "Use editorial-register vocabulary (\"dispatches\", \"journal\", \"field guide\", \"atelier\", \"the studio\").",
+        "Use exclamation points or marketing adjectives (house standards 7.1, 7.2).",
+        "Rewrite headings or CTA labels (legacy-content-preserved; ia-fidelity verbatim)."
+      ],
+      "samples": {
+        "heroHeadline": "Here's to progress",
+        "firstParagraph": "For more than a century, Komatsu has helped build the world beneath our feet. Now, we're helping imagine how people could one day build beyond it."
+      }
+    },
+    "divergence": {
+      "toolkit_version": "v1.0 (stardust v2)",
+      "mode": "A (brand-faithful) + B (agent-sourced anchors) + C (ground override)",
+      "signal": {
+        "classification": "signal-strong",
+        "basis": "palette 8 distinct clusters (7 excluding white); type.headingFamily.name = type.bodyFamily.name = \"Noto Sans\"; scaleAudit ad-hoc but 6 distinct heading sizes (≥ 3)"
+      },
+      "rebrand_triggers_checked": {
+        "phraseKeywords": "none matched (\"modernize\" is a refresh phrase, not a rebrand trigger)",
+        "flag": false,
+        "signalAbsent": false
+      },
+      "research": {
+        "tier": "websearch (degraded: WebFetch only — WebSearch and refero MCP unavailable; no queries issued, candidate URLs fetched directly)",
+        "attempts": 7,
+        "retrieved": 3,
+        "failed": [
+          "https://www.epiroc.com/en-us (403)",
+          "https://www.cat.com/en_US.html (timeout)",
+          "https://www.maersk.com/ (header overflow)",
+          "https://www.abb.com/global/en (timeout)"
+        ]
+      },
+      "references_used": [
+        {
+          "source": "websearch",
+          "title": "Volvo Construction Equipment (US)",
+          "url": "https://www.volvoce.com/united-states/en-us/",
+          "grounds": "primary anchor for mood and density: generous section spacing, sentence-case headings, uniform product-category tile grid, CTAs distributed per section rather than stacked in the hero",
+          "tag": "off-toolbox"
+        },
+        {
+          "source": "websearch",
+          "title": "Liebherr (US)",
+          "url": "https://www.liebherr.com/en-us/",
+          "grounds": "brand yellow held back from chrome — identity carried by logo and product photography; product program as simple text-link grid → supports reserved komatsu-yellow and chips → text links",
+          "tag": "off-toolbox"
+        },
+        {
+          "source": "websearch",
+          "title": "McMaster-Carr",
+          "url": "https://www.mcmaster.com/",
+          "grounds": "out-of-category, same industrial register: catalog-first, functional category labels, no hero spectacle, hierarchy through spacing and weight → supports plain label-type category names on the equipment rail and utility over embellishment",
+          "tag": "off-toolbox"
+        }
+      ],
+      "seed": {
+        "input": "Komatsu|2026-10-17",
+        "md5": "8e07888de5166863319bb8871e73cb17",
+        "rolled": {
+          "decade": "1950s",
+          "craft": "Cross-stitch sampler",
+          "register": "Tabloid",
+          "ground_family": "saturated"
+        },
+        "decade": {
+          "value": "2025-now",
+          "picked_by": "reasoned: Volvo CE + Liebherr (current corporate equipment sites)",
+          "rolledValue": "1950s",
+          "teeth": "medium — governs current-era display tracking and full-bleed photo scale"
+        },
+        "craft": {
+          "value": "Cross-stitch sampler",
+          "picked_by": "deterministic",
+          "teeth": "low — translated to square-module grid discipline (every tile on one cell grid, equal 24px gutters); literal stitch texture rejected as conflicting with tone serious and Mode A"
+        },
+        "register": {
+          "value": "product-program grid (equipment line-up register)",
+          "picked_by": "reasoned: Volvo CE category grid + McMaster-Carr browse catalog",
+          "rolledValue": "Tabloid",
+          "teeth": "medium — module-first IA, labels as functional nouns; vocabulary rule: the word \"catalogue\" is structural only, never used in copy"
+        },
+        "ground_family": {
+          "value": "stark-white",
+          "picked_by": "brand-faithful (captured background #ffffff)",
+          "rolledValue": "saturated",
+          "override": "brand-faithful",
+          "informsAltSurface": "saturated → komatsu-blue full-section ground used once (parts-ordering band); light alternation via yard-gray (#f4f5f5)"
+        },
+        "picked_by": "mixed",
+        "overrides": [
+          {
+            "dimension": "decade",
+            "from": "1950s",
+            "to": "2025-now",
+            "reason": "researched anchors imply current era"
+          },
+          {
+            "dimension": "register",
+            "from": "Tabloid",
+            "to": "product-program grid",
+            "reason": "researched anchors imply catalogue-led IA; Tabloid contradicts pinned tone serious"
+          },
+          {
+            "dimension": "ground_family",
+            "from": "saturated",
+            "to": "stark-white",
+            "reason": "Mode C brand-faithful override"
+          }
+        ],
+        "anchors": [
+          {
+            "anchor": "Volvo CE",
+            "implies": [
+              "decade: 2025-now",
+              "section rhythm: generous",
+              "ground: stark-white"
+            ]
+          },
+          {
+            "anchor": "Liebherr",
+            "implies": [
+              "palette strategy: brand yellow reserved",
+              "secondary routes as text links"
+            ]
+          },
+          {
+            "anchor": "McMaster-Carr",
+            "implies": [
+              "register: catalog-first",
+              "labels functional, no embellishment"
+            ]
+          }
+        ]
+      },
+      "font_deck": {
+        "name": "brand-inherited",
+        "families": [
+          "Noto Sans"
+        ],
+        "picked_by": "user-constraint",
+        "retired": [
+          "Roboto (news tags only; T-font-fork)"
+        ]
+      },
+      "palette": {
+        "source": "inherited from _brand-extraction.json (palette + cssUtilityRamps)",
+        "picked_by": "user-constraint",
+        "roleRenaming": {
+          "primary": "komatsu-blue",
+          "accent": "boom-blue",
+          "accent-1": "survey-blue",
+          "text-primary": "track-steel",
+          "text-secondary": "cab-slate",
+          "border": "grade-line",
+          "background": "daylight",
+          "neutral-80 (declared)": "yard-gray",
+          "neutral-90 (captured ground)": "site-ground",
+          "secondary-30 (declared)": "komatsu-yellow",
+          "accent-2 #000000": "not inherited (6 icon-label uses; replaced by track-steel)"
+        }
+      },
+      "palette_source": {
+        "library_version": null,
+        "candidates": [],
+        "recommended_index": null,
+        "picked_index": null,
+        "note": "palette-picker not invoked (Mode A)"
+      },
+      "brand_faithful_inversions": [
+        {
+          "inversion": "pure-white retention",
+          "line": "#ffffff retained as page ground (daylight) — existing Komatsu brand decision; the impeccable \"no pure black/white\" rule is inverted per brand-faithful direction."
+        },
+        {
+          "inversion": "hex format retention",
+          "line": "Color tokens retained in hex in DESIGN.md frontmatter (matches the captured Komatsu surface and site CSS ramps). OKLCH is used for component CSS and canonical values; this is inheritance."
+        },
+        {
+          "inversion": "saturated color retention",
+          "line": "Saturated Komatsu Blue #140a9a (HSL S 88%) retained as the primary brand color — the agent-default reflex toward tinted-neutral primaries is inverted per brand-faithful direction."
+        },
+        {
+          "inversion": "reserved color",
+          "line": "Komatsu Yellow #ffc82f retained as a reserved color for marks on Komatsu Blue / dark photo grounds only (focus ring, inverse hover, one band accent rule). The agent default would either spread it across the system or reject it as a third hue; both are wrong here."
+        }
+      ],
+      "brand_adjacent_refinements": [],
+      "mode_a_plus": {
+        "considered": true,
+        "activated": false,
+        "reason": "No evidenced face or color weakness: T-scale / T-hierarchy are scale problems fixed by the 1.25 scale with the pinned face (Noto Sans variable 100–900 already provides every weight); T-contrast did not fire and every text pair measures ≥ 5.37:1; T-font-fork is resolved by consolidating onto the pinned face, not by an upgrade; komatsu-yellow is a declared captured ramp color (colorReservations), not a recolor."
+      },
+      "image_reuse": {
+        "contract": "semantic-position preservation",
+        "exceptions": [],
+        "notes": "hero localPath null (not downloaded) — reuse via Scene7 public URLs (ultrawide-21x9-xl desktop, portrait-3x4 mobile); no synthesized placeholders"
+      },
+      "signature_preservation": {
+        "heroMedium": null,
+        "motifs": "none site-wide beyond 4px radius + photo tiles (preserved)"
+      },
+      "anti_toolbox_count": 0,
+      "anti_toolbox_hits": [],
+      "anti_toolbox_checked": [
+        {
+          "move": "Generic-2026-SaaS silhouette",
+          "result": "clear (0 of 4): display max 61px < 72px; single hero CTA (captured); header not sticky; no serial footer"
+        },
+        {
+          "move": "Sticky top navigation",
+          "result": "clear: header scrolls away (captured absolute-over-hero)"
+        },
+        {
+          "move": "Stat-callout bar",
+          "result": "clear: no stats captured; fabricated-content ban"
+        },
+        {
+          "move": "Hero text on photographic background without contrast scrim",
+          "result": "avoided: captured overlay peaks at 0.375; target scrim ≥ 0.4 with ≥ 4.5:1 check (improvements #1)"
+        },
+        {
+          "move": "Cream-family page ground",
+          "result": "clear: #ffffff / #f4f5f5 / #fafafa all R−B = 0"
+        },
+        {
+          "move": "Palette-role vocabulary (Primary/Secondary/Accent)",
+          "result": "clear: brand-native role names"
+        },
+        {
+          "move": "Editorial-register vocabulary",
+          "result": "clear: guarded in voice.dont; \"catalogue\" register name kept out of copy"
+        },
+        {
+          "move": "UPPERCASE condensed display / numbered eyebrows / motif kit",
+          "result": "clear"
+        },
+        {
+          "move": "Triplet-cadence copy",
+          "result": "clear: copy is verbatim captured; no new display copy authored"
+        }
+      ],
+      "off_toolbox_moves": [
+        {
+          "move": "Machine-yellow reserved mark — komatsu-yellow only on Komatsu Blue / dark photo grounds",
+          "basis": "the yellow is literally the product color of the photographed machines and is declared in the site CSS (secondary-30) yet dormant on the page (T-yellow-dormant); could not transfer unchanged to a brand without a product-color identity"
+        },
+        {
+          "move": "Cut-out equipment rail on daylight with no card chrome",
+          "basis": "captured Komatsu module (21 cut-out category images); amplified by image height, not decoration"
+        }
+      ],
+      "audit_adjustments": [
+        {
+          "from": "proposed",
+          "to": "removed",
+          "move": "stitched-hairline divider texture (literal Cross-stitch sampler craft)",
+          "reason": "conflicts with pinned serious tone and would be a decorative motif with no Komatsu basis; craft kept only as grid discipline"
+        },
+        {
+          "from": "off_toolbox_moves",
+          "to": "off_toolbox_moves",
+          "move": "Machine-yellow reserved mark",
+          "reason": "self-audit Q2: a reviewer could call \"accent color as focus/hover\" a generic move; retained because the color and its dormancy are captured evidence, but it is scoped and capped (≤ 2 per viewport) so it cannot become a system-wide accent"
+        }
+      ],
+      "self_audit": {
+        "hitAudit": "no hits to audit",
+        "offToolboxAudit": "see audit_adjustments[1]",
+        "tripletAudit": "pass (no authored display copy)",
+        "pickedByAllDeterministic": false
+      }
+    },
+    "iaPriorities": [
+      {
+        "signal": "commercial-conversion",
+        "evidence": "pages/en-us.json#ctas[8..14] equipment-category carousel (7 of 21 categories visible) directly under the hero; sections-measure.json 1440: hero h 700 → carousel module y 700 (+32px padding) — enters the 1440×900 first viewport",
+        "preserveAs": "immediately-after-hero (first-viewport edge at desktop)",
+        "scope": "page:en-us",
+        "mutability": "locked"
+      },
+      {
+        "signal": "audience-routing",
+        "evidence": "pages/en-us.json#headings bento tiles Equipment / Parts / Attachments / Technology / Service and support — new-machine buyers and existing owners routed side by side",
+        "preserveAs": "second module; lead tile + equal secondary tiles; all five destinations",
+        "scope": "page:en-us",
+        "mutability": "locked"
+      },
+      {
+        "signal": "commercial-conversion",
+        "evidence": "pages/en-us.json#ctas \"Order now opens in a new tab\" in the \"Parts purchasing made easy\" band (→ My Komatsu)",
+        "preserveAs": "own full-width saturated band, mid-page, single inverse action",
+        "scope": "page:en-us",
+        "mutability": "locked"
+      },
+      {
+        "signal": "commercial-conversion",
+        "evidence": "pages/en-us.json#ctas Get in touch tiles: Contact us / Request a quote / My Komatsu / Find a location",
+        "preserveAs": "last module before the footer; four paths at equal weight",
+        "scope": "page:en-us",
+        "mutability": "locked"
+      },
+      {
+        "signal": "section-sequence",
+        "evidence": "ia-fidelity verbatim (approved plan constraint \"same content and IA priorities\"); captured order: campaign hero → equipment rail → routing tiles → Technology tabs → Parts band → news → Get in touch → footer",
+        "preserveAs": "identical section order and content beats",
+        "scope": "page:en-us",
+        "mutability": "locked"
+      }
+    ],
+    "iaFidelity": "verbatim (from approved plan constraint \"same content and IA priorities\")",
+    "register": "brand",
+    "deployment": {
+      "path": "/en-us/home-modern",
+      "blocks": "namespaced (do not modify existing site blocks)",
+      "source": "user answer Q2"
+    }
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Filled Komatsu Blue action; at most one per module.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Learn more</a>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; background: oklch(32.3% 0.206 268.4); color: oklch(100% 0 0); padding: 12px 24px; border: 0; border-radius: 4px; font: 600 1rem/1.25 \"Noto Sans\", system-ui, sans-serif; text-decoration: none; transition: background-color 200ms ease-out, box-shadow 200ms ease-out; } .ds-btn-primary:hover { background: oklch(44.9% 0.212 267.6); box-shadow: 0 1px 3px oklch(25.1% 0.018 245 / 0.30); } .ds-btn-primary:focus-visible { outline: 2px solid oklch(44.9% 0.212 267.6); outline-offset: 2px; } .ds-btn-primary:active { background: oklch(32.3% 0.206 268.4); box-shadow: none; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Daylight fill with a 2px Boom Blue outline; the hero's single action on photography.",
+      "html": "<a class=\"ds-btn-secondary\" href=\"#\">Explore more</a>",
+      "css": ".ds-btn-secondary { display: inline-flex; align-items: center; background: oklch(100% 0 0); color: oklch(32.3% 0.206 268.4); padding: 10px 22px; border: 2px solid oklch(44.9% 0.212 267.6); border-radius: 4px; font: 600 1rem/1.25 \"Noto Sans\", system-ui, sans-serif; text-decoration: none; transition: background-color 200ms ease-out; } .ds-btn-secondary:hover { background: oklch(94.6% 0 0); } .ds-btn-secondary:focus-visible { outline: 2px solid oklch(85.9% 0.165 86.9); outline-offset: 2px; }"
+    },
+    {
+      "name": "Inverse Button",
+      "kind": "button",
+      "refersTo": "button-inverse",
+      "description": "Daylight outline action on the Komatsu Blue band; hover fills reserved Komatsu Yellow.",
+      "html": "<div style=\"background:oklch(32.3% 0.206 268.4);padding:24px\"><a class=\"ds-btn-inverse\" href=\"#\">Order now</a></div>",
+      "css": ".ds-btn-inverse { display: inline-flex; align-items: center; background: transparent; color: oklch(100% 0 0); padding: 10px 22px; border: 2px solid oklch(100% 0 0); border-radius: 4px; font: 600 1rem/1.25 \"Noto Sans\", system-ui, sans-serif; text-decoration: none; transition: background-color 200ms ease-out, color 200ms ease-out, border-color 200ms ease-out; } .ds-btn-inverse:hover { background: oklch(85.9% 0.165 86.9); border-color: oklch(85.9% 0.165 86.9); color: oklch(25.1% 0.018 245.0); } .ds-btn-inverse:focus-visible { outline: 2px solid oklch(85.9% 0.165 86.9); outline-offset: 2px; }"
+    },
+    {
+      "name": "Text Link",
+      "kind": "custom",
+      "refersTo": "link",
+      "description": "Komatsu Blue text link with trailing arrow; replaces the bordered chip-links for secondary routes.",
+      "html": "<a class=\"ds-link\" href=\"#\">3D Machine Guidance <span aria-hidden=\"true\">&rarr;</span></a>",
+      "css": ".ds-link { color: oklch(32.3% 0.206 268.4); font: 400 1rem/1.5 \"Noto Sans\", system-ui, sans-serif; text-decoration: none; text-underline-offset: 3px; text-decoration-thickness: 2px; } .ds-link:hover, .ds-link:focus-visible { text-decoration-line: underline; } .ds-link:focus-visible { outline: 2px solid oklch(44.9% 0.212 267.6); outline-offset: 2px; border-radius: 2px; }"
+    },
+    {
+      "name": "Photo Tile",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Whole-tile link: photograph with a Track Steel scrim and a bottom-left Daylight title.",
+      "html": "<a class=\"ds-tile\" href=\"#\"><span class=\"ds-tile__img\" style=\"background:oklch(44.2% 0.013 243.9)\"></span><span class=\"ds-tile__label\">Service and support</span></a>",
+      "css": ".ds-tile { position: relative; display: block; aspect-ratio: 4 / 3; min-width: 240px; border-radius: 4px; overflow: hidden; color: oklch(100% 0 0); text-decoration: none; box-shadow: 0 1px 2px oklch(25.1% 0.018 245 / 0.16); transition: box-shadow 200ms ease-out; } .ds-tile__img { position: absolute; inset: 0; background-size: cover; background-position: center; } .ds-tile::after { content: \"\"; position: absolute; inset: 0; background: linear-gradient(to top, oklch(25.1% 0.018 245 / 0.78) 0%, oklch(25.1% 0.018 245 / 0.40) 45%, transparent 75%); } .ds-tile__label { position: absolute; left: 24px; right: 24px; bottom: 24px; z-index: 1; font: 700 1.563rem/1.25 \"Noto Sans\", system-ui, sans-serif; } .ds-tile:hover, .ds-tile:focus-visible { box-shadow: 0 6px 16px oklch(25.1% 0.018 245 / 0.18); } .ds-tile:focus-visible { outline: 2px solid oklch(44.9% 0.212 267.6); outline-offset: 3px; }"
+    },
+    {
+      "name": "Meta Line",
+      "kind": "chip",
+      "refersTo": "badge",
+      "description": "Read time, date and topics as quiet inline meta text; no pills, no Roboto.",
+      "html": "<p class=\"ds-meta\"><span>3 min read</span><span>Sep 17, 2026</span><span>Construction</span><span>Smart Construction</span></p>",
+      "css": ".ds-meta { display: flex; flex-wrap: wrap; gap: 4px 0; margin: 0; color: oklch(44.2% 0.013 243.9); font: 600 0.8rem/1.4 \"Noto Sans\", system-ui, sans-serif; letter-spacing: 0.01em; } .ds-meta span + span::before { content: \"\\00B7\"; padding: 0 8px; color: oklch(44.2% 0.013 243.9); }"
+    },
+    {
+      "name": "Tabs",
+      "kind": "nav",
+      "refersTo": "tabs",
+      "description": "Text tabs on a Grade Line rule; active tab carries a 3px Survey Blue indicator.",
+      "html": "<div class=\"ds-tabs\" role=\"tablist\"><button class=\"ds-tab\" role=\"tab\" aria-selected=\"true\">Smart Construction</button><button class=\"ds-tab\" role=\"tab\" aria-selected=\"false\">Smart Mining</button><button class=\"ds-tab\" role=\"tab\" aria-selected=\"false\">Smart Quarry</button></div>",
+      "css": ".ds-tabs { display: flex; gap: 32px; border-bottom: 1px solid oklch(94.6% 0 0); } .ds-tab { appearance: none; background: none; border: 0; padding: 12px 0; margin-bottom: -1px; color: oklch(44.2% 0.013 243.9); font: 600 1rem/1.25 \"Noto Sans\", system-ui, sans-serif; border-bottom: 3px solid transparent; cursor: pointer; transition: color 200ms ease-out, border-color 200ms ease-out; } .ds-tab:hover { color: oklch(25.1% 0.018 245.0); } .ds-tab[aria-selected=\"true\"] { color: oklch(25.1% 0.018 245.0); border-bottom-color: oklch(53.2% 0.168 262.3); } .ds-tab:focus-visible { outline: 2px solid oklch(44.9% 0.212 267.6); outline-offset: 2px; }"
+    },
+    {
+      "name": "Search Input",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Synthesized (no input captured): header search field from the pinned tokens.",
+      "html": "<label class=\"ds-input-wrap\"><span class=\"ds-input-label\">Search</span><input class=\"ds-input\" type=\"search\" placeholder=\"Search komatsu.com\"></label>",
+      "css": ".ds-input-wrap { display: grid; gap: 8px; font: 600 0.8rem/1.4 \"Noto Sans\", system-ui, sans-serif; color: oklch(44.2% 0.013 243.9); } .ds-input { height: 48px; padding: 12px 16px; background: oklch(100% 0 0); color: oklch(25.1% 0.018 245.0); border: 1px solid oklch(44.2% 0.013 243.9); border-radius: 4px; font: 400 1rem/1.5 \"Noto Sans\", system-ui, sans-serif; } .ds-input::placeholder { color: oklch(44.2% 0.013 243.9); } .ds-input:focus-visible { outline: 2px solid oklch(44.9% 0.212 267.6); outline-offset: 2px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Machine in Daylight",
+    "overview": "Komatsu's yellow machines already carry the color. The system's job is to give them room and a clear order of importance. The refresh keeps every pinned element of the brand: one deep ultramarine (Komatsu Blue) for action and the one saturated band, a single humanist sans (Noto Sans), 4px corners and photography-led color. What modernizes it is hierarchy and air. A display headline that clearly outranks section titles at every width, full-width sections on a 64 / 48 / 32px rhythm in place of boxed panels on a grey ground, and one dominant action per module turn a dense corporate stack into a confident, readable equipment homepage.\n\nDensity is balanced, not airy. The page still routes a contractor, a mine operator or a fleet owner to the right machine, part or contact in one or two clicks, and the equipment categories still sit directly under the hero. Surfaces alternate between `daylight` white and a cool `yard-gray`, and the Komatsu Blue band is the single saturated rhythm break. Komatsu yellow, declared in the brand's own CSS but dormant on the current page, returns as a reserved mark that appears only on blue or dark photographic grounds.\n\nThe tone is serious and credible: industrial B2B, no spectacle. There is no oversized SaaS hero, no stat bars, no decorative motif kit, no cream grounds. Imagery is reused at the same semantic position it holds today, at a larger and more confident scale.",
+    "keyCharacteristics": [
+      "Komatsu Blue (#140a9a) carries filled actions, links and the one saturated band. Boom Blue (#253fc8) is for outlines, hover and focus on light grounds.",
+      "A real 1.25 modular scale: display 39→61px, headline 31→39px, title 20→25px, body 16px. The hero H1 outranks every H2 at every width.",
+      "Full-width sections at 64 / 48 / 32px vertical padding, alternating `daylight` and `yard-gray`. No boxed panels on a grey ground.",
+      "One dominant action per module. Secondary routes are quiet text links, not bordered chips.",
+      "Photography leads: hero full-bleed under a directional scrim, the equipment rail of cut-outs on white, photo tiles with legible scrimmed labels.",
+      "Komatsu Yellow (#ffc82f) is a reserved mark, used only on Komatsu Blue or dark photo grounds and never on white.",
+      "Single family: Noto Sans 400 / 600 / 700. Roboto is retired."
+    ],
+    "rules": [
+      {
+        "name": "The One Band Rule",
+        "body": "Komatsu Blue appears as a full section ground once per page, on the parts-ordering band. Every other section is `daylight` or `yard-gray`. The saturated band is the rhythm break, and it stops working if repeated.",
+        "section": "colors"
+      },
+      {
+        "name": "The Yellow Stays on Blue Rule",
+        "body": "Komatsu Yellow is used only on Komatsu Blue or on dark photographic grounds, at most twice per viewport, and never as text and never on white (1.55:1 fails). In the photography the yellow is the machine. In the chrome it is a signal.",
+        "section": "colors"
+      },
+      {
+        "name": "The No Black Rule",
+        "body": "Pure #000000, captured on six header icon labels, is not inherited. Track Steel replaces it everywhere.",
+        "section": "colors"
+      },
+      {
+        "name": "The Hero Outranks Rule",
+        "body": "At every width the display size is at least 1.25x the headline size (39 vs 31 at 390, 61 vs 39 at 1440). A section title must never read larger than the hero headline (`T-hierarchy`).",
+        "section": "typography"
+      },
+      {
+        "name": "The Sentence Case Rule",
+        "body": "0% of captured headings are uppercase, and that holds here. There are no uppercase eyebrows and no condensed display.",
+        "section": "typography"
+      },
+      {
+        "name": "The One Family Rule",
+        "body": "Noto Sans only. Weights 400 / 600 / 700. Italic only for inline citation, never for display accents.",
+        "section": "typography"
+      },
+      {
+        "name": "The Scrim Before Type Rule",
+        "body": "Text never sits on raw photography. Every overlaid label or headline gets a scrim of at least 0.4 opacity under the text area.",
+        "section": "elevation"
+      },
+      {
+        "name": "House standard 7.1 — Banned marketing adjectives",
+        "body": "artisanal · crafted · premium · curated · beloved · cozy · warm · inviting · thoughtfully · delightfully · lovingly · uncompromising · bespoke are not used in authored copy.",
+        "section": "voice"
+      },
+      {
+        "name": "House standard 7.2 — No exclamation points",
+        "body": "No exclamation points in authored copy.",
+        "section": "voice"
+      }
+    ],
+    "dos": [
+      "Do keep the section sequence and every captured content beat exactly as on komatsu.com/en-us (`ia-fidelity: verbatim`).",
+      "Do use the 1.25 scale tokens only: display 39→61px, headline 31→39px, title 20→25px, body 16px, meta 12.8px.",
+      "Do pad sections 64 / 48 / 32px (desktop / tablet / mobile) and alternate `daylight` and `yard-gray` surfaces.",
+      "Do give each module one dominant action and render secondary routes as text links.",
+      "Do put a ≥ 0.4 scrim under any text on photography and verify ≥ 4.5:1.",
+      "Do reuse captured images at their original semantic position: hero stays hero, rail cut-outs stay in the rail, tiles stay tiles.",
+      "Do derive alt text from captured context (the image description, the article's own headline) and name icon links by destination."
+    ],
+    "donts": [
+      "Don't build the Generic-2026-SaaS silhouette: no clamp(72px+) hero, no solid+outline CTA pair in the hero, no sticky nav, no serial footer.",
+      "Don't add stat bars, customer logos, quotes, prices or any number not in the captured page.",
+      "Don't use Komatsu Yellow on white or as text, or more than twice per viewport.",
+      "Don't introduce colors outside the captured palette and declared ramps, or any family other than Noto Sans.",
+      "Don't use #000000 or cream / paper grounds.",
+      "Don't use uppercase headings, condensed display type, numbered section eyebrows, stamps, grain, hazard stripes or other motif-kit decoration.",
+      "Don't box modules as white panels on a grey ground. Sections are full-width surfaces.",
+      "Don't use editorial-register labels (\"dispatches\", \"journal\", \"field guide\") for B2B equipment content."
+    ]
+  }
+}

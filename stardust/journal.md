@@ -44,3 +44,40 @@ See `skills/stardust/reference/journal-format.md` for entry format.
 **Next:** Open stardust/current/brand-review.html to check the extraction, then run `$stardust direct` to set the homepage modernization direction.
 
 ---
+
+## 2026-10-17T16:06:30Z — Direct (divergence, improvements, product, design, direction-and-state) — brand-faithful modernized homepage direction for /en-us/home-modern
+
+**Prompt:** Finish stardust direct Phases 2 to 5 for the homepage. The Phase 1 plan was already confirmed: "use stardust to modernize the homepage from a copy, so we have 2 versions to compare in next weeks demo"; Q1 "Confident refresh"; Q2 deploy at /en-us/home-modern.
+
+**Decisions:**
+- Brand signal `signal-strong`, so Mode A (brand-faithful) with no rebrand trigger. Composed with Mode B (agent-sourced anchors) and Mode C (ground override, `brand-faithful`). Mode A+ considered and not activated: no evidenced face or color weakness.
+- Research tier degraded to WebFetch only (no WebSearch or refero). 3 anchors retrieved: Volvo CE (primary), Liebherr, McMaster-Carr (out-of-category). epiroc, cat, maersk and abb fetches failed.
+- Seed `Komatsu|2026-10-17` → 1950s × Cross-stitch sampler × Tabloid × saturated. Decade overridden to 2025-now and register to product-program grid (both reasoned from anchors). Craft kept at low teeth (grid discipline only). Ground goes to brand white; the saturated roll becomes the single Komatsu Blue band.
+- Palette inherited with brand-native roles (komatsu-blue, boom-blue, survey-blue, track-steel, cab-slate, grade-line, daylight, yard-gray, site-ground, komatsu-yellow reserved). #000000 dropped. Roboto retired.
+- Type: 1.25 scale (display 39→61, headline 31→39, title 20→25, body 16). Density balanced 64/48/32. Radius 4px.
+- ia-fidelity verbatim. 5 iaPriorities, all `locked`. Motion register `kinetic-grid` selected, not applied (static render).
+- N = 1 canonical direction. impeccable sequence recorded for prototype: detect --json → shape → distill → typeset → colorize → critique → polish.
+
+**Artifacts touched:**
+- stardust/prototypes/en-us-improvements.md — created
+- PRODUCT.md — created (project root; stardust target spec)
+- DESIGN.md — created (project root; Stitch frontmatter + 8 sections)
+- DESIGN.json — created (project root; schemaVersion 2)
+- stardust/direction.md — created
+- stardust/state.json — updated (direction block; en-us extracted → directed)
+- stardust/status.jsonl — updated (direct phases start/end)
+- stardust/current/* — read
+
+**Findings worth flagging:**
+- The project-root PRODUCT.md, DESIGN.md and DESIGN.json are stardust target specs only. The EDS project's styles/, blocks/, scripts/ and content/ were not touched, and deploy must namespace the blocks for /en-us/home-modern.
+- `ledger.mjs` does not know the `direct` skill or its phases. Lines were written with a warning (phases used: divergence, improvements, product, design, direction-and-state).
+- The hero image has `localPath: null`, so the prototype must reuse the Scene7 renditions by URL.
+- Komatsu Yellow fails on white (1.55:1). It is reserved to blue or dark grounds (8.80:1 on #140a9a).
+
+**Open questions:**
+- Should the blue footer wordmark be captured locally before prototype? The prototype currently references its public URL.
+- Should the brand team unify the CTA sibling phrasings? They are kept verbatim under legacy-content-preserved.
+
+**Next:** `$stardust prototype en-us` — render the canonical modernized homepage against DESIGN.md and the improvements brief.
+
+---

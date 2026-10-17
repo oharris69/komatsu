@@ -1,7 +1,7 @@
 {
   "_provenance": {
-    "writtenBy": "stardust:extract",
-    "writtenAt": "2026-10-17T15:50:00Z",
+    "writtenBy": "stardust:direct",
+    "writtenAt": "2026-10-17T16:06:24Z",
     "stardustVersion": "0.29.1"
   },
   "site": {
@@ -99,7 +99,15 @@
       }
     ]
   },
-  "direction": null,
+  "direction": {
+    "resolvedAt": "2026-10-17T16:06:00Z",
+    "phrase": "use stardust to modernize the homepage from a copy, so we have 2 versions to compare in next weeks demo",
+    "directionFile": "stardust/direction.md",
+    "mode": "brand-faithful (Mode A + B + C)",
+    "variantMode": "single",
+    "iaFidelity": "verbatim",
+    "deployPath": "/en-us/home-modern"
+  },
   "flow": "redesign",
   "flowChosenAt": "2026-10-17T15:50:00Z",
   "flowSource": "user-phrase",
@@ -109,11 +117,15 @@
       "url": "https://www.komatsu.com/en-us",
       "title": "Construction, Mining and Industrial Equipment | Komatsu",
       "type": null,
-      "status": "extracted",
+      "status": "directed",
       "history": [
         {
           "status": "extracted",
           "at": "2026-10-17T15:27:27.744Z"
+        },
+        {
+          "status": "directed",
+          "at": "2026-10-17T16:06:24Z"
         }
       ],
       "stale": false,
