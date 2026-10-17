@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- stardust:provenance
+  writtenBy:        stardust:extract
+  writtenAt:        2026-10-17T15:50:00Z
+  againstDirection: null (current-state review, descriptive)
+  readArtifacts:
+    - stardust/current/_brand-extraction.json
+    - stardust/current/DESIGN.md
+    - stardust/current/DESIGN.json
+    - stardust/current/PRODUCT.md
+    - stardust/current/pages/en-us.json
+    - stardust/current/_crawl-log.json
+    - stardust/current/_computed-styles.json
+    - stardust/current/assets/screenshots/en-us.png
+    - stardust/current/assets/logo.svg
+  synthesizedInputs: []
+  stardustVersion:  0.29.1
+-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Komatsu · Current-state brand review</title>
+<link rel="icon" href="assets/favicon.ico">
+<style>
+/* Brand fonts: the live site loads Noto Sans + Roboto from Google Fonts; the same files are captured locally. */
+@font-face { font-family: "Noto Sans"; font-style: normal; font-weight: 100 900; font-display: swap; src: url("assets/fonts/noto-sans-latin-normal-100-900.woff2") format("woff2"); }
+@font-face { font-family: "Noto Sans"; font-style: italic; font-weight: 100 900; font-display: swap; src: url("assets/fonts/noto-sans-latin-italic-100-900.woff2") format("woff2"); }
+@font-face { font-family: "Roboto"; font-style: normal; font-weight: 400; font-display: swap; src: url("assets/fonts/roboto-latin-400.woff2") format("woff2"); }
+:root {
+  /* every value from _brand-extraction.json (primary-dark derived: #140a9a darkened 30%, no darker same-hue entry) */
+  --primary: #140a9a;
+  --primary-dark: #0e076c;
+  --accent: #140a9a;          /* fallback 3: no saturated entry >60deg from primary, no role=secondary */
+  --secondary: #253fc8;
+  --tag: #3366cc;
+  --text: #1b232a;
+  --text-muted: #4d545a;
+  --surface: #ffffff;
+  --surface-alt: #fafafa;
+  --border: #ededed;
+  --display: "Noto Sans", sans-serif;
+  --body: "Noto Sans", sans-serif;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --radius: 4px;
+  --tile-shadow: rgba(0, 0, 0, 0.16) 0px 1px 2px 0px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--surface-alt); color: var(--text); font: 400 16px/24px var(--body); overflow-x: hidden; }
+img { max-width: 100%; display: block; }
+h1, h2, h3, h4 { font-family: var(--display); color: var(--text); margin: 0; }
+h2 { font-size: 24px; line-height: 28px; font-weight: 700; }
+h3 { font-size: 18px; line-height: 24px; font-weight: 700; }
+h4 { font-size: 16px; line-height: 22px; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--primary); text-decoration: none; }
+a:hover { color: var(--text); }
+code, .mono { font-family: var(--mono); font-size: 13px; overflow-wrap: anywhere; }
+
+/* top sticky nav */
+.topnav { position: sticky; top: 0; z-index: 10; background: var(--primary-dark); color: #fff; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px; padding: 10px 24px; font: 600 12px/1 var(--display); text-transform: uppercase; letter-spacing: 1.5px; }
+.topnav strong { margin-right: 14px; font-weight: 700; }
+.topnav a { color: #fff; padding: 7px 10px; border-radius: 150px; }
+.topnav a:hover, .topnav a:focus-visible { background: rgba(255, 255, 255, 0.18); color: #fff; outline: none; }
+
+/* page frame: white panels on the ground, like the site */
+main { max-width: 1240px; margin: 0 auto; padding: 32px 24px 48px; display: grid; gap: 32px; }
+section.panel { background: var(--surface); border-radius: var(--radius); box-shadow: var(--tile-shadow); padding: 32px; min-width: 0; }
+.sec-head { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin-bottom: 20px; }
+.sec-head h2 { margin-right: 4px; }
+.cite { margin-top: 20px; color: var(--text-muted); font-size: 13px; line-height: 18px; }
+.cite code { font-size: 12px; }
+.lede { color: var(--text-muted); margin-bottom: 20px; max-width: 75ch; }
+
+/* badges & pills (display font, mixed case: 0% uppercase headings on the site) */
+.badge { display: inline-block; font: 600 12px/16px var(--display); padding: 3px 10px; border-radius: 20px; border: 1px solid currentColor; }
+.b-home { color: var(--primary); }
+.b-cross { color: var(--secondary); }
+.b-synth { color: #fff; background: var(--text-muted); border-color: var(--text-muted); }
+.b-inferred { color: var(--text-muted); border-style: dashed; }
+.b-observed { color: #fff; background: var(--primary); border-color: var(--primary); }
+.pill { display: inline-block; font: 400 14px/20px var(--display); padding: 4px 14px; border: 2px solid var(--secondary); border-radius: var(--radius); color: var(--primary); background: #fff; }
+.tag { display: inline-block; font: 400 12px/16px Roboto, var(--body); letter-spacing: 0.4px; padding: 2px 8px; border-radius: 20px; background: var(--tag); color: #fff; }
+
+/* masthead */
+.mast { background: var(--primary-dark); color: #fff; }
+.mast-in { max-width: 1240px; margin: 0 auto; padding: 36px 24px 28px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px; }
+.mast-in img { width: 170px; height: auto; }
+.mast-in .site { font: 700 20px/1.2 var(--display); }
+.mast-in .sub { font-size: 14px; opacity: 0.85; }
+.hero-card { background: var(--surface); }
+.hero-card .in { max-width: 1240px; margin: 0 auto; padding: 32px 24px; }
+p.hero-line { color: var(--accent); font: 700 48px/1.1 var(--display); margin-bottom: 12px; }
+.hero-card .tagline { max-width: 70ch; color: var(--text); }
+.hero-card .origin { margin-top: 10px; }
+
+/* stat boxes */
+.stats { display: flex; flex-wrap: wrap; gap: 16px; }
+.stat { flex: 1 1 220px; min-width: 0; background: var(--surface-alt); border-top: 4px solid var(--primary); border-radius: var(--radius); padding: 18px 20px; }
+.stat .n { font: 700 28px/1.1 var(--display); color: var(--primary); }
+.stat .l { font: 600 13px/18px var(--display); color: var(--text-muted); margin-top: 4px; }
+.stat p { font-size: 14px; line-height: 20px; margin-top: 8px; }
+.missing { margin-top: 16px; font-size: 14px; line-height: 20px; color: var(--text-muted); }
+.missing li { margin: 2px 0; }
+
+/* pages */
+.thumbs { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
+.thumb { border-radius: var(--radius); overflow: hidden; box-shadow: var(--tile-shadow); background: var(--surface); }
+.thumb .img { aspect-ratio: 16 / 10; background: url("assets/screenshots/en-us.png") top center / cover no-repeat, var(--border); }
+.thumb .cap { padding: 10px 12px; font-size: 14px; line-height: 20px; }
+
+/* palette */
+.swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+.swatch { border: 1px solid var(--border); border-radius: var(--radius); padding: 14px; min-height: 200px; background: var(--surface); }
+.chip { width: 96px; height: 96px; border-radius: var(--radius); border: 1px solid rgba(0, 0, 0, 0.08); margin-bottom: 12px; }
+.swatch .role { font: 700 13px/18px var(--display); text-transform: uppercase; letter-spacing: 1px; color: var(--text); }
+.swatch .hex { font-family: var(--mono); font-size: 14px; margin: 2px 0 6px; }
+.swatch .meta { font-size: 13px; line-height: 18px; color: var(--text-muted); }
+.used { display: flex; flex-wrap: wrap; gap: 4px; margin: 6px 0; }
+.used span { font: 600 11px/14px var(--display); padding: 2px 7px; border-radius: 20px; background: var(--border); color: var(--text); }
+.ramp { display: flex; flex-wrap: wrap; gap: 0; margin-top: 18px; border-radius: var(--radius); overflow: hidden; }
+.ramp div { flex: 1 1 60px; min-height: 44px; padding: 6px; font: 600 10px/12px var(--mono); }
+
+/* typography */
+.spec { border-top: 1px solid var(--border); padding: 16px 0; display: grid; gap: 6px; min-width: 0; }
+.spec .lab { font-family: var(--mono); font-size: 12px; color: var(--text-muted); }
+.spec .s { overflow-wrap: anywhere; }
+</style>
+<style>
+/* voice */
+.vcards { display: grid; gap: 12px; }
+.vcard { background: var(--surface-alt); border-radius: var(--radius); padding: 22px 24px; }
+.vcard .k { font: 600 12px/16px var(--display); color: var(--text-muted); margin-bottom: 6px; }
+.vcard .v { font-size: 18px; line-height: 26px; }
+.vcard .v.big { font: 700 32px/38px var(--display); }
+.ctatable { width: 100%; border-collapse: collapse; margin-top: 24px; font-size: 14px; }
+.ctatable th { font: 600 13px/18px var(--display); text-align: left; color: var(--text-muted); border-bottom: 2px solid var(--border); padding: 8px 6px; }
+.ctatable td { border-bottom: 1px solid var(--border); padding: 8px 6px; vertical-align: middle; }
+.ctatable td.num { font-family: var(--mono); width: 70px; }
+.subhead { margin: 28px 0 10px; }
+
+/* tensions */
+.tgrid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+@media (min-width: 720px) { .tgrid { grid-template-columns: 1fr 1fr; } }
+.tcard { border-left: 4px solid var(--accent); background: var(--surface-alt); border-radius: 0 var(--radius) var(--radius) 0; padding: 16px 18px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.tcard .tid { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.tcard .tid code { font-weight: 700; color: var(--accent); }
+.tcard p { font-size: 15px; line-height: 22px; }
+.tcard .src { font-size: 12px; color: var(--text-muted); }
+.dettable { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 24px; }
+.dettable th, .dettable td { text-align: left; padding: 6px; border-bottom: 1px solid var(--border); vertical-align: top; }
+.dettable th { font: 600 12px/16px var(--display); color: var(--text-muted); }
+.fired { color: var(--primary); font-weight: 700; }
+.wrap-x { overflow-x: auto; }
+
+/* motifs */
+.mgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 16px; }
+.mcard { border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; display: grid; gap: 8px; justify-items: start; }
+.mbox { width: 72px; height: 72px; background: var(--primary); }
+.mcard .meta { font-size: 13px; line-height: 18px; color: var(--text-muted); }
+.shadow-demo { width: 100%; height: 72px; background: var(--surface); border-radius: 4px; }
+.grad-demo { width: 100%; height: 72px; border-radius: 4px; background: linear-gradient(0deg, transparent, rgba(0, 0, 0, 0.75)), #4d545a; position: relative; }
+
+/* components */
+.clist { display: grid; gap: 14px; }
+.citem { border-left: 3px solid var(--primary); padding: 4px 0 4px 16px; }
+.citem p { font-size: 15px; line-height: 22px; color: var(--text); }
+.citem .meta { font-size: 13px; color: var(--text-muted); }
+.demo-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin: 10px 0 4px; }
+.btn { display: inline-block; font: 400 16px/1.2 var(--display); padding: 11px 24px; border-radius: 4px; text-decoration: none; transition: all .3s ease; }
+.btn-primary { background: #140a9a; color: #fff; border: 0; }
+.btn-primary:hover { background: #253fc8; color: #fff; box-shadow: rgba(0,0,0,.3) 0 1px 2px 0, rgba(0,0,0,.15) 0 1px 3px 1px; }
+.btn-secondary { background: #fff; color: #140a9a; border: 2px solid #253fc8; }
+.btn-secondary:hover { background: #ededed; color: #140a9a; }
+.btn-inverse { background: transparent; color: #fff; border: 2px solid #fff; }
+.btn-inverse:hover { background: #253fc8; color: #fff; }
+.band { background: #140a9a; padding: 14px; border-radius: 4px; display: inline-block; }
+
+/* logo */
+.logo-row { display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start; }
+.logo-box { background: var(--primary-dark); padding: 28px; border-radius: var(--radius); max-width: 280px; }
+.logo-box img { width: 220px; height: auto; }
+.fav-box { background: var(--surface-alt); padding: 16px; border-radius: var(--radius); }
+.fav-box img { width: 32px; height: 32px; image-rendering: pixelated; }
+dl.meta { margin: 0; display: grid; grid-template-columns: max-content 1fr; gap: 6px 16px; font-size: 14px; line-height: 20px; flex: 1 1 320px; min-width: 0; }
+dl.meta dt { font: 600 13px/20px var(--display); color: var(--text-muted); }
+dl.meta dd { margin: 0; overflow-wrap: anywhere; }
+
+/* spacing */
+.bars { display: flex; align-items: flex-end; gap: 14px; flex-wrap: wrap; padding: 8px 0; }
+.bar { display: grid; justify-items: center; gap: 6px; font: 600 12px/14px var(--mono); color: var(--text-muted); }
+.bar div { width: 28px; background: var(--primary); border-radius: 2px 2px 0 0; }
+.radii { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+.radii span { font: 600 13px/18px var(--mono); padding: 8px 14px; background: var(--surface-alt); border: 2px solid var(--secondary); color: var(--primary); }
+
+/* footer */
+footer.site { background: var(--surface-alt); border-top: 1px solid var(--border); }
+footer.site .in { max-width: 1240px; margin: 0 auto; padding: 32px 24px 48px; display: grid; gap: 14px; font-size: 14px; line-height: 21px; color: var(--text-muted); }
+footer.site h2 { font-size: 16px; line-height: 22px; color: var(--text-muted); }
+.legend { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; }
+
+@media (max-width: 599px) {
+  main { padding: 20px 12px 32px; gap: 20px; }
+  section.panel { padding: 20px 16px; }
+  p.hero-line { font-size: 32px; }
+  .vcard .v.big { font-size: 24px; line-height: 30px; }
+  .topnav { padding: 8px 12px; }
+}
+@media print {
+  .topnav { position: static; }
+  body { background: #fff; }
+  section.panel { box-shadow: none; border: 1px solid var(--border); break-inside: avoid; }
+  .tcard, .swatch, .spec { break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+<nav class="topnav" aria-label="Review sections">
+  <strong>Komatsu · Current state</strong>
+  <a href="#coverage">Coverage</a>
+  <a href="#pages">Pages</a>
+  <a href="#palette">Palette</a>
+  <a href="#typography">Typography</a>
+  <a href="#voice">Voice</a>
+  <a href="#tensions">Tensions</a>
+  <a href="#motifs">Motifs</a>
+  <a href="#components">Components</a>
+  <a href="#logo">Logo</a>
+  <a href="#spacing">Spacing &amp; shape</a>
+</nav>
+
+<header class="mast">
+  <div class="mast-in">
+    <img src="assets/logo.svg" alt="Komatsu" width="170" height="34">
+    <div>
+      <div class="site">Komatsu</div>
+      <div class="sub">Current-state brand review · captured 2026-10-17 · homepage only</div>
+    </div>
+  </div>
+</header>
+<div class="hero-card">
+  <div class="in">
+    <p class="hero-line">Here's to progress</p>
+    <p class="tagline">Creating value through manufacturing and technology innovation to empower a sustainable future where people, businesses and our planet thrive together</p>
+    <p class="origin mono"><a href="https://www.komatsu.com/en-us">https://www.komatsu.com/en-us</a></p>
+  </div>
+</div>
+
+<main>
+
+<section class="panel" id="coverage">
+  <div class="sec-head"><h2>Coverage</h2></div>
+  <div class="stats">
+    <div class="stat">
+      <div class="n">1 page</div>
+      <div class="l">Pages extracted</div>
+      <p>/en-us, by user choice (homepage only). 78 linked internal pages left uncaptured by scope. Crawl failures: none.</p>
+    </div>
+    <div class="stat">
+      <div class="n">slow · 5000 ms</div>
+      <div class="l">Wait strategy</div>
+      <p>Live Playwright render, HTTP 200. Vision check: recaptured once (first pass showed the OneTrust banner over the hero), clean on the second.</p>
+    </div>
+    <div class="stat">
+      <div class="n">8 · 1 · 4px</div>
+      <div class="l">Brand surface</div>
+      <p>8 palette colors, 1 family (Noto Sans, Roboto on tags), signature radius 4px, 8 layout patterns. Container cap 1920px (module).</p>
+    </div>
+  </div>
+  <ul class="missing">
+    <li>Omitted, data too thin for one page: System components (needs 3 or more pages), Repeated headings (needs a heading on 3 or more pages), Cross-promo reproduction (not detected).</li>
+    <li>Omitted, not applicable: Embed-dominated pages (none; the two iframes are hidden tracking frames).</li>
+    <li>Every value below is home-only evidence: with one page, "cross-page" aggregation is this page.</li>
+  </ul>
+  <p class="cite">Source: <code>_crawl-log.json</code> (discovery, crawl.failures, visionCheck, captureGaps) · <code>pages/en-us.json#_provenance</code></p>
+</section>
+
+<section class="panel" id="pages">
+  <div class="sec-head"><h2>Pages</h2><span class="badge b-home">home-only</span></div>
+  <div class="thumbs">
+    <figure class="thumb" style="margin:0">
+      <div class="img" role="img" aria-label="Viewport screenshot of the Komatsu homepage"></div>
+      <figcaption class="cap">Construction, Mining and Industrial Equipment | Komatsu<br><code>/en-us</code></figcaption>
+    </figure>
+  </div>
+  <p class="cite">Source: <code>assets/screenshots/en-us.png</code> (1440 x 3985, full page)</p>
+</section>
+
+<section class="panel" id="palette">
+  <div class="sec-head"><h2>Color palette</h2><span class="badge b-home">home-only</span></div>
+  <p class="lede">Frequency-sorted computed colors, clustered within ΔE 5. The page ground is #fafafa (a member of the white cluster); white panels sit on it. Source page for every swatch: <code>en-us</code> (the only page captured).</p>
+  <div class="swatches">
+    <div class="swatch"><div class="chip" style="background:#ffffff"></div><div class="role">background</div><div class="hex">#ffffff</div><div class="used"><span>background</span><span>text</span><span>border</span></div><div class="meta">217 elements · cluster incl. #fafafa<br>#mobile-sideNav, #sidePanel, nav &gt; a</div></div>
+    <div class="swatch"><div class="chip" style="background:#140a9a"></div><div class="role">primary</div><div class="hex">#140a9a</div><div class="used"><span>text</span><span>background</span></div><div class="meta">151 elements · links, outline-button text, filled buttons, promo panel</div></div>
+    <div class="swatch"><div class="chip" style="background:#1b232a"></div><div class="role">text-primary</div><div class="hex">#1b232a</div><div class="used"><span>text</span></div><div class="meta">73 elements · h6 carousel labels, h2 section titles, h3 news</div></div>
+    <div class="swatch"><div class="chip" style="background:#253fc8"></div><div class="role">accent</div><div class="hex">#253fc8</div><div class="used"><span>border</span><span>hover: background</span></div><div class="meta">48 elements · 2px outline of buttons and chip-links; hover fill</div></div>
+    <div class="swatch"><div class="chip" style="background:#4d545a"></div><div class="role">text-secondary</div><div class="hex">#4d545a</div><div class="used"><span>text</span><span>background</span></div><div class="meta">45 elements · footer headings and copy; read-time chips</div></div>
+    <div class="swatch"><div class="chip" style="background:#3366cc"></div><div class="role">accent-1</div><div class="hex">#3366cc</div><div class="used"><span>background</span><span>border</span></div><div class="meta">33 elements · news topic tags; active nav/tab underline</div></div>
+    <div class="swatch"><div class="chip" style="background:#ededed"></div><div class="role">border</div><div class="hex">#ededed</div><div class="used"><span>border</span><span>hover: background</span></div><div class="meta">29 elements · dividers; outline-button hover fill</div></div>
+    <div class="swatch"><div class="chip" style="background:#000000"></div><div class="role">accent-2</div><div class="hex">#000000</div><div class="used"><span>text</span></div><div class="meta">6 elements · header utility links (icon labels)</div></div>
+  </div>
+  <h3 class="subhead">Declared CSS ramps (site utility classes)</h3>
+  <p class="lede">The captured colors map onto the site's own <code>.bg-primary-*</code> / <code>.bg-neutral-*</code> ramps. The declared secondary yellow paints one element on the homepage.</p>
+  <div class="ramp" aria-label="primary ramp">
+    <div style="background:#140a9a;color:#fff">p-10 #140a9a</div><div style="background:#253fc8;color:#fff">p-30 #253fc8</div><div style="background:#3366cc;color:#fff">p-60 #3366cc</div><div style="background:#e2f2ff">p-90 #e2f2ff</div><div style="background:#f0f8ff">p-100 #f0f8ff</div>
+  </div>
+  <div class="ramp" aria-label="secondary ramp">
+    <div style="background:#45360d;color:#fff">s-0 #45360d</div><div style="background:#665013;color:#fff">s-10 #665013</div><div style="background:#ffc82f">s-30 #ffc82f</div><div style="background:#ffe9ac">s-60 #ffe9ac</div><div style="background:#fef5d8">s-90 #fef5d8</div><div style="background:#fefaeb">s-100 #fefaeb</div>
+  </div>
+  <p class="cite">Source: <code>_brand-extraction.json § palette</code>, <code>§ cssUtilityRamps</code> · <code>_computed-styles.json#aggregate.colors</code>. Dropped by the 8-color cap: #d9d9d9 (5), rgba(20,10,154,.3) (2), #ffc82f (1).</p>
+</section>
+
+<section class="panel" id="typography">
+  <div class="sec-head"><h2>Typography</h2><span class="badge b-home">home-only</span><span class="badge b-synth">No modular scale</span></div>
+  <p class="lede">One family, Noto Sans (Google Fonts, display=swap), at 400 / 600 / 700. Roboto 400 appears only on news topic tags. Mixed case throughout: 0 of 30 headings are uppercase.</p>
+  <div class="spec">
+    <div class="lab">H1 · Noto Sans 700 / 32px / 38px · normal (390px: 20px / 24px)</div>
+    <div class="s" style="font:700 32px/38px var(--display)">Here's to progress</div>
+  </div>
+  <div class="spec">
+    <div class="lab">H2 · Noto Sans 700 / 24px / 28px · normal</div>
+    <div class="s" style="font:700 24px/28px var(--display)">Dig into the latest</div>
+  </div>
+  <div class="spec">
+    <div class="lab">H3 · Noto Sans 600 / 24px / 32px · normal</div>
+    <div class="s" style="font:600 24px/32px var(--display)">Technology</div>
+  </div>
+  <div class="spec">
+    <div class="lab">H2 · Noto Sans 700 / 22px / 28px · normal (promo band)</div>
+    <div class="s" style="font:700 22px/28px var(--display)">Parts purchasing made easy</div>
+  </div>
+  <div class="spec">
+    <div class="lab">H3 · Noto Sans 400 / 20px / 28px · normal (featured news)</div>
+    <div class="s" style="font:400 20px/28px var(--display)">Powering progress responsibly: Inside Komatsu electrification</div>
+  </div>
+  <div class="spec">
+    <div class="lab">H3 · Noto Sans 400 / 18px / 22px · normal (news list)</div>
+    <div class="s" style="font:400 18px/22px var(--display)">Komatsu celebrates grand opening of new Edmonton parts distribution center</div>
+  </div>
+  <div class="spec">
+    <div class="lab">H6 · Noto Sans 700 / 16px / 22px · normal (carousel labels, footer headings)</div>
+    <div class="s" style="font:700 16px/22px var(--display)">Electric rope shovels</div>
+  </div>
+  <div class="spec">
+    <div class="lab">Body · Noto Sans 400 / 16px / 24px · normal (hero lede; 22px elsewhere)</div>
+    <div class="s" style="font:400 16px/24px var(--body)">For more than a century, Komatsu has helped build the world beneath our feet. Now, we're helping imagine how people could one day build beyond it.</div>
+  </div>
+  <div class="spec">
+    <div class="lab">Tag · Roboto 400 / 12px / 16px · 0.4px</div>
+    <div class="s"><span class="tag">Smart Construction</span> <span class="tag">Press release</span></div>
+  </div>
+  <p class="cite">Scale audit: sizes 32 → 24 → 22 → 20 → 18 → 16px, ratios 1.333 / 1.091 / 1.1 / 1.111 / 1.125 — ad-hoc. Source: <code>_brand-extraction.json § type</code>, <code>§ type.scaleAudit</code> · <code>_computed-styles.json#aggregate.type.levels</code></p>
+</section>
+
+<section class="panel" id="voice">
+  <div class="sec-head"><h2>Voice</h2><span class="badge b-home">home-only</span><span class="badge b-inferred">tone guess: aspirational</span></div>
+  <div class="vcards">
+    <div class="vcard"><div class="k">Hero headline</div><div class="v big">Here's to progress</div></div>
+    <div class="vcard"><div class="k">Tagline (meta description)</div><div class="v">Creating value through manufacturing and technology innovation to empower a sustainable future where people, businesses and our planet thrive together</div></div>
+    <div class="vcard"><div class="k">First paragraph</div><div class="v">For more than a century, Komatsu has helped build the world beneath our feet. Now, we're helping imagine how people could one day build beyond it.</div></div>
+  </div>
+  <h3 class="subhead">CTA frequency (top 8)</h3>
+  <div class="wrap-x">
+  <table class="ctatable">
+    <thead><tr><th>Label</th><th>Total</th><th>Pages</th></tr></thead>
+    <tbody>
+      <tr><td><span class="pill">Technology</span></td><td class="num">3</td><td class="num">1</td></tr>
+      <tr><td><span class="pill">opens in a new tab</span> <small>icon-only social links</small></td><td class="num">3</td><td class="num">1</td></tr>
+      <tr><td><span class="pill">Equipment</span></td><td class="num">2</td><td class="num">1</td></tr>
+      <tr><td><span class="pill">Parts</span></td><td class="num">2</td><td class="num">1</td></tr>
+      <tr><td><span class="pill">Contact us</span></td><td class="num">2</td><td class="num">1</td></tr>
+      <tr><td><span class="pill">Request a quote</span></td><td class="num">2</td><td class="num">1</td></tr>
+      <tr><td><span class="pill">Products</span></td><td class="num">1</td><td class="num">1</td></tr>
+      <tr><td><span class="pill">Services</span></td><td class="num">1</td><td class="num">1</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="cite">Representative action CTAs: Explore more (hero) · Learn more · Order now · Read more news · Request a quote · Contact us. Repeated-heading list omitted: no heading can reach 3 pages in a 1-page crawl.</p>
+  <h3 class="subhead">Tone metrics</h3>
+  <div class="stats">
+    <div class="stat"><div class="n">0%</div><div class="l">Headings uppercase</div></div>
+    <div class="stat"><div class="n">29</div><div class="l">Distinct headings (of 30)</div></div>
+    <div class="stat"><div class="n">70</div><div class="l">Distinct CTA labels (of 78)</div></div>
+  </div>
+  <p class="cite">Source: <code>_brand-extraction.json § voice</code>, <code>§ voiceTable</code> · <code>pages/en-us.json#ctas, #headings</code>. The tone guess is a heuristic, not a finding.</p>
+</section>
+
+<section class="panel" id="tensions">
+  <div class="sec-head"><h2>Tensions</h2><span class="badge b-synth">synthesized</span></div>
+  <p class="lede">Where the current homepage contradicts itself: decisions for <code>$stardust direct</code>, not judgments. The first three are the mechanical detectors; the rest are agent-added observations, each tied to a captured value.</p>
+  <div class="tgrid">
+    <article class="tcard">
+      <div class="tid"><code>T-scale</code><span class="badge b-synth">synthesized</span></div>
+      <h4>Type scale is ad-hoc</h4>
+      <p>32 → 24 → 22 → 20 → 18 → 16px, no consistent ratio. Direct will need to decide whether the target adopts a modular scale.</p>
+      <div class="src">Source: _brand-extraction.json § type.scaleAudit</div>
+    </article>
+    <article class="tcard">
+      <div class="tid"><code>T-logo-variants</code><span class="badge b-home">home-only</span></div>
+      <h4>Only one logo variant captured</h4>
+      <p>Only one logo variant captured (img: header logo.svg, white fill). A blue footer wordmark (blue-logo.svg) exists but was not captured. The redesign will need a monochrome / inverted / SVG variant set; direct should plan that.</p>
+      <div class="src">Source: _brand-extraction.json § logo, logo.variantsSeen</div>
+    </article>
+    <article class="tcard">
+      <div class="tid"><code>T-img-alt-generic</code><span class="badge b-home">home-only</span></div>
+      <h4>Generic alt text found</h4>
+      <p>1 image carries alt text equal to a stock placeholder ("logo", mobile side-panel logo). Near-placeholders outside the closed list: "Article Image" x5, "Background Image" x1 (the hero), "alt text" x1.</p>
+      <div class="src">Source: pages/en-us.json#media.imgs[].alt</div>
+    </article>
+    <article class="tcard">
+      <div class="tid"><code>T-hierarchy</code><span class="badge b-home">agent-added</span></div>
+      <h4>The hero headline is barely larger than section titles</h4>
+      <p>H1 is 32px vs 24px H2 at 1440 (1.33x); at 390 the H1 drops to 20px while section H2s stay at 24px, so the hero reads smaller than "Dig into the latest". Direct will need to set the display size.</p>
+      <div class="src">Source: _computed-styles.json pages[url][1440|390].headings</div>
+    </article>
+    <article class="tcard">
+      <div class="tid"><code>T-yellow-dormant</code><span class="badge b-home">agent-added</span></div>
+      <h4>Declared brand yellow is almost unused</h4>
+      <p>CSS ships a full secondary ramp around #ffc82f, but the homepage computes it on one 10x10px control; yellow appears only in photography. Direct will need to decide whether the target activates it or keeps blue-only chrome.</p>
+      <div class="src">Source: _brand-extraction.json § cssUtilityRamps.secondary, palette notes</div>
+    </article>
+    <article class="tcard">
+      <div class="tid"><code>T-font-fork</code><span class="badge b-home">agent-added</span></div>
+      <h4>A second family on news tags</h4>
+      <p>News topic tags are set in Roboto 9pt while every other element is Noto Sans; both families load from Google Fonts. Direct will need to keep one family or name Roboto as a deliberate label face.</p>
+      <div class="src">Source: _brand-extraction.json § type.auxiliaryFamilies</div>
+    </article>
+    <article class="tcard">
+      <div class="tid"><code>T-cta-siblings</code><span class="badge b-inferred">inferred</span></div>
+      <h4>Three phrasings for the same "see more" move</h4>
+      <p>"Explore more" (hero), "Learn more" (Technology) and "Read more news" (news) sit in one scroll. The closed-list detector does not fire (only "learn more" is a bucket member); direct may still pick one voice.</p>
+      <div class="src">Source: pages/en-us.json#ctas</div>
+    </article>
+    <article class="tcard">
+      <div class="tid"><code>T-link-a11y</code><span class="badge b-home">agent-added</span></div>
+      <h4>Icon links named only "opens in a new tab"</h4>
+      <p>Three footer social links (Facebook, Instagram, YouTube icons) expose only the visually hidden "opens in a new tab" suffix as their accessible text, so the destination is unnamed.</p>
+      <div class="src">Source: _brand-extraction.json § voiceTable.ctaFrequency[1]</div>
+    </article>
+  </div>
+  <h3 class="subhead">Detectors run</h3>
+  <div class="wrap-x">
+  <table class="dettable">
+    <thead><tr><th>Rule</th><th>Result</th><th>Data</th></tr></thead>
+    <tbody>
+      <tr><td><code>T-scale</code></td><td class="fired">fired</td><td>scaleAudit.kind = ad-hoc</td></tr>
+      <tr><td><code>T-radius-vocab</code></td><td>not fired</td><td>only 4px (113) is a sub-16px radius with 10 or more uses; 8px (2) and 4px 4px 0 0 (3) fall short</td></tr>
+      <tr><td><code>T-cta-vocab</code></td><td>not fired</td><td>bucket hits: see-more {learn more}, contact {contact us}, buy {order now}: one label per bucket</td></tr>
+      <tr><td><code>T-link-content-free</code></td><td>not fired</td><td>no here / click here / read this / more / this labels</td></tr>
+      <tr><td><code>T-logo-variants</code></td><td class="fired">fired</td><td>always emits</td></tr>
+      <tr><td><code>T-color-imbalance</code></td><td>not fired</td><td>no non-text-role color is text-only or background-only (#253fc8 and #ededed are border-only, which the rule does not cover)</td></tr>
+      <tr><td><code>T-no-tokens</code></td><td>not fired</td><td>--spacing-base-unit: 0.0625rem is defined</td></tr>
+      <tr><td><code>T-tokens-unused</code></td><td>not fired</td><td>no --primary / --secondary / status custom properties</td></tr>
+      <tr><td><code>T-img-alt-generic</code></td><td class="fired">fired</td><td>1 of 53 images, alt "logo"</td></tr>
+      <tr><td><code>T-embed-dominance</code></td><td>skipped</td><td>no embedDominance field; no visible embeds</td></tr>
+      <tr><td><code>T-img-alt-empty</code></td><td>not fired</td><td>12 of 53 empty (22.6%, under 30%)</td></tr>
+      <tr><td><code>T-nav-conflict</code></td><td>not fired</td><td>nav Products / Services / Technology / Company: no action-conflict pair</td></tr>
+      <tr><td><code>T-temporal-mark</code></td><td>not fired</td><td>no anniversary / centennial / edition in logo or hero headline</td></tr>
+      <tr><td><code>T-contrast</code></td><td>not fired</td><td>#1b232a on #ffffff passes AA</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="cite">Source: <code>brand-review-template.md § Detector rules</code> applied to <code>_brand-extraction.json</code> and <code>pages/en-us.json</code>.</p>
+</section>
+
+<section class="panel" id="motifs">
+  <div class="sec-head"><h2>Motifs</h2><span class="badge b-home">home-only</span></div>
+  <div class="mgrid">
+    <div class="mcard"><div class="mbox" style="border-radius:4px"></div><strong>4px</strong><div class="meta">113 elements · buttons, tiles, product images, utility links</div></div>
+    <div class="mcard"><div class="mbox" style="border-radius:20px;width:110px;height:40px"></div><strong>20px</strong><div class="meta">27 elements · news topic tags</div></div>
+    <div class="mcard"><div class="mbox" style="border-radius:50%"></div><strong>50%</strong><div class="meta">9 elements · carousel dots</div></div>
+    <div class="mcard"><div class="mbox" style="border-radius:4px 4px 0 0"></div><strong>4px 4px 0 0</strong><div class="meta">3 elements · news card image tops</div></div>
+    <div class="mcard"><div class="mbox" style="border-radius:8px;width:40px;height:40px"></div><strong>8px</strong><div class="meta">2 elements · carousel arrows</div></div>
+    <div class="mcard"><div class="shadow-demo" style="box-shadow:rgba(0,0,0,0.16) 0px 1px 2px 0px"></div><strong>Tile hairline</strong><div class="meta">rgba(0,0,0,.16) 0 1px 2px · 23 elements</div></div>
+    <div class="mcard"><div class="shadow-demo" style="box-shadow:rgba(0,0,0,0.3) 0px 1px 2px 0px, rgba(0,0,0,0.15) 0px 1px 3px 1px"></div><strong>Button hover lift</strong><div class="meta">primary button :hover only</div></div>
+    <div class="mcard"><div class="grad-demo"></div><strong>Hero overlay</strong><div class="meta">linear-gradient(0deg, transparent, rgba(0,0,0,.75)) at opacity .5, hero ::before</div></div>
+  </div>
+  <p class="cite">Excluded as third-party: radius 100px and shadow 0 4px 8px rgba(0,0,0,.2) (OneTrust floating button). Source: <code>_brand-extraction.json § motifs</code> · <code>_computed-styles.json#aggregate.motifs</code></p>
+</section>
+
+<section class="panel" id="components">
+  <div class="sec-head"><h2>Components</h2><span class="badge b-home">home-only</span></div>
+  <div class="clist">
+    <div class="citem"><h4>Buttons</h4>
+      <div class="demo-row"><a class="btn btn-primary" href="#components">Learn more</a><a class="btn btn-secondary" href="#components">Explore more</a><span class="band"><a class="btn btn-inverse" href="#components">Order now</a></span><span class="pill">3D Machine Guidance</span></div>
+      <p class="meta">Filled (2) · outline (1) · inverse on blue (1) · chip-links (11). 4px corners, 11px 24px padding, 16px regular weight; hover per the live site.</p></div>
+    <div class="citem"><h4>hero-with-image</h4><p>Full-bleed 1440 x 700 photo with header laid over it, dark overlay, centered headline + lede + one outline CTA.</p><p class="meta">1 occurrence</p></div>
+    <div class="citem"><h4>product-carousel</h4><p>Seven cut-out equipment images per view with bold labels, blue arrow buttons, three dots.</p><p class="meta">1 occurrence · 21 categories</p></div>
+    <div class="citem"><h4>bento-tile-grid</h4><p>One large and four small photo tiles with white bold labels: Equipment, Parts, Attachments, Technology, Service and support.</p><p class="meta">1 occurrence · 5 tiles</p></div>
+    <div class="citem"><h4>tabbed-feature</h4><p>Smart Construction / Smart Mining / Smart Quarry tabs; copy, chip-links and a filled CTA beside a photo.</p><p class="meta">1 occurrence · 3 tabs</p></div>
+    <div class="citem"><h4>split-promo-band</h4><p>Solid #140a9a panel with white copy and inverse button, photo to the right ("Parts purchasing made easy").</p><p class="meta">1 occurrence</p></div>
+    <div class="citem"><h4>news-grid</h4><p>Two overlay feature cards plus a three-item list, read-time chips and topic tags, "Read more news".</p><p class="meta">1 occurrence · 5 articles</p></div>
+    <div class="citem"><h4>image-tile-cta-row</h4><p>Four photo tiles: Contact us, Request a quote, My Komatsu, Find a location.</p><p class="meta">1 occurrence · 4 tiles</p></div>
+    <div class="citem"><h4>footer-mega</h4><p>#fafafa footer: four link columns, blue wordmark, company line, social icons, legal row.</p><p class="meta">1 occurrence</p></div>
+  </div>
+  <p class="cite">Source: <code>_brand-extraction.json § motifs.patterns</code>, <code>§ componentStyle</code>. System components omitted: detection needs 3 or more pages.</p>
+</section>
+
+<section class="panel" id="logo">
+  <div class="sec-head"><h2>Logo &amp; favicon</h2><span class="badge b-home">home-only</span></div>
+  <div class="logo-row">
+    <div class="logo-box"><img src="assets/logo.svg" alt="Komatsu logo, white wordmark"></div>
+    <dl class="meta">
+      <dt>Source</dt><dd>&lt;img&gt; in the header (chain step 2): <code>header.header-xf … img.cmp-image__image</code>, alt "Company Logo"</dd>
+      <dt>File</dt><dd>SVG, 170 x 34 (<code>assets/logo.svg</code>, from /content/dam/komatsu/icons/website-app/logo.svg)</dd>
+      <dt>Variants captured</dt><dd>White wordmark (header, for dark hero)</dd>
+      <dt>Variants not captured</dt><dd>Blue wordmark (footer, blue-logo.svg 181 x 35); monochrome; mark-only</dd>
+      <dt>Note</dt><dd>Aspect 5:1 is outside the chain's 0.5 to 3.0 guard; accepted as a wide wordmark (fallbacks are a social card and a favicon).</dd>
+    </dl>
+    <div class="fav-box"><img src="assets/favicon.ico" alt="Komatsu favicon"><div class="mono" style="margin-top:8px">favicon.ico</div></div>
+  </div>
+  <p class="cite">Source: <code>_brand-extraction.json § logo, § favicon</code> · <code>_crawl-log.json#favicon</code></p>
+</section>
+
+<section class="panel" id="spacing">
+  <div class="sec-head"><h2>Spacing &amp; shape</h2><span class="badge b-home">home-only</span></div>
+  <p class="lede">Base unit 4px (declared token <code>--spacing-base-unit: 0.0625rem</code>, a 1px multiplier). Section rhythm 32px; header 82px over the hero; module panels capped at 1920px.</p>
+  <div class="bars">
+    <div class="bar"><div style="height:4px"></div>4</div>
+    <div class="bar"><div style="height:8px"></div>8</div>
+    <div class="bar"><div style="height:16px"></div>16</div>
+    <div class="bar"><div style="height:20px"></div>20</div>
+    <div class="bar"><div style="height:24px"></div>24</div>
+    <div class="bar"><div style="height:32px"></div>32</div>
+    <div class="bar"><div style="height:40px"></div>40</div>
+  </div>
+  <h3 class="subhead">Radii revisited</h3>
+  <div class="radii">
+    <span style="border-radius:4px">4px · 113</span>
+    <span style="border-radius:20px">20px · 27</span>
+    <span style="border-radius:50%">50% · 9</span>
+    <span style="border-radius:4px 4px 0 0">4px 4px 0 0 · 3</span>
+    <span style="border-radius:8px">8px · 2</span>
+  </div>
+  <p class="cite">Source: <code>_brand-extraction.json § spacing</code> (padding histogram from a JS-off render of <code>pages/en-us.html</code>), <code>DESIGN.json#extensions.breakpoints</code> (cap probe)</p>
+</section>
+
+</main>
+
+<footer class="site">
+  <div class="in">
+    <h2>Provenance</h2>
+    <p>This review read <code>_brand-extraction.json</code>, <code>DESIGN.md</code>, <code>DESIGN.json</code>, <code>PRODUCT.md</code>, <code>pages/en-us.json</code>, <code>_crawl-log.json</code>, <code>_computed-styles.json</code>, <code>assets/screenshots/en-us.png</code> and <code>assets/logo.svg</code>, all under <code>stardust/current/</code>. Nothing on this page is invented; sections without data are omitted.</p>
+    <p><strong>What's next:</strong> confirm the extraction looks like komatsu.com, then run <code>$stardust direct</code> to set the redesign direction.</p>
+    <div class="legend"><span class="badge b-observed">observed</span> 3+ pages · <span class="badge b-home">home-only</span> single page · <span class="badge b-cross">cross-page</span> all pages · <span class="badge b-inferred">inferred</span> judgment call · <span class="badge b-synth">synthesized</span> derived claim</div>
+  </div>
+</footer>
+</body>
+</html>

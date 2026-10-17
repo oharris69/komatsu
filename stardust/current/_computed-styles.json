@@ -1,0 +1,2882 @@
+{
+  "_provenance": {
+    "writtenBy": "stardust:extract",
+    "writtenAt": "2026-10-17T15:28:53.946Z",
+    "script": "style-census.mjs",
+    "readArtifacts": [
+      "https://www.komatsu.com/en-us"
+    ],
+    "widths": [
+      1440,
+      390
+    ],
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36",
+    "synthesizedInputs": [],
+    "failed": []
+  },
+  "pages": {
+    "https://www.komatsu.com/en-us": {
+      "390": {
+        "title": "Construction, Mining and Industrial Equipment | Komatsu",
+        "viewport": {
+          "width": 390,
+          "height": 900
+        },
+        "elements": {
+          "total": 1219,
+          "visible": 427
+        },
+        "occluders": [],
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "Here's to progress",
+            "selector": "div > div > div > div > div > div:nth-of-type(1) > div:nth-of-type(4) > h1",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "20px",
+            "fontWeight": "700",
+            "lineHeight": "24px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(255, 255, 255)"
+          },
+          {
+            "tag": "h6",
+            "text": "Blasthole drills",
+            "selector": "div > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div > a > div > h6",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "16px",
+            "fontWeight": "700",
+            "lineHeight": "22px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(27, 35, 42)"
+          },
+          {
+            "tag": "h6",
+            "text": "Crushing",
+            "selector": "div > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div > a > div > h6",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "16px",
+            "fontWeight": "700",
+            "lineHeight": "22px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(27, 35, 42)"
+          },
+          {
+            "tag": "h6",
+            "text": "Dozers",
+            "selector": "div > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div > a > div > h6",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "16px",
+            "fontWeight": "700",
+            "lineHeight": "22px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(27, 35, 42)"
+          },
+          {
+            "tag": "h6",
+            "text": "Draglines",
+            "selector": "div > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > div > a > div > h6",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "16px",
+            "fontWeight": "700",
+            "lineHeight": "22px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(27, 35, 42)"
+          },
+          {
+            "tag": "h2",
+            "text": "Equipment",
+            "selector": "div > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div > a > div > h2",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "16px",
+            "fontWeight": "700",
+            "lineHeight": "28px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(255, 255, 255)"
+          },
+          {
+            "tag": "h2",
+            "text": "Parts",
+            "selector": "div > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div > a > div > h2",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "16px",
+            "fontWeight": "700",
+            "lineHeight": "28px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(255, 255, 255)"
+          },
+          {
+            "tag": "h2",
+            "text": "Attachments",
+            "selector": "div > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div > a > div > h2",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "16px",
+            "fontWeight": "700",
+            "lineHeight": "28px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(255, 255, 255)"
+          },
+          {
+            "tag": "h2",
+            "text": "Technology",
+            "selector": "div > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(4) > div > a > div > h2",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "16px",
+            "fontWeight": "700",
+            "lineHeight": "28px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(255, 255, 255)"
+          },
+          {
+            "tag": "h2",
+            "text": "Service and support",
+            "selector": "div > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(5) > div > a > div > h2",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "16px",
+            "fontWeight": "700",
+            "lineHeight": "28px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(255, 255, 255)"
+          },
+          {
+            "tag": "h3",
+            "text": "Technology",
+            "selector": "div > div:nth-of-type(3) > div > div > div > div > div:nth-of-type(1) > h3",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "24px",
+            "fontWeight": "600",
+            "lineHeight": "32px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(27, 35, 42)"
+          },
+          {
+            "tag": "h2",
+            "text": "Smart Construction",
+            "selector": "div > div > div > div:nth-of-type(1) > div > div:nth-of-type(1) > div > h2",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "24px",
+            "fontWeight": "700",
+            "lineHeight": "28px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(27, 35, 42)"
+          },
+          {
+            "tag": "h2",
+            "text": "Parts purchasing made easy",
+            "selector": "div > div > div > div > div > div:nth-of-type(1) > div > h2",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "20px",
+            "fontWeight": "700",
+            "lineHeight": "28px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(255, 255, 255)"
+          },
+          {
+            "tag": "h2",
+            "text": "Dig into the latest",
+            "selector": "div > div:nth-of-type(5) > div > div > div > div > div > h2",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "24px",
+            "fontWeight": "700",
+            "lineHeight": "28px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(27, 35, 42)"
+          },
+          {
+            "tag": "h3",
+            "text": "Komatsu’s Newberry facility celebrates …",
+            "selector": "div > div > div > div:nth-of-type(1) > div > a > div:nth-of-type(2) > h3",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "16px",
+            "fontWeight": "400",
+            "lineHeight": "22px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(27, 35, 42)"
+          },
+          {
+            "tag": "h3",
+            "text": "Powering progress responsibly: Inside K…",
+            "selector": "div > div > div > div:nth-of-type(2) > div > a > div:nth-of-type(2) > h3",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "16px",
+            "fontWeight": "400",
+            "lineHeight": "22px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(27, 35, 42)"
+          },
+          {
+            "tag": "h3",
+            "text": "Komatsu launches “The future you build …",
+            "selector": "div > div > div > div:nth-of-type(3) > div > a > div:nth-of-type(2) > h3",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "16px",
+            "fontWeight": "400",
+            "lineHeight": "22px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(27, 35, 42)"
+          },
+          {
+            "tag": "h2",
+            "text": "Contact us",
+            "selector": "div > div > div:nth-of-type(1) > div:nth-of-type(1) > div > a > div > h2",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "24px",
+            "fontWeight": "700",
+            "lineHeight": "28px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(255, 255, 255)"
+          },
+          {
+            "tag": "h2",
+            "text": "Request a quote",
+            "selector": "div > div > div:nth-of-type(1) > div:nth-of-type(2) > div > a > div > h2",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "24px",
+            "fontWeight": "700",
+            "lineHeight": "28px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(255, 255, 255)"
+          },
+          {
+            "tag": "h2",
+            "text": "My Komatsu",
+            "selector": "div > div > div:nth-of-type(1) > div:nth-of-type(3) > div > a > div > h2",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "24px",
+            "fontWeight": "700",
+            "lineHeight": "28px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(255, 255, 255)"
+          },
+          {
+            "tag": "h2",
+            "text": "Find a location",
+            "selector": "div > div > div:nth-of-type(1) > div:nth-of-type(4) > div > a > div > h2",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "24px",
+            "fontWeight": "700",
+            "lineHeight": "28px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(255, 255, 255)"
+          },
+          {
+            "tag": "h6",
+            "text": "Discover",
+            "selector": "#experiencefragment-83d3be9b37 > div > div:nth-of-type(1) > div > div > div:nth-of-type(1) > div > h6",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "16px",
+            "fontWeight": "700",
+            "lineHeight": "22px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(77, 84, 90)"
+          },
+          {
+            "tag": "h6",
+            "text": "Tools",
+            "selector": "#experiencefragment-83d3be9b37 > div > div:nth-of-type(1) > div > div > div:nth-of-type(2) > div > h6",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "16px",
+            "fontWeight": "700",
+            "lineHeight": "22px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(77, 84, 90)"
+          },
+          {
+            "tag": "h6",
+            "text": "Company",
+            "selector": "#experiencefragment-83d3be9b37 > div > div:nth-of-type(1) > div > div > div:nth-of-type(3) > div > h6",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "16px",
+            "fontWeight": "700",
+            "lineHeight": "22px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(77, 84, 90)"
+          },
+          {
+            "tag": "h6",
+            "text": "Connect",
+            "selector": "#experiencefragment-83d3be9b37 > div > div:nth-of-type(1) > div > div > div:nth-of-type(4) > div > h6",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "16px",
+            "fontWeight": "700",
+            "lineHeight": "22px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(77, 84, 90)"
+          }
+        ],
+        "text": [
+          {
+            "tag": "p",
+            "text": "For more than a century, Komatsu has he…",
+            "selector": "div > div > div > div:nth-of-type(1) > div:nth-of-type(4) > div > div:nth-of-type(1) > p",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "16px",
+            "fontWeight": "400",
+            "lineHeight": "24px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(255, 255, 255)"
+          },
+          {
+            "tag": "p",
+            "text": "Our industry is on the cusp of rapid ch…",
+            "selector": "div > div > div > div:nth-of-type(1) > div > div:nth-of-type(2) > div > p",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "16px",
+            "fontWeight": "400",
+            "lineHeight": "22.4px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(27, 35, 42)"
+          },
+          {
+            "tag": "p",
+            "text": "Order Komatsu Genuine and Reman parts t…",
+            "selector": "div > div > div > div > div:nth-of-type(1) > div > div:nth-of-type(1) > p",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "16px",
+            "fontWeight": "400",
+            "lineHeight": "22px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(255, 255, 255)"
+          },
+          {
+            "tag": "p",
+            "text": "Komatsu is a leading manufacturer of co…",
+            "selector": "#textcontent-cb6afddf5c > p",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "14px",
+            "fontWeight": "400",
+            "lineHeight": "19px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(77, 84, 90)"
+          },
+          {
+            "tag": "p",
+            "text": "2026 Komatsu America Corp. All rights r…",
+            "selector": "#textcontent-64bcdcc06e > p",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "14px",
+            "fontWeight": "400",
+            "lineHeight": "19px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(77, 84, 90)"
+          }
+        ],
+        "buttons": [
+          {
+            "text": "Products",
+            "selector": "nav > a:nth-of-type(1)",
+            "count": 4,
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "color": "rgb(255, 255, 255)",
+            "borderRadius": "0px",
+            "padding": "24px 20px",
+            "border": "",
+            "borderColor": "rgb(51, 102, 204) rgb(255, 255, 255) rgb(255, 255, 255)",
+            "boxShadow": "none",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "18px",
+            "fontWeight": "600",
+            "textTransform": "none",
+            "letterSpacing": "normal",
+            "hover": null
+          },
+          {
+            "text": "Explore more",
+            "selector": "div > div > div > div:nth-of-type(1) > div:nth-of-type(4) > div > div:nth-of-type(2) > a",
+            "count": 1,
+            "backgroundColor": "rgb(255, 255, 255)",
+            "color": "rgb(20, 10, 154)",
+            "borderRadius": "4px",
+            "padding": "11px 24px",
+            "border": "2px solid rgb(37, 63, 200)",
+            "borderColor": "rgb(37, 63, 200)",
+            "boxShadow": "none",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "16px",
+            "fontWeight": "400",
+            "textTransform": "none",
+            "letterSpacing": "normal",
+            "hover": {
+              "backgroundColor": "rgb(237, 237, 237)",
+              "color": "rgb(20, 10, 154)",
+              "borderColor": "rgb(37, 63, 200)",
+              "boxShadow": "none",
+              "changed": true
+            }
+          },
+          {
+            "text": "3D Machine Guidance",
+            "selector": "div > div > div:nth-of-type(1) > div > div:nth-of-type(3) > div > div:nth-of-type(1) > a",
+            "count": 11,
+            "backgroundColor": "rgb(255, 255, 255)",
+            "color": "rgb(20, 10, 154)",
+            "borderRadius": "4px",
+            "padding": "4px 16px",
+            "border": "2px solid rgb(37, 63, 200)",
+            "borderColor": "rgb(37, 63, 200)",
+            "boxShadow": "none",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "14px",
+            "fontWeight": "400",
+            "textTransform": "none",
+            "letterSpacing": "normal",
+            "hover": {
+              "backgroundColor": "rgb(237, 237, 237)",
+              "color": "rgb(20, 10, 154)",
+              "borderColor": "rgb(37, 63, 200)",
+              "boxShadow": "none",
+              "changed": true
+            }
+          },
+          {
+            "text": "Learn more",
+            "selector": "div > div > div > div > div:nth-of-type(1) > div > div:nth-of-type(4) > a",
+            "count": 2,
+            "backgroundColor": "rgb(20, 10, 154)",
+            "color": "rgb(255, 255, 255)",
+            "borderRadius": "4px",
+            "padding": "11px 24px",
+            "border": "0px none rgb(255, 255, 255)",
+            "borderColor": "rgb(255, 255, 255)",
+            "boxShadow": "none",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "16px",
+            "fontWeight": "400",
+            "textTransform": "none",
+            "letterSpacing": "normal",
+            "hover": {
+              "backgroundColor": "rgb(37, 63, 200)",
+              "color": "rgb(255, 255, 255)",
+              "borderColor": "rgb(255, 255, 255)",
+              "boxShadow": "rgba(0, 0, 0, 0.3) 0px 1px 2px 0px, rgba(0, 0, 0, 0.15) 0px 1px 3px 1px",
+              "changed": true
+            }
+          },
+          {
+            "text": "Order now opens in a new tab",
+            "selector": "div > div > div > div > div:nth-of-type(1) > div > div:nth-of-type(2) > a",
+            "count": 1,
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "color": "rgb(255, 255, 255)",
+            "borderRadius": "4px",
+            "padding": "11px 24px",
+            "border": "2px solid rgb(255, 255, 255)",
+            "borderColor": "rgb(255, 255, 255)",
+            "boxShadow": "none",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "16px",
+            "fontWeight": "400",
+            "textTransform": "none",
+            "letterSpacing": "normal",
+            "hover": null
+          }
+        ],
+        "links": [
+          {
+            "text": "Locations",
+            "selector": "#mobile-sideNav > div:nth-of-type(4) > div > div > div:nth-of-type(1) > a",
+            "count": 3,
+            "color": "rgb(0, 0, 0)",
+            "textDecoration": "none",
+            "fontWeight": "400",
+            "hover": null
+          },
+          {
+            "text": "Blasthole drills",
+            "selector": "div:nth-of-type(1) > div > div > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div > a",
+            "count": 18,
+            "color": "rgb(20, 10, 154)",
+            "textDecoration": "none",
+            "fontWeight": "400",
+            "hover": {
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "color": "rgb(27, 35, 42)",
+              "borderColor": "rgb(27, 35, 42)",
+              "boxShadow": "none",
+              "changed": true
+            }
+          },
+          {
+            "text": "Equipment",
+            "selector": "div:nth-of-type(2) > div > div > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div > a",
+            "count": 9,
+            "color": "rgb(255, 255, 255)",
+            "textDecoration": "none",
+            "fontWeight": "400",
+            "hover": {
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "color": "rgb(255, 255, 255)",
+              "borderColor": "rgb(255, 255, 255)",
+              "boxShadow": "none",
+              "changed": true
+            }
+          },
+          {
+            "text": "Smart Construction",
+            "selector": "div > div > div:nth-of-type(1) > div > div:nth-of-type(1) > div > h2 > a",
+            "count": 1,
+            "color": "rgb(20, 10, 154)",
+            "textDecoration": "none",
+            "fontWeight": "700",
+            "hover": null
+          },
+          {
+            "text": "3 min read Oct 5, 2026 Komatsu’s Newber…",
+            "selector": "div > div > div > div > div > div:nth-of-type(1) > div > a",
+            "count": 3,
+            "color": "rgb(27, 35, 42)",
+            "textDecoration": "none",
+            "fontWeight": "400",
+            "hover": null
+          }
+        ],
+        "surfaces": [
+          {
+            "matched": "header",
+            "selector": "header",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "w": 390,
+              "h": 44
+            },
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "color": "rgb(27, 35, 42)",
+            "padding": "10px 20px",
+            "maxWidth": "none",
+            "borderRadius": "0px",
+            "boxShadow": "none",
+            "position": "absolute",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "16px"
+          },
+          {
+            "matched": "nav",
+            "selector": "nav",
+            "rect": {
+              "x": -300,
+              "y": 276,
+              "w": 300,
+              "h": 332
+            },
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "color": "rgb(27, 35, 42)",
+            "padding": "0px",
+            "maxWidth": "none",
+            "borderRadius": "0px",
+            "boxShadow": "none",
+            "position": "static",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "16px"
+          },
+          {
+            "matched": "footer",
+            "selector": "footer",
+            "rect": {
+              "x": 0,
+              "y": 5967,
+              "w": 390,
+              "h": 888
+            },
+            "backgroundColor": "rgb(250, 250, 250)",
+            "color": "rgb(27, 35, 42)",
+            "padding": "0px",
+            "maxWidth": "none",
+            "borderRadius": "0px",
+            "boxShadow": "none",
+            "position": "static",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "16px"
+          }
+        ],
+        "radii": [
+          {
+            "value": "4px",
+            "count": 54,
+            "area": 1527709,
+            "sources": [
+              "div > div > div > div:nth-of-type(1) > div > a > picture > img",
+              "#mobile-sideNav > div:nth-of-type(4) > div > div > div:nth-of-type(1) > a",
+              "#mobile-sideNav > div:nth-of-type(4) > div > div > div:nth-of-type(2) > a"
+            ]
+          },
+          {
+            "value": "20px",
+            "count": 15,
+            "area": 33500,
+            "sources": [
+              "div > div > div:nth-of-type(1) > div > a > div:nth-of-type(2) > ul > li:nth-of-type(1)",
+              "div > div > div:nth-of-type(1) > div > a > div:nth-of-type(2) > ul > li:nth-of-type(2)",
+              "div > div > div:nth-of-type(1) > div > a > div:nth-of-type(2) > ul > li:nth-of-type(3)"
+            ]
+          },
+          {
+            "value": "50%",
+            "count": 6,
+            "area": 420,
+            "sources": [
+              "div > div > div:nth-of-type(1) > div:nth-of-type(1) > div > div > div:nth-of-type(2) > button:nth-of-type(1)",
+              "div > div > div:nth-of-type(1) > div:nth-of-type(1) > div > div > div:nth-of-type(2) > button:nth-of-type(2)",
+              "div > div > div:nth-of-type(1) > div:nth-of-type(1) > div > div > div:nth-of-type(2) > button:nth-of-type(3)"
+            ]
+          },
+          {
+            "value": "4px 4px 0px 0px",
+            "count": 3,
+            "area": 191268,
+            "sources": [
+              "div > div > div > div > div:nth-of-type(1) > div > a > div:nth-of-type(1)",
+              "div > div > div > div > div:nth-of-type(2) > div > a > div:nth-of-type(1)",
+              "div > div > div > div > div:nth-of-type(3) > div > a > div:nth-of-type(1)"
+            ]
+          },
+          {
+            "value": "100px",
+            "count": 2,
+            "area": 5000,
+            "sources": [
+              "#ot-sdk-btn-floating > div:nth-of-type(1)",
+              "#ot-sdk-btn-floating > div:nth-of-type(2)"
+            ]
+          }
+        ],
+        "shadows": [
+          {
+            "value": "rgba(0, 0, 0, 0.16) 0px 1px 2px 0px",
+            "count": 12,
+            "sources": [
+              "div > div:nth-of-type(2) > div > div > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div",
+              "div > div:nth-of-type(2) > div > div > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div",
+              "div > div:nth-of-type(2) > div > div > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div"
+            ]
+          },
+          {
+            "value": "rgba(0, 0, 0, 0.2) 0px 4px 8px 0px",
+            "count": 2,
+            "sources": [
+              "#ot-sdk-btn-floating > div:nth-of-type(1)",
+              "#ot-sdk-btn-floating > div:nth-of-type(2)"
+            ]
+          }
+        ],
+        "gradients": [],
+        "bgColors": [
+          {
+            "value": "rgb(255, 255, 255)",
+            "count": 31,
+            "area": 2895619,
+            "sources": [
+              "#mobile-sideNav",
+              "#sidePanel",
+              "div > div > div > div:nth-of-type(1) > div:nth-of-type(4) > div > div:nth-of-type(2) > a"
+            ]
+          },
+          {
+            "value": "rgb(51, 102, 204)",
+            "count": 15,
+            "area": 33500,
+            "sources": [
+              "div > div > div:nth-of-type(1) > div > a > div:nth-of-type(2) > ul > li:nth-of-type(1)",
+              "div > div > div:nth-of-type(1) > div > a > div:nth-of-type(2) > ul > li:nth-of-type(2)",
+              "div > div > div:nth-of-type(1) > div > a > div:nth-of-type(2) > ul > li:nth-of-type(3)"
+            ]
+          },
+          {
+            "value": "rgb(20, 10, 154)",
+            "count": 6,
+            "area": 359452,
+            "sources": [
+              "#mobile-sideNav > div:nth-of-type(1)",
+              "#topNav",
+              "#sidePanel > div:nth-of-type(2)"
+            ]
+          },
+          {
+            "value": "rgb(217, 217, 217)",
+            "count": 5,
+            "area": 320,
+            "sources": [
+              "div > div > div:nth-of-type(1) > div:nth-of-type(1) > div > div > div:nth-of-type(2) > button:nth-of-type(2)",
+              "div > div > div:nth-of-type(1) > div:nth-of-type(1) > div > div > div:nth-of-type(2) > button:nth-of-type(3)",
+              "div > div > div:nth-of-type(1) > div:nth-of-type(1) > div > div > div:nth-of-type(2) > button:nth-of-type(4)"
+            ]
+          },
+          {
+            "value": "rgb(250, 250, 250)",
+            "count": 3,
+            "area": 5693554,
+            "sources": [
+              "",
+              "body",
+              "footer"
+            ]
+          },
+          {
+            "value": "rgb(255, 200, 47)",
+            "count": 1,
+            "area": 100,
+            "sources": [
+              "div > div > div:nth-of-type(1) > div:nth-of-type(1) > div > div > div:nth-of-type(2) > button:nth-of-type(1)"
+            ]
+          }
+        ],
+        "textColors": [
+          {
+            "value": "rgb(255, 255, 255)",
+            "count": 36,
+            "sources": [
+              "#mobile-sideNav > div:nth-of-type(1) > span",
+              "nav > a:nth-of-type(1)",
+              "nav > a:nth-of-type(2)"
+            ]
+          },
+          {
+            "value": "rgb(27, 35, 42)",
+            "count": 20,
+            "sources": [
+              "div > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div > a > div > h6",
+              "div > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div > a > div > h6",
+              "div > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div > a > div > h6"
+            ]
+          },
+          {
+            "value": "rgb(77, 84, 90)",
+            "count": 16,
+            "sources": [
+              "#experiencefragment-83d3be9b37 > div > div:nth-of-type(1) > div > div > div:nth-of-type(1) > div > h6",
+              "#experiencefragment-83d3be9b37 > div > div:nth-of-type(1) > div > div > div:nth-of-type(2) > div > h6",
+              "#experiencefragment-83d3be9b37 > div > div:nth-of-type(1) > div > div > div:nth-of-type(3) > div > h6"
+            ]
+          },
+          {
+            "value": "rgb(20, 10, 154)",
+            "count": 14,
+            "sources": [
+              "div > div > div:nth-of-type(1) > div:nth-of-type(4) > div > div:nth-of-type(2) > a > span",
+              "div > div > div:nth-of-type(1) > div > div:nth-of-type(1) > div > h2 > a",
+              "div > div:nth-of-type(1) > div > div:nth-of-type(3) > div > div:nth-of-type(1) > a > span"
+            ]
+          }
+        ],
+        "borderColors": [
+          {
+            "value": "rgb(237, 237, 237)",
+            "count": 20,
+            "sources": [
+              "#mobile-sideNav > div:nth-of-type(4) > div > div > div:nth-of-type(1)",
+              "#mobile-sideNav > div:nth-of-type(4) > div > div > div:nth-of-type(2)",
+              "#mobile-sideNav > div:nth-of-type(4) > div > div > div:nth-of-type(3)"
+            ]
+          },
+          {
+            "value": "rgb(37, 63, 200)",
+            "count": 12,
+            "sources": [
+              "div > div > div > div:nth-of-type(1) > div:nth-of-type(4) > div > div:nth-of-type(2) > a",
+              "div > div > div:nth-of-type(1) > div > div:nth-of-type(3) > div > div:nth-of-type(1) > a",
+              "div > div > div:nth-of-type(1) > div > div:nth-of-type(3) > div > div:nth-of-type(2) > a"
+            ]
+          },
+          {
+            "value": "rgb(51, 102, 204)",
+            "count": 5,
+            "sources": [
+              "nav > a:nth-of-type(1)",
+              "nav > a:nth-of-type(2)",
+              "nav > a:nth-of-type(3)"
+            ]
+          },
+          {
+            "value": "rgb(255, 255, 255)",
+            "count": 1,
+            "sources": [
+              "div > div > div > div > div:nth-of-type(1) > div > div:nth-of-type(2) > a"
+            ]
+          }
+        ],
+        "customProps": {
+          "--spacing-base-unit": {
+            "declared": "0.0625rem",
+            "computed": "0.0625rem"
+          }
+        },
+        "fonts": [
+          {
+            "family": "Noto Sans",
+            "weight": "100 900",
+            "style": "italic",
+            "status": "unloaded"
+          },
+          {
+            "family": "Noto Sans",
+            "weight": "100 900",
+            "style": "normal",
+            "status": "unloaded"
+          },
+          {
+            "family": "Noto Sans",
+            "weight": "100 900",
+            "style": "normal",
+            "status": "loaded"
+          },
+          {
+            "family": "Roboto",
+            "weight": "100",
+            "style": "normal",
+            "status": "unloaded"
+          },
+          {
+            "family": "Roboto",
+            "weight": "300",
+            "style": "normal",
+            "status": "unloaded"
+          },
+          {
+            "family": "Roboto",
+            "weight": "400",
+            "style": "normal",
+            "status": "unloaded"
+          },
+          {
+            "family": "Roboto",
+            "weight": "400",
+            "style": "normal",
+            "status": "loaded"
+          },
+          {
+            "family": "Roboto",
+            "weight": "500",
+            "style": "normal",
+            "status": "unloaded"
+          },
+          {
+            "family": "Roboto",
+            "weight": "700",
+            "style": "normal",
+            "status": "unloaded"
+          },
+          {
+            "family": "Roboto",
+            "weight": "900",
+            "style": "normal",
+            "status": "unloaded"
+          },
+          {
+            "family": "Font Awesome 6 Brands",
+            "weight": "400",
+            "style": "normal",
+            "status": "unloaded"
+          },
+          {
+            "family": "Font Awesome 6 Free",
+            "weight": "400",
+            "style": "normal",
+            "status": "unloaded"
+          },
+          {
+            "family": "Font Awesome 6 Free",
+            "weight": "900",
+            "style": "normal",
+            "status": "loaded"
+          },
+          {
+            "family": "Font Awesome 5 Brands",
+            "weight": "400",
+            "style": "normal",
+            "status": "unloaded"
+          },
+          {
+            "family": "Font Awesome 5 Free",
+            "weight": "900",
+            "style": "normal",
+            "status": "unloaded"
+          },
+          {
+            "family": "Font Awesome 5 Free",
+            "weight": "400",
+            "style": "normal",
+            "status": "unloaded"
+          },
+          {
+            "family": "FontAwesome",
+            "weight": "normal",
+            "style": "normal",
+            "status": "unloaded"
+          }
+        ],
+        "logoCandidates": [
+          {
+            "tag": "img",
+            "selector": "div > div > div > div:nth-of-type(1) > div > a > picture > img",
+            "src": "https://www.komatsu.com/content/dam/komatsu/icons/website-app/logo.svg",
+            "inlineSvg": false,
+            "alt": "Company Logo",
+            "ariaLabel": "Company Logo",
+            "class": "cmp-image__image",
+            "id": null,
+            "href": "/en-us",
+            "inHomeLink": false,
+            "rect": {
+              "x": 135,
+              "y": 8,
+              "w": 120,
+              "h": 24
+            }
+          },
+          {
+            "tag": "img",
+            "selector": "#mobile-sideNav > div:nth-of-type(4) > div > div > div:nth-of-type(1) > a > img",
+            "src": "https://www.komatsu.com/content/dam/komatsu/icons/website-app/Location%20(1).svg",
+            "inlineSvg": false,
+            "alt": "",
+            "ariaLabel": "Locations",
+            "class": "cmp-button__icon header-utility-icon",
+            "id": null,
+            "href": "/en-us/komatsu-locator",
+            "inHomeLink": false,
+            "rect": {
+              "x": -280,
+              "y": 630,
+              "w": 28,
+              "h": 28
+            }
+          },
+          {
+            "tag": "img",
+            "selector": "#mobile-sideNav > div:nth-of-type(4) > div > div > div:nth-of-type(2) > a > img",
+            "src": "https://www.komatsu.com/content/dam/komatsu/icons/website-app/MyFleet.svg",
+            "inlineSvg": false,
+            "alt": "",
+            "ariaLabel": null,
+            "class": "cmp-button__icon header-utility-icon",
+            "id": null,
+            "href": "/en-us/region",
+            "inHomeLink": false,
+            "rect": {
+              "x": -280,
+              "y": 703,
+              "w": 28,
+              "h": 28
+            }
+          },
+          {
+            "tag": "img",
+            "selector": "#mobile-sideNav > div:nth-of-type(4) > div > div > div:nth-of-type(3) > a > img",
+            "src": "https://www.komatsu.com/content/dam/komatsu/icons/website-app/MyFleet%20(1).svg",
+            "inlineSvg": false,
+            "alt": "",
+            "ariaLabel": null,
+            "class": "cmp-button__icon header-utility-icon",
+            "id": null,
+            "href": "https://mykomatsu.komatsu/",
+            "inHomeLink": false,
+            "rect": {
+              "x": -280,
+              "y": 776,
+              "w": 28,
+              "h": 28
+            }
+          },
+          {
+            "tag": "svg",
+            "selector": "header > div > div > div > div:nth-of-type(3) > button > svg",
+            "src": null,
+            "inlineSvg": true,
+            "hasText": false,
+            "viewBox": "0 -960 960 960",
+            "ariaLabel": null,
+            "class": "header-utility-icon",
+            "id": null,
+            "href": null,
+            "inHomeLink": false,
+            "rect": {
+              "x": 342,
+              "y": 8,
+              "w": 28,
+              "h": 28
+            }
+          }
+        ],
+        "iconFont": {
+          "families": [
+            "Font Awesome 6 Brands",
+            "Font Awesome 6 Free",
+            "Font Awesome 5 Brands",
+            "Font Awesome 5 Free",
+            "FontAwesome"
+          ],
+          "glyphs": [
+            {
+              "class": "sub_list_title",
+              "pseudo": "::after",
+              "codepoint": "U+F067",
+              "fontFamily": "\"Font Awesome 6 Free\""
+            }
+          ]
+        },
+        "consent": {
+          "dismissed": null
+        },
+        "finalUrl": "https://www.komatsu.com/en-us"
+      },
+      "1440": {
+        "title": "Construction, Mining and Industrial Equipment | Komatsu",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "elements": {
+          "total": 1236,
+          "visible": 539
+        },
+        "occluders": [],
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "Here's to progress",
+            "selector": "div > div > div > div > div > div:nth-of-type(1) > div:nth-of-type(4) > h1",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "32px",
+            "fontWeight": "700",
+            "lineHeight": "38px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(255, 255, 255)"
+          },
+          {
+            "tag": "h6",
+            "text": "Blasthole drills",
+            "selector": "div > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div > a > div > h6",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "16px",
+            "fontWeight": "700",
+            "lineHeight": "22px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(27, 35, 42)"
+          },
+          {
+            "tag": "h6",
+            "text": "Crushing",
+            "selector": "div > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div > a > div > h6",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "16px",
+            "fontWeight": "700",
+            "lineHeight": "22px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(27, 35, 42)"
+          },
+          {
+            "tag": "h6",
+            "text": "Dozers",
+            "selector": "div > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div > a > div > h6",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "16px",
+            "fontWeight": "700",
+            "lineHeight": "22px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(27, 35, 42)"
+          },
+          {
+            "tag": "h6",
+            "text": "Draglines",
+            "selector": "div > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > div > a > div > h6",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "16px",
+            "fontWeight": "700",
+            "lineHeight": "22px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(27, 35, 42)"
+          },
+          {
+            "tag": "h6",
+            "text": "Electric rope shovels",
+            "selector": "div > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(5) > div > a > div > h6",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "16px",
+            "fontWeight": "700",
+            "lineHeight": "22px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(27, 35, 42)"
+          },
+          {
+            "tag": "h6",
+            "text": "Entry development",
+            "selector": "div > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(6) > div > a > div > h6",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "16px",
+            "fontWeight": "700",
+            "lineHeight": "22px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(27, 35, 42)"
+          },
+          {
+            "tag": "h6",
+            "text": "Excavators",
+            "selector": "div > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(7) > div > a > div > h6",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "16px",
+            "fontWeight": "700",
+            "lineHeight": "22px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(27, 35, 42)"
+          },
+          {
+            "tag": "h2",
+            "text": "Equipment",
+            "selector": "div > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div > a > div > h2",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "24px",
+            "fontWeight": "700",
+            "lineHeight": "28px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(255, 255, 255)"
+          },
+          {
+            "tag": "h2",
+            "text": "Parts",
+            "selector": "div > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div > a > div > h2",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "24px",
+            "fontWeight": "700",
+            "lineHeight": "28px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(255, 255, 255)"
+          },
+          {
+            "tag": "h2",
+            "text": "Attachments",
+            "selector": "div > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div > a > div > h2",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "24px",
+            "fontWeight": "700",
+            "lineHeight": "28px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(255, 255, 255)"
+          },
+          {
+            "tag": "h2",
+            "text": "Technology",
+            "selector": "div > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(4) > div > a > div > h2",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "24px",
+            "fontWeight": "700",
+            "lineHeight": "28px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(255, 255, 255)"
+          },
+          {
+            "tag": "h2",
+            "text": "Service and support",
+            "selector": "div > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(5) > div > a > div > h2",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "24px",
+            "fontWeight": "700",
+            "lineHeight": "28px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(255, 255, 255)"
+          },
+          {
+            "tag": "h3",
+            "text": "Technology",
+            "selector": "div > div:nth-of-type(3) > div > div > div > div > div:nth-of-type(1) > h3",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "24px",
+            "fontWeight": "600",
+            "lineHeight": "32px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(27, 35, 42)"
+          },
+          {
+            "tag": "h2",
+            "text": "Smart Construction",
+            "selector": "div > div > div > div:nth-of-type(1) > div > div:nth-of-type(1) > div > h2",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "24px",
+            "fontWeight": "700",
+            "lineHeight": "28px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(27, 35, 42)"
+          },
+          {
+            "tag": "h2",
+            "text": "Parts purchasing made easy",
+            "selector": "div > div > div > div > div > div:nth-of-type(1) > div > h2",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "22px",
+            "fontWeight": "700",
+            "lineHeight": "28px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(255, 255, 255)"
+          },
+          {
+            "tag": "h2",
+            "text": "Dig into the latest",
+            "selector": "div > div:nth-of-type(5) > div > div > div > div > div > h2",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "24px",
+            "fontWeight": "700",
+            "lineHeight": "28px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(27, 35, 42)"
+          },
+          {
+            "tag": "h3",
+            "text": "Komatsu’s Newberry facility celebrates …",
+            "selector": "div > div > div > div:nth-of-type(1) > div > a > div:nth-of-type(2) > h3",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "20px",
+            "fontWeight": "400",
+            "lineHeight": "28px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(255, 255, 255)"
+          },
+          {
+            "tag": "h3",
+            "text": "Powering progress responsibly: Inside K…",
+            "selector": "div > div > div > div:nth-of-type(2) > div > a > div:nth-of-type(2) > h3",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "20px",
+            "fontWeight": "400",
+            "lineHeight": "28px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(255, 255, 255)"
+          },
+          {
+            "tag": "h3",
+            "text": "Komatsu launches “The future you build …",
+            "selector": "div > div > div > div:nth-of-type(3) > div > a > div:nth-of-type(2) > h3",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "18px",
+            "fontWeight": "400",
+            "lineHeight": "22px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(27, 35, 42)"
+          },
+          {
+            "tag": "h3",
+            "text": "Komatsu celebrates grand opening of new…",
+            "selector": "div > div > div > div:nth-of-type(4) > div > a > div:nth-of-type(2) > h3",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "18px",
+            "fontWeight": "400",
+            "lineHeight": "22px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(27, 35, 42)"
+          },
+          {
+            "tag": "h3",
+            "text": "Redefining presence: How teleoperation …",
+            "selector": "div > div > div > div:nth-of-type(5) > div > a > div:nth-of-type(2) > h3",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "18px",
+            "fontWeight": "400",
+            "lineHeight": "22px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(27, 35, 42)"
+          },
+          {
+            "tag": "h2",
+            "text": "Contact us",
+            "selector": "div > div > div:nth-of-type(1) > div:nth-of-type(1) > div > a > div > h2",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "24px",
+            "fontWeight": "700",
+            "lineHeight": "28px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(255, 255, 255)"
+          },
+          {
+            "tag": "h2",
+            "text": "Request a quote",
+            "selector": "div > div > div:nth-of-type(1) > div:nth-of-type(2) > div > a > div > h2",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "24px",
+            "fontWeight": "700",
+            "lineHeight": "28px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(255, 255, 255)"
+          },
+          {
+            "tag": "h2",
+            "text": "My Komatsu",
+            "selector": "div > div > div:nth-of-type(1) > div:nth-of-type(3) > div > a > div > h2",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "24px",
+            "fontWeight": "700",
+            "lineHeight": "28px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(255, 255, 255)"
+          },
+          {
+            "tag": "h2",
+            "text": "Find a location",
+            "selector": "div > div > div:nth-of-type(1) > div:nth-of-type(4) > div > a > div > h2",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "24px",
+            "fontWeight": "700",
+            "lineHeight": "28px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(255, 255, 255)"
+          },
+          {
+            "tag": "h6",
+            "text": "Discover",
+            "selector": "#experiencefragment-83d3be9b37 > div > div:nth-of-type(1) > div > div > div:nth-of-type(1) > div > h6",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "16px",
+            "fontWeight": "700",
+            "lineHeight": "22px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(77, 84, 90)"
+          },
+          {
+            "tag": "h6",
+            "text": "Tools",
+            "selector": "#experiencefragment-83d3be9b37 > div > div:nth-of-type(1) > div > div > div:nth-of-type(2) > div > h6",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "16px",
+            "fontWeight": "700",
+            "lineHeight": "22px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(77, 84, 90)"
+          },
+          {
+            "tag": "h6",
+            "text": "Company",
+            "selector": "#experiencefragment-83d3be9b37 > div > div:nth-of-type(1) > div > div > div:nth-of-type(3) > div > h6",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "16px",
+            "fontWeight": "700",
+            "lineHeight": "22px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(77, 84, 90)"
+          },
+          {
+            "tag": "h6",
+            "text": "Connect",
+            "selector": "#experiencefragment-83d3be9b37 > div > div:nth-of-type(1) > div > div > div:nth-of-type(4) > div > h6",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "16px",
+            "fontWeight": "700",
+            "lineHeight": "22px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(77, 84, 90)"
+          }
+        ],
+        "text": [
+          {
+            "tag": "p",
+            "text": "For more than a century, Komatsu has he…",
+            "selector": "div > div > div > div:nth-of-type(1) > div:nth-of-type(4) > div > div:nth-of-type(1) > p",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "16px",
+            "fontWeight": "400",
+            "lineHeight": "24px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(255, 255, 255)"
+          },
+          {
+            "tag": "p",
+            "text": "Our industry is on the cusp of rapid ch…",
+            "selector": "div > div > div > div:nth-of-type(1) > div > div:nth-of-type(2) > div > p",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "16px",
+            "fontWeight": "400",
+            "lineHeight": "22.4px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(27, 35, 42)"
+          },
+          {
+            "tag": "p",
+            "text": "Order Komatsu Genuine and Reman parts t…",
+            "selector": "div > div > div > div > div:nth-of-type(1) > div > div:nth-of-type(1) > p",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "16px",
+            "fontWeight": "400",
+            "lineHeight": "22px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(255, 255, 255)"
+          },
+          {
+            "tag": "p",
+            "text": "Komatsu is a leading manufacturer of co…",
+            "selector": "#textcontent-cb6afddf5c > p",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "16px",
+            "fontWeight": "400",
+            "lineHeight": "22px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(77, 84, 90)"
+          },
+          {
+            "tag": "p",
+            "text": "2026 Komatsu America Corp. All rights r…",
+            "selector": "#textcontent-64bcdcc06e > p",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "16px",
+            "fontWeight": "400",
+            "lineHeight": "22px",
+            "letterSpacing": "normal",
+            "textTransform": "none",
+            "color": "rgb(77, 84, 90)"
+          }
+        ],
+        "buttons": [
+          {
+            "text": "Explore more",
+            "selector": "div > div > div > div:nth-of-type(1) > div:nth-of-type(4) > div > div:nth-of-type(2) > a",
+            "count": 1,
+            "backgroundColor": "rgb(255, 255, 255)",
+            "color": "rgb(20, 10, 154)",
+            "borderRadius": "4px",
+            "padding": "11px 24px",
+            "border": "2px solid rgb(37, 63, 200)",
+            "borderColor": "rgb(37, 63, 200)",
+            "boxShadow": "none",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "16px",
+            "fontWeight": "400",
+            "textTransform": "none",
+            "letterSpacing": "normal",
+            "hover": {
+              "backgroundColor": "rgb(237, 237, 237)",
+              "color": "rgb(20, 10, 154)",
+              "borderColor": "rgb(37, 63, 200)",
+              "boxShadow": "none",
+              "changed": true
+            }
+          },
+          {
+            "text": "3D Machine Guidance",
+            "selector": "div > div > div:nth-of-type(1) > div > div:nth-of-type(3) > div > div:nth-of-type(1) > a",
+            "count": 11,
+            "backgroundColor": "rgb(255, 255, 255)",
+            "color": "rgb(20, 10, 154)",
+            "borderRadius": "4px",
+            "padding": "4px 16px",
+            "border": "2px solid rgb(37, 63, 200)",
+            "borderColor": "rgb(37, 63, 200)",
+            "boxShadow": "none",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "14px",
+            "fontWeight": "400",
+            "textTransform": "none",
+            "letterSpacing": "normal",
+            "hover": {
+              "backgroundColor": "rgb(237, 237, 237)",
+              "color": "rgb(20, 10, 154)",
+              "borderColor": "rgb(37, 63, 200)",
+              "boxShadow": "none",
+              "changed": true
+            }
+          },
+          {
+            "text": "Learn more",
+            "selector": "div > div > div > div > div:nth-of-type(1) > div > div:nth-of-type(4) > a",
+            "count": 2,
+            "backgroundColor": "rgb(20, 10, 154)",
+            "color": "rgb(255, 255, 255)",
+            "borderRadius": "4px",
+            "padding": "11px 24px",
+            "border": "0px none rgb(255, 255, 255)",
+            "borderColor": "rgb(255, 255, 255)",
+            "boxShadow": "none",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "16px",
+            "fontWeight": "400",
+            "textTransform": "none",
+            "letterSpacing": "normal",
+            "hover": {
+              "backgroundColor": "rgb(37, 63, 200)",
+              "color": "rgb(255, 255, 255)",
+              "borderColor": "rgb(255, 255, 255)",
+              "boxShadow": "rgba(0, 0, 0, 0.3) 0px 1px 2px 0px, rgba(0, 0, 0, 0.15) 0px 1px 3px 1px",
+              "changed": true
+            }
+          },
+          {
+            "text": "Order now opens in a new tab",
+            "selector": "div > div > div > div > div:nth-of-type(1) > div > div:nth-of-type(2) > a",
+            "count": 1,
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "color": "rgb(255, 255, 255)",
+            "borderRadius": "4px",
+            "padding": "11px 24px",
+            "border": "2px solid rgb(255, 255, 255)",
+            "borderColor": "rgb(255, 255, 255)",
+            "boxShadow": "none",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "16px",
+            "fontWeight": "400",
+            "textTransform": "none",
+            "letterSpacing": "normal",
+            "hover": {
+              "backgroundColor": "rgb(37, 63, 200)",
+              "color": "rgb(255, 255, 255)",
+              "borderColor": "rgb(255, 255, 255)",
+              "boxShadow": "none",
+              "changed": true
+            }
+          }
+        ],
+        "links": [
+          {
+            "text": "Products",
+            "selector": "nav > a:nth-of-type(1)",
+            "count": 4,
+            "color": "rgb(255, 255, 255)",
+            "textDecoration": "none",
+            "fontWeight": "600",
+            "hover": {
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "color": "rgb(255, 255, 255)",
+              "borderColor": "rgb(255, 255, 255)",
+              "boxShadow": "none",
+              "changed": true
+            }
+          },
+          {
+            "text": "Locations",
+            "selector": "header > div > div > div > div:nth-of-type(4) > div > div:nth-of-type(1) > a",
+            "count": 3,
+            "color": "rgb(0, 0, 0)",
+            "textDecoration": "none",
+            "fontWeight": "400",
+            "hover": {
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "color": "rgb(0, 0, 0)",
+              "borderColor": "rgb(0, 0, 0)",
+              "boxShadow": "none",
+              "changed": true
+            }
+          },
+          {
+            "text": "Blasthole drills",
+            "selector": "div:nth-of-type(1) > div > div > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div > a",
+            "count": 42,
+            "color": "rgb(20, 10, 154)",
+            "textDecoration": "none",
+            "fontWeight": "400",
+            "hover": {
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "color": "rgb(27, 35, 42)",
+              "borderColor": "rgb(27, 35, 42)",
+              "boxShadow": "none",
+              "changed": true
+            }
+          },
+          {
+            "text": "Equipment",
+            "selector": "div:nth-of-type(2) > div > div > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div > a",
+            "count": 9,
+            "color": "rgb(255, 255, 255)",
+            "textDecoration": "none",
+            "fontWeight": "400",
+            "hover": null
+          },
+          {
+            "text": "Smart Construction",
+            "selector": "div > div > div:nth-of-type(1) > div > div:nth-of-type(1) > div > h2 > a",
+            "count": 1,
+            "color": "rgb(20, 10, 154)",
+            "textDecoration": "none",
+            "fontWeight": "700",
+            "hover": null
+          },
+          {
+            "text": "3 min read Oct 5, 2026 Komatsu’s Newber…",
+            "selector": "div > div > div > div > div > div:nth-of-type(1) > div > a",
+            "count": 5,
+            "color": "rgb(27, 35, 42)",
+            "textDecoration": "none",
+            "fontWeight": "400",
+            "hover": null
+          }
+        ],
+        "surfaces": [
+          {
+            "matched": "header",
+            "selector": "header",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "w": 1440,
+              "h": 82
+            },
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "color": "rgb(27, 35, 42)",
+            "padding": "0px 32px",
+            "maxWidth": "none",
+            "borderRadius": "0px",
+            "boxShadow": "none",
+            "position": "absolute",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "16px"
+          },
+          {
+            "matched": "nav",
+            "selector": "nav",
+            "rect": {
+              "x": 473,
+              "y": 0,
+              "w": 453,
+              "h": 82
+            },
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "color": "rgb(27, 35, 42)",
+            "padding": "0px",
+            "maxWidth": "none",
+            "borderRadius": "0px",
+            "boxShadow": "none",
+            "position": "static",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "16px"
+          },
+          {
+            "matched": "footer",
+            "selector": "footer",
+            "rect": {
+              "x": 0,
+              "y": 3345,
+              "w": 1440,
+              "h": 640
+            },
+            "backgroundColor": "rgb(250, 250, 250)",
+            "color": "rgb(27, 35, 42)",
+            "padding": "0px",
+            "maxWidth": "none",
+            "borderRadius": "0px",
+            "boxShadow": "none",
+            "position": "static",
+            "fontFamily": "\"Noto Sans\", sans-serif",
+            "fontSize": "16px"
+          }
+        ],
+        "radii": [
+          {
+            "value": "4px",
+            "count": 59,
+            "area": 2927319,
+            "sources": [
+              "div > div > div > div:nth-of-type(1) > div > a > picture > img",
+              "header > div > div > div > div:nth-of-type(4) > div > div:nth-of-type(1) > a",
+              "header > div > div > div > div:nth-of-type(4) > div > div:nth-of-type(2) > a"
+            ]
+          },
+          {
+            "value": "20px",
+            "count": 12,
+            "area": 27136,
+            "sources": [
+              "div > div > div:nth-of-type(1) > div > a > div:nth-of-type(2) > ul > li:nth-of-type(1)",
+              "div > div > div:nth-of-type(1) > div > a > div:nth-of-type(2) > ul > li:nth-of-type(2)",
+              "div > div > div:nth-of-type(1) > div > a > div:nth-of-type(2) > ul > li:nth-of-type(3)"
+            ]
+          },
+          {
+            "value": "50%",
+            "count": 3,
+            "area": 1056,
+            "sources": [
+              "div > div > div:nth-of-type(1) > div:nth-of-type(1) > div > div > div:nth-of-type(2) > button:nth-of-type(1)",
+              "div > div > div:nth-of-type(1) > div:nth-of-type(1) > div > div > div:nth-of-type(2) > button:nth-of-type(2)",
+              "div > div > div:nth-of-type(1) > div:nth-of-type(1) > div > div > div:nth-of-type(2) > button:nth-of-type(3)"
+            ]
+          },
+          {
+            "value": "100px",
+            "count": 2,
+            "area": 5000,
+            "sources": [
+              "#ot-sdk-btn-floating > div:nth-of-type(1)",
+              "#ot-sdk-btn-floating > div:nth-of-type(2)"
+            ]
+          },
+          {
+            "value": "8px",
+            "count": 2,
+            "area": 2312,
+            "sources": [
+              "div > div > div:nth-of-type(2) > div > div > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+              "div > div > div:nth-of-type(2) > div > div > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(2)"
+            ]
+          }
+        ],
+        "shadows": [
+          {
+            "value": "rgba(0, 0, 0, 0.16) 0px 1px 2px 0px",
+            "count": 11,
+            "sources": [
+              "div > div:nth-of-type(2) > div > div > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div",
+              "div > div:nth-of-type(2) > div > div > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div",
+              "div > div:nth-of-type(2) > div > div > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div"
+            ]
+          },
+          {
+            "value": "rgba(0, 0, 0, 0.2) 0px 4px 8px 0px",
+            "count": 2,
+            "sources": [
+              "#ot-sdk-btn-floating > div:nth-of-type(1)",
+              "#ot-sdk-btn-floating > div:nth-of-type(2)"
+            ]
+          }
+        ],
+        "gradients": [],
+        "bgColors": [
+          {
+            "value": "rgb(255, 255, 255)",
+            "count": 20,
+            "area": 4405577,
+            "sources": [
+              "#sidePanel",
+              "div > div > div > div:nth-of-type(1) > div:nth-of-type(4) > div > div:nth-of-type(2) > a",
+              "div:nth-of-type(1) > div > div > div > div > div > div:nth-of-type(2) > div"
+            ]
+          },
+          {
+            "value": "rgb(51, 102, 204)",
+            "count": 12,
+            "area": 27136,
+            "sources": [
+              "div > div > div:nth-of-type(1) > div > a > div:nth-of-type(2) > ul > li:nth-of-type(1)",
+              "div > div > div:nth-of-type(1) > div > a > div:nth-of-type(2) > ul > li:nth-of-type(2)",
+              "div > div > div:nth-of-type(1) > div > a > div:nth-of-type(2) > ul > li:nth-of-type(3)"
+            ]
+          },
+          {
+            "value": "rgb(20, 10, 154)",
+            "count": 6,
+            "area": 430192,
+            "sources": [
+              "div > div > div:nth-of-type(1) > div:nth-of-type(1) > div > div > div:nth-of-type(2) > button:nth-of-type(1)",
+              "div > div > div:nth-of-type(2) > div > div > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)",
+              "div > div > div:nth-of-type(2) > div > div > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(2)"
+            ]
+          },
+          {
+            "value": "rgb(77, 84, 90)",
+            "count": 5,
+            "area": 9100,
+            "sources": [
+              "div > div > div:nth-of-type(1) > div > a > div:nth-of-type(2) > div > p",
+              "div > div > div:nth-of-type(2) > div > a > div:nth-of-type(2) > div > p",
+              "div > div > div:nth-of-type(3) > div > a > div:nth-of-type(2) > div > p"
+            ]
+          },
+          {
+            "value": "rgb(250, 250, 250)",
+            "count": 3,
+            "area": 12399189,
+            "sources": [
+              "",
+              "body",
+              "footer"
+            ]
+          },
+          {
+            "value": "rgba(20, 10, 154, 0.3)",
+            "count": 2,
+            "area": 578,
+            "sources": [
+              "div > div > div:nth-of-type(1) > div:nth-of-type(1) > div > div > div:nth-of-type(2) > button:nth-of-type(2)",
+              "div > div > div:nth-of-type(1) > div:nth-of-type(1) > div > div > div:nth-of-type(2) > button:nth-of-type(3)"
+            ]
+          }
+        ],
+        "textColors": [
+          {
+            "value": "rgb(255, 255, 255)",
+            "count": 40,
+            "sources": [
+              "nav > a:nth-of-type(1)",
+              "nav > a:nth-of-type(2)",
+              "nav > a:nth-of-type(3)"
+            ]
+          },
+          {
+            "value": "rgb(20, 10, 154)",
+            "count": 35,
+            "sources": [
+              "div > div > div:nth-of-type(1) > div:nth-of-type(4) > div > div:nth-of-type(2) > a > span",
+              "div > div > div:nth-of-type(1) > div > div:nth-of-type(1) > div > h2 > a",
+              "div > div:nth-of-type(1) > div > div:nth-of-type(3) > div > div:nth-of-type(1) > a > span"
+            ]
+          },
+          {
+            "value": "rgb(27, 35, 42)",
+            "count": 22,
+            "sources": [
+              "div > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div > a > div > h6",
+              "div > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div > a > div > h6",
+              "div > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div > a > div > h6"
+            ]
+          },
+          {
+            "value": "rgb(77, 84, 90)",
+            "count": 16,
+            "sources": [
+              "#experiencefragment-83d3be9b37 > div > div:nth-of-type(1) > div > div > div:nth-of-type(1) > div > h6",
+              "#experiencefragment-83d3be9b37 > div > div:nth-of-type(1) > div > div > div:nth-of-type(2) > div > h6",
+              "#experiencefragment-83d3be9b37 > div > div:nth-of-type(1) > div > div > div:nth-of-type(3) > div > h6"
+            ]
+          }
+        ],
+        "borderColors": [
+          {
+            "value": "rgb(37, 63, 200)",
+            "count": 12,
+            "sources": [
+              "div > div > div > div:nth-of-type(1) > div:nth-of-type(4) > div > div:nth-of-type(2) > a",
+              "div > div > div:nth-of-type(1) > div > div:nth-of-type(3) > div > div:nth-of-type(1) > a",
+              "div > div > div:nth-of-type(1) > div > div:nth-of-type(3) > div > div:nth-of-type(2) > a"
+            ]
+          },
+          {
+            "value": "rgb(237, 237, 237)",
+            "count": 9,
+            "sources": [
+              "div > div > div:nth-of-type(3) > div > div > div > div > ol",
+              "div > div > div > div > div:nth-of-type(5) > div > div > div",
+              "div > div > div > div > div > div > div:nth-of-type(1) > div"
+            ]
+          },
+          {
+            "value": "rgb(255, 255, 255)",
+            "count": 1,
+            "sources": [
+              "div > div > div > div > div:nth-of-type(1) > div > div:nth-of-type(2) > a"
+            ]
+          },
+          {
+            "value": "rgb(51, 102, 204)",
+            "count": 1,
+            "sources": [
+              "div > div:nth-of-type(3) > div > div > div > div > ol > li:nth-of-type(1)"
+            ]
+          }
+        ],
+        "customProps": {
+          "--spacing-base-unit": {
+            "declared": "0.0625rem",
+            "computed": "0.0625rem"
+          }
+        },
+        "fonts": [
+          {
+            "family": "Noto Sans",
+            "weight": "100 900",
+            "style": "italic",
+            "status": "unloaded"
+          },
+          {
+            "family": "Noto Sans",
+            "weight": "100 900",
+            "style": "normal",
+            "status": "unloaded"
+          },
+          {
+            "family": "Noto Sans",
+            "weight": "100 900",
+            "style": "normal",
+            "status": "loaded"
+          },
+          {
+            "family": "Roboto",
+            "weight": "100",
+            "style": "normal",
+            "status": "unloaded"
+          },
+          {
+            "family": "Roboto",
+            "weight": "300",
+            "style": "normal",
+            "status": "unloaded"
+          },
+          {
+            "family": "Roboto",
+            "weight": "400",
+            "style": "normal",
+            "status": "unloaded"
+          },
+          {
+            "family": "Roboto",
+            "weight": "400",
+            "style": "normal",
+            "status": "loaded"
+          },
+          {
+            "family": "Roboto",
+            "weight": "500",
+            "style": "normal",
+            "status": "unloaded"
+          },
+          {
+            "family": "Roboto",
+            "weight": "700",
+            "style": "normal",
+            "status": "unloaded"
+          },
+          {
+            "family": "Roboto",
+            "weight": "900",
+            "style": "normal",
+            "status": "unloaded"
+          },
+          {
+            "family": "Font Awesome 6 Brands",
+            "weight": "400",
+            "style": "normal",
+            "status": "unloaded"
+          },
+          {
+            "family": "Font Awesome 6 Free",
+            "weight": "400",
+            "style": "normal",
+            "status": "unloaded"
+          },
+          {
+            "family": "Font Awesome 6 Free",
+            "weight": "900",
+            "style": "normal",
+            "status": "unloaded"
+          },
+          {
+            "family": "Font Awesome 5 Brands",
+            "weight": "400",
+            "style": "normal",
+            "status": "unloaded"
+          },
+          {
+            "family": "Font Awesome 5 Free",
+            "weight": "900",
+            "style": "normal",
+            "status": "unloaded"
+          },
+          {
+            "family": "Font Awesome 5 Free",
+            "weight": "400",
+            "style": "normal",
+            "status": "unloaded"
+          },
+          {
+            "family": "FontAwesome",
+            "weight": "normal",
+            "style": "normal",
+            "status": "unloaded"
+          }
+        ],
+        "logoCandidates": [
+          {
+            "tag": "img",
+            "selector": "div > div > div > div:nth-of-type(1) > div > a > picture > img",
+            "src": "https://www.komatsu.com/content/dam/komatsu/icons/website-app/logo.svg",
+            "inlineSvg": false,
+            "alt": "Company Logo",
+            "ariaLabel": "Company Logo",
+            "class": "cmp-image__image",
+            "id": null,
+            "href": "/en-us",
+            "inHomeLink": false,
+            "rect": {
+              "x": 32,
+              "y": 20,
+              "w": 170,
+              "h": 34
+            }
+          },
+          {
+            "tag": "svg",
+            "selector": "header > div > div > div > div:nth-of-type(3) > button > svg",
+            "src": null,
+            "inlineSvg": true,
+            "hasText": false,
+            "viewBox": "0 -960 960 960",
+            "ariaLabel": null,
+            "class": "header-utility-icon",
+            "id": null,
+            "href": null,
+            "inHomeLink": false,
+            "rect": {
+              "x": 1196,
+              "y": 25,
+              "w": 32,
+              "h": 32
+            }
+          },
+          {
+            "tag": "img",
+            "selector": "div > div > div > div:nth-of-type(4) > div > div:nth-of-type(1) > a > img",
+            "src": "https://www.komatsu.com/content/dam/komatsu/icons/website-app/Location%20(1).svg",
+            "inlineSvg": false,
+            "alt": "",
+            "ariaLabel": "Locations",
+            "class": "cmp-button__icon header-utility-icon",
+            "id": null,
+            "href": "/en-us/komatsu-locator",
+            "inHomeLink": false,
+            "rect": {
+              "x": 1248,
+              "y": 25,
+              "w": 32,
+              "h": 32
+            }
+          },
+          {
+            "tag": "img",
+            "selector": "div > div > div > div:nth-of-type(4) > div > div:nth-of-type(2) > a > img",
+            "src": "https://www.komatsu.com/content/dam/komatsu/icons/website-app/MyFleet.svg",
+            "inlineSvg": false,
+            "alt": "",
+            "ariaLabel": null,
+            "class": "cmp-button__icon header-utility-icon",
+            "id": null,
+            "href": "/en-us/region",
+            "inHomeLink": false,
+            "rect": {
+              "x": 1300,
+              "y": 25,
+              "w": 32,
+              "h": 32
+            }
+          },
+          {
+            "tag": "img",
+            "selector": "div > div > div > div:nth-of-type(4) > div > div:nth-of-type(3) > a > img",
+            "src": "https://www.komatsu.com/content/dam/komatsu/icons/website-app/MyFleet%20(1).svg",
+            "inlineSvg": false,
+            "alt": "",
+            "ariaLabel": null,
+            "class": "cmp-button__icon header-utility-icon",
+            "id": null,
+            "href": "https://mykomatsu.komatsu/",
+            "inHomeLink": false,
+            "rect": {
+              "x": 1376,
+              "y": 25,
+              "w": 32,
+              "h": 32
+            }
+          }
+        ],
+        "iconFont": {
+          "families": [
+            "Font Awesome 6 Brands",
+            "Font Awesome 6 Free",
+            "Font Awesome 5 Brands",
+            "Font Awesome 5 Free",
+            "FontAwesome"
+          ],
+          "glyphs": []
+        },
+        "consent": {
+          "dismissed": null
+        },
+        "finalUrl": "https://www.komatsu.com/en-us"
+      }
+    }
+  },
+  "aggregate": {
+    "counts": {
+      "pages": 1,
+      "widths": [
+        390,
+        1440
+      ],
+      "measurements": 2
+    },
+    "colors": [
+      {
+        "hex": "#ffffff",
+        "values": [
+          "rgb(255, 255, 255)",
+          "rgb(250, 250, 250)"
+        ],
+        "weight": 217,
+        "bgArea": 25393939,
+        "by": {
+          "text": 76,
+          "background": 57,
+          "button-background": 24,
+          "link": 22,
+          "button-text": 10,
+          "border": 2,
+          "button-border": 2,
+          "heading": 24
+        },
+        "roles": [
+          "background",
+          "text",
+          "heading"
+        ],
+        "sources": [
+          {
+            "url": "https://www.komatsu.com/en-us",
+            "selector": "nav > a:nth-of-type(1)",
+            "prop": "text"
+          },
+          {
+            "url": "https://www.komatsu.com/en-us",
+            "selector": "#mobile-sideNav > div:nth-of-type(1) > span",
+            "prop": "text"
+          },
+          {
+            "url": "https://www.komatsu.com/en-us",
+            "selector": "#mobile-sideNav",
+            "prop": "background"
+          },
+          {
+            "url": "https://www.komatsu.com/en-us",
+            "selector": "#sidePanel",
+            "prop": "background"
+          },
+          {
+            "url": "https://www.komatsu.com/en-us",
+            "selector": "div > div > div:nth-of-type(1) > div > div:nth-of-type(3) > div > div:nth-of-type(1) > a",
+            "prop": "button-background"
+          }
+        ]
+      },
+      {
+        "hex": "#140a9a",
+        "values": [
+          "rgb(20, 10, 154)"
+        ],
+        "weight": 151,
+        "bgArea": 789644,
+        "by": {
+          "link": 62,
+          "text": 49,
+          "button-text": 24,
+          "background": 12,
+          "button-background": 4
+        },
+        "roles": [
+          "surface",
+          "primary"
+        ],
+        "sources": [
+          {
+            "url": "https://www.komatsu.com/en-us",
+            "selector": "div:nth-of-type(1) > div > div > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div > a",
+            "prop": "link"
+          },
+          {
+            "url": "https://www.komatsu.com/en-us",
+            "selector": "div > div > div:nth-of-type(1) > div:nth-of-type(4) > div > div:nth-of-type(2) > a > span",
+            "prop": "text"
+          },
+          {
+            "url": "https://www.komatsu.com/en-us",
+            "selector": "div > div > div:nth-of-type(1) > div > div:nth-of-type(3) > div > div:nth-of-type(1) > a",
+            "prop": "button-text"
+          },
+          {
+            "url": "https://www.komatsu.com/en-us",
+            "selector": "div > div > div:nth-of-type(1) > div:nth-of-type(1) > div > div > div:nth-of-type(2) > button:nth-of-type(1)",
+            "prop": "background"
+          },
+          {
+            "url": "https://www.komatsu.com/en-us",
+            "selector": "#mobile-sideNav > div:nth-of-type(1)",
+            "prop": "background"
+          }
+        ]
+      },
+      {
+        "hex": "#253fc8",
+        "values": [
+          "rgb(37, 63, 200)"
+        ],
+        "weight": 48,
+        "by": {
+          "border": 24,
+          "button-border": 24
+        },
+        "roles": [
+          "accent"
+        ],
+        "sources": [
+          {
+            "url": "https://www.komatsu.com/en-us",
+            "selector": "div > div > div > div:nth-of-type(1) > div:nth-of-type(4) > div > div:nth-of-type(2) > a",
+            "prop": "border"
+          },
+          {
+            "url": "https://www.komatsu.com/en-us",
+            "selector": "div > div > div:nth-of-type(1) > div > div:nth-of-type(3) > div > div:nth-of-type(1) > a",
+            "prop": "button-border"
+          },
+          {
+            "url": "https://www.komatsu.com/en-us",
+            "selector": "div > div > div > div:nth-of-type(1) > div:nth-of-type(4) > div > div:nth-of-type(2) > a",
+            "prop": "button-border"
+          }
+        ]
+      },
+      {
+        "hex": "#ededed",
+        "values": [
+          "rgb(237, 237, 237)"
+        ],
+        "weight": 29,
+        "by": {
+          "border": 29
+        },
+        "roles": [
+          "border"
+        ],
+        "sources": [
+          {
+            "url": "https://www.komatsu.com/en-us",
+            "selector": "#mobile-sideNav > div:nth-of-type(4) > div > div > div:nth-of-type(1)",
+            "prop": "border"
+          },
+          {
+            "url": "https://www.komatsu.com/en-us",
+            "selector": "div > div > div:nth-of-type(3) > div > div > div > div > ol",
+            "prop": "border"
+          }
+        ]
+      },
+      {
+        "hex": "#1b232a",
+        "values": [
+          "rgb(27, 35, 42)"
+        ],
+        "weight": 73,
+        "by": {
+          "text": 42,
+          "link": 8,
+          "heading": 23
+        },
+        "roles": [],
+        "sources": [
+          {
+            "url": "https://www.komatsu.com/en-us",
+            "selector": "div > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div > a > div > h6",
+            "prop": "text"
+          },
+          {
+            "url": "https://www.komatsu.com/en-us",
+            "selector": "div > div > div > div > div > div:nth-of-type(1) > div > a",
+            "prop": "link"
+          },
+          {
+            "url": "https://www.komatsu.com/en-us",
+            "selector": "div > div > div > div:nth-of-type(1) > div > a > div:nth-of-type(2) > h3",
+            "prop": "heading"
+          },
+          {
+            "url": "https://www.komatsu.com/en-us",
+            "selector": "div > div > div > div:nth-of-type(1) > div > div:nth-of-type(1) > div > h2",
+            "prop": "heading"
+          },
+          {
+            "url": "https://www.komatsu.com/en-us",
+            "selector": "div > div > div > div:nth-of-type(2) > div > a > div:nth-of-type(2) > h3",
+            "prop": "heading"
+          }
+        ]
+      },
+      {
+        "hex": "#4d545a",
+        "values": [
+          "rgb(77, 84, 90)"
+        ],
+        "weight": 45,
+        "bgArea": 9100,
+        "by": {
+          "text": 32,
+          "background": 5,
+          "heading": 8
+        },
+        "roles": [],
+        "sources": [
+          {
+            "url": "https://www.komatsu.com/en-us",
+            "selector": "#experiencefragment-83d3be9b37 > div > div:nth-of-type(1) > div > div > div:nth-of-type(1) > div > h6",
+            "prop": "text"
+          },
+          {
+            "url": "https://www.komatsu.com/en-us",
+            "selector": "div > div > div:nth-of-type(1) > div > a > div:nth-of-type(2) > div > p",
+            "prop": "background"
+          },
+          {
+            "url": "https://www.komatsu.com/en-us",
+            "selector": "#experiencefragment-83d3be9b37 > div > div:nth-of-type(1) > div > div > div:nth-of-type(1) > div > h6",
+            "prop": "heading"
+          },
+          {
+            "url": "https://www.komatsu.com/en-us",
+            "selector": "#experiencefragment-83d3be9b37 > div > div:nth-of-type(1) > div > div > div:nth-of-type(2) > div > h6",
+            "prop": "heading"
+          },
+          {
+            "url": "https://www.komatsu.com/en-us",
+            "selector": "#experiencefragment-83d3be9b37 > div > div:nth-of-type(1) > div > div > div:nth-of-type(3) > div > h6",
+            "prop": "heading"
+          }
+        ]
+      },
+      {
+        "hex": "#3366cc",
+        "values": [
+          "rgb(51, 102, 204)"
+        ],
+        "weight": 33,
+        "bgArea": 60636,
+        "by": {
+          "background": 27,
+          "border": 6
+        },
+        "roles": [],
+        "sources": [
+          {
+            "url": "https://www.komatsu.com/en-us",
+            "selector": "div > div > div:nth-of-type(1) > div > a > div:nth-of-type(2) > ul > li:nth-of-type(1)",
+            "prop": "background"
+          },
+          {
+            "url": "https://www.komatsu.com/en-us",
+            "selector": "nav > a:nth-of-type(1)",
+            "prop": "border"
+          },
+          {
+            "url": "https://www.komatsu.com/en-us",
+            "selector": "div > div:nth-of-type(3) > div > div > div > div > ol > li:nth-of-type(1)",
+            "prop": "border"
+          }
+        ]
+      },
+      {
+        "hex": "#000000",
+        "values": [
+          "rgb(0, 0, 0)"
+        ],
+        "weight": 6,
+        "by": {
+          "link": 6
+        },
+        "roles": [],
+        "sources": [
+          {
+            "url": "https://www.komatsu.com/en-us",
+            "selector": "#mobile-sideNav > div:nth-of-type(4) > div > div > div:nth-of-type(1) > a",
+            "prop": "link"
+          },
+          {
+            "url": "https://www.komatsu.com/en-us",
+            "selector": "header > div > div > div > div:nth-of-type(4) > div > div:nth-of-type(1) > a",
+            "prop": "link"
+          }
+        ]
+      },
+      {
+        "hex": "#d9d9d9",
+        "values": [
+          "rgb(217, 217, 217)"
+        ],
+        "weight": 5,
+        "bgArea": 320,
+        "by": {
+          "background": 5
+        },
+        "roles": [],
+        "sources": [
+          {
+            "url": "https://www.komatsu.com/en-us",
+            "selector": "div > div > div:nth-of-type(1) > div:nth-of-type(1) > div > div > div:nth-of-type(2) > button:nth-of-type(2)",
+            "prop": "background"
+          }
+        ]
+      },
+      {
+        "hex": "#140a9a4d",
+        "values": [
+          "rgba(20, 10, 154, 0.3)"
+        ],
+        "weight": 2,
+        "bgArea": 578,
+        "by": {
+          "background": 2
+        },
+        "roles": [],
+        "sources": [
+          {
+            "url": "https://www.komatsu.com/en-us",
+            "selector": "div > div > div:nth-of-type(1) > div:nth-of-type(1) > div > div > div:nth-of-type(2) > button:nth-of-type(2)",
+            "prop": "background"
+          }
+        ]
+      },
+      {
+        "hex": "#ffc82f",
+        "values": [
+          "rgb(255, 200, 47)"
+        ],
+        "weight": 1,
+        "bgArea": 100,
+        "by": {
+          "background": 1
+        },
+        "roles": [],
+        "sources": [
+          {
+            "url": "https://www.komatsu.com/en-us",
+            "selector": "div > div > div:nth-of-type(1) > div:nth-of-type(1) > div > div > div:nth-of-type(2) > button:nth-of-type(1)",
+            "prop": "background"
+          }
+        ]
+      }
+    ],
+    "type": {
+      "families": [
+        {
+          "family": "Noto Sans",
+          "count": 99,
+          "headings": 55,
+          "text": 10,
+          "buttons": 34
+        }
+      ],
+      "headingFamily": "Noto Sans",
+      "bodyFamily": "Noto Sans",
+      "sizes": [
+        {
+          "px": 32,
+          "count": 1,
+          "headings": 1,
+          "text": 0,
+          "buttons": 0
+        },
+        {
+          "px": 24,
+          "count": 19,
+          "headings": 19,
+          "text": 0,
+          "buttons": 0
+        },
+        {
+          "px": 22,
+          "count": 1,
+          "headings": 1,
+          "text": 0,
+          "buttons": 0
+        },
+        {
+          "px": 20,
+          "count": 4,
+          "headings": 4,
+          "text": 0,
+          "buttons": 0
+        },
+        {
+          "px": 18,
+          "count": 7,
+          "headings": 3,
+          "text": 0,
+          "buttons": 4
+        },
+        {
+          "px": 16,
+          "count": 43,
+          "headings": 27,
+          "text": 8,
+          "buttons": 8
+        },
+        {
+          "px": 14,
+          "count": 24,
+          "headings": 0,
+          "text": 2,
+          "buttons": 22
+        }
+      ],
+      "weights": [
+        {
+          "weight": "400",
+          "count": 48,
+          "headings": 8,
+          "text": 10,
+          "buttons": 30
+        },
+        {
+          "weight": "700",
+          "count": 45,
+          "headings": 45,
+          "text": 0,
+          "buttons": 0
+        },
+        {
+          "weight": "600",
+          "count": 6,
+          "headings": 2,
+          "text": 0,
+          "buttons": 4
+        }
+      ],
+      "levels": {
+        "h1": {
+          "fontSize": 32,
+          "fontWeight": "700",
+          "count": 1,
+          "score": 56
+        },
+        "h2": {
+          "fontSize": 24,
+          "fontWeight": "700",
+          "count": 17,
+          "score": 173.17
+        },
+        "h3": {
+          "fontSize": 24,
+          "fontWeight": "600",
+          "count": 2,
+          "score": 50.91
+        },
+        "h6": {
+          "fontSize": 16,
+          "fontWeight": "700",
+          "count": 19,
+          "score": 122.05
+        }
+      }
+    },
+    "motifs": {
+      "radius": {
+        "mode": "4px",
+        "areaMode": "4px",
+        "pill": "50%",
+        "values": [
+          {
+            "value": "4px",
+            "count": 113,
+            "area": 4455028,
+            "sources": [
+              {
+                "url": "https://www.komatsu.com/en-us",
+                "selector": "div > div > div > div:nth-of-type(1) > div > a > picture > img"
+              },
+              {
+                "url": "https://www.komatsu.com/en-us",
+                "selector": "#mobile-sideNav > div:nth-of-type(4) > div > div > div:nth-of-type(1) > a"
+              },
+              {
+                "url": "https://www.komatsu.com/en-us",
+                "selector": "#mobile-sideNav > div:nth-of-type(4) > div > div > div:nth-of-type(2) > a"
+              },
+              {
+                "url": "https://www.komatsu.com/en-us",
+                "selector": "header > div > div > div > div:nth-of-type(4) > div > div:nth-of-type(1) > a"
+              },
+              {
+                "url": "https://www.komatsu.com/en-us",
+                "selector": "header > div > div > div > div:nth-of-type(4) > div > div:nth-of-type(2) > a"
+              }
+            ]
+          },
+          {
+            "value": "20px",
+            "count": 27,
+            "area": 60636,
+            "sources": [
+              {
+                "url": "https://www.komatsu.com/en-us",
+                "selector": "div > div > div:nth-of-type(1) > div > a > div:nth-of-type(2) > ul > li:nth-of-type(1)"
+              },
+              {
+                "url": "https://www.komatsu.com/en-us",
+                "selector": "div > div > div:nth-of-type(1) > div > a > div:nth-of-type(2) > ul > li:nth-of-type(2)"
+              },
+              {
+                "url": "https://www.komatsu.com/en-us",
+                "selector": "div > div > div:nth-of-type(1) > div > a > div:nth-of-type(2) > ul > li:nth-of-type(3)"
+              }
+            ]
+          },
+          {
+            "value": "50%",
+            "count": 9,
+            "area": 1476,
+            "sources": [
+              {
+                "url": "https://www.komatsu.com/en-us",
+                "selector": "div > div > div:nth-of-type(1) > div:nth-of-type(1) > div > div > div:nth-of-type(2) > button:nth-of-type(1)"
+              },
+              {
+                "url": "https://www.komatsu.com/en-us",
+                "selector": "div > div > div:nth-of-type(1) > div:nth-of-type(1) > div > div > div:nth-of-type(2) > button:nth-of-type(2)"
+              },
+              {
+                "url": "https://www.komatsu.com/en-us",
+                "selector": "div > div > div:nth-of-type(1) > div:nth-of-type(1) > div > div > div:nth-of-type(2) > button:nth-of-type(3)"
+              }
+            ]
+          },
+          {
+            "value": "100px",
+            "count": 4,
+            "area": 10000,
+            "sources": [
+              {
+                "url": "https://www.komatsu.com/en-us",
+                "selector": "#ot-sdk-btn-floating > div:nth-of-type(1)"
+              },
+              {
+                "url": "https://www.komatsu.com/en-us",
+                "selector": "#ot-sdk-btn-floating > div:nth-of-type(2)"
+              }
+            ]
+          },
+          {
+            "value": "4px 4px 0px 0px",
+            "count": 3,
+            "area": 191268,
+            "sources": [
+              {
+                "url": "https://www.komatsu.com/en-us",
+                "selector": "div > div > div > div > div:nth-of-type(1) > div > a > div:nth-of-type(1)"
+              },
+              {
+                "url": "https://www.komatsu.com/en-us",
+                "selector": "div > div > div > div > div:nth-of-type(2) > div > a > div:nth-of-type(1)"
+              },
+              {
+                "url": "https://www.komatsu.com/en-us",
+                "selector": "div > div > div > div > div:nth-of-type(3) > div > a > div:nth-of-type(1)"
+              }
+            ]
+          },
+          {
+            "value": "8px",
+            "count": 2,
+            "area": 2312,
+            "sources": [
+              {
+                "url": "https://www.komatsu.com/en-us",
+                "selector": "div > div > div:nth-of-type(2) > div > div > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1)"
+              },
+              {
+                "url": "https://www.komatsu.com/en-us",
+                "selector": "div > div > div:nth-of-type(2) > div > div > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(2)"
+              }
+            ]
+          }
+        ]
+      },
+      "shadows": [
+        {
+          "value": "rgba(0, 0, 0, 0.16) 0px 1px 2px 0px",
+          "count": 23,
+          "sources": [
+            {
+              "url": "https://www.komatsu.com/en-us",
+              "selector": "div > div:nth-of-type(2) > div > div > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div"
+            },
+            {
+              "url": "https://www.komatsu.com/en-us",
+              "selector": "div > div:nth-of-type(2) > div > div > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div"
+            },
+            {
+              "url": "https://www.komatsu.com/en-us",
+              "selector": "div > div:nth-of-type(2) > div > div > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div"
+            }
+          ]
+        },
+        {
+          "value": "rgba(0, 0, 0, 0.2) 0px 4px 8px 0px",
+          "count": 4,
+          "sources": [
+            {
+              "url": "https://www.komatsu.com/en-us",
+              "selector": "#ot-sdk-btn-floating > div:nth-of-type(1)"
+            },
+            {
+              "url": "https://www.komatsu.com/en-us",
+              "selector": "#ot-sdk-btn-floating > div:nth-of-type(2)"
+            }
+          ]
+        }
+      ],
+      "gradients": []
+    },
+    "hover": [
+      {
+        "kind": "button",
+        "from": {
+          "backgroundColor": "rgb(255, 255, 255)"
+        },
+        "to": {
+          "backgroundColor": "rgb(237, 237, 237)"
+        },
+        "count": 4,
+        "sources": [
+          {
+            "url": "https://www.komatsu.com/en-us",
+            "selector": "div > div > div > div:nth-of-type(1) > div:nth-of-type(4) > div > div:nth-of-type(2) > a"
+          },
+          {
+            "url": "https://www.komatsu.com/en-us",
+            "selector": "div > div > div:nth-of-type(1) > div > div:nth-of-type(3) > div > div:nth-of-type(1) > a"
+          },
+          {
+            "url": "https://www.komatsu.com/en-us",
+            "selector": "div > div > div > div:nth-of-type(1) > div:nth-of-type(4) > div > div:nth-of-type(2) > a"
+          },
+          {
+            "url": "https://www.komatsu.com/en-us",
+            "selector": "div > div > div:nth-of-type(1) > div > div:nth-of-type(3) > div > div:nth-of-type(1) > a"
+          }
+        ]
+      },
+      {
+        "kind": "button",
+        "from": {
+          "backgroundColor": "rgb(20, 10, 154)",
+          "boxShadow": "none"
+        },
+        "to": {
+          "backgroundColor": "rgb(37, 63, 200)",
+          "boxShadow": "rgba(0, 0, 0, 0.3) 0px 1px 2px 0px, rgba(0, 0, 0, 0.15) 0px 1px 3px 1px"
+        },
+        "count": 2,
+        "sources": [
+          {
+            "url": "https://www.komatsu.com/en-us",
+            "selector": "div > div > div > div > div:nth-of-type(1) > div > div:nth-of-type(4) > a"
+          },
+          {
+            "url": "https://www.komatsu.com/en-us",
+            "selector": "div > div > div > div > div:nth-of-type(1) > div > div:nth-of-type(4) > a"
+          }
+        ]
+      },
+      {
+        "kind": "link",
+        "from": {
+          "color": "rgb(20, 10, 154)"
+        },
+        "to": {
+          "color": "rgb(27, 35, 42)"
+        },
+        "count": 2,
+        "sources": [
+          {
+            "url": "https://www.komatsu.com/en-us",
+            "selector": "div:nth-of-type(1) > div > div > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div > a"
+          },
+          {
+            "url": "https://www.komatsu.com/en-us",
+            "selector": "div:nth-of-type(1) > div > div > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div > a"
+          }
+        ]
+      },
+      {
+        "kind": "button",
+        "from": {
+          "backgroundColor": "rgba(0, 0, 0, 0)"
+        },
+        "to": {
+          "backgroundColor": "rgb(37, 63, 200)"
+        },
+        "count": 1,
+        "sources": [
+          {
+            "url": "https://www.komatsu.com/en-us",
+            "selector": "div > div > div > div > div:nth-of-type(1) > div > div:nth-of-type(2) > a"
+          }
+        ]
+      }
+    ],
+    "logo": {
+      "source": "none",
+      "url": null,
+      "selector": null
+    },
+    "iconFont": {
+      "families": [
+        "Font Awesome 5 Brands",
+        "Font Awesome 5 Free",
+        "Font Awesome 6 Brands",
+        "Font Awesome 6 Free",
+        "FontAwesome"
+      ],
+      "glyphs": [
+        {
+          "class": "sub_list_title",
+          "pseudo": "::after",
+          "codepoint": "U+F067",
+          "fontFamily": "\"Font Awesome 6 Free\"",
+          "count": 1,
+          "sources": [
+            "https://www.komatsu.com/en-us"
+          ]
+        }
+      ]
+    }
+  }
+}

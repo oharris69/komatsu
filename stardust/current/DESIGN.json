@@ -1,0 +1,569 @@
+{
+  "_provenance": {
+    "writtenBy": "stardust:extract",
+    "writtenAt": "2026-10-17T15:45:00Z",
+    "mode": "descriptive (current state)",
+    "readArtifacts": [
+      "https://www.komatsu.com/en-us",
+      "stardust/current/_brand-extraction.json",
+      "stardust/current/_computed-styles.json",
+      "stardust/current/DESIGN.md"
+    ],
+    "synthesizedInputs": [],
+    "notes": "Single-page run (homepage only). tonalRamp values are the site's own CSS utility ramps (_brand-extraction.json#cssUtilityRamps), not synthesized. extensions.breakpoints is written by skills/replica/scripts/cap-probe.mjs --write-design.",
+    "stardustVersion": "0.29.1"
+  },
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-17T15:45:00Z",
+  "title": "Design System: Komatsu (current state)",
+  "extensions": {
+    "colorMeta": {
+      "komatsu-blue": {
+        "role": "primary",
+        "displayName": "Komatsu Blue",
+        "canonical": "#140a9a",
+        "tonalRamp": [
+          "#140a9a",
+          "#253fc8",
+          "#3366cc",
+          "#e2f2ff",
+          "#f0f8ff"
+        ],
+        "rampSource": "CSS .bg-primary-10/30/60/90/100"
+      },
+      "signal-blue": {
+        "role": "secondary",
+        "displayName": "Signal Blue",
+        "canonical": "#253fc8",
+        "tonalRamp": [
+          "#140a9a",
+          "#253fc8",
+          "#3366cc",
+          "#e2f2ff",
+          "#f0f8ff"
+        ],
+        "rampSource": "CSS .bg-primary-30"
+      },
+      "tag-blue": {
+        "role": "tertiary",
+        "displayName": "Tag Blue",
+        "canonical": "#3366cc",
+        "tonalRamp": [
+          "#140a9a",
+          "#253fc8",
+          "#3366cc",
+          "#e2f2ff",
+          "#f0f8ff"
+        ],
+        "rampSource": "CSS .bg-primary-60"
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#1b232a",
+        "tonalRamp": [
+          "#1b232a",
+          "#6e757a",
+          "#8f969a",
+          "#a9afb2",
+          "#c6cacc",
+          "#e4e6e6",
+          "#ededed",
+          "#f4f5f5",
+          "#fafafa",
+          "#ffffff"
+        ],
+        "rampSource": "CSS .bg-neutral-0"
+      },
+      "slate": {
+        "role": "neutral",
+        "displayName": "Slate",
+        "canonical": "#4d545a",
+        "tonalRamp": [],
+        "rampSource": "not in the declared neutral ramp (computed only)"
+      },
+      "white": {
+        "role": "neutral",
+        "displayName": "White",
+        "canonical": "#ffffff",
+        "rampSource": "CSS .bg-neutral-100"
+      },
+      "ground": {
+        "role": "neutral",
+        "displayName": "Ground",
+        "canonical": "#fafafa",
+        "rampSource": "CSS .bg-neutral-90; body background (computed)"
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Rule",
+        "canonical": "#ededed",
+        "rampSource": "CSS .bg-neutral-60"
+      }
+    },
+    "declaredButUnusedOnHome": {
+      "secondary-yellow": {
+        "canonical": "#ffc82f",
+        "tonalRamp": [
+          "#45360d",
+          "#665013",
+          "#ffc82f",
+          "#ffe9ac",
+          "#fef5d8",
+          "#fefaeb"
+        ],
+        "rampSource": "CSS .bg-secondary-0..100",
+        "homeUse": "1 element (carousel control, 100px2)"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero headline only; 20px / 24px at 390px."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section titles and photo-tile labels."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Centered tab-group heading (Technology)."
+      },
+      "news-title": {
+        "displayName": "News title",
+        "purpose": "Article headlines on news cards (18px / 22px in the list)."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Equipment-carousel names, footer column headings."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "All paragraphs; lede at 24px line-height, others 22px."
+      },
+      "nav": {
+        "displayName": "Nav",
+        "purpose": "Primary navigation links (18px in the mobile side panel)."
+      },
+      "button": {
+        "displayName": "Button",
+        "purpose": "All button labels, regular weight."
+      },
+      "chip": {
+        "displayName": "Chip",
+        "purpose": "Chip-link labels in the Technology feature."
+      },
+      "tag": {
+        "displayName": "Tag",
+        "purpose": "News topic tags (Roboto 9pt)."
+      }
+    },
+    "shadows": [
+      {
+        "name": "tile-hairline",
+        "value": "rgba(0, 0, 0, 0.16) 0px 1px 2px 0px",
+        "purpose": "Photo tiles at rest."
+      },
+      {
+        "name": "button-hover-lift",
+        "value": "rgba(0, 0, 0, 0.3) 0px 1px 2px 0px, rgba(0, 0, 0, 0.15) 0px 1px 3px 1px",
+        "purpose": "Filled primary button on hover."
+      }
+    ],
+    "gradients": [
+      {
+        "name": "hero-overlay",
+        "value": "linear-gradient(0deg, transparent, rgba(0, 0, 0, 0.75))",
+        "opacity": 0.5,
+        "purpose": "Darkens the top of the hero photo under the header and headline."
+      }
+    ],
+    "motion": {
+      "observed": [
+        {
+          "value": "transform .5s ease",
+          "purpose": "carousel track slide (most frequent transition in clientlib-site CSS)"
+        },
+        {
+          "value": "opacity .4s ease-in-out",
+          "purpose": "fades"
+        },
+        {
+          "value": "all .3s ease",
+          "purpose": "general state transitions"
+        }
+      ],
+      "note": "Declared in CSS; not measured in motion (capture runs with reduced motion). No register selected — that is direct's job."
+    },
+    "mediaQueries": {
+      "mostFrequent": [
+        "max-width: 449px (267 rules)",
+        "max-width: 899px (233)",
+        "max-width: 768px (53)",
+        "max-width: 1279px (37)",
+        "max-width: 1024px (18)"
+      ],
+      "source": "clientlib-site CSS @media frequency"
+    },
+    "componentStyle": {
+      "buttons": {
+        "primary": {
+          "background": "#140a9a",
+          "color": "#ffffff",
+          "borderRadius": "4px",
+          "padding": "11px 24px",
+          "border": "0",
+          "fontSize": "16px",
+          "fontWeight": 400,
+          "hover": {
+            "background": "#253fc8",
+            "shadow": "rgba(0, 0, 0, 0.3) 0px 1px 2px 0px, rgba(0, 0, 0, 0.15) 0px 1px 3px 1px"
+          }
+        },
+        "secondary": {
+          "background": "#ffffff",
+          "color": "#140a9a",
+          "borderRadius": "4px",
+          "padding": "11px 24px",
+          "border": "2px solid #253fc8",
+          "fontSize": "16px",
+          "fontWeight": 400,
+          "hover": {
+            "background": "#ededed"
+          }
+        },
+        "ghost": {
+          "background": "transparent",
+          "color": "#ffffff",
+          "borderRadius": "4px",
+          "padding": "11px 24px",
+          "border": "2px solid #ffffff",
+          "fontSize": "16px",
+          "fontWeight": 400,
+          "hover": {
+            "background": "#253fc8"
+          }
+        },
+        "chip": {
+          "background": "#ffffff",
+          "color": "#140a9a",
+          "borderRadius": "4px",
+          "padding": "4px 16px",
+          "border": "2px solid #253fc8",
+          "fontSize": "14px",
+          "fontWeight": 400,
+          "hover": {
+            "background": "#ededed"
+          }
+        }
+      },
+      "dualCTAPattern": null,
+      "cards": {
+        "kind": "photo tile with overlaid label",
+        "borderRadius": "4px",
+        "shadow": "rgba(0, 0, 0, 0.16) 0px 1px 2px 0px",
+        "border": null
+      },
+      "tags": {
+        "topic": {
+          "background": "#3366cc",
+          "color": "#ffffff",
+          "borderRadius": "20px",
+          "padding": "2px 8px",
+          "font": "Roboto 12px 400, letter-spacing 0.4px"
+        },
+        "meta": {
+          "background": "#4d545a"
+        }
+      },
+      "links": {
+        "default": {
+          "color": "#140a9a",
+          "textDecoration": "none",
+          "hover": {
+            "color": "#1b232a"
+          }
+        },
+        "nav": {
+          "color": "#ffffff",
+          "fontWeight": 600
+        }
+      },
+      "inputs": null,
+      "source": "_brand-extraction.json#componentStyle"
+    },
+    "motifs": {
+      "borderRadius": {
+        "primary": "4px",
+        "secondary": "20px",
+        "pill": "50%",
+        "occurrences": {
+          "4px": 113,
+          "20px": 27,
+          "50%": 9,
+          "4px 4px 0px 0px": 3,
+          "8px": 2
+        }
+      },
+      "shadows": [
+        "rgba(0, 0, 0, 0.16) 0px 1px 2px 0px",
+        "rgba(0, 0, 0, 0.3) 0px 1px 2px 0px, rgba(0, 0, 0, 0.15) 0px 1px 3px 1px"
+      ],
+      "gradients": [
+        "linear-gradient(0deg, transparent, rgba(0, 0, 0, 0.75)) @ opacity .5 (hero ::before)"
+      ],
+      "patterns": [
+        "hero-with-image",
+        "product-carousel",
+        "bento-tile-grid",
+        "tabbed-feature",
+        "split-promo-band",
+        "news-grid",
+        "image-tile-cta-row",
+        "footer-mega"
+      ],
+      "source": "_brand-extraction.json#motifs"
+    },
+    "voice": {
+      "heroHeadline": "Here's to progress",
+      "heroSubcopy": "For more than a century, Komatsu has helped build the world beneath our feet. Now, we're helping imagine how people could one day build beyond it.",
+      "primaryCTALabel": "Explore more",
+      "ctaSamples": [
+        "Explore more",
+        "Learn more",
+        "Order now",
+        "Read more news",
+        "Request a quote",
+        "Contact us"
+      ],
+      "navItems": [
+        "Products",
+        "Services",
+        "Technology",
+        "Company"
+      ],
+      "footerHeadings": [
+        "Discover",
+        "Tools",
+        "Company",
+        "Connect"
+      ],
+      "heroImage": {
+        "url": "https://s7d9.scene7.com//is/image/komatsu/Screenshot%202026-07-30%20103344:ultrawide-21x9-xl",
+        "alt": "Background Image",
+        "source": "img",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 700
+        }
+      },
+      "heroMedium": null,
+      "tone": {
+        "guess": "aspirational",
+        "evidence": "toast-style hero headline with a century-to-future arc; plain functional sentence-case labels below the fold (heuristic)"
+      },
+      "examples": {
+        "do": [
+          "Here's to progress",
+          "Parts purchasing made easy",
+          "Dig into the latest",
+          "Get in touch"
+        ],
+        "dont": []
+      },
+      "source": "_brand-extraction.json#voice"
+    },
+    "systemComponents": [],
+    "scaleAudit": {
+      "kind": "ad-hoc",
+      "sizesPx": [
+        32,
+        24,
+        22,
+        20,
+        18,
+        16
+      ],
+      "ratios": [
+        1.333,
+        1.091,
+        1.1,
+        1.111,
+        1.125
+      ],
+      "matchedScale": null
+    },
+    "register": "brand",
+    "metadata": {
+      "siteName": "Komatsu",
+      "defaultOgImage": "https://www.komatsu.com/content/dam/komatsu/photos-images/miscellaneous/Open-Graph-Default.png",
+      "defaultLocale": "en-us",
+      "favicon": "stardust/current/assets/favicon.ico"
+    },
+    "breakpoints": {
+      "containerMaxWidth": "1920px",
+      "probeWidth": 2560,
+      "shellMaxWidth": null,
+      "caps": [
+        {
+          "kind": "module",
+          "px": 1920,
+          "via": "max-width",
+          "selector": "div.aem-Grid.aem-Grid--12 > div.columncontainer.container > div.columncontainer-main.white-container > div.aem-Grid.aem-Grid--12",
+          "pages": [
+            "https://www.komatsu.com/en-us"
+          ]
+        },
+        {
+          "kind": "module",
+          "px": 1856,
+          "via": "other",
+          "selector": "div.tilesmall.horizontal_scroll > div.tilesmall-outer-current > div.carousel-wrapper > div.tiles_small_list",
+          "pages": [
+            "https://www.komatsu.com/en-us"
+          ]
+        }
+      ],
+      "modules": [
+        {
+          "url": "https://www.komatsu.com/en-us",
+          "section": 0,
+          "selector": "div.root.container > div.cmp-container > div.aem-Grid.aem-Grid--12 > header.experiencefragment.header-xf",
+          "px": null
+        },
+        {
+          "url": "https://www.komatsu.com/en-us",
+          "section": 1,
+          "selector": "div.root.container > div.cmp-container > div.aem-Grid.aem-Grid--12 > div.container.responsivegrid",
+          "px": 1920
+        },
+        {
+          "url": "https://www.komatsu.com/en-us",
+          "section": 2,
+          "selector": "div.root.container > div.cmp-container > div.aem-Grid.aem-Grid--12 > footer.experiencefragment.footer-xf",
+          "px": null
+        }
+      ],
+      "capRegister": [],
+      "capProvenance": {
+        "writtenBy": "skills/replica/scripts/cap-probe.mjs",
+        "writtenAt": "2026-10-17T15:42:48.608Z",
+        "baseWidth": 1440,
+        "urls": [
+          "https://www.komatsu.com/en-us"
+        ]
+      }
+    }
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Filled Komatsu Blue action (Learn more, Read more news).",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Learn more</a>",
+      "css": ".ds-btn-primary { display: inline-block; background: #140a9a; color: #fff; padding: 11px 24px; border: 0; border-radius: 4px; font: 400 16px/1.2 \"Noto Sans\", sans-serif; text-decoration: none; transition: all .3s ease; } .ds-btn-primary:hover { background: #253fc8; box-shadow: rgba(0,0,0,.3) 0 1px 2px 0, rgba(0,0,0,.15) 0 1px 3px 1px; } .ds-btn-primary:focus-visible { outline: 2px solid #253fc8; outline-offset: 2px; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "White outline action with a 2px Signal Blue border (hero Explore more).",
+      "html": "<a class=\"ds-btn-secondary\" href=\"#\">Explore more</a>",
+      "css": ".ds-btn-secondary { display: inline-block; background: #fff; color: #140a9a; padding: 11px 24px; border: 2px solid #253fc8; border-radius: 4px; font: 400 16px/1.2 \"Noto Sans\", sans-serif; text-decoration: none; transition: all .3s ease; } .ds-btn-secondary:hover { background: #ededed; } .ds-btn-secondary:focus-visible { outline: 2px solid #140a9a; outline-offset: 2px; }"
+    },
+    {
+      "name": "Inverse Button",
+      "kind": "button",
+      "refersTo": "button-inverse",
+      "description": "Transparent white-outline action on the Komatsu Blue promo band (Order now).",
+      "html": "<div style=\"background:#140a9a;padding:24px\"><a class=\"ds-btn-inverse\" href=\"#\">Order now</a></div>",
+      "css": ".ds-btn-inverse { display: inline-block; background: transparent; color: #fff; padding: 11px 24px; border: 2px solid #fff; border-radius: 4px; font: 400 16px/1.2 \"Noto Sans\", sans-serif; text-decoration: none; transition: all .3s ease; } .ds-btn-inverse:hover { background: #253fc8; } .ds-btn-inverse:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }"
+    },
+    {
+      "name": "Chip Link",
+      "kind": "chip",
+      "refersTo": "chip-link",
+      "description": "Miniature outline button listing Smart Construction products.",
+      "html": "<a class=\"ds-chip-link\" href=\"#\">3D Machine Guidance</a>",
+      "css": ".ds-chip-link { display: inline-block; background: #fff; color: #140a9a; padding: 4px 16px; border: 2px solid #253fc8; border-radius: 4px; font: 400 14px/1.4 \"Noto Sans\", sans-serif; text-decoration: none; } .ds-chip-link:hover { background: #ededed; } .ds-chip-link:focus-visible { outline: 2px solid #140a9a; outline-offset: 2px; }"
+    },
+    {
+      "name": "Topic Tag",
+      "kind": "chip",
+      "refersTo": "tag-topic",
+      "description": "Small blue pill tag on news cards.",
+      "html": "<span class=\"ds-tag-topic\">Smart Construction</span>",
+      "css": ".ds-tag-topic { display: inline-block; background: #3366cc; color: #fff; padding: 2px 8px; border-radius: 20px; font: 400 12px/16px Roboto, \"Noto Sans\", sans-serif; letter-spacing: .4px; }"
+    },
+    {
+      "name": "Photo Tile",
+      "kind": "card",
+      "refersTo": "photo-tile",
+      "description": "Full-bleed photograph with a white bold label bottom-left (bento grid, Get in touch).",
+      "html": "<a class=\"ds-photo-tile\" href=\"#\"><span>Parts</span></a>",
+      "css": ".ds-photo-tile { position: relative; display: flex; align-items: flex-end; width: 280px; height: 180px; padding: 20px; border-radius: 4px; overflow: hidden; background: linear-gradient(0deg, rgba(0,0,0,.55), rgba(0,0,0,0) 60%), #4d545a; box-shadow: rgba(0,0,0,.16) 0 1px 2px 0; color: #fff; text-decoration: none; font: 700 24px/28px \"Noto Sans\", sans-serif; } .ds-photo-tile:focus-visible { outline: 2px solid #253fc8; outline-offset: 2px; }"
+    },
+    {
+      "name": "Header Navigation",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "White semibold links in a transparent header over the hero.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\">Products</a><a href=\"#\">Services</a><a href=\"#\">Technology</a><a href=\"#\">Company</a></nav>",
+      "css": ".ds-nav { display: flex; gap: 24px; padding: 28px 32px; background: #1b232a; } .ds-nav a { color: #fff; font: 600 16px/1.2 \"Noto Sans\", sans-serif; text-decoration: none; border-bottom: 2px solid transparent; padding-bottom: 4px; } .ds-nav a:hover, .ds-nav a:focus-visible { border-bottom-color: #fff; outline: none; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Komatsu Blue over the Jobsite",
+    "overview": "The homepage is a corporate equipment catalogue that lets photography carry the color. The chrome is restrained: one deep ultramarine (Komatsu Blue) for links, filled buttons and the occasional promo panel; near-black ink for headings; white content panels laid on a barely-grey ground. Everything with saturation beyond that — the yellow machines, the orange safety vests, the lunar campaign scene in the hero — arrives through photographs, not through the palette.\n\nDensity is moderate and catalogue-like. Below a full-bleed campaign hero the page stacks discrete, contained modules: an equipment carousel, a 1 + 4 bento of photo tiles, a tabbed technology feature, a split blue promo band, a news grid and a row of four \"Get in touch\" tiles, then a mega footer. Each module sits on its own white panel; separation comes from 32px gaps and the ground showing through, not from rules or shadows.\n\nTypography is a single humanist sans (Noto Sans) used in bold for titles and regular for everything else, at modest sizes — the hero headline is 32px at desktop and 20px on phones. The system reads as dependable and plain rather than expressive; the campaign voice lives in the hero image and one short line of copy.",
+    "keyCharacteristics": [
+      "One brand blue (#140a9a) carrying links, filled CTAs and promo panels; a brighter blue (#253fc8) only as button outlines and hover fills.",
+      "Photography-led color; the UI palette itself is blue, ink, slate and white.",
+      "Small, consistent 4px corners on buttons, tiles and images; 20px only on tag chips.",
+      "Near-flat surfaces: one hairline tile shadow, no gradients except the hero darkening overlay.",
+      "Sentence-case headings, no uppercase, no letter-spacing."
+    ],
+    "rules": [
+      {
+        "name": "The One Blue Rule",
+        "body": "Komatsu Blue is the only saturated color at rest in the chrome; Signal Blue appears only as an outline or a hover state.",
+        "section": "colors"
+      },
+      {
+        "name": "The Photographs Carry the Yellow Rule",
+        "body": "The site CSS declares a yellow secondary ramp (secondary-30 #ffc82f), but on the homepage it paints a single carousel control; the machine yellow that identifies Komatsu equipment otherwise exists only in imagery. The palette tokens above map onto the site's own declared ramps (primary-10 / 30 / 60, neutral-0 / 60 / 90).",
+        "section": "colors"
+      },
+      {
+        "name": "The Weight-Not-Size Rule",
+        "body": "Headline and title both sit at 24px; the distinction between levels is carried by weight (700 vs 600 vs 400) rather than by a size ramp. Observed sizes 32 / 24 / 22 / 20 / 18 / 16px follow no modular ratio.",
+        "section": "typography"
+      },
+      {
+        "name": "The Sentence-Case Rule",
+        "body": "No heading on the page is uppercase (0 of 30) and no heading uses letter-spacing.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat-Panel Rule",
+        "body": "Panels and buttons are flat at rest; elevation appears only as a hairline under imagery or as a hover response.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** keep Komatsu Blue (#140a9a) as the single resting brand color for links, filled buttons and promo panels.",
+      "**Do** use 4px corners on buttons, tiles and images; reserve 20px for tag chips.",
+      "**Do** outline secondary actions with a 2px Signal Blue (#253fc8) border on white.",
+      "**Do** set headings in sentence case, Noto Sans, weight 600 to 700.",
+      "**Do** let photography supply warm color; place white text on photos only over the darkening overlay."
+    ],
+    "donts": [
+      "**Don't** use pill-shaped buttons; the incumbent buttons are squared at 4px.",
+      "**Don't** add resting shadows heavier than the tile hairline (0 1px 2px rgba(0,0,0,0.16)).",
+      "**Don't** uppercase or letter-space headings; none on the incumbent page are.",
+      "**Don't** introduce decorative gradients; the only gradient is the hero's darkening overlay."
+    ]
+  }
+}

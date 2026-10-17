@@ -1,0 +1,495 @@
+{
+  "_provenance": {
+    "writtenBy": "stardust:extract",
+    "writtenAt": "2026-10-17T15:38:00Z",
+    "readArtifacts": [
+      "https://www.komatsu.com/en-us",
+      "stardust/current/pages/en-us.json",
+      "stardust/current/pages/en-us.html",
+      "stardust/current/_computed-styles.json",
+      "stardust/current/_crawl-log.json",
+      "stardust/current/assets/screenshots/en-us.png",
+      "https://www.komatsu.com/etc.clientlibs/komatsu/clientlibs/clientlib-site.lc-22cd987d2803a4b8ae417d27b7503830-lc.min.css",
+      "https://www.komatsu.com/etc.clientlibs/komatsu/clientlibs/clientlib-html-library.lc-196975dbe052fc8987f235f559212340-lc.min.css",
+      "https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:wght@100;300;400;500;700;900&display=swap",
+      "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    ],
+    "synthesizedInputs": [],
+    "stardustVersion": "0.29.1",
+    "notes": [
+      "Single-page run (user-confirmed scope: homepage only). Every 'cross-page' aggregation in this file is the home page's own aggregation — cross-page = this page. Confidence of palette/type/motif modes is home-only; widen with --pages to confirm.",
+      "Computed values come from _computed-styles.json#aggregate (style-census.mjs, widths 1440 and 390; 2 measurements). Rects for heroImage/logo and section spacing come from a JS-off re-render of the captured DOM (pages/en-us.html) at 1440 and 390 — stardust/.work/extract/snapshot-measure.json and sections-measure.json — not from a new live navigation; its document height (3985px at 1440) matches the live full-page screenshot.",
+      "Palette cap 8: dropped #d9d9d9 (5, inactive carousel-dot background), #140a9a4d (2, rgba(20,10,154,0.3) carousel dot), #ffc82f (1, carousel control background — it is the CSS-declared secondary-30 brand yellow, see cssUtilityRamps). Census cluster #ffffff absorbs rgb(250,250,250): body/html background is #fafafa (snapshot render, computed) with white content panels (.columncontainer-main.white-container) sitting on it; the footer surface is #fafafa (census surfaces[footer]).",
+      "Home-vs-cross-page divergence: not evaluable (one page). Home radius mode is 4px (113 elements, also the area mode); 20px (27) is chip-only; 50% (9) is carousel dots only.",
+      "Third-party chrome excluded from motifs: radius 100px (4) and shadow rgba(0,0,0,0.2) 0 4px 8px (4) both come from #ot-sdk-btn-floating (OneTrust cookie widget), not Komatsu markup.",
+      "Gradient inventory: the census (computed, non-pseudo) found none; the hero's dark overlay is a ::before pseudo-element declared in clientlib-site CSS (.herocomponent.dark_gradient_overlay:before) and is recorded from that rule.",
+      "System component detection requires >= 3 pages; crawl too small (1 page). systemComponents is []. Landmarks observed on the home page only (not confirmed as cross-page): header.experiencefragment.header-xf (logo + Products/Services/Technology/Company + search/Locations/Worldwide US/My Account utilities, absolute over the hero, 82px tall at 1440) and footer.experiencefragment.footer-xf (#fafafa, 4 link columns Discover/Tools/Company/Connect + blue logo block + legal row, 640px tall at 1440).",
+      "Second family: Roboto is loaded (census fonts[] status loaded, 400) and declared by clientlib-site CSS for article tag chips (.articleGrid ... .tile .content ul li { font-family: Roboto; font-size: 9pt }). The census's text/heading sample did not include those chips, so type.families counts only Noto Sans.",
+      "Logo chain: no inline-SVG wordmark in the header (the only header <svg> is the 32x32 search icon). Step 2 matched the header <img> logo.svg (alt 'Company Logo', 170x34 at top 20px). Its aspect ratio 5.0 exceeds the step-2 guard [0.5, 3.0]; accepted anyway because the guard targets spacer SVGs and the remaining steps resolve to non-logos (no apple-touch-icon; og:image is a social card 'Open-Graph-Default.png'; favicon is 16px-class .ico). Flagged for the reviewer.",
+      "heroMedium: null — hero markup carries an empty .hero-background-video and the template comment 'Background Image with No video'; media.videos is []; the two iframes in the DOM are tracking (demdex, doubleclick), display none.",
+      "cap-probe (skills/replica/scripts/cap-probe.mjs, run 2026-10-17T15:42Z, OneTrust dismissed): base 1440 -> probe 2560; contentMaxWidth 1920px (module cap, max-width on the white panel grid), carousel list 1856px, shell fluid; capRegister []. Recorded in DESIGN.json#extensions.breakpoints."
+    ]
+  },
+  "site": {
+    "name": "Komatsu",
+    "tagline": "Creating value through manufacturing and technology innovation to empower a sustainable future where people, businesses and our planet thrive together",
+    "taglineSource": "pages/en-us.json#description (meta description; identical og:description)",
+    "title": "Construction, Mining and Industrial Equipment | Komatsu",
+    "originUrl": "https://www.komatsu.com",
+    "homeUrl": "https://www.komatsu.com/en-us"
+  },
+  "origins": [
+    {
+      "origin": "https://www.komatsu.com",
+      "role": "primary",
+      "pagesCaptured": 1,
+      "contributedSignals": []
+    }
+  ],
+  "logo": {
+    "source": "img",
+    "sourceSelector": "header.experiencefragment.header-xf div#image-36e00d547c > a.cmp-image__link > picture > img.cmp-image__image",
+    "sourceUrl": "https://www.komatsu.com/content/dam/komatsu/icons/website-app/logo.svg",
+    "localPath": "stardust/current/assets/logo.svg",
+    "format": "svg",
+    "intrinsicWidth": 170,
+    "intrinsicHeight": 34,
+    "renderedRect": { "1440": { "x": 32, "y": 20, "width": 170, "height": 34 }, "390": { "x": 135, "y": 8, "width": 120, "height": 24 } },
+    "fill": "white (paths fill=\"white\"; designed for the dark hero header)",
+    "synthesized": false,
+    "synthesizedBasis": null,
+    "variantsSeen": [
+      { "url": "https://www.komatsu.com/content/dam/komatsu/icons/website-app/blue-logo.svg", "where": "footer brand block (alt 'Company Logo', 181x35)", "captured": false }
+    ],
+    "_provenance": {
+      "notes": "Aspect 5.0 > step-2 guard 3.0 — accepted as a wide wordmark (see top-level _provenance.notes). Rects: _computed-styles.json pages[url][1440|390].logoCandidates[0]."
+    }
+  },
+  "favicon": {
+    "url": "https://www.komatsu.com/content/dam/komatsu/websites/en-us/miscellaneous-web-site-assets/Komatsu_favicon.ico",
+    "localPath": "stardust/current/assets/favicon.ico",
+    "format": "ico",
+    "source": "_crawl-log.json#favicon"
+  },
+  "palette": [
+    {
+      "role": "background",
+      "value": "#ffffff",
+      "clusterMembers": ["rgb(255, 255, 255)", "rgb(250, 250, 250)"],
+      "occurrences": 217,
+      "bgArea": 25393939,
+      "sourceSelectors": ["#mobile-sideNav", "#sidePanel", "nav > a:nth-of-type(1)"],
+      "sources": ["en-us"],
+      "usedAs": ["background", "text", "border"],
+      "citation": "_computed-styles.json#aggregate.colors[0]"
+    },
+    {
+      "role": "primary",
+      "value": "#140a9a",
+      "occurrences": 151,
+      "bgArea": 789644,
+      "sourceSelectors": [
+        "div:nth-of-type(1) > div > div > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div > a",
+        "div > div > div:nth-of-type(1) > div > div:nth-of-type(3) > div > div:nth-of-type(1) > a",
+        "div > div > div > div > div:nth-of-type(1) > div > div:nth-of-type(4) > a"
+      ],
+      "sources": ["en-us"],
+      "usedAs": ["text", "background"],
+      "context": "link text (62), body/heading text (49), outline-button text (24), filled 'Learn more' button and Parts promo panel background",
+      "citation": "_computed-styles.json#aggregate.colors[1]"
+    },
+    {
+      "role": "text-primary",
+      "value": "#1b232a",
+      "occurrences": 73,
+      "sourceSelectors": [
+        "div > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div > a > div > h6",
+        "div > div > div > div:nth-of-type(1) > div > div:nth-of-type(1) > div > h2",
+        "div > div > div > div:nth-of-type(1) > div > a > div:nth-of-type(2) > h3"
+      ],
+      "sources": ["en-us"],
+      "usedAs": ["text"],
+      "citation": "_computed-styles.json#aggregate.colors[4]"
+    },
+    {
+      "role": "accent",
+      "value": "#253fc8",
+      "occurrences": 48,
+      "sourceSelectors": [
+        "div > div > div > div:nth-of-type(1) > div:nth-of-type(4) > div > div:nth-of-type(2) > a",
+        "div > div > div:nth-of-type(1) > div > div:nth-of-type(3) > div > div:nth-of-type(1) > a"
+      ],
+      "sources": ["en-us"],
+      "usedAs": ["border"],
+      "hoverUsedAs": ["background"],
+      "context": "2px border of outline buttons (Explore more, Technology chip-buttons); :hover background of filled and inverse buttons",
+      "citation": "_computed-styles.json#aggregate.colors[2]; aggregate.hover[1], hover[3]"
+    },
+    {
+      "role": "text-secondary",
+      "value": "#4d545a",
+      "occurrences": 45,
+      "bgArea": 9100,
+      "sourceSelectors": [
+        "#experiencefragment-83d3be9b37 > div > div:nth-of-type(1) > div > div > div:nth-of-type(1) > div > h6",
+        "#textcontent-cb6afddf5c > p",
+        "div > div > div:nth-of-type(1) > div > a > div:nth-of-type(2) > div > p"
+      ],
+      "sources": ["en-us"],
+      "usedAs": ["text", "background"],
+      "context": "footer column headings and brand paragraph; background of the '3 min read' meta chips on news cards",
+      "citation": "_computed-styles.json#aggregate.colors[5]"
+    },
+    {
+      "role": "accent-1",
+      "value": "#3366cc",
+      "occurrences": 33,
+      "bgArea": 60636,
+      "sourceSelectors": [
+        "div > div > div:nth-of-type(1) > div > a > div:nth-of-type(2) > ul > li:nth-of-type(1)",
+        "nav > a:nth-of-type(1)"
+      ],
+      "sources": ["en-us"],
+      "usedAs": ["background", "border"],
+      "context": "news-card topic tag chips (20px radius); active nav / tab underline border",
+      "citation": "_computed-styles.json#aggregate.colors[6]"
+    },
+    {
+      "role": "border",
+      "value": "#ededed",
+      "occurrences": 29,
+      "sourceSelectors": [
+        "#mobile-sideNav > div:nth-of-type(4) > div > div > div:nth-of-type(1)",
+        "div > div > div:nth-of-type(3) > div > div > div > div > ol"
+      ],
+      "sources": ["en-us"],
+      "usedAs": ["border"],
+      "hoverUsedAs": ["background"],
+      "context": "dividers (mobile nav, carousel/tab rule); :hover background of outline buttons",
+      "citation": "_computed-styles.json#aggregate.colors[3]; aggregate.hover[0]"
+    },
+    {
+      "role": "accent-2",
+      "value": "#000000",
+      "occurrences": 6,
+      "sourceSelectors": [
+        "#mobile-sideNav > div:nth-of-type(4) > div > div > div:nth-of-type(1) > a",
+        "header > div > div > div > div:nth-of-type(4) > div > div:nth-of-type(1) > a"
+      ],
+      "sources": ["en-us"],
+      "usedAs": ["text"],
+      "context": "header utility links (Locations / Worldwide US) text color — rendered as icons over the hero",
+      "citation": "_computed-styles.json#aggregate.colors[7]"
+    }
+  ],
+  "cssUtilityRamps": {
+    "source": "clientlib-site CSS utility classes .bg-<family>-<step> (declared, not CSS custom properties); steps low = dark",
+    "primary": { "10": "#140a9a", "30": "#253fc8", "60": "#3366cc", "90": "#e2f2ff", "100": "#f0f8ff" },
+    "secondary": { "0": "#45360d", "10": "#665013", "30": "#ffc82f", "60": "#ffe9ac", "90": "#fef5d8", "100": "#fefaeb" },
+    "neutral": { "0": "#1b232a", "10": "#6e757a", "20": "#8f969a", "30": "#a9afb2", "40": "#c6cacc", "50": "#e4e6e6", "60": "#ededed", "80": "#f4f5f5", "90": "#fafafa", "100": "#ffffff" },
+    "info": { "10": "#006487", "30": "#00a7e1", "60": "#ccedf9", "90": "#e5f5fb" },
+    "success": { "10": "#1a6d45", "30": "#2bb673", "60": "#d5f0e3", "90": "#e9f7f0" },
+    "warning": { "10": "#924314", "30": "#f37021", "60": "#fde2d3", "90": "#fdf0e8" },
+    "danger": { "10": "#990000", "60": "#ffcccc", "90": "#ffe5e5" },
+    "note": "The captured palette maps exactly onto this ramp: primary-10/30/60 = #140a9a/#253fc8/#3366cc; neutral-0/60/90 = #1b232a/#ededed/#fafafa. The declared secondary-30 #ffc82f (Komatsu yellow) is computed on the home page only once (bgArea 100px2, a carousel control) and was dropped by the 8-entry palette cap."
+  },
+  "type": {
+    "headingFamily": {
+      "name": "Noto Sans",
+      "stack": "\"Noto Sans\", sans-serif",
+      "weights": [700, 600],
+      "sizes": ["32px", "24px", "22px", "20px", "18px", "16px"],
+      "lineHeights": ["38px", "28px", "32px", "22px"],
+      "letterSpacing": ["normal"],
+      "textTransform": "none",
+      "sourceSelectors": ["h1.cmp-title__text.title_header", "h2", "h3", "h6"],
+      "citation": "_computed-styles.json#aggregate.type; pages[url][1440].headings[]"
+    },
+    "bodyFamily": {
+      "name": "Noto Sans",
+      "stack": "\"Noto Sans\", sans-serif",
+      "weights": [400],
+      "sizes": ["16px", "14px"],
+      "lineHeights": ["24px", "22px", "22.4px"],
+      "letterSpacing": ["normal"],
+      "sourceSelectors": [
+        "div > div > div > div:nth-of-type(1) > div:nth-of-type(4) > div > div:nth-of-type(1) > p",
+        "div > div > div > div:nth-of-type(1) > div > div:nth-of-type(2) > div > p",
+        "#textcontent-cb6afddf5c > p"
+      ],
+      "citation": "_computed-styles.json pages[url][1440].text[]"
+    },
+    "monoFamily": null,
+    "auxiliaryFamilies": [
+      {
+        "name": "Roboto",
+        "stack": "Roboto",
+        "use": "news-card topic tag chips (12px / 9pt, 400, letter-spacing 0.4px)",
+        "source": "clientlib-site CSS rule .articleGrid .article-container .grid .tile .content ul li; census fonts[] Roboto 400 status loaded"
+      }
+    ],
+    "levels": {
+      "h1": { "fontSize": "32px", "fontWeight": 700, "lineHeight": "38px", "mobileFontSize": "20px", "mobileLineHeight": "24px", "count": 1, "score": 56, "text": "Here's to progress" },
+      "h2": { "fontSize": "24px", "fontWeight": 700, "lineHeight": "28px", "mobileFontSize": "24px (section titles) / 16px (bento tile labels)", "count": 17, "score": 173.17 },
+      "h3": { "fontSize": "24px", "fontWeight": 600, "lineHeight": "32px", "count": 2, "score": 50.91, "alsoObserved": "20px/400/28px (featured news headlines), 18px/400/22px (news list headlines)" },
+      "h6": { "fontSize": "16px", "fontWeight": 700, "lineHeight": "22px", "count": 19, "score": 122.05, "use": "equipment-carousel labels and footer column headings" },
+      "citation": "_computed-styles.json#aggregate.type.levels (weighted score = px x weight/400 x sqrt(count)); mobile values from pages[url][390].headings[]"
+    },
+    "ui": {
+      "button": { "fontSize": "16px", "fontWeight": 400, "small": "14px (chip-buttons)" },
+      "navLink": { "fontSize": "16px", "fontWeight": 600, "mobileFontSize": "18px" },
+      "citation": "_computed-styles.json pages[url][1440].buttons[], links[0]; pages[url][390].buttons[0]"
+    },
+    "scaleRatio": null,
+    "scaleAudit": {
+      "kind": "ad-hoc",
+      "sizesPx": [32, 24, 22, 20, 18, 16],
+      "ratios": [1.333, 1.091, 1.1, 1.111, 1.125],
+      "matchedScale": null,
+      "note": "Ratios computed over the distinct heading sizes in _computed-styles.json#aggregate.type.sizes (headings > 0). 32->24 alone matches perfect-fourth; the remaining steps sit at ~1.1, so no single canonical ratio holds."
+    },
+    "loadStrategy": "swap",
+    "loadSource": "Google Fonts css2 @import inside clientlib-site and clientlib-html-library CSS (&display=swap)",
+    "files": [
+      {
+        "url": "https://fonts.gstatic.com/s/notosans/v42/o-0bIpQlx3QUlC5A4PNB6Ryti20_6n1iPHjc5a7du3mhPy0.woff2",
+        "family": "Noto Sans",
+        "weight": "100 900",
+        "style": "normal",
+        "unicodeRange": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD",
+        "localPath": "stardust/current/assets/fonts/noto-sans-latin-normal-100-900.woff2",
+        "sourceCssRule": "@font-face { font-family: 'Noto Sans'; font-style: normal; font-weight: 100 900; font-stretch: 100%; font-display: swap; src: url(https://fonts.gstatic.com/s/notosans/v42/o-0bIpQlx3QUlC5A4PNB6Ryti20_6n1iPHjc5a7du3mhPy0.woff2) format('woff2'); } /* latin */",
+        "licensingFlag": "open"
+      },
+      {
+        "url": "https://fonts.gstatic.com/s/notosans/v42/o-0ZIpQlx3QUlC5A4PNr4C5OaxRsfNNlKbCePevtuXOmHS91iw.woff2",
+        "family": "Noto Sans",
+        "weight": "100 900",
+        "style": "italic",
+        "unicodeRange": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD",
+        "localPath": "stardust/current/assets/fonts/noto-sans-latin-italic-100-900.woff2",
+        "sourceCssRule": "@font-face { font-family: 'Noto Sans'; font-style: italic; font-weight: 100 900; font-stretch: 100%; font-display: swap; src: url(https://fonts.gstatic.com/s/notosans/v42/o-0ZIpQlx3QUlC5A4PNr4C5OaxRsfNNlKbCePevtuXOmHS91iw.woff2) format('woff2'); } /* latin */",
+        "licensingFlag": "open"
+      },
+      {
+        "url": "https://fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBHMdazQ.woff2",
+        "family": "Roboto",
+        "weight": "400",
+        "style": "normal",
+        "unicodeRange": "latin (U+0000-00FF, ...)",
+        "localPath": "stardust/current/assets/fonts/roboto-latin-400.woff2",
+        "sourceCssRule": "@font-face { font-family: 'Roboto'; font-style: normal; font-weight: 400; font-display: swap; src: url(https://fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBHMdazQ.woff2) format('woff2'); } /* latin */",
+        "licensingFlag": "open"
+      }
+    ]
+  },
+  "spacing": {
+    "baseUnit": 4,
+    "declaredUnitToken": { "name": "--spacing-base-unit", "value": "0.0625rem", "source": "pages/en-us.json#customProps; _computed-styles.json pages[url][1440].customProps" },
+    "scale": [4, 8, 16, 20, 24, 32, 40],
+    "paddingHistogram1440": { "2": 34, "4": 32, "8": 31, "16": 31, "20": 46, "24": 26, "32": 43, "40": 2, "120": 2 },
+    "sectionPadding": "32px",
+    "sectionPaddingBasis": "column-container sections: inner white panel padding-top 32px (.pdding-top--medium) and margin-bottom 32px (.margin-bottom--medium); hero padding 82px top (header offset) / 52px bottom at 1440, 82/20 at 390 — stardust/.work/extract/sections-measure.json",
+    "containerMaxWidth": "1920px",
+    "containerMaxWidthSource": "DESIGN.json#extensions.breakpoints (cap-probe, probe 2560): module cap 1920px via max-width on .columncontainer-main.white-container > .aem-Grid; carousel list capped 1856px; header/footer and shell fluid",
+    "gridGap": "10px",
+    "gridGapBasis": "mode of row/column gaps >= 8px at 1440 (10px x21; 32px x10); CSS also declares --tile-gap: 30px and --wrap-gap 12/24/38px — stardust/.work/extract/snapshot-measure.json",
+    "notes": "Paddings are mostly on a 4px grid, with off-grid values (7, 11, 15, 19, 55, 75px) present; the outline/filled button padding is 11px 24px."
+  },
+  "motifs": {
+    "borderRadius": {
+      "primary": "4px",
+      "secondary": "20px",
+      "pill": "50%",
+      "primarySources": ["en-us"],
+      "occurrences": { "4px": 113, "20px": 27, "50%": 9, "4px 4px 0px 0px": 3, "8px": 2 },
+      "excludedThirdParty": { "100px": 4 },
+      "usage": {
+        "4px": "buttons, image tiles, carousel product images, header utility links",
+        "20px": "news-card topic chips",
+        "50%": "carousel pagination dots",
+        "4px 4px 0px 0px": "news featured-card image tops",
+        "8px": "carousel arrow buttons"
+      },
+      "citation": "_computed-styles.json#aggregate.motifs.radius"
+    },
+    "shadows": [
+      { "value": "rgba(0, 0, 0, 0.16) 0px 1px 2px 0px", "uses": "photo tiles at rest (first sources are the bento grid tiles)", "count": 23, "citation": "_computed-styles.json#aggregate.motifs.shadows[0]; CSS --wrap-shadow: 0 1px 2px rgba(0,0,0,.16)" },
+      { "value": "rgba(0, 0, 0, 0.3) 0px 1px 2px 0px, rgba(0, 0, 0, 0.15) 0px 1px 3px 1px", "uses": "filled primary button :hover only", "count": 2, "citation": "_computed-styles.json#aggregate.hover[1]" }
+    ],
+    "gradients": [
+      { "value": "linear-gradient(0deg, transparent, rgba(0, 0, 0, 0.75)) at opacity 0.5", "uses": "hero darkening overlay (::before over the full-bleed hero photo)", "citation": "clientlib-site CSS .herocomponent.dark_gradient_overlay:before" }
+    ],
+    "patterns": [
+      { "name": "hero-with-image", "evidence": "full-bleed 1440x700 photo (lunar haul-truck scene) under a header that sits absolute on top; centered H1 + one-sentence lede + single outline CTA; dark gradient overlay" },
+      { "name": "product-carousel", "evidence": "equipment-category carousel: 7 cut-out product images per page with h6 labels, square blue arrow buttons, 3 pagination dots (.tilesmall.horizontal_scroll)" },
+      { "name": "bento-tile-grid", "evidence": "1 large + 4 small photo tiles (Equipment, Parts, Attachments, Technology, Service and support) with white bold label overlaid bottom-left, 4px radius, 0 1px 2px shadow" },
+      { "name": "tabbed-feature", "evidence": "Technology section: tabs Smart Construction / Smart Mining / Smart Quarry; copy + 11 outline chip-buttons + filled Learn more, photo right" },
+      { "name": "split-promo-band", "evidence": "Parts purchasing made easy: solid #140a9a panel left with white copy and inverse outline 'Order now', photo right" },
+      { "name": "news-grid", "evidence": "Dig into the latest: 2 overlay feature cards + 3-item list, read-time meta chips and blue topic tag chips, filled 'Read more news'" },
+      { "name": "image-tile-cta-row", "evidence": "Get in touch: 4 photo tiles (Contact us, Request a quote, My Komatsu, Find a location) with white overlaid labels" },
+      { "name": "footer-mega", "evidence": "#fafafa footer: 4 link columns + blue logo, one-line company description, Global corporate website link, social icons; legal link row + copyright" }
+    ]
+  },
+  "componentStyle": {
+    "buttons": {
+      "primary": {
+        "label": "Learn more",
+        "background": "#140a9a",
+        "color": "#ffffff",
+        "borderRadius": "4px",
+        "padding": "11px 24px",
+        "border": "0",
+        "fontSize": "16px",
+        "fontWeight": 400,
+        "shadow": null,
+        "hover": { "background": "#253fc8", "shadow": "rgba(0, 0, 0, 0.3) 0px 1px 2px 0px, rgba(0, 0, 0, 0.15) 0px 1px 3px 1px" },
+        "citation": "_computed-styles.json pages[url][1440].buttons[2]"
+      },
+      "secondary": {
+        "label": "Explore more",
+        "background": "#ffffff",
+        "color": "#140a9a",
+        "borderRadius": "4px",
+        "padding": "11px 24px",
+        "border": "2px solid #253fc8",
+        "fontSize": "16px",
+        "fontWeight": 400,
+        "shadow": null,
+        "hover": { "background": "#ededed" },
+        "citation": "_computed-styles.json pages[url][1440].buttons[0]"
+      },
+      "ghost": {
+        "label": "Order now",
+        "background": "transparent",
+        "color": "#ffffff",
+        "borderRadius": "4px",
+        "padding": "11px 24px",
+        "border": "2px solid #ffffff",
+        "fontSize": "16px",
+        "fontWeight": 400,
+        "context": "on the #140a9a Parts promo panel",
+        "hover": { "background": "#253fc8" },
+        "citation": "_computed-styles.json pages[url][1440].buttons[3]; aggregate.hover[3]"
+      },
+      "chip": {
+        "label": "3D Machine Guidance (x11)",
+        "background": "#ffffff",
+        "color": "#140a9a",
+        "borderRadius": "4px",
+        "padding": "4px 16px",
+        "border": "2px solid #253fc8",
+        "fontSize": "14px",
+        "fontWeight": 400,
+        "hover": { "background": "#ededed" },
+        "citation": "_computed-styles.json pages[url][1440].buttons[1]"
+      }
+    },
+    "dualCTAPattern": null,
+    "cards": {
+      "kind": "photo tile with overlaid label",
+      "background": "photo",
+      "borderRadius": "4px",
+      "padding": null,
+      "shadow": "rgba(0, 0, 0, 0.16) 0px 1px 2px 0px",
+      "border": null,
+      "labelType": "h2 24px/700 white, bottom-left",
+      "citation": "_computed-styles.json#aggregate.motifs.shadows[0], radius[0]; pages[url][1440].headings (Equipment..Service and support)"
+    },
+    "tags": {
+      "topic": { "background": "#3366cc", "color": "#ffffff", "borderRadius": "20px", "padding": "2px 8px", "font": "Roboto 9pt/1pc 400, letter-spacing 0.4px", "citation": "clientlib-site CSS .articleGrid ... .tile .content ul li; census radius 20px x27" },
+      "meta": { "background": "#4d545a", "note": "'3 min read' chips on news cards", "citation": "_computed-styles.json#aggregate.colors[5] (background 5)" }
+    },
+    "links": {
+      "default": { "color": "#140a9a", "textDecoration": "none", "hover": { "color": "#1b232a" }, "citation": "_computed-styles.json pages[url][1440].links[2]; aggregate.hover[2]" },
+      "nav": { "color": "#ffffff", "fontWeight": 600, "textDecoration": "none", "citation": "_computed-styles.json pages[url][1440].links[0]" }
+    },
+    "inputs": null
+  },
+  "systemComponents": [],
+  "iconFont": {
+    "family": "Font Awesome 6 Free",
+    "weight": 900,
+    "localPath": "stardust/current/assets/fonts/fa-solid-900.woff2",
+    "sourceUrl": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/webfonts/fa-solid-900.woff2",
+    "sourceCss": "@font-face{font-family:\"Font Awesome 6 Free\";font-style:normal;font-weight:900;font-display:block;src:url(../webfonts/fa-solid-900.woff2) format(\"woff2\"),url(../webfonts/fa-solid-900.ttf) format(\"truetype\")}",
+    "familiesDeclared": ["Font Awesome 5 Brands", "Font Awesome 5 Free", "Font Awesome 6 Brands", "Font Awesome 6 Free", "FontAwesome"],
+    "glyphCount": 1,
+    "glyphs": [
+      { "class": "sub_list_title", "pseudo": "::after", "codepoint": "\\F067", "name": null, "seenAt": "390 only (mobile footer accordion toggle)" }
+    ],
+    "licensingFlag": "open",
+    "citation": "_computed-styles.json#aggregate.iconFont; clientlib-html-library CSS .sub_list_title:after { font-family: Font Awesome 6 Free; font-weight: 900 }",
+    "note": "UI icons elsewhere are SVG <img> files from /content/dam/komatsu/icons/website-app/ (Location, MyFleet, social), not icon-font glyphs."
+  },
+  "voice": {
+    "heroHeadline": "Here's to progress",
+    "heroHeadlineSource": "h1.cmp-title__text.title_header (census selector div > div > div > div > div > div:nth-of-type(1) > div:nth-of-type(4) > h1)",
+    "heroSubcopy": "For more than a century, Komatsu has helped build the world beneath our feet. Now, we're helping imagine how people could one day build beyond it.",
+    "heroSubcopySource": "pages/en-us.json#body[0]; .herocomponent .hero-field .left-constrained-container p",
+    "heroImage": {
+      "url": "https://s7d9.scene7.com//is/image/komatsu/Screenshot%202026-07-30%20103344:ultrawide-21x9-xl",
+      "fallbackUrl": "https://www.komatsu.com/content/dam/komatsu/websites/global/images/brand/campaigns/Screenshot%202026-07-30%20103344.png",
+      "mobileUrl": "https://s7d9.scene7.com//is/image/komatsu/Screenshot%202026-07-30%20103344:portrait-3x4",
+      "alt": "Background Image",
+      "source": "img",
+      "domPath": "div.herocomponent.title > div.hero-background.bgimg > picture > img",
+      "localPath": null,
+      "rect": { "x": 0, "y": 0, "width": 1440, "height": 700 },
+      "intrinsic": { "width": 1920, "height": 822 },
+      "resolution": "only candidate with rect.top < 800, area >= 100000 (1,008,000 px2), aspect 2.06 in [0.3, 3.0]; rect from stardust/.work/extract/snapshot-measure.json; intrinsic from pages/en-us.json#media.imgs[11]",
+      "visual": "Komatsu haul trucks on a lunar surface with Earth rising behind (screenshot)"
+    },
+    "heroMedium": null,
+    "primaryCTALabel": "Explore more",
+    "primaryCTAHref": "/en-us/about/discover-komatsu/heres-to-progress",
+    "ctaSamples": ["Explore more", "Learn more", "Order now", "Read more news", "Request a quote", "Contact us"],
+    "ctaSampleSources": "pages/en-us.json#ctas[] (hero, Technology tab, Parts promo, news, Get in touch tiles); 'Order now' visible label — record label carries sr-only suffix 'opens in a new tab'",
+    "navItems": ["Products", "Services", "Technology", "Company"],
+    "utilityNav": ["Search", "Locations", "Worldwide US", "My Account"],
+    "footerHeadings": ["Discover", "Tools", "Company", "Connect"],
+    "linkList": {
+      "heading": "Discover",
+      "items": ["Equipment", "Parts", "Services and support", "Industries", "Technology"],
+      "source": "pages/en-us.json#ctas[] footer column 1"
+    },
+    "firstParagraph": "For more than a century, Komatsu has helped build the world beneath our feet. Now, we're helping imagine how people could one day build beyond it.",
+    "sectionHeadings": ["Technology", "Smart Construction", "Parts purchasing made easy", "Dig into the latest", "Get in touch"],
+    "tone": {
+      "guess": "aspirational",
+      "evidence": "hero is a toast ('Here's to progress') with a century-to-future arc; below the fold the copy turns plain and functional — sentence-case labels, short imperative CTAs, product nouns ('Parts purchasing made easy', 'Dig into the latest', 'Get in touch'). Heuristic, not ground truth."
+    }
+  },
+  "voiceTable": {
+    "ctaFrequency": [
+      { "label": "Technology", "total": 3, "pageCount": 1, "pages": ["en-us"] },
+      { "label": "opens in a new tab", "total": 3, "pageCount": 1, "pages": ["en-us"], "note": "icon-only social links whose accessible text is only the sr-only suffix" },
+      { "label": "Equipment", "total": 2, "pageCount": 1, "pages": ["en-us"] },
+      { "label": "Parts", "total": 2, "pageCount": 1, "pages": ["en-us"] },
+      { "label": "Contact us", "total": 2, "pageCount": 1, "pages": ["en-us"] },
+      { "label": "Request a quote", "total": 2, "pageCount": 1, "pages": ["en-us"] },
+      { "label": "Products", "total": 1, "pageCount": 1, "pages": ["en-us"] },
+      { "label": "Services", "total": 1, "pageCount": 1, "pages": ["en-us"] }
+    ],
+    "headingFrequency": [],
+    "headingFrequencyNote": "filter pageCount >= 3 cannot be met by a 1-page crawl",
+    "toneMetrics": {
+      "headingsTotal": 30,
+      "headingsUppercasePercent": 0,
+      "distinctHeadings": 29,
+      "distinctCtaLabels": 70
+    },
+    "citation": "pages/en-us.json#ctas[] (78), #headings[] (30); computed by stardust/.work/extract/metrics.mjs"
+  },
+  "crossPromo": {
+    "detected": false,
+    "anchorHeading": null,
+    "cluster": null,
+    "pages": null,
+    "pageCount": null,
+    "totalPages": 1
+  },
+  "embedDominated": [],
+  "register": "brand",
+  "registerBasis": "marketing hero with brand-campaign headline and CTA above the fold, promotional bands (Parts promo, news), no authentication to view; catalog navigation (equipment carousel, bento categories) is present but serves discovery, not a tool surface"
+}
