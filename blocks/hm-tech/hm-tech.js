@@ -64,7 +64,7 @@ function buildPanel(cell) {
     if (media) {
       const img = media.tagName === 'IMG' ? media : media.querySelector('img');
       if (img) img.loading = 'lazy';
-      sizePicture(media, '(min-width: 900px) 50vw, 100vw', [480, 640, 960, 1280]);
+      sizePicture(media, '(min-width: 900px) 50vw, 100vw', [480, 640, 960, 1280, 1600]);
       photo.append(media.tagName === 'IMG' && media.closest('picture') ? media.closest('picture') : media);
     } else if (/^H[1-6]$/.test(node.tagName)) {
       copy.append(wrapNode(node, 'subtitle'));

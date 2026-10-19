@@ -90,7 +90,7 @@ function buildFeature(p, portrait) {
     lazy(p.media);
     sizePicture(p.media, portrait
       ? '(min-width: 1280px) 25vw, (min-width: 900px) 42vw, 100vw'
-      : '(min-width: 1280px) 42vw, (min-width: 900px) 58vw, 100vw', [480, 640, 960, 1280]);
+      : '(min-width: 1280px) 42vw, (min-width: 900px) 58vw, 100vw', [480, 640, 960, 1280, 1600]);
     card.append(wrapNode(p.media, 'hm-news-media'));
   }
   const body = document.createElement('div');
@@ -108,7 +108,7 @@ function buildItem(p) {
   li.className = 'hm-news-item';
   if (p.media) {
     lazy(p.media);
-    sizePicture(p.media, '88px', [100, 200]);
+    sizePicture(p.media, '88px', [100, 200, 300]);
     li.append(wrapNode(p.media, 'hm-news-thumb'));
   }
   const copy = document.createElement('div');

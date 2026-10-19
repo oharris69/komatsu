@@ -64,7 +64,7 @@ export default function decorate(block) {
   mediaBox.className = 'hm-hero-media';
   media.slice(0, 2).forEach((m, i) => {
     mediaBox.append(wrapNode(m, i === 0 ? 'hm-hero-desktop' : 'hm-hero-mobile'));
-    sizePicture(m, '100vw', i === 0 ? [960, 1280, 1600, 2000, 2560] : [480, 750, 1000, 1200]);
+    sizePicture(m, '100vw', i === 0 ? [960, 1280, 1600, 2000, 2880] : [480, 750, 1000, 1200]);
   });
 
   const copy = document.createElement('div');

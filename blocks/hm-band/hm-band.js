@@ -92,7 +92,7 @@ export default function decorate(block) {
   if (media) {
     const img = media.tagName === 'IMG' ? media : media.querySelector('img');
     if (img) img.loading = 'lazy';
-    sizePicture(media, '(min-width: 900px) 50vw, 100vw', [480, 640, 960, 1280]);
+    sizePicture(media, '(min-width: 900px) 50vw, 100vw', [480, 640, 960, 1280, 1600]);
     parts.push(wrapNode(media, 'hm-band-photo'));
   }
   block.replaceChildren(...parts);
