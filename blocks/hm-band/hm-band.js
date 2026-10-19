@@ -11,9 +11,9 @@
  * announcement inside the link (a11y chrome tied to that behaviour).
  */
 
-// Responsive renditions: the pipeline gives each <picture> only a 750px and a 2000px file. Point
+// Responsive renditions: the pipeline gives each picture only a 750px and a 2000px file. Point
 // the SAME elements at a width ladder plus the slot's display size, so a 200px slot fetches a
-// ~400px file. Attributes only — the authored <img> keeps its identity (and data-image-index).
+// ~400px file. Attributes only — the authored image element keeps its identity (and index).
 function sizePicture(media, sizes, widths) {
   const pic = media.tagName === 'PICTURE' ? media : media.closest('picture');
   if (!pic) return;
