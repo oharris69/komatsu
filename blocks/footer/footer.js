@@ -13,9 +13,11 @@
 const ACCORDION = window.matchMedia('(width < 450px)');
 
 async function fetchFooter() {
-  // metadata-independent: /content first (local preview), then root (DA/EDS)
-  let resp = await fetch('/content/footer.plain.html');
-  if (!resp.ok) resp = await fetch('/footer.plain.html');
+  // metadata-independent: local preview serves pages (and the footer) under /content,
+  // DA/EDS at the root — ask for the one that matches, so live pages make no 404 request
+  const prefix = window.location.pathname.startsWith('/content/') ? '/content' : '';
+  let resp = await fetch(`${prefix}/footer.plain.html`);
+  if (!resp.ok && prefix) resp = await fetch('/footer.plain.html');
   if (!resp.ok) return null;
   const doc = document.createElement('div');
   doc.innerHTML = await resp.text();

@@ -12,9 +12,11 @@
 const DESKTOP = window.matchMedia('(width >= 900px)');
 
 async function fetchNav() {
-  // metadata-independent: /content first (local preview), then root (DA/EDS)
-  let resp = await fetch('/content/nav.plain.html');
-  if (!resp.ok) resp = await fetch('/nav.plain.html');
+  // metadata-independent: local preview serves pages (and the nav) under /content,
+  // DA/EDS at the root — ask for the one that matches, so live pages make no 404 request
+  const prefix = window.location.pathname.startsWith('/content/') ? '/content' : '';
+  let resp = await fetch(`${prefix}/nav.plain.html`);
+  if (!resp.ok && prefix) resp = await fetch('/nav.plain.html');
   if (!resp.ok) return null;
   const doc = document.createElement('div');
   doc.innerHTML = await resp.text();
