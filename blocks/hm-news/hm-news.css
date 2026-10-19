@@ -15,7 +15,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  grid-column: span 6;
+  grid-column: span 5;
   min-height: 500px;
   overflow: hidden;
   border-radius: var(--hm-radius);
@@ -176,10 +176,10 @@
   margin-inline: 0.45em;
 }
 
-/* thumbnail list */
+/* thumbnail list — 5 + 3 + 4 columns give it the measure for ~30 characters a line */
 .hm-news .hm-news-list {
   display: grid;
-  grid-column: span 3;
+  grid-column: span 4;
   align-content: start;
   margin: 0;
   padding: 0;
@@ -248,6 +248,11 @@
   color: var(--hm-komatsu-blue);
 }
 
+/* the narrow portrait card takes the next step down so its headline holds to 3 lines */
+.hm-news .hm-news-feature.hm-news-portrait .hm-news-title {
+  font-size: var(--hm-step-1);
+}
+
 .hm-news .hm-news-item:has(a:focus-visible) {
   border-radius: var(--hm-radius);
   outline: 2px solid var(--hm-boom-blue);
@@ -271,29 +276,37 @@
   }
 
   .hm-news .hm-news-item {
+    grid-template-columns: 64px minmax(0, 1fr);
     border-top: 1px solid var(--hm-news-rule);
+  }
+
+  .hm-news .hm-news-thumb img {
+    width: 64px;
+    height: 64px;
+  }
+
+  .hm-news .hm-news-item .hm-news-title {
+    font-size: var(--hm-step-0);
   }
 }
 
-@media (width <= 899px) {
-  .hm-news .hm-news-feature,
-  .hm-news .hm-news-portrait {
-    grid-column: span 6;
-    min-height: 440px;
-  }
-
+/* below the page's 1100px step a three-up list gets too narrow: stack it in full-width rows */
+@media (width <= 1100px) {
   .hm-news .hm-news-list {
     grid-template-columns: 1fr;
   }
 }
 
-@media (width <= 640px) {
+/* side by side, a half-width card wraps the feature headline to 5 lines: stack both */
+@media (width <= 899px) {
   .hm-news .hm-news-feature,
   .hm-news .hm-news-portrait {
     grid-column: 1 / -1;
     min-height: 400px;
   }
+}
 
+@media (width <= 640px) {
   .hm-news .hm-news-body {
     padding: 64px 16px 16px;
   }
