@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- stardust:provenance
+  writtenBy:         stardust:prototype (rendered by impeccable:craft)
+  writtenAt:         2026-10-19T14:50:00Z
+  page:              en-us
+  pageUrl:           https://www.komatsu.com/en-us
+  againstDirection:  stardust/direction.md (Active 2026-10-17T16:06:00Z)
+  againstBrief:      stardust/prototypes/en-us-shape.md
+  briefConfirmed:    "Yes, build it"
+  userDecisions:
+    - question: "Open question 2 — rail / tile image density"
+      answer: "Use larger versions"
+      classification: direction-authorized (user decision)
+      applied: "same Scene7 / AEM asset IDs at higher resolution — larger named Scene7 presets (:photo-3x2-lg / :photo-3x2-xl) or captured preset + aspect-preserving ?wid&hei (hero :ultrawide-21x9-xl?wid=2880&hei=1234, :portrait-3x4?wid=900&hei=1200); oversized DAM originals (4.2 MB JPG, 18.9 MB PNG) served through the same asset's AEM delivery renditions (_jcr_content/renditions/cq5dam.web.1280.1280.jpeg, cq5dam.thumbnail.319.319.png)"
+    - question: "Open questions 1, 3, 4, 5, 6"
+      answer: "keep the brief defaults"
+      applied: "'Learn More' casing verbatim; Company nav non-navigating; 'Privacy notice for California residents' included from en-us.html; Parts image alt=''; copyright renders '2026'"
+  readArtifacts:
+    - stardust/prototypes/en-us-shape.md
+    - stardust/current/pages/en-us.json
+    - stardust/current/pages/en-us.html
+    - stardust/current/_brand-extraction.json
+    - stardust/current/assets/logo.svg
+    - stardust/current/assets/favicon.ico
+    - stardust/current/assets/fonts/noto-sans-latin-normal-100-900.woff2
+    - stardust/current/assets/fonts/noto-sans-latin-italic-100-900.woff2
+    - stardust/direction.md
+    - DESIGN.md
+    - DESIGN.json
+    - PRODUCT.md
+  divergenceVersion: v1.0 (stardust v2)
+  fidelity:          refined
+  fontDeck:          brand-inherited (Noto Sans variable, wght 100–900; Roboto retired)
+  paletteSource:     brand-inherited (10 brand-native roles, DESIGN.md hex)
+  stardustVersion:   0.29.1
+  # == from en-us-shape.md _provenance (verbatim) ==
+  surprise: low            # capped: direction.md § Movements ia-fidelity verbatim
+  surpriseMoves: []        # low tier applies no bank move
+  improvementsApplied:     # stardust/prototypes/en-us-improvements.md, all 5
+    - item: 1 (hierarchy · T-hierarchy, T-scale, hero scrim)
+      sections: [hero, technology, parts-band, news, get-in-touch]
+      how: 1.25 scale; Display H1 39→61 outranks Headline H2 31→39 at every width; hero block lower-left over directional scrim ≥ 4.5:1; single "Explore more"
+    - item: 2 (CTA noise · T-font-fork, T-cta-siblings)
+      sections: [technology, news]
+      how: 11 + 4 + 2 chip-links → two-column text-link lists; 9 Roboto tag pills → inline Meta text, 2-line clamp, full list in markup; one action per module; labels verbatim, sibling inconsistency flagged (Open question 1)
+    - item: 3 (boxed-panel stack)
+      sections: [all body sections]
+      how: full-width sections, 64/48/32 padding, daylight/yard-gray alternation, single Komatsu Blue band, left-aligned headlines on the shared grid
+    - item: 4 (a11y · T-img-alt-generic, T-link-a11y)
+      sections: [header, hero, news, parts-band, footer]
+      how: hero alt from captured visual; news alts empty (headline adjacent); logos "Komatsu"; social links "Komatsu on Facebook/Instagram/YouTube (opens in a new tab)"; parts image decorative
+    - item: 5 (dormant yellow · T-yellow-dormant)
+      sections: [header, hero, parts-band]
+      how: yellow focus rings on photo/blue grounds; inverse-button hover fill (Track Steel text); one 48×4 accent rule on the Parts band; never on white; ≤ 2 per viewport; captured yellow carousel control → Komatsu Blue dot
+
+  capturedSourceLineage:
+    - section: header
+      origin: "site-wide system-component (carried from DESIGN.json#extensions.systemComponentRoles.header + pages/en-us.json#ctas[0..6] + en-us.html header.experiencefragment.header-xf; _brand-extraction.json#systemComponents is empty for this 1-page crawl, so chrome is lifted from the page record and #voice.navItems / #voice.utilityNav)"
+    - section: hero
+      origin: "campaign-hero (from _brand-extraction.json#voice.heroImage + #voice.heroHeadline/heroSubcopy/primaryCTALabel; pages/en-us.json#media.imgs[11], #ctas[7]; #motifs.patterns[hero-with-image])"
+    - section: equipment-rail
+      origin: "category-rail (from pages/en-us.json#ctas[8..14] + #media.imgs[12..32]; en-us.html h6 × 21; #motifs.patterns[product-carousel])"
+    - section: routing-tiles
+      origin: "routing-tiles (from pages/en-us.json#headings[h2 Equipment..Service and support] + #ctas[15..19] + #media.imgs[33..37]; #motifs.patterns[bento-tile-grid])"
+    - section: technology
+      origin: "tabbed-feature (from pages/en-us.json#headings[h3 Technology, h2 Smart Construction] + #body[1..4] + #ctas[20..32] + #media.imgs[38]; Smart Mining / Smart Quarry panels from en-us.html hidden tabpanels; #motifs.patterns[tabbed-feature])"
+    - section: parts-band
+      origin: "cta-band (from pages/en-us.json#headings[h2 Parts purchasing made easy] + #body[5] + #ctas[33] + #media.imgs[39]; #motifs.patterns[split-promo-band])"
+    - section: news
+      origin: "news-grid (from pages/en-us.json#headings[h2 Dig into the latest, h3 × 5] + #ctas[34..39] + #media.imgs[40..44]; en-us.html aria-label 'Published on …'; #motifs.patterns[news-grid])"
+    - section: get-in-touch
+      origin: "contact-router (from pages/en-us.json#body['Get in touch'] + #headings[h2 Contact us..Find a location] + #ctas[40..43] + #media.imgs[45..48]; #motifs.patterns[image-tile-cta-row])"
+    - section: footer
+      origin: "site-wide system-component (carried from DESIGN.json#extensions.systemComponentRoles.footer + pages/en-us.json#headings[h6 × 4] + #ctas[44..77] + #body[footer] + #media.imgs[49..52]; en-us.html legal row; #motifs.patterns[footer-mega])"
+
+  antiTemplatePass:
+    - pattern: page silhouette (hero → module stack)
+      defaultReflex: hero-then-bands silhouette
+      alternatives: [single-substrate band stack in new tokens, document-shape re-sequence (refused under verbatim), tonal-rhythm stack on one square-module grid with one saturated break]
+      picked: tonal-rhythm stack on one square-module grid with one saturated break
+      rationale: "Captured order is locked (DESIGN.json#iaPriorities[4], mutability locked); the silhouette is the brand's own, so differentiation is in rhythm — shared 6/3/3 column lines, daylight/yard-gray step, the One Band."
+    - pattern: hero composition
+      defaultReflex: centered-stack hero (captured) / two-button CTA pair
+      alternatives: [centered stack re-tokenized (captured-shape mirror), lower-left anchored block on full-bleed photo with directional scrim, split text-panel beside a cropped photo]
+      picked: lower-left anchored block on full-bleed photo with directional scrim
+      rationale: "Keeps the lunar campaign image whole at its captured position (_brand-extraction.json#voice.heroImage); the split crops the signature; improvements #1 names lower-left + ≥ 4.5:1; one CTA only (#voice.primaryCTALabel)."
+      reference: "Volvo CE US homepage (direction.md § Anchor references) — section-distributed CTAs, no hero CTA stack"
+    - pattern: equipment carousel
+      defaultReflex: carded product carousel / 5-up image-card grid as category nav
+      alternatives: [captured carousel mirror-translated, chrome-less cut-out rail with taller images and Label names, full 21-item static index (McMaster-style ledger)]
+      picked: chrome-less cut-out rail with taller images and Label names
+      rationale: "Rail shape kept because it IS the brand signature (DESIGN.md § Equipment rail; yellow machines on white) and iaPriority 1 is locked; the 21-item index would push routing tiles out of the first two viewports."
+      reference: "McMaster-Carr (plain functional labels), direction.md § Anchor references"
+    - pattern: routing tiles (bento)
+      defaultReflex: 5-up equal image-card grid
+      alternatives: [5 equal tiles in one row, 1 lead + 2×2 on the square-module grid with scrimmed Title labels, lead tile + 4-row text ledger with thumbnails]
+      picked: 1 lead + 2×2 on the square-module grid with scrimmed Title labels
+      rationale: "DESIGN.json#iaPriorities[1] preserveAs 'lead tile + equal secondary tiles; all five destinations' (locked); the ledger would drop 4 captured photo positions (image-reuse contract)."
+    - pattern: Technology tabbed feature
+      defaultReflex: pill tabs + bordered chip-button cluster
+      alternatives: [captured chips re-tokenized, text tabs on a rule + split panel with two-column text-link list, three stacked program accordions]
+      picked: text tabs on a rule + split panel with two-column text-link list
+      rationale: "Captured 12 bordered targets in one panel (improvements #2); accordions change the captured tab beat; the text-link list follows Liebherr's product-program grid (direction.md anchors)."
+      reference: "Liebherr US — product program as simple text-link grid"
+    - pattern: Parts CTA band
+      defaultReflex: centered headline + button full-bleed CTA band
+      alternatives: [captured boxed blue panel + photo, full-bleed blue band with copy left and photo bleeding to the page edge, photo full-bleed with blue overlay card]
+      picked: full-bleed blue band with copy left and photo bleeding to the page edge
+      rationale: "Keeps the captured split (#motifs.patterns[split-promo-band]) and the One Band Rule; a blue overlay on photo muddies the band and the Yellow-on-Blue accent."
+    - pattern: news grid
+      defaultReflex: 3-up equal cards with pill tags
+      alternatives: [equal 3-up / 5-up cards, captured asymmetric 2 features + 3-item list with tags as Meta, single lead story + 4-item list]
+      picked: captured asymmetric 2 features + 3-item list with tags as Meta
+      rationale: "Verbatim beats: both captured features (Newberry, Powering progress) stay featured; the single-lead option demotes one. Tags → Meta per improvements #2."
+    - pattern: Get in touch tiles
+      defaultReflex: 4-up equal photo-card row
+      alternatives: [4 equal photo tiles (captured), 4 arrow text rows, 4 photo tiles locked to the bento column lines with scrimmed H3 labels]
+      picked: 4 photo tiles locked to the bento column lines with scrimmed H3 labels
+      rationale: "Default reach justified: DESIGN.json#iaPriorities[3] 'four paths at equal weight' (locked) + image-reuse contract (4 captured photos); differentiation is grid alignment and legibility, not shape."
+    - pattern: header utilities
+      defaultReflex: nav-icon glyphs (search / account) in a typographic register
+      alternatives: [icon-only utilities, text-only utilities, captured icon set with accessible names + visible "Worldwide US"]
+      picked: captured icon set with accessible names + visible "Worldwide US"
+      rationale: "Icons are captured brand chrome (pages/en-us.json#media.imgs[1..3] Location / MyFleet SVGs; aria-labels 'Search', 'Locations'); kept, not added."
+    - pattern: footer
+      defaultReflex: serial footer / accordion-collapsed footer
+      alternatives: [captured 4 columns + brand block, accordion columns on mobile, 4 columns + brand block with wrapped inline legal row]
+      picked: 4 columns + brand block with wrapped inline legal row
+      rationale: "#motifs.patterns[footer-mega]; legal disclosures carried verbatim and visible (systemComponentRoles.footer constraint) — accordions would hide them."
+
+  substrateTransitions:
+    default: light-neutral (daylight #ffffff / yard-gray #f4f5f5 tonal alternation; site-ground #fafafa footer — one ground family, tonal step only, per DESIGN.md § Layout)
+    exceptions:
+      - section: header + hero
+        substrate: photographic (lunar campaign image under Track Steel scrim)
+        purpose: "carries the 'Here's to progress' campaign signature at its captured position"
+      - section: parts-band
+        substrate: komatsu-blue #140a9a
+        purpose: "the single saturated rhythm break that marks the parts-ordering conversion moment (One Band Rule)"
+    note: "2 exceptions — within the Discipline 4 cap; no substrate-keyed document-shape at surprise low."
+
+  signatureElements:
+    - kind: signature hero visual (campaign photograph; heroMedium null)
+      capturedSource: "_brand-extraction.json#voice.heroImage — s7d9.scene7.com/is/image/komatsu/Screenshot%202026-07-30%20103344 (:ultrawide-21x9-xl / :portrait-3x4)"
+      mechanism: "full-bleed <picture> at hero position, lower-left headline block, directional Track Steel scrim ≥ 4.5:1"
+      fallback: "DAM PNG fallbackUrl; Track Steel ground behind the headline block if the image fails"
+    - kind: signature module (equipment rail of cut-outs on white)
+      capturedSource: "#motifs.patterns[product-carousel]; DESIGN.md § Equipment rail (signature)"
+      mechanism: "scroll-snap rail, 21 items, no card chrome, square blue arrows + pill dots"
+      fallback: "native horizontal scroll without JS; arrows/dots hidden"
+    - kind: signature module (text tabs)
+      capturedSource: "#motifs.patterns[tabbed-feature]; DESIGN.md § Tabs (signature)"
+      mechanism: "ARIA tabs, 3px Survey Blue indicator on Grade Line rule"
+      fallback: "no-JS: three panels stacked under their H3s"
+    - kind: site-wide motif (4px corners + photo tiles with scrimmed labels; one Komatsu Blue band)
+      capturedSource: "#motifs.borderRadius.primary 4px (113 occurrences); #motifs.shadows[0]; #motifs.patterns[bento-tile-grid, image-tile-cta-row, split-promo-band]"
+      mechanism: "rounded.sm on every tile/image/button; tile-rest → tile-lift; band once"
+      fallback: "n/a (static CSS)"
+  voiceClassification:   # continues _provenance; source = pages/en-us.json unless noted
+    - section: header
+      classification: captured-verbatim
+      copy: ["Products", "Services", "Technology", "Company", "Worldwide US", "My Account", "opens in a new tab", "Search", "Close search", "Locations", "Open navigation menu", "Close navigation menu"]
+      source: "#ctas[0..6]; en-us.html aria-labels + search placeholder"
+    - section: header
+      classification: direction-authorized rewrite
+      copy: ["Komatsu"]   # logo alt, was "Company Logo" / "logo"
+      source: "improvements #4"
+    - section: hero
+      classification: captured-verbatim
+      copy: ["Here's to progress", "For more than a century, Komatsu has helped build the world beneath our feet. Now, we're helping imagine how people could one day build beyond it.", "Explore more"]
+      source: "#headings[0], #body[0], #ctas[7]"
+    - section: hero
+      classification: direction-authorized rewrite
+      copy: ["Komatsu haul trucks on a lunar surface with Earth rising behind"]   # alt, was "Background Image"
+      source: "_brand-extraction.json#voice.heroImage.visual; improvements #4"
+    - section: equipment-rail
+      classification: captured-verbatim
+      copy: ["Blasthole drills", "Crushing", "Dozers", "Draglines", "Electric rope shovels", "Entry development", "Excavators", "Forestry", "Forklifts", "Hard rock continuous miners", "Industrial minerals equipment", "Longwall", "Machine tools", "Motor graders", "Room and pillar", "Shaft sinking equipment", "Trucks", "Underground hard rock bolters", "Underground hard rock drills", "Underground hard rock haulage", "Wheel loaders", "Previous page", "Next page", "Go to page 1", "Go to page 2", "Go to page 3"]
+      source: "en-us.html h6 × 21 + carousel aria-labels; image alts verbatim from #media.imgs[12..32]"
+    - section: routing-tiles
+      classification: captured-verbatim
+      copy: ["Equipment", "Parts", "Attachments", "Technology", "Service and support"]
+      source: "#headings h2; image alts verbatim from #media.imgs[33..37]"
+    - section: technology
+      classification: captured-verbatim
+      copy: ["Technology", "Select a tab", "Smart Construction", "Smart Mining", "Smart Quarry",
+             "Our industry is on the cusp of rapid change and innovation — where advanced automation and integrated technologies intersect. Use these Smart Construction solutions to harness technology for accurate data, comprehensive reporting and remote capabilities.",
+             "3D Machine Guidance", "3D Machine Guidance Flex", "Base / rover", "Dashboard", "Design", "Drone", "Field", "Fleet", "Intelligent Machine Control", "Office", "Remote", "Learn more",
+             "See how our smart mining approach delivers Customer Success Programs that drive more value for your operations. Whether your needs begin at the task, process or enterprise optimization level, we equip you with the technology, scalable solutions and flexible support you need to meet your business goals.",
+             "Drilling and blasting", "Loading and haulage", "Asset management", "Modular ecosystem", "Learn More",
+             "Let Smart Quarry consultants do the heavy mental lifting for you. With minimal impact to your day and operation, Smart Quarry will assess the needs of your job site and recommend the best fleet to help meet your current and future production goals. Using expertise in digital solutions, Smart Quarry will help connect you with the right tools to better understand, track and optimize your mobile equipment. Together, this can result in a lower unit cost for improved bottom line.",
+             "Site", "Study", "Learn More"]
+      source: "#headings, #body[1..4], #ctas[20..32]; Smart Mining / Smart Quarry panels + images (alts 'Smart mining', 'Smart Quarry') from en-us.html; SC photo alt 'Smart Construction drone flying'"
+    - section: parts-band
+      classification: captured-verbatim
+      copy: ["Parts purchasing made easy", "Order Komatsu Genuine and Reman parts through My Komatsu, with options to pick up at your Komatsu dealer or direct delivery.", "Order now", "opens in a new tab"]
+      source: "#headings, #body[5], #ctas[33]"
+    - section: parts-band
+      classification: direction-authorized rewrite
+      copy: [""]   # decorative alt, was "alt text"
+      source: "improvements #4 (no captured description; Open question 5)"
+    - section: news
+      classification: captured-verbatim
+      copy: ["Dig into the latest", "3 min read",
+             "Oct 5, 2026", "Komatsu’s Newberry facility celebrates 25 years of manufacturing, teamwork and continuous improvement", "Press release", "Construction", "Company",
+             "Sep 17, 2026", "Powering progress responsibly: Inside Komatsu electrification", "Operational efficiency", "Smart Construction", "Forestry", "Discover Komatsu", "Underground hard rock mining", "Surface mining", "Underground soft rock mining", "Blog",
+             "Sep 16, 2026", "Komatsu launches “The future you build starts here” campaign", "Career development", "Distributors",
+             "Sep 10, 2026", "Komatsu celebrates grand opening of new Edmonton parts distribution center", "Parts",
+             "Sep 4, 2026", "Redefining presence: How teleoperation is changing work in heavy industry", "Innovation and technology",
+             "Published on Oct 5, 2026 (… per item)", "Read more news"]
+      source: "#headings h3 × 5, #ctas[34..39] labels (date, read time, tags), en-us.html aria-labels"
+    - section: news
+      classification: direction-authorized rewrite
+      copy: ["" ]   # 5 news image alts, were "Article Image"; headline adjacent
+      source: "improvements #4"
+    - section: news
+      classification: direction-authorized chrome
+      copy: ["·"]   # middot separator in Meta lines (DESIGN.md § Chips / Meta)
+      source: "DESIGN.json#extensions.componentStyle.tags"
+    - section: get-in-touch
+      classification: captured-verbatim
+      copy: ["Get in touch", "Contact us", "Request a quote", "My Komatsu", "Find a location"]
+      source: "#body['Get in touch'], #headings h2 × 4; image alts verbatim from #media.imgs[45..48]"
+    - section: footer
+      classification: captured-verbatim
+      copy: ["Discover", "Tools", "Company", "Connect", "Equipment", "Parts", "Services and support", "Industries", "Technology", "Request a quote", "Komatsu locator", "My Komatsu", "Competitive comparison tool", "Mining Analytics Platform", "About us", "Careers", "Case studies", "Commitment to society", "Merchandise", "Newsroom", "Investor relations", "Contact us", "Social media channels", "Customer / dealer portals", "Suppliers", "opens in a new tab", "→",
+             "Komatsu is a leading manufacturer of construction, mining, forestry, and industrial heavy equipment.", "Global corporate website",
+             "Cookie policy", "Privacy statement", "Terms of use", "Transparency in coverage", "Modular Mining legal notices", "California Supply Chain Transparency Act", "California Voluntary Carbon Market Disclosures Act", "Privacy notice for California residents", "Fighting Against Forced Labour and Child Labour in Supply Chains Act (Canada)", "Sitemap",
+             "2026 Komatsu America Corp. All rights reserved."]
+      source: "#headings h6 × 4, #ctas[44..77], #body[footer]; 'Privacy notice for California residents' from en-us.html (Open question 4)"
+    - section: footer
+      classification: direction-authorized rewrite
+      copy: ["Komatsu", "Komatsu on Facebook (opens in a new tab)", "Komatsu on Instagram (opens in a new tab)", "Komatsu on YouTube (opens in a new tab)"]
+      source: "improvements #4 (logo alt; social names from captured hrefs facebook.com/KomatsuLtd, instagram.com/komatsuglobal, youtube.com/c/komatsu)"
+  # == craft-time disciplines ==
+  reflexRejectAudit:
+    bypassed: "Mode A (brand-faithful): captured display + body family pinned — Noto Sans (display) / Noto Sans (body); Roboto retired. Not a reflex pick (Discipline 6)."
+  variableAxes:          # Discipline 7
+    family: "Noto Sans variable (wght 100–900, captured woff2 under stardust/current/assets/fonts/)"
+    engaged: "wght at intermediate positions: display 760, headline 700, title 680, label/subtitle 640, button 600, meta 590, link-list 500, body 400"
+  fidelity: refined      # Discipline 8 — type scale custom props, tabular-nums on dates/read time/year, text-wrap balance/pretty, hanging-punctuation, sliding underline nav hover, hairline hover on list items
+  copyCadenceBypass:     # Discipline 9 — scoped to stardust/prototypes/en-us-proposed.html only
+    rules: [em-dash-overuse, marketing-buzzword, copy-cadence]
+    basis: "voiceClassification captured-verbatim for every body/heading string (ia-fidelity verbatim); rewriting captured prose would be fabrication"
+  imageRenditions:       # user decision "Use larger versions" — same asset IDs
+    hero: ":ultrawide-21x9-xl 1920w + :ultrawide-21x9-xl?wid=2880&hei=1234 2880w; <=899px :portrait-3x4 388w + ?wid=900&hei=1200 900w; img src = DAM PNG fallback"
+    rail: ":photo-3x2-sm (captured) -> :photo-3x2-md 390w + :photo-3x2-lg 720w"
+    tiles: "lead :photo-3x2-xl 990w + ?wid=1440&hei=960 1440w; others :photo-3x2-lg (captured)"
+    news: "portrait :portrait-3x4?wid=776&hei=1000; DAM originals via _jcr_content/renditions/cq5dam.web.1280.1280.jpeg (features) and cq5dam.thumbnail.319.319.png (list thumbs)"
+    technology: "DAM originals (4.2 MB JPG etc.) via cq5dam.web.1280.1280.jpeg rendition of the same asset"
+    contact: ":photo-3x2-md (captured) -> :photo-3x2-lg; Contact us keeps captured :photo-3x2-xl"
+  chromeAuthored:        # non-content a11y / UI chrome, not factual claims
+    - "Skip to main content (skip link)"
+    - "nav aria-label 'Main' / 'Footer'"
+    - "trailing arrow glyphs (CSS content, alt text empty) on tiles, text-link lists, footer links (footer arrow is captured)"
+    - "search input name='q' (captured search is JS + API driven; parameter name not captured)"
+    - "extra rail dots 'Go to page 4/5' generated by JS at <=1279px from the captured 'Go to page N' pattern"
+  briefDeviations:       # resolved at the impeccable finish review (round 1)
+    - "Rail shows 6 per page at >=1280px (4 pages) instead of 7 (3 pages): '7 per page' and 'more image height' cannot both hold at 1440 on a 3:2 cut-out; image height wins (signature module). Displayed cut-out about 204x136 vs captured display about 150x100 (the brief's 174px is the :photo-3x2-sm intrinsic height). 5 per page at <=1279px."
+    - "Rail arrows grouped bottom-right, dots bottom-left (capture flanks the track): keeps the track edges clear for scroll-snap and the mobile peek; arrows stay 44px Komatsu Blue squares with captured labels."
+    - "Hero <=899px: the 3:4 photo sits above the copy, which continues on a Track Steel ground (the brief's image-failure ground), so the machines stay clear of the headline."
+    - "Parts photo: no larger rendition of the 1269x338 banner exists (the AEM web rendition is the same size); object-position favours the product cluster."
+  critique:              # Phase 2.5 — impeccable critique (json), dual-agent (A a93b6cc863a41026a, B affe61217c826105a); .impeccable/critique/2026-10-19T15-25-45Z__stardust-prototypes-en-us-proposed-html.md
+    - run: 2026-10-19T15:25Z
+      score: "25/32 (H7, H10 n/a)"
+      findings:
+        - { priority: P1, target: ".rail-dot", text: "inactive dots 1.91:1 (WCAG 1.4.11)", status: fixed (harden; Cab Slate 7.5:1) }
+        - { priority: P2, target: ".news-feature (portrait) .meta", text: "meta over bright photo ~3.3:1", status: fixed (harden; steel plate >=9.5:1) }
+        - { priority: P2, target: ".parts .btn-inverse", text: "ghost button weakest action on the conversion band", status: fixed (user "Solid white button"; impeccable bolder) }
+        - { priority: P2, target: ".tablist <=414", text: "Smart Quarry clipped, no cue", status: fixed (polish; scrollIntoView + conditional edge mask) }
+        - { priority: P2, target: ".rail-controls <=640", text: "no position cue on phones", status: fixed (adapt; arrows kept on phones) }
+        - { priority: P2, target: ".bento <=449", text: "five equal stacked tiles", status: fixed (adapt; lead full-width + 2x2) }
+        - { priority: P2, target: ".news-item h3", text: "20px list headlines wrap 4-5 lines at 1440", status: open (advisory) }
+        - { priority: P2, target: ".nav-inert", text: "Company styled like a live link", status: fixed (harden; plain text, muted) }
+        - { priority: P3, text: "rail names cut at the 1440x900 fold; tab-switch height jump; intermediate wght positions vs DESIGN.md 400/600/700 (Discipline 7 engagement); #dcdfe1 off-ramp; mobile tech photo after CTA (brief order); rail 6/page (recorded deviation)", status: open (advisory) }
+      dismissedAsBrandFaithful:
+        - { source: overlay, rule: single-font, reason: "Noto Sans pinned (Mode A)" }
+        - { source: overlay, rule: low-contrast, reason: "false positive — zero-width hover gradient read as background; real 13.6:1" }
+        - { source: overlay, rule: tight-leading, reason: "1.25 on 25px display headlines, not body" }
+    - run: 2026-10-19T15:45Z (delta after harden)
+      findings:
+        - { priority: P1, text: "Company invisible in mobile Daylight panel (regression)", status: fixed (polish; Cab Slate row 7.69:1) }
+        - { priority: P2, text: "desktop Company 7px off baseline", status: fixed (polish) }
+  audit:                 # Phase 2.6 — impeccable audit (json) (agent aaf675639f958b7ca)
+    - run: 2026-10-19T15:25Z
+      score: "15/20 (a11y 3, perf 3, responsive 3, theming 3, integrity 3)"
+      findings:
+        - { priority: P1, text: "news feature meta/title 2.39-4.11:1 over photos (WCAG 1.4.3)", status: fixed (harden; 189/189 pixel-sampled pairs pass 375-1920) }
+        - { priority: P1, text: "rail dots 1.91:1 (WCAG 1.4.11)", status: fixed }
+        - { priority: P2, text: "header overflow 900-1010px", status: fixed }
+        - { priority: P2, text: "no-JS [hidden] overridden (inert tabs / rail controls)", status: fixed }
+        - { priority: P2, text: "no-JS keyboard cannot open hamburger", status: fixed (focusable checkbox until JS upgrade) }
+        - { priority: P2, text: "mobile panel not modal", status: fixed (inert main/footer + scroll lock) }
+        - { priority: P2, text: "rail focus ring clipped", status: fixed }
+        - { priority: P2, text: "touch targets <44px in footer on phones", status: fixed }
+        - { priority: P2, text: "news list overflow at 200% text", status: fixed }
+        - { priority: P2, text: "Scene7 serves JPEG (WebP would cut hero 161->63 KB); news thumbs 324 KB PNG", status: open (advisory; same asset IDs, format param deferred to deploy) }
+        - { priority: P2, text: "header overflow under text-only 200% zoom at 1280", status: open (advisory; browser zoom fine) }
+        - { priority: P2, text: "spacing tokens unused vs px literals; heading-* size tokens unused (contract names)", status: open (advisory) }
+        - { priority: P3, text: "tablist label 'Select a tab' (captured verbatim); aria-label on <time> (captured 'Published on'); news underline wipe under reduced motion", status: open }
+      jsHiddenStateDetector: "1 hit (.ds-nav translateX(100%)) — mitigated: no-JS checkbox toggle works; not broken-by-default"
+      lcp: "hero img loading=eager fetchpriority=high; 161 KB at 1440 DPR1"
+  visionCheck:
+    verdict: pass
+    observations:
+      - "brand-fit: Komatsu Blue band, yellow machines on white, lunar campaign photo, Noto Sans; reads as Komatsu at a glance next to stardust/current/assets/screenshots/en-us-thumb.png"
+      - "signature preservation: hero campaign image full-bleed at captured position; cut-out rail directly under the hero (top edge y=740 at 1440x900); text tabs; one blue band; 4px photo tiles"
+      - "hierarchy at a glance: H1 61px lower-left is the first landing point, then the rail; one hero CTA; sections step daylight/yard-gray with a single saturated break"
+  adapt:
+    - at: 2026-10-19T15:55Z
+      breakpoints: [1279, 1100, 899, 640, 449]
+      mediaRulesAdded: "5 max-width tiers + 1 min-width (no-JS checkbox) + reduced-motion"
+      viewportsValidated: [1920, 1440, 1280, 800, 414, 375, 360, 320]
+      decisions:
+        - "nav -> stock hamburger (data-nav-collapse=hamburger) slide-in Daylight panel at <=899; modal with inert + scroll lock"
+        - "hero <=899: 3:4 photo above copy on Track Steel continuation"
+        - "rail: 6 / 5 / 2.4 / 1.7 per page; dots hidden <=899; arrows kept on phones as position cue"
+        - "bento: 12-col 6+3+3 -> 2-col (lead full width) -> 2-col with square secondaries <=449"
+        - "tech: split 6/6 -> stacked, link list 2 -> 1 col at <=899; tablist scrolls with conditional edge mask"
+        - "parts band: photo bleeds right -> photo above copy <=899"
+        - "news 6/3/3 -> 7/5 + 3-col list (<=1279) -> 6/6 + list (<=899) -> 1 col (<=640); contact 4 -> 2 -> 1; footer 4 -> 2 -> 1"
+        - "Worldwide US label visually hidden 900-1100 (header fit)"
+      mobileAdaptAudit: "PASS — viewport meta present; 4 max-width tiers incl. 640 and 449; no horizontal overflow at 360; nav font >=11px; nav gap >=10px (fixtures/mobile-nav-audit.mjs exit 0); burger source-order awk OK (base 358 < @media 640 785)"
+  iteratedVia: [impeccable:harden, impeccable:polish, impeccable:adapt, impeccable:bolder]
+  mechanicalContractFixes: ["data-layout scroll-rail-7 -> scroll-rail-6 (matches built rail; brief deviation recorded)"]
+  documenterSkipped: "impeccable documenter not run — ordinary extension of the established DESIGN.md world; stardust run forbids touching DESIGN.md / DESIGN.json tokens (anti-toolbox audit recorded in DESIGN.json.extensions.divergence.prototype_audits only)"
+  directionAuthorizedDeviations:
+    - at: 2026-10-19T16:05Z
+      userPhrase: "Solid white button"
+      element: ".parts .btn-inverse (Order now, Parts band)"
+      change: "filled Daylight button with Komatsu Blue text replaces DESIGN.md button-inverse (transparent + Daylight outline); hover keeps Komatsu Yellow fill + Track Steel text; focus keeps the 2px Komatsu Yellow ring"
+      scope: page-level (en-us-proposed.html only; not a system change)
+      via: impeccable:bolder
+      contrast: "default text 13.64:1, fill vs band 13.64:1; hover text 10.27:1, fill vs band 8.80:1; focus ring vs band 8.80:1 (1440 / 768 / 390, computed)"
+      resolves: "critique P2 'ghost button weakest action on the conversion band'"
+  approval:
+    - at: 2026-10-19T16:10Z
+      userPhrase: "Approve and deploy"
+      againstDirection: "stardust/direction.md (Active 2026-10-17T16:06:00Z) — verified current"
+      foldBack: "no-op — ia-fidelity verbatim (single variant A, surface-only changes; nothing structural to fold)"
+      mobile: "adapted at Phase 2.7 (max-width tiers 1279 / 1100 / 899 / 640 / 449)"
+  unsourcedContent: []
+-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Construction, Mining and Industrial Equipment | Komatsu</title>
+<link rel="icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAEACABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAACPPTwAwJKRALB3dgDLpqUAgSYmAIQrKQCWSkkAcwoNAMyopwD///8A4s7NAMKWlQDavr4Az6ysAHoYGADGnJwAyaOiAKlragD8+voAgCMjAI06OAC1f34Ajz49AKdmZgD9/PwAqGhoALF4dwCLNzYAwpeWAIcwLwDQra0A07SzAKBaWgB2EhMAo2FgAHoZGQCeWFcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQQjIyMaCQojIyMjAAkJCQkHBwcHGQkkBwcHBxwJCQkJIwcHBwEJBwcHBxMJCQkJCSMHBwcIDQcHBwcPCQkJCQkjBwcHFxYHBwcFGAkJCQkJIwcHByEHBwcHFQkJCQkJCSMHBwciFAcHBx0JCQkJCQkjBwcHAxAHBwcHHgkJCQkJIwcHBwsSBwcHBxsJCQkJCQcHBwcRCQYHBwcHHwkJCQkEIyMjAgkMIyMjDiAJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=">
+<meta name="description" content="Creating value through manufacturing and technology innovation to empower a sustainable future where people, businesses and our planet thrive together">
+<script>document.documentElement.classList.add('js');</script>
+<style>
+:root {
+  /* token contract (skills/stardust/reference/token-contract.md) — values from DESIGN.md */
+  --heading-font-family: "Noto Sans", system-ui, sans-serif;
+  --body-font-family:    "Noto Sans", system-ui, sans-serif;
+
+  --heading-xxl: 3.815rem;   /* 61px display max */
+  --heading-xl:  3.052rem;   /* 49px */
+  --heading-lg:  2.441rem;   /* 39px headline max */
+  --heading-md:  1.953rem;   /* 31px headline min */
+  --body:        1rem;       /* 16px */
+  --body-sm:     0.8rem;     /* 12.8px meta */
+
+  --line-height-heading: 1.1;
+  --line-height-body:    1.5;
+
+  --color-bg:     #ffffff;   /* daylight (brand-faithful pure white) */
+  --color-fg:     #1b232a;   /* track-steel */
+  --color-accent: #140a9a;   /* komatsu-blue */
+
+  --spacing-xs:  4px;
+  --spacing-sm:  8px;
+  --spacing-md:  16px;
+  --spacing-lg:  24px;
+  --spacing-xl:  48px;
+  --spacing-2xl: 96px;
+
+  --section-padding: 64px;
+  --max-width:       1920px;
+  --radius:          4px;
+
+  /* brand-native roles (DESIGN.md colors) */
+  --komatsu-blue: #140a9a;
+  --boom-blue: #253fc8;
+  --survey-blue: #3366cc;
+  --track-steel: #1b232a;
+  --cab-slate: #4d545a;
+  --grade-line: #ededed;
+  --daylight: #ffffff;
+  --yard-gray: #f4f5f5;
+  --site-ground: #fafafa;
+  --komatsu-yellow: #ffc82f; /* reserved: blue / dark-photo grounds only */
+
+  /* formal 1.25 type scale (fidelity: refined) */
+  --step--1: 0.8rem;
+  --step-0:  1rem;
+  --step-1:  1.25rem;
+  --step-2:  1.563rem;
+  --step-3:  1.953rem;
+  --step-4:  2.441rem;
+  --step-5:  3.052rem;
+  --step-6:  3.815rem;
+  --type-display:  clamp(2.441rem, 1.5rem + 3.4vw, 3.815rem);
+  --type-headline: clamp(1.953rem, 1.4rem + 1.6vw, 2.441rem);
+  --type-title:    clamp(1.25rem, 1rem + 0.9vw, 1.563rem);
+
+  /* variable-axis weights (Discipline 7: wght engaged at intermediate positions) */
+  --wght-display: 760;
+  --wght-headline: 700;
+  --wght-title: 680;
+  --wght-label: 640;
+  --wght-button: 600;
+  --wght-meta: 590;
+  --wght-body: 400;
+
+  --gutter: 24px;
+  --outer: 48px;
+  --header-h: 88px;
+
+  --scrim-strong: oklch(25.1% 0.018 245 / 0.82);
+  --scrim-mid:    oklch(25.1% 0.018 245 / 0.45);
+  --shadow-rest:  0 1px 2px oklch(25.1% 0.018 245 / 0.16);
+  --shadow-lift:  0 6px 16px oklch(25.1% 0.018 245 / 0.18);
+  --shadow-action: 0 1px 3px oklch(25.1% 0.018 245 / 0.30);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur: 200ms;
+}
+
+/* === Stock mobile-nav-collapse pattern (base rules first; see mobile-nav-collapse.md) === */
+header[data-nav-collapse="hamburger"] { position: absolute; }
+.ds-nav-toggle {
+  position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
+  overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; border: 0;
+}
+.ds-nav-burger { display: none; }
+@media (min-width: 900px) { .ds-nav-toggle { display: none; } }
+.ds-nav-toggle:focus-visible ~ .utils .ds-nav-burger { outline: 2px solid var(--komatsu-yellow); outline-offset: 2px; }
+.ds-nav { display: flex; align-items: center; }
+
+/* === Fonts === */
+@font-face {
+  font-family: "Noto Sans";
+  src: url("../current/assets/fonts/noto-sans-latin-normal-100-900.woff2") format("woff2");
+  font-weight: 100 900; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Noto Sans";
+  src: url("../current/assets/fonts/noto-sans-latin-italic-100-900.woff2") format("woff2");
+  font-weight: 100 900; font-style: italic; font-display: swap;
+}
+
+/* === Base === */
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { hanging-punctuation: first; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--color-bg); color: var(--color-fg);
+  font-family: var(--body-font-family); font-size: var(--body);
+  line-height: var(--line-height-body); font-weight: var(--wght-body);
+  -webkit-font-smoothing: antialiased;
+}
+img { display: block; max-width: 100%; height: auto; }
+a { color: var(--komatsu-blue); }
+h1, h2, h3 { margin: 0; font-family: var(--heading-font-family); line-height: var(--line-height-heading); text-wrap: balance; }
+p { margin: 0; text-wrap: pretty; }
+ul { margin: 0; padding: 0; list-style: none; }
+button { font: inherit; }
+time, .num { font-variant-numeric: tabular-nums; }
+:focus-visible { outline: 2px solid var(--boom-blue); outline-offset: 2px; }
+[data-surface="photo"] :focus-visible,
+[data-surface="komatsu-blue"] :focus-visible { outline-color: var(--komatsu-yellow); }
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; border: 0;
+}
+.skip-link {
+  position: absolute; left: 16px; top: -100px; z-index: 100;
+  background: var(--daylight); color: var(--komatsu-blue); font-weight: var(--wght-button);
+  padding: 12px 20px; border-radius: var(--radius); text-decoration: none; box-shadow: var(--shadow-lift);
+}
+.skip-link:focus-visible { top: 16px; }
+.wrap { width: 100%; max-width: var(--max-width); margin-inline: auto; padding-inline: var(--outer); }
+.grid12 { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--gutter); }
+.section { padding-block: var(--section-padding); }
+[data-surface="daylight"] { background: var(--daylight); }
+[data-surface="yard-gray"] { background: var(--yard-gray); }
+.headline {
+  font-size: var(--type-headline); font-weight: var(--wght-headline);
+  line-height: 1.15; letter-spacing: -0.01em; color: var(--track-steel);
+  margin-bottom: 32px;
+}
+
+/* === Buttons === */
+.btn {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 48px;
+  font-weight: var(--wght-button); font-size: var(--body); line-height: 1.25;
+  text-decoration: none; border-radius: var(--radius); padding: 12px 24px;
+  transition: background-color var(--dur) var(--ease-out), color var(--dur) var(--ease-out),
+              box-shadow var(--dur) var(--ease-out), border-color var(--dur) var(--ease-out);
+}
+.btn-primary { background: var(--komatsu-blue); color: var(--daylight); }
+.btn-primary:hover { background: var(--boom-blue); box-shadow: var(--shadow-action); }
+.btn-secondary { background: var(--daylight); color: var(--komatsu-blue); border: 2px solid var(--boom-blue); padding: 10px 22px; }
+.btn-secondary:hover { background: var(--grade-line); }
+/* page-level deviation (user: "Solid white button"): filled Daylight on the Komatsu Blue band; DESIGN.md inverse is an outline */
+.btn-inverse { background: var(--daylight); color: var(--komatsu-blue); border: 2px solid var(--daylight); padding: 10px 22px; }
+.btn-inverse:hover { background: var(--komatsu-yellow); border-color: var(--komatsu-yellow); color: var(--track-steel); }
+
+/* === Header (over the hero photo, not sticky) === */
+.site-header { top: 0; left: 0; right: 0; z-index: 20; color: var(--daylight); }
+.header-bar { display: flex; align-items: center; gap: 40px; height: var(--header-h); }
+.wordmark { color: var(--daylight); display: inline-flex; flex: none; }
+.wordmark svg { width: 150px; height: auto; }
+.ds-nav { gap: 32px; flex: 1; }
+.nav-links { display: flex; align-items: center; gap: 32px; }
+.nav-links a {
+  color: var(--daylight); text-decoration: none; font-weight: var(--wght-button);
+  font-size: var(--body); padding-block: 8px;
+  text-decoration-line: underline; text-decoration-thickness: 2px; text-underline-offset: 6px;
+  text-decoration-color: transparent; transition: text-decoration-color var(--dur) var(--ease-out);
+}
+.nav-links a[href]:hover { text-decoration-color: currentColor; }
+.nav-inert {
+  display: inline-block; padding-block: 8px; font-size: var(--body); line-height: var(--line-height-body);
+  font-weight: var(--wght-button); color: oklch(100% 0 0 / 0.74); cursor: default;
+}
+.nav-links a { line-height: var(--line-height-body); }
+.panel-head, .panel-utils { display: none; }
+.utils { display: flex; align-items: center; gap: 12px; margin-left: auto; }
+.util {
+  color: var(--daylight); text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+  min-height: 44px; min-width: 44px; justify-content: center; font-weight: var(--wght-button);
+  border-radius: var(--radius); transition: background-color var(--dur) var(--ease-out);
+}
+.util:hover { background: oklch(100% 0 0 / 0.12); }
+.util-text { padding-inline: 8px; }
+.ico { width: 24px; height: 24px; flex: none; }
+.search-bar { background: var(--daylight); box-shadow: var(--shadow-lift); }
+.search-form { display: flex; align-items: center; gap: 12px; padding-block: 16px; }
+.search-form input {
+  flex: 1; height: 48px; padding: 12px 16px; border: 1px solid var(--cab-slate); border-radius: var(--radius);
+  font: inherit; color: var(--track-steel); background: var(--daylight);
+}
+.search-form input:focus-visible { outline: 2px solid var(--boom-blue); outline-offset: 2px; }
+.search-close {
+  width: 48px; height: 48px; border: 0; background: transparent; border-radius: var(--radius);
+  color: var(--track-steel); cursor: pointer; position: relative;
+}
+.search-close:focus-visible { outline-color: var(--boom-blue); }
+.search-close span::before, .search-close span::after,
+.panel-close span::before, .panel-close span::after {
+  content: ""; position: absolute; left: 50%; top: 50%; width: 20px; height: 2px;
+  background: currentColor; transform: translate(-50%, -50%) rotate(45deg);
+}
+.search-close span::after, .panel-close span::after { transform: translate(-50%, -50%) rotate(-45deg); }
+
+/* === Hero (campaign signature) === */
+.hero {
+  position: relative; isolation: isolate; display: flex; align-items: flex-end;
+  min-height: min(700px, 78svh); background: var(--track-steel); color: var(--daylight); overflow: hidden;
+}
+.hero-media, .hero-media img { position: absolute; inset: 0; width: 100%; height: 100%; }
+.hero-media img { object-fit: cover; object-position: 40% 50%; z-index: -2; }
+.hero::before {
+  /* directional Photo scrim from the lower left (Scrim Before Type Rule) + header legibility band */
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background:
+    linear-gradient(to bottom, oklch(25.1% 0.018 245 / 0.55) 0, transparent 180px),
+    linear-gradient(to top right, var(--scrim-strong) 0%, var(--scrim-mid) 38%, transparent 66%),
+    linear-gradient(to top, oklch(25.1% 0.018 245 / 0.55) 0%, transparent 45%);
+}
+.hero-inner { padding-top: calc(var(--header-h) + 48px); padding-bottom: 64px; }
+.hero-copy { max-width: 34rem; display: grid; justify-items: start; gap: 20px; }
+.display {
+  font-size: var(--type-display); font-weight: var(--wght-display);
+  line-height: 1.05; letter-spacing: -0.02em; color: var(--daylight);
+}
+.lede { font-size: var(--step-1); line-height: 1.5; max-width: 48ch; color: var(--daylight); margin-bottom: 8px; }
+
+/* === Equipment rail (signature: cut-outs on white, no card chrome) === */
+.rail.section { padding-top: 40px; padding-bottom: 48px; }
+.rail-track {
+  --per-page: 6;
+  display: grid; grid-auto-flow: column;
+  grid-auto-columns: calc((100% - (var(--per-page) - 1) * var(--gutter)) / var(--per-page));
+  gap: var(--gutter); overflow-x: auto; overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory; scroll-padding-inline: 4px; padding: 4px 4px 8px; margin-inline: -4px;
+}
+.rail-track:focus { outline: none; }
+.js .rail-track { scrollbar-width: none; }
+.js .rail-track::-webkit-scrollbar { display: none; }
+.rail-item { scroll-snap-align: start; }
+.rail-item a {
+  display: grid; gap: 12px; text-decoration: none; color: var(--track-steel); border-radius: var(--radius);
+}
+.rail-item img {
+  width: 100%; aspect-ratio: 3 / 2; object-fit: contain;
+  transition: transform var(--dur) var(--ease-out);
+}
+.rail-name {
+  font-weight: var(--wght-label); font-size: var(--body); line-height: 1.375; text-wrap: balance;
+  text-decoration-line: underline; text-decoration-thickness: 2px; text-underline-offset: 4px;
+  text-decoration-color: transparent; transition: text-decoration-color var(--dur) var(--ease-out), color var(--dur) var(--ease-out);
+}
+.rail-item a:hover .rail-name { color: var(--komatsu-blue); text-decoration-color: currentColor; }
+.rail-item a:hover img { transform: translateY(-4px); }
+.rail-controls { display: flex; align-items: center; justify-content: space-between; margin-top: 24px; }
+.rail-dots { display: flex; gap: 8px; }
+.rail-dot {
+  width: 24px; height: 8px; padding: 0; border: 0; border-radius: 999px; cursor: pointer;
+  background: var(--cab-slate); transition: background-color var(--dur) var(--ease-out);
+  position: relative;
+}
+.rail-dot::after { content: ""; position: absolute; inset: -12px -2px; } /* 32px+ hit area */
+.rail-dot[aria-current="true"] { background: var(--komatsu-blue); width: 40px; }
+.rail-arrows { display: flex; gap: 8px; }
+.rail-arrow {
+  width: 44px; height: 44px; border: 0; border-radius: var(--radius); cursor: pointer;
+  background: var(--komatsu-blue); color: var(--daylight); position: relative;
+  transition: background-color var(--dur) var(--ease-out);
+}
+.rail-arrow:hover:not(:disabled) { background: var(--boom-blue); }
+.rail-arrow:disabled { background: var(--grade-line); color: var(--cab-slate); cursor: default; }
+.rail-arrow span::before {
+  content: ""; position: absolute; left: 50%; top: 50%; width: 10px; height: 10px;
+  border-top: 2px solid currentColor; border-right: 2px solid currentColor;
+  transform: translate(-65%, -50%) rotate(45deg);
+}
+.rail-arrow[data-dir="-1"] span::before { transform: translate(-35%, -50%) rotate(-135deg); }
+
+/* === Photo tiles (bento, news features, contact) — one whole-tile link each === */
+.bento {
+  display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--gutter);
+  grid-auto-rows: clamp(200px, 17vw, 300px);
+}
+.bento .tile { grid-column: span 3; }
+.bento .tile-lead { grid-column: 1 / span 6; grid-row: span 2; }
+.tile {
+  position: relative; isolation: isolate; overflow: hidden; border-radius: var(--radius);
+  background: var(--track-steel); box-shadow: var(--shadow-rest); color: var(--daylight);
+  display: flex; flex-direction: column; justify-content: flex-end;
+  transition: box-shadow var(--dur) var(--ease-out);
+}
+.tile > img {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2;
+  transition: transform 400ms var(--ease-out);
+}
+.tile::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(to top, var(--scrim-strong) 0%, var(--scrim-mid) 38%, transparent 70%);
+}
+.tile:hover { box-shadow: var(--shadow-lift); }
+.tile:hover > img { transform: scale(1.03); }
+.tile-label, .tile-title {
+  padding: 24px; font-size: var(--type-title); font-weight: var(--wght-title); line-height: 1.25; color: var(--daylight);
+}
+.tile a { color: inherit; text-decoration: none; }
+.tile a::after { content: ""; position: absolute; inset: 0; border-radius: var(--radius); }
+.tile a:focus-visible { outline: none; }
+.tile a:focus-visible::after { outline: 2px solid var(--boom-blue); outline-offset: -2px; box-shadow: inset 0 0 0 4px var(--daylight); }
+.tile-label::after {
+  content: "→" / ""; display: inline-block; margin-left: 10px; font-weight: 400;
+  transition: transform var(--dur) var(--ease-out);
+}
+.tile:hover .tile-label::after { transform: translateX(4px); }
+
+/* === Technology (signature text tabs) === */
+.tablist {
+  display: flex; gap: 32px; border-bottom: 1px solid var(--grade-line); margin-bottom: 40px;
+}
+.tablist [role="tab"] {
+  position: relative; border: 0; background: none; cursor: pointer; padding: 12px 0 14px;
+  font-weight: var(--wght-button); font-size: var(--body); color: var(--cab-slate); white-space: nowrap;
+  transition: color var(--dur) var(--ease-out);
+}
+.tablist [role="tab"]:hover { color: var(--track-steel); }
+.tablist [role="tab"][aria-selected="true"] { color: var(--track-steel); }
+.tablist [role="tab"]::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 3px;
+  background: var(--survey-blue); transform: scaleX(0); transform-origin: left;
+}
+.tablist [role="tab"][aria-selected="true"]::after { transform: scaleX(1); }
+.tab-panel {
+  display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--gutter); align-items: start;
+}
+.tab-panel + .tab-panel { margin-top: 64px; }
+.js .tab-panel + .tab-panel { margin-top: 0; }
+.js .tab-panel[hidden] { display: none; }
+.tab-panel:focus-visible { outline-offset: 8px; }
+.panel-copy { grid-column: 1 / span 6; display: grid; gap: 20px; justify-items: start; }
+.panel-copy p { max-width: 70ch; color: var(--track-steel); }
+.subtitle { font-size: var(--step-1); font-weight: var(--wght-label); line-height: 1.35; color: var(--track-steel); }
+.panel-photo { grid-column: 7 / span 6; width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: var(--radius); }
+.link-list {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--gutter);
+  width: 100%; margin-block: 4px 12px; border-top: 1px solid var(--grade-line);
+}
+.link-list li { border-bottom: 1px solid var(--grade-line); }
+.link-list a {
+  display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 0;
+  text-decoration: none; color: var(--komatsu-blue); font-weight: 500;
+  background: linear-gradient(var(--boom-blue), var(--boom-blue)) left bottom / 0 1px no-repeat;
+  transition: background-size var(--dur) var(--ease-out), color var(--dur) var(--ease-out);
+}
+.link-list a::after { content: "→" / ""; transition: transform var(--dur) var(--ease-out); }
+.link-list a:hover { color: var(--boom-blue); background-size: 100% 1px; }
+.link-list a:hover::after { transform: translateX(4px); }
+
+/* === Parts band (the One Band) === */
+.parts { position: relative; background: var(--komatsu-blue); color: var(--daylight); overflow: hidden; }
+.parts-inner { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--gutter); padding-block: 64px; }
+.parts-copy { grid-column: 1 / span 5; display: grid; gap: 20px; justify-items: start; position: relative; z-index: 1; }
+.parts .headline { color: var(--daylight); margin: 0; }
+.parts-copy p { font-size: var(--step-1); line-height: 1.5; max-width: 44ch; }
+.accent-rule { width: 48px; height: 4px; background: var(--komatsu-yellow); border-radius: 1px; }
+.parts-photo {
+  position: absolute; top: 0; right: 0; bottom: 0; width: calc(50% - var(--gutter) / 2);
+  height: 100%; object-fit: cover; object-position: 6% 100%;
+}
+
+/* === News === */
+.news-grid {
+  display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--gutter);
+  grid-template-rows: minmax(500px, auto);
+}
+.news-feature { grid-column: span 6; min-height: 500px; }
+.news-feature--portrait { grid-column: span 3; }
+.news-feature .tile-title { padding: 0; }
+.news-feature .news-body {
+  padding: 72px 24px 24px; display: grid; gap: 10px;
+  background: linear-gradient(to top, oklch(25.1% 0.018 245 / 0.9) 0%, oklch(25.1% 0.018 245 / 0.82) calc(100% - 72px), transparent 100%);
+}
+.meta {
+  font-size: var(--step--1); font-weight: var(--wght-meta); line-height: 1.4; letter-spacing: 0.01em;
+  color: var(--cab-slate); font-variant-numeric: tabular-nums;
+}
+.meta > span + span::before { content: "·" / ""; margin-inline: 0.45em; }
+.tile .meta { color: oklch(96% 0.004 245); }
+.meta-tags { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.news-list { grid-column: span 3; display: grid; align-content: start; border-top: 1px solid #dcdfe1; }
+.news-item { position: relative; display: grid; grid-template-columns: 88px minmax(0, 1fr); gap: 16px; padding-block: 20px; border-bottom: 1px solid #dcdfe1; }
+.news-item img { width: 88px; height: 88px; object-fit: cover; border-radius: var(--radius); }
+.news-item h3 { overflow-wrap: anywhere; font-size: var(--step-1); font-weight: var(--wght-label); line-height: 1.3; color: var(--track-steel); }
+.news-item a { color: inherit; text-decoration: none; }
+.news-item a::after { content: ""; position: absolute; inset: 0; }
+.news-item .item-copy { display: grid; gap: 8px; align-content: start; }
+.news-item::before {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 1px; background: var(--komatsu-blue);
+  transform: scaleX(0); transform-origin: left; transition: transform var(--dur) var(--ease-out);
+}
+.news-item:hover::before { transform: scaleX(1); }
+.news-item:hover h3 { color: var(--komatsu-blue); }
+.news-item:has(a:focus-visible) { outline: 2px solid var(--boom-blue); outline-offset: 4px; border-radius: var(--radius); }
+.news-item a:focus-visible { outline: none; }
+.news-more { margin-top: 40px; }
+
+/* === Get in touch === */
+.contact-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--gutter); }
+.contact-grid .tile { aspect-ratio: 4 / 3; }
+
+/* === Footer === */
+.site-footer { background: var(--site-ground); border-top: 1px solid var(--grade-line); padding-block: 64px 32px; color: var(--cab-slate); }
+.footer-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 48px var(--gutter); }
+.footer-cols { grid-column: 1 / span 8; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px var(--gutter); }
+.footer-col h2 { font-size: var(--body); font-weight: var(--wght-label); line-height: 1.375; color: var(--track-steel); margin-bottom: 16px; }
+.footer-col ul { display: grid; gap: 4px; }
+.footer-col a, .legal-links a {
+  color: var(--cab-slate); text-decoration: none; display: inline-block; padding-block: 4px;
+  text-decoration-line: underline; text-decoration-thickness: 1px; text-underline-offset: 4px;
+  text-decoration-color: transparent; transition: color var(--dur) var(--ease-out), text-decoration-color var(--dur) var(--ease-out);
+}
+.footer-col a::after { content: "\00a0\2192" / ""; letter-spacing: 0.15em; }
+.footer-col a:hover, .legal-links a:hover { color: var(--komatsu-blue); text-decoration-color: currentColor; }
+.footer-brand { grid-column: 9 / span 4; display: grid; gap: 16px; align-content: start; justify-items: start; }
+.footer-brand p { max-width: 38ch; }
+.footer-global { font-weight: var(--wght-button); color: var(--komatsu-blue); text-underline-offset: 4px; }
+.social { display: flex; gap: 12px; }
+.social a { display: inline-flex; border-radius: 999px; transition: opacity var(--dur) var(--ease-out); }
+.social a:hover { opacity: 0.8; }
+.legal { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--grade-line); display: grid; gap: 16px; }
+.legal-links { display: flex; flex-wrap: wrap; gap: 4px 24px; }
+.legal-links a { font-size: var(--step--1); font-weight: 500; }
+.copyright { font-size: var(--step--1); }
+
+/* === Responsive (captured breakpoints 1279 / 899 / 449, plus a 640 phone tier) === */
+@media (max-width: 1100px) {
+  :root { --outer: 32px; }
+  .util-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .util-text { padding-inline: 0; }
+  .nav-links, .ds-nav { gap: 20px; }
+}
+@media (max-width: 1279px) {
+  .rail-track { --per-page: 5; }
+  .nav-links, .ds-nav { gap: 24px; }
+  .header-bar { gap: 28px; }
+  .news-feature { grid-column: span 7; }
+  .news-feature--portrait { grid-column: span 5; }
+  .news-list { grid-column: 1 / -1; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--gutter); border-top: 0; }
+  .news-item { border-top: 1px solid #dcdfe1; }
+  .footer-cols { grid-column: 1 / -1; }
+  .footer-brand { grid-column: 1 / -1; }
+}
+@media (max-width: 899px) {
+  :root { --outer: 32px; --section-padding: 48px; --header-h: 72px; }
+  .headline { margin-bottom: 24px; }
+  /* hamburger panel (stock pattern, slide-in Daylight panel) */
+  .ds-nav-burger {
+    display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px;
+    cursor: pointer; color: var(--daylight); border-radius: var(--radius);
+  }
+  .ds-nav-burger-icon, .ds-nav-burger-icon::before, .ds-nav-burger-icon::after {
+    display: block; width: 22px; height: 2px; background: currentColor; position: relative;
+  }
+  .ds-nav-burger-icon::before, .ds-nav-burger-icon::after { content: ""; position: absolute; left: 0; }
+  .ds-nav-burger-icon::before { top: -7px; }
+  .ds-nav-burger-icon::after { top: 7px; }
+  .ds-nav {
+    position: fixed; top: 0; right: 0; bottom: 0; width: min(400px, 100%); z-index: 40;
+    flex-direction: column; align-items: stretch; gap: 12px; padding: 16px 24px 32px;
+    background: var(--daylight); color: var(--komatsu-blue); box-shadow: var(--shadow-lift);
+    overflow-y: auto; transform: translateX(100%); visibility: hidden;
+    transition: transform 240ms var(--ease-out), visibility 0s linear 240ms;
+  }
+  .ds-nav-toggle:checked ~ .ds-nav { transform: none; visibility: visible; transition: transform 240ms var(--ease-out), visibility 0s; }
+  .ds-nav :focus-visible { outline-color: var(--boom-blue); }
+  .panel-head { display: flex; align-items: center; justify-content: space-between; height: 56px; margin-bottom: 8px; }
+  .panel-close { position: relative; width: 44px; height: 44px; cursor: pointer; color: var(--track-steel); border-radius: var(--radius); }
+  .nav-links { flex-direction: column; gap: 10px; }
+  .nav-links a, .nav-links .nav-inert { display: block; color: var(--komatsu-blue); font-size: 1.125rem; padding-block: 10px; border-bottom: 1px solid var(--grade-line); }
+  .nav-links .nav-inert { color: var(--cab-slate); }
+  .panel-utils { display: flex; flex-direction: column; gap: 10px; margin-top: 8px; }
+  .panel-utils a { display: flex; align-items: center; gap: 12px; color: var(--track-steel); text-decoration: none; font-weight: var(--wght-button); padding-block: 10px; }
+  .util-wide { display: none; }
+  .hero { display: block; min-height: 0; }
+  .hero-media { position: relative; display: block; height: min(112vw, 560px); }
+  .hero-media img { object-position: 50% 42%; }
+  .hero-media::after {
+    content: ""; position: absolute; inset: 0;
+    background:
+      linear-gradient(to bottom, oklch(25.1% 0.018 245 / 0.55) 0, transparent 140px),
+      linear-gradient(to top, var(--track-steel) 0%, oklch(25.1% 0.018 245 / 0.6) 18%, transparent 40%);
+  }
+  .hero::before { display: none; }
+  .hero-inner { position: relative; margin-top: -72px; padding-top: 0; padding-bottom: 48px; }
+  .bento { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 220px; }
+  .bento .tile, .bento .tile-lead { grid-column: span 1; grid-row: auto; }
+  .bento .tile-lead { grid-column: 1 / -1; grid-row: span 1; }
+  .rail-track { --per-page: 2.4; }
+  .rail-dots { display: none; }
+  .rail-controls { justify-content: flex-end; }
+  .tablist { overflow-x: auto; scrollbar-width: none; gap: 24px; margin-bottom: 32px; }
+  .panel-copy, .panel-photo { grid-column: 1 / -1; }
+  .link-list { grid-template-columns: 1fr; }
+  .parts-inner { grid-template-columns: 1fr; padding-block: 0 48px; }
+  .parts-copy { grid-column: 1; }
+  .parts-photo { position: static; width: 100%; height: 220px; order: -1; }
+  .parts { display: flex; flex-direction: column; }
+  .news-feature, .news-feature--portrait { grid-column: span 6; min-height: 440px; }
+  .news-list { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .footer-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  .wordmark svg { width: 128px; }
+  .lede { font-size: var(--body); }
+  .news-feature, .news-feature--portrait { grid-column: 1 / -1; min-height: 400px; }
+  .rail-track { --per-page: 1.7; }
+  .tile-label { padding: 16px; }
+  .news-feature .news-body { padding: 64px 16px 16px; }
+  .footer-col a, .legal-links a { padding-block: 12px; }
+  .footer-global { display: inline-block; padding-block: 10px; }
+  .social a { padding: 2px; }
+  .tablist { gap: 20px; padding-right: 32px; }
+  .tablist.has-more { mask-image: linear-gradient(to right, #000 82%, transparent); }
+  .js .rail-track { scrollbar-width: thin; scrollbar-color: var(--cab-slate) var(--grade-line); }
+  .js .rail-track::-webkit-scrollbar { display: block; height: 4px; }
+  .js .rail-track::-webkit-scrollbar-thumb { background: var(--cab-slate); border-radius: 999px; }
+}
+@media (max-width: 449px) {
+  :root { --outer: 24px; --section-padding: 32px; }
+  .bento { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: auto; gap: 16px; }
+  .bento .tile { aspect-ratio: 1; }
+  .bento .tile-lead { aspect-ratio: 16 / 11; }
+  .bento .tile .tile-label { padding: 12px; font-size: var(--step-0); }
+  .bento .tile-lead .tile-label { font-size: var(--step-1); }
+  .contact-grid { grid-template-columns: 1fr; }
+  .footer-cols { grid-template-columns: 1fr; }
+  .rail.section { padding-top: 32px; padding-bottom: 32px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .js .rail-track { scroll-behavior: smooth; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tile:hover > img, .rail-item a:hover img, .tile:hover .tile-label::after, .link-list a:hover::after { transform: none; }
+  .ds-nav { transition: visibility 0s; }
+  .ds-nav-toggle:checked ~ .ds-nav { transition: none; }
+}
+</style>
+</head>
+<body>
+<!--
+  THESIS: The machine in daylight — Komatsu's own homepage, same order and words, modernized by hierarchy, air and surface rhythm; refuses the centered hero stack and the boxed-panel stack.
+  OWN-WORLD: Komatsu Blue actions and one blue band; white / yard-gray alternation; Noto Sans at a 1.25 scale; 4px photo tiles with steel scrims; cut-out yellow machines on white; yellow only on blue or dark photo.
+  STORY: A buyer sees the campaign, lands on a machine category in one click, or routes to parts, technology, news or a contact path.
+  FIRST VIEWPORT: full-bleed lunar campaign photo, H1 lower-left at 61px over a directional scrim, one "Explore more"; the equipment rail's top edge enters at 1440×900.
+  FORM: brief-pinned — stardust en-us-shape.md, confirmed by the user verbatim "Yes, build it" (recorded in the brief and head provenance); seed key: none — a user-pinned direction beats the roll, so concept-seed was not run.
+  FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
+-->
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header" data-section="header" data-intent="navigate" data-layout="overlay-transparent" data-system-component="header" data-surface="photo" data-nav-collapse="hamburger">
+  <div class="wrap header-bar">
+    <a class="wordmark" href="/en-us">
+      <svg width="170" height="34" viewBox="0 0 170 34" role="img" aria-label="Komatsu"><path fill="currentColor" d="M159 33.2C156.1 33.3 153.3 32.5 151.1 30.7C149 28.8 147.9 26.1 148.1 23.3V8.3H157.8V23.3C157.8 24 158.4 24.6 159.1 24.6C159.8 24.6 160.3 24 160.4 23.3V8.3H170.1V23.3C170.1 26.5 169.1 29 167.1 30.7C164.7 32.5 161.8 33.4 159 33.2ZM37.7 33.2C30.7 33.1 25 27.4 25.1 20.3C24.9 13.3 30.5 7.5 37.5 7.4C44.5 7.2 50.3 12.8 50.4 19.8V20.4C50.4 23.8 49.1 27.1 46.7 29.5C44.3 31.9 41.1 33.2 37.7 33.2ZM37.7 16.7C35.7 16.7 34 18.3 34 20.3C34 22.3 35.6 24 37.6 24C39.6 24 41.3 22.4 41.3 20.4V20.3C41.3 18.3 39.7 16.7 37.7 16.7ZM135.3 33.2C131.2 33.2 128.4 32 124.9 30L127.6 23.6C127.6 23.6 131.6 26.2 134.3 26.2C134.6 26.2 134.9 26.2 135.2 26.1C135.7 26 136 25.6 136 25.1C136 24.6 135.8 24.2 135.3 24C134.8 23.8 134.2 23.6 133.7 23.5C131.8 23 128.8 22.3 127.3 19.4C125.6 16.2 126.3 12.3 129 10C131.1 8.3 133.7 7.4 136.4 7.4H136.9C139.9 7.5 142.8 8.4 145.4 10.1L142.7 16.5C140.9 15.5 138.5 14.4 137 14.4C136.2 14.4 135.8 14.7 135.7 15.3C135.6 16.2 136.5 16.5 138 16.9C139.3 17.2 140.5 17.6 141.7 18.2C144.6 19.9 146.1 23.3 145.2 26.6C144.8 28.5 143.7 30.1 142.1 31.2C140.2 32.6 137.8 33.3 135.3 33.2ZM9.8 32.3H0V8.4H9.8V20L15 8.4H26.1L20.5 20.1L26.4 32.3H15.3L9.8 20.1V32.3ZM59.8 32.3H51L54.6 8.4H63.5L66.5 18L69.5 8.4H78.4L81.7 30.9L89.3 8.4H99L107.2 32.3H97L94.1 21L91.2 32.3H73L71.7 23.2L69.2 32.3H63.5L61 23.2L59.8 32.3ZM119.8 32.3H110V17.3H104.3V8.4H119.7V0.8H128.8V10.3H119.7L119.8 32.3Z"/></svg>
+    </a>
+
+    <input type="checkbox" id="ds-nav-toggle" class="ds-nav-toggle" aria-label="Open navigation menu" aria-controls="ds-nav-list">
+    <nav id="ds-nav-list" class="ds-nav" aria-label="Main">
+      <div class="panel-head">
+        <img src="https://www.komatsu.com/content/dam/komatsu/icons/website-app/blue-logo.svg" alt="Komatsu" width="136" height="26">
+        <label class="panel-close" for="ds-nav-toggle" aria-label="Close navigation menu"><span aria-hidden="true"></span></label>
+      </div>
+      <ul class="nav-links">
+        <li><a href="/en-us/products">Products</a></li>
+        <li><a href="/en-us/services-and-support">Services</a></li>
+        <li><a href="/en-us/technology">Technology</a></li>
+        <li><span class="nav-inert">Company</span></li>
+      </ul>
+      <ul class="panel-utils">
+        <li><a href="/en-us/komatsu-locator"><svg class="ico" viewBox="0 0 34 34" aria-hidden="true"><path fill="currentColor" d="M17 17c.78 0 1.45-.28 2-.83s.83-1.22.83-2-.28-1.45-.83-2-1.22-.84-2-.84-1.45.28-2 .84-.83 1.22-.83 2 .27 1.45.83 2 1.22.83 2 .83Zm0 14.17c-3.8-3.24-6.64-6.24-8.52-9.02-1.87-2.77-2.81-5.34-2.81-7.7 0-3.54 1.14-6.36 3.42-8.46 2.28-2.1 4.92-3.16 7.91-3.16s5.64 1.05 7.92 3.16c2.28 2.1 3.41 4.92 3.41 8.46 0 2.36-.94 4.93-2.81 7.7-1.88 2.78-4.72 5.78-8.52 9.02Z"/></svg>Locations</a></li>
+        <li><a href="/en-us/region"><svg class="ico" viewBox="0 0 34 34" aria-hidden="true"><use href="#ico-globe"/></svg>Worldwide US</a></li>
+        <li><a href="https://mykomatsu.komatsu/" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 34 34" aria-hidden="true"><use href="#ico-user"/></svg>My Account<span class="sr-only"> opens in a new tab</span></a></li>
+      </ul>
+    </nav>
+
+    <div class="utils">
+      <a class="util util-icon" href="/en-us/search.html" aria-label="Search" data-search-toggle>
+        <svg class="ico" viewBox="0 -960 960 960" aria-hidden="true"><path fill="currentColor" d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg>
+      </a>
+      <a class="util util-icon util-wide" href="/en-us/komatsu-locator" aria-label="Locations">
+        <svg class="ico" viewBox="0 0 34 34" aria-hidden="true"><path fill="currentColor" d="M17 17c.78 0 1.45-.28 2-.83s.83-1.22.83-2-.28-1.45-.83-2-1.22-.84-2-.84-1.45.28-2 .84-.83 1.22-.83 2 .27 1.45.83 2 1.22.83 2 .83Zm0 14.17c-3.8-3.24-6.64-6.24-8.52-9.02-1.87-2.77-2.81-5.34-2.81-7.7 0-3.54 1.14-6.36 3.42-8.46 2.28-2.1 4.92-3.16 7.91-3.16s5.64 1.05 7.92 3.16c2.28 2.1 3.41 4.92 3.41 8.46 0 2.36-.94 4.93-2.81 7.7-1.88 2.78-4.72 5.78-8.52 9.02Z"/></svg>
+      </a>
+      <a class="util util-text util-wide" href="/en-us/region">
+        <svg class="ico" viewBox="0 0 34 34" aria-hidden="true"><use href="#ico-globe"/></svg><span class="util-label">Worldwide US</span>
+      </a>
+      <a class="util util-icon util-wide" href="https://mykomatsu.komatsu/" target="_blank" rel="noopener">
+        <svg class="ico" viewBox="0 0 34 34" aria-hidden="true"><use href="#ico-user"/></svg><span class="sr-only">My Account opens in a new tab</span>
+      </a>
+      <label class="ds-nav-burger" for="ds-nav-toggle" aria-label="Open navigation menu">
+        <span class="ds-nav-burger-icon" aria-hidden="true"></span>
+      </label>
+    </div>
+  </div>
+  <div class="search-bar" id="site-search" hidden>
+    <form class="wrap search-form" action="/en-us/search.html" method="get" role="search">
+      <input type="search" name="q" placeholder="Search" aria-label="Search" autocomplete="off">
+      <button type="button" class="search-close" aria-label="Close search" data-search-close><span aria-hidden="true"></span></button>
+    </form>
+  </div>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="ico-globe" viewBox="0 0 34 34"><path fill="currentColor" d="M17 4.25a12.75 12.75 0 1 0 12.75 12.75A12.76 12.76 0 0 0 17 4.25Zm-3.23 17.65h6.46A13.4 13.4 0 0 1 17 27.78a13.4 13.4 0 0 1-3.23-5.88Zm-.45-1.96a18.1 18.1 0 0 1 0-5.88h7.36a18.1 18.1 0 0 1 0 5.88ZM6.21 17a10.6 10.6 0 0 1 .41-2.94h4.71a20.2 20.2 0 0 0 0 5.88H6.62A10.6 10.6 0 0 1 6.21 17Zm14.02-4.9h-6.46A13.4 13.4 0 0 1 17 6.22a13.4 13.4 0 0 1 3.23 5.88Zm2.44 1.96h4.71a10.8 10.8 0 0 1 0 5.88h-4.71a20.2 20.2 0 0 0 0-5.88Zm3.94-1.96h-4.34a19.7 19.7 0 0 0-2.49-5.52 10.8 10.8 0 0 1 6.83 5.52ZM14.22 6.58a19.7 19.7 0 0 0-2.49 5.52H7.39a10.8 10.8 0 0 1 6.83-5.52ZM7.39 21.9h4.34a19.7 19.7 0 0 0 2.49 5.52 10.8 10.8 0 0 1-6.83-5.52Zm12.39 5.52a19.7 19.7 0 0 0 2.49-5.52h4.34a10.8 10.8 0 0 1-6.83 5.52Z"/></symbol>
+    <symbol id="ico-user" viewBox="0 0 34 34"><path fill="currentColor" d="M17 17a5.46 5.46 0 0 1-4-1.66 5.46 5.46 0 0 1-1.67-4.01 5.46 5.46 0 0 1 1.67-4A5.46 5.46 0 0 1 17 5.67a5.46 5.46 0 0 1 4 1.66 5.46 5.46 0 0 1 1.67 4 5.46 5.46 0 0 1-1.67 4.01A5.46 5.46 0 0 1 17 17ZM5.67 28.33v-3.96c0-.8.2-1.54.62-2.22a4.1 4.1 0 0 1 1.64-1.54 20.3 20.3 0 0 1 4.46-1.65 19.5 19.5 0 0 1 9.21 0 20.3 20.3 0 0 1 4.46 1.65 4.1 4.1 0 0 1 1.65 1.54c.41.68.62 1.42.62 2.22v3.96Z"/></symbol>
+  </svg>
+</header>
+<main id="main" data-template="landing">
+<section class="hero" data-section="hero" data-intent="primary-action" data-layout="full-bleed-lower-left" data-items="1" data-media="image" data-system-component="campaign-hero" data-surface="photo">
+  <picture class="hero-media">
+    <source media="(max-width: 899px)" sizes="100vw"
+      srcset="https://s7d9.scene7.com/is/image/komatsu/Screenshot%202026-07-30%20103344:portrait-3x4 388w,
+              https://s7d9.scene7.com/is/image/komatsu/Screenshot%202026-07-30%20103344:portrait-3x4?wid=900&amp;hei=1200 900w">
+    <source sizes="100vw"
+      srcset="https://s7d9.scene7.com/is/image/komatsu/Screenshot%202026-07-30%20103344:ultrawide-21x9-xl 1920w,
+              https://s7d9.scene7.com/is/image/komatsu/Screenshot%202026-07-30%20103344:ultrawide-21x9-xl?wid=2880&amp;hei=1234 2880w">
+    <img src="https://www.komatsu.com/content/dam/komatsu/websites/global/images/brand/campaigns/Screenshot%202026-07-30%20103344.png"
+      alt="Komatsu haul trucks on a lunar surface with Earth rising behind" width="1920" height="822"
+      loading="eager" fetchpriority="high">
+  </picture>
+  <div class="wrap hero-inner">
+    <div class="hero-copy">
+      <h1 class="display">Here's to progress</h1>
+      <p class="lede">For more than a century, Komatsu has helped build the world beneath our feet. Now, we're helping imagine how people could one day build beyond it.</p>
+      <a class="btn btn-secondary" href="/en-us/about/discover-komatsu/heres-to-progress">Explore more</a>
+    </div>
+  </div>
+</section>
+<section class="rail section" data-section="equipment-rail" data-intent="route-category" data-layout="scroll-rail-6" data-items="21" data-media="image" data-system-component="category-rail" data-surface="daylight">
+  <div class="wrap">
+    <ul class="rail-track" id="rail-track" tabindex="-1">
+      <li class="rail-item"><a href="/en-us/products/equipment/blasthole-drills">
+        <img src="https://s7d9.scene7.com/is/image/komatsu/742737_Drill_ZR77_GPL9946-1280x1280:photo-3x2-md" srcset="https://s7d9.scene7.com/is/image/komatsu/742737_Drill_ZR77_GPL9946-1280x1280:photo-3x2-md 390w, https://s7d9.scene7.com/is/image/komatsu/742737_Drill_ZR77_GPL9946-1280x1280:photo-3x2-lg 720w" sizes="(max-width: 449px) 70vw, (max-width: 899px) 40vw, 200px" alt="ZR77 blasthole drill" width="390" height="260" loading="lazy" decoding="async">
+        <span class="rail-name">Blasthole drills</span></a></li>
+      <li class="rail-item"><a href="/en-us/products/equipment/crushing">
+        <img src="https://s7d9.scene7.com/is/image/komatsu/1980911_surface-reclaim-feeder_literature-link_RF5_K_Render_Front-1280x1280:photo-3x2-md" srcset="https://s7d9.scene7.com/is/image/komatsu/1980911_surface-reclaim-feeder_literature-link_RF5_K_Render_Front-1280x1280:photo-3x2-md 390w, https://s7d9.scene7.com/is/image/komatsu/1980911_surface-reclaim-feeder_literature-link_RF5_K_Render_Front-1280x1280:photo-3x2-lg 720w" sizes="(max-width: 449px) 70vw, (max-width: 899px) 40vw, 200px" alt="Surface reclaim feeder" width="390" height="260" loading="lazy" decoding="async">
+        <span class="rail-name">Crushing</span></a></li>
+      <li class="rail-item"><a href="/en-us/products/equipment/dozers">
+        <img src="https://s7d9.scene7.com/is/image/komatsu/830642_Dozer_D375A-6_literature-link_pt_A-34880-1280x1280:photo-3x2-md" srcset="https://s7d9.scene7.com/is/image/komatsu/830642_Dozer_D375A-6_literature-link_pt_A-34880-1280x1280:photo-3x2-md 390w, https://s7d9.scene7.com/is/image/komatsu/830642_Dozer_D375A-6_literature-link_pt_A-34880-1280x1280:photo-3x2-lg 720w" sizes="(max-width: 449px) 70vw, (max-width: 899px) 40vw, 200px" alt="D375A-6 dozer" width="390" height="260" loading="lazy" decoding="async">
+        <span class="rail-name">Dozers</span></a></li>
+      <li class="rail-item"><a href="/en-us/products/equipment/draglines">
+        <img src="https://s7d9.scene7.com/is/image/komatsu/Dragline_9020XPC_GPL6269:photo-3x2-md" srcset="https://s7d9.scene7.com/is/image/komatsu/Dragline_9020XPC_GPL6269:photo-3x2-md 390w, https://s7d9.scene7.com/is/image/komatsu/Dragline_9020XPC_GPL6269:photo-3x2-lg 720w" sizes="(max-width: 449px) 70vw, (max-width: 899px) 40vw, 200px" alt="9020XPC dragline" width="390" height="260" loading="lazy" decoding="async">
+        <span class="rail-name">Draglines</span></a></li>
+      <li class="rail-item"><a href="/en-us/products/equipment/electric-rope-shovels">
+        <img src="https://s7d9.scene7.com/is/image/komatsu/271843_gpl8895-web:photo-3x2-md" srcset="https://s7d9.scene7.com/is/image/komatsu/271843_gpl8895-web:photo-3x2-md 390w, https://s7d9.scene7.com/is/image/komatsu/271843_gpl8895-web:photo-3x2-lg 720w" sizes="(max-width: 449px) 70vw, (max-width: 899px) 40vw, 200px" alt="Electric rope shovel" width="390" height="260" loading="lazy" decoding="async">
+        <span class="rail-name">Electric rope shovels</span></a></li>
+      <li class="rail-item"><a href="/en-us/products/equipment/entry-development">
+        <img src="https://s7d9.scene7.com/is/image/komatsu/354626_gpl6039-web:photo-3x2-md" srcset="https://s7d9.scene7.com/is/image/komatsu/354626_gpl6039-web:photo-3x2-md 390w, https://s7d9.scene7.com/is/image/komatsu/354626_gpl6039-web:photo-3x2-lg 720w" sizes="(max-width: 449px) 70vw, (max-width: 899px) 40vw, 200px" alt="Entry driver" width="390" height="260" loading="lazy" decoding="async">
+        <span class="rail-name">Entry development</span></a></li>
+      <li class="rail-item"><a href="/en-us/products/equipment/excavators">
+        <img src="https://s7d9.scene7.com/is/image/komatsu/209657_pc210lc-11-walkaround-2-web:photo-3x2-md" srcset="https://s7d9.scene7.com/is/image/komatsu/209657_pc210lc-11-walkaround-2-web:photo-3x2-md 390w, https://s7d9.scene7.com/is/image/komatsu/209657_pc210lc-11-walkaround-2-web:photo-3x2-lg 720w" sizes="(max-width: 449px) 70vw, (max-width: 899px) 40vw, 200px" alt="PC210 crawler excavator" width="390" height="260" loading="lazy" decoding="async">
+        <span class="rail-name">Excavators</span></a></li>
+      <li class="rail-item"><a href="/en-us/products/equipment/forestry">
+        <img src="https://s7d9.scene7.com/is/image/komatsu/1350904_Ko845_2021_3805-1280x1280:photo-3x2-md" srcset="https://s7d9.scene7.com/is/image/komatsu/1350904_Ko845_2021_3805-1280x1280:photo-3x2-md 390w, https://s7d9.scene7.com/is/image/komatsu/1350904_Ko845_2021_3805-1280x1280:photo-3x2-lg 720w" sizes="(max-width: 449px) 70vw, (max-width: 899px) 40vw, 200px" alt="Forestry forwarder 845" width="390" height="260" loading="lazy" decoding="async">
+        <span class="rail-name">Forestry</span></a></li>
+      <li class="rail-item"><a href="/en-us/products/equipment/forklifts">
+        <img src="https://s7d9.scene7.com/is/image/komatsu/768586_Forklift_literature-link_FH80_2_01_kai_e-1280x1280:photo-3x2-md" srcset="https://s7d9.scene7.com/is/image/komatsu/768586_Forklift_literature-link_FH80_2_01_kai_e-1280x1280:photo-3x2-md 390w, https://s7d9.scene7.com/is/image/komatsu/768586_Forklift_literature-link_FH80_2_01_kai_e-1280x1280:photo-3x2-lg 720w" sizes="(max-width: 449px) 70vw, (max-width: 899px) 40vw, 200px" alt="FH80 forklift" width="390" height="260" loading="lazy" decoding="async">
+        <span class="rail-name">Forklifts</span></a></li>
+      <li class="rail-item"><a href="/en-us/products/equipment/hard-rock-continuous-miners">
+        <img src="https://s7d9.scene7.com/is/image/komatsu/5741233_HRCM_MC51_Unanderra-Australia_KF_201130_F2A6923_1-1280x1280:photo-3x2-md" srcset="https://s7d9.scene7.com/is/image/komatsu/5741233_HRCM_MC51_Unanderra-Australia_KF_201130_F2A6923_1-1280x1280:photo-3x2-md 390w, https://s7d9.scene7.com/is/image/komatsu/5741233_HRCM_MC51_Unanderra-Australia_KF_201130_F2A6923_1-1280x1280:photo-3x2-lg 720w" sizes="(max-width: 449px) 70vw, (max-width: 899px) 40vw, 200px" alt="MC51 Hard rock continuous miner" width="390" height="260" loading="lazy" decoding="async">
+        <span class="rail-name">Hard rock continuous miners</span></a></li>
+      <li class="rail-item"><a href="/en-us/products/equipment/industrial-minerals-equipment">
+        <img src="https://s7d9.scene7.com/is/image/komatsu/KOMATSU-WP08-BoomUp-Renderings_17_higher:photo-3x2-md" srcset="https://s7d9.scene7.com/is/image/komatsu/KOMATSU-WP08-BoomUp-Renderings_17_higher:photo-3x2-md 390w, https://s7d9.scene7.com/is/image/komatsu/KOMATSU-WP08-BoomUp-Renderings_17_higher:photo-3x2-lg 720w" sizes="(max-width: 449px) 70vw, (max-width: 899px) 40vw, 200px" alt="Industrial minerals equipment" width="390" height="260" loading="lazy" decoding="async">
+        <span class="rail-name">Industrial minerals equipment</span></a></li>
+      <li class="rail-item"><a href="/en-us/products/equipment/longwall">
+        <img src="https://s7d9.scene7.com/is/image/komatsu/417954_gpl5027-web:photo-3x2-md" srcset="https://s7d9.scene7.com/is/image/komatsu/417954_gpl5027-web:photo-3x2-md 390w, https://s7d9.scene7.com/is/image/komatsu/417954_gpl5027-web:photo-3x2-lg 720w" sizes="(max-width: 449px) 70vw, (max-width: 899px) 40vw, 200px" alt="Longwall shearer" width="390" height="260" loading="lazy" decoding="async">
+        <span class="rail-name">Longwall</span></a></li>
+      <li class="rail-item"><a href="/en-us/products/equipment/machine-tools">
+        <img src="https://s7d9.scene7.com/is/image/komatsu/cx500_carousel:photo-3x2-md" srcset="https://s7d9.scene7.com/is/image/komatsu/cx500_carousel:photo-3x2-md 390w, https://s7d9.scene7.com/is/image/komatsu/cx500_carousel:photo-3x2-lg 720w" sizes="(max-width: 449px) 70vw, (max-width: 899px) 40vw, 200px" alt="CX500" width="390" height="260" loading="lazy" decoding="async">
+        <span class="rail-name">Machine tools</span></a></li>
+      <li class="rail-item"><a href="/en-us/products/equipment/motor-graders">
+        <img src="https://s7d9.scene7.com/is/image/komatsu/830488_Motor-Grader_GD655-6_literature-link_MG_5594-1280x1280:photo-3x2-md" srcset="https://s7d9.scene7.com/is/image/komatsu/830488_Motor-Grader_GD655-6_literature-link_MG_5594-1280x1280:photo-3x2-md 390w, https://s7d9.scene7.com/is/image/komatsu/830488_Motor-Grader_GD655-6_literature-link_MG_5594-1280x1280:photo-3x2-lg 720w" sizes="(max-width: 449px) 70vw, (max-width: 899px) 40vw, 200px" alt="GD655-6 motor grader" width="390" height="260" loading="lazy" decoding="async">
+        <span class="rail-name">Motor graders</span></a></li>
+      <li class="rail-item"><a href="/en-us/products/equipment/room-and-pillar">
+        <img src="https://s7d9.scene7.com/is/image/komatsu/307402_GPL10157:photo-3x2-md" srcset="https://s7d9.scene7.com/is/image/komatsu/307402_GPL10157:photo-3x2-md 390w, https://s7d9.scene7.com/is/image/komatsu/307402_GPL10157:photo-3x2-lg 720w" sizes="(max-width: 449px) 70vw, (max-width: 899px) 40vw, 200px" alt="14CM" width="390" height="260" loading="lazy" decoding="async">
+        <span class="rail-name">Room and pillar</span></a></li>
+      <li class="rail-item"><a href="/en-us/products/equipment/shaft-sinking-equipment">
+        <img src="https://s7d9.scene7.com/is/image/komatsu/438411_GPL6281:photo-3x2-md" srcset="https://s7d9.scene7.com/is/image/komatsu/438411_GPL6281:photo-3x2-md 390w, https://s7d9.scene7.com/is/image/komatsu/438411_GPL6281:photo-3x2-lg 720w" sizes="(max-width: 449px) 70vw, (max-width: 899px) 40vw, 200px" alt="Shaft sinking equipment" width="390" height="260" loading="lazy" decoding="async">
+        <span class="rail-name">Shaft sinking equipment</span></a></li>
+      <li class="rail-item"><a href="/en-us/products/equipment/trucks">
+        <img src="https://s7d9.scene7.com/is/image/komatsu/413815_980E-4-Glamour:photo-3x2-md" srcset="https://s7d9.scene7.com/is/image/komatsu/413815_980E-4-Glamour:photo-3x2-md 390w, https://s7d9.scene7.com/is/image/komatsu/413815_980E-4-Glamour:photo-3x2-lg 720w" sizes="(max-width: 449px) 70vw, (max-width: 899px) 40vw, 200px" alt="980E electric drive haul truck" width="390" height="260" loading="lazy" decoding="async">
+        <span class="rail-name">Trucks</span></a></li>
+      <li class="rail-item"><a href="/en-us/products/equipment/underground-hard-rock-bolters">
+        <img src="https://s7d9.scene7.com/is/image/komatsu/4369203_Bolter_ZB21_Sudbury-CAN_JH_221220_KO-3-1280x1280:photo-3x2-md" srcset="https://s7d9.scene7.com/is/image/komatsu/4369203_Bolter_ZB21_Sudbury-CAN_JH_221220_KO-3-1280x1280:photo-3x2-md 390w, https://s7d9.scene7.com/is/image/komatsu/4369203_Bolter_ZB21_Sudbury-CAN_JH_221220_KO-3-1280x1280:photo-3x2-lg 720w" sizes="(max-width: 449px) 70vw, (max-width: 899px) 40vw, 200px" alt="ZB21 underground hard rock bolter" width="390" height="260" loading="lazy" decoding="async">
+        <span class="rail-name">Underground hard rock bolters</span></a></li>
+      <li class="rail-item"><a href="/en-us/products/equipment/underground-hard-rock-drills">
+        <img src="https://s7d9.scene7.com/is/image/komatsu/575462_Hard-rock_ZJ21-ZB21_Sudbury-ON-Canada_JH_201116_Komatsu-Layered-PSD-4--1280x1280:photo-3x2-md" srcset="https://s7d9.scene7.com/is/image/komatsu/575462_Hard-rock_ZJ21-ZB21_Sudbury-ON-Canada_JH_201116_Komatsu-Layered-PSD-4--1280x1280:photo-3x2-md 390w, https://s7d9.scene7.com/is/image/komatsu/575462_Hard-rock_ZJ21-ZB21_Sudbury-ON-Canada_JH_201116_Komatsu-Layered-PSD-4--1280x1280:photo-3x2-lg 720w" sizes="(max-width: 449px) 70vw, (max-width: 899px) 40vw, 200px" alt="ZJ21 underground hard rock drill" width="390" height="260" loading="lazy" decoding="async">
+        <span class="rail-name">Underground hard rock drills</span></a></li>
+      <li class="rail-item"><a href="/en-us/products/equipment/underground-hard-rock-haulage">
+        <img src="https://s7d9.scene7.com/is/image/komatsu/6031992-load-haul-dump-lhd-wx11-cgi-0201-turn-komatsu-web:photo-3x2-md" srcset="https://s7d9.scene7.com/is/image/komatsu/6031992-load-haul-dump-lhd-wx11-cgi-0201-turn-komatsu-web:photo-3x2-md 390w, https://s7d9.scene7.com/is/image/komatsu/6031992-load-haul-dump-lhd-wx11-cgi-0201-turn-komatsu-web:photo-3x2-lg 720w" sizes="(max-width: 449px) 70vw, (max-width: 899px) 40vw, 200px" alt="WX11 LHD for underground hard rock haulage" width="390" height="260" loading="lazy" decoding="async">
+        <span class="rail-name">Underground hard rock haulage</span></a></li>
+      <li class="rail-item"><a href="/en-us/products/equipment/wheel-loaders">
+        <img src="https://s7d9.scene7.com/is/image/komatsu/827294_Wheel-Loader_WA475-10_literature-link_03_e-1280x1280:photo-3x2-md" srcset="https://s7d9.scene7.com/is/image/komatsu/827294_Wheel-Loader_WA475-10_literature-link_03_e-1280x1280:photo-3x2-md 390w, https://s7d9.scene7.com/is/image/komatsu/827294_Wheel-Loader_WA475-10_literature-link_03_e-1280x1280:photo-3x2-lg 720w" sizes="(max-width: 449px) 70vw, (max-width: 899px) 40vw, 200px" alt="WA475-10 wheel loader" width="390" height="260" loading="lazy" decoding="async">
+        <span class="rail-name">Wheel loaders</span></a></li>
+    </ul>
+    <div class="rail-controls" hidden>
+      <div class="rail-dots">
+        <button type="button" class="rail-dot" aria-label="Go to page 1" aria-current="true"></button>
+        <button type="button" class="rail-dot" aria-label="Go to page 2"></button>
+        <button type="button" class="rail-dot" aria-label="Go to page 3"></button>
+      </div>
+      <div class="rail-arrows">
+        <button type="button" class="rail-arrow" data-dir="-1" aria-label="Previous page" aria-controls="rail-track" disabled><span aria-hidden="true"></span></button>
+        <button type="button" class="rail-arrow" data-dir="1" aria-label="Next page" aria-controls="rail-track"><span aria-hidden="true"></span></button>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="tiles section" data-section="routing-tiles" data-intent="route-offer" data-layout="bento-1-4" data-items="5" data-media="image" data-system-component="routing-tiles" data-surface="yard-gray">
+  <div class="wrap">
+    <div class="bento">
+      <article class="tile tile-lead">
+        <img src="https://s7d9.scene7.com/is/image/komatsu/1645217_GPL15023__I1A2480-overlay-1280x1280:photo-3x2-xl"
+          srcset="https://s7d9.scene7.com/is/image/komatsu/1645217_GPL15023__I1A2480-overlay-1280x1280:photo-3x2-xl 990w, https://s7d9.scene7.com/is/image/komatsu/1645217_GPL15023__I1A2480-overlay-1280x1280:photo-3x2-xl?wid=1440&amp;hei=960 1440w"
+          sizes="(max-width: 899px) 100vw, 50vw" alt="PC7000 surface mining excavator loading 930E electric drive mining truck" width="990" height="660" loading="lazy" decoding="async">
+        <h2 class="tile-label"><a href="/en-us/products/equipment">Equipment</a></h2>
+      </article>
+      <article class="tile">
+        <img src="https://s7d9.scene7.com/is/image/komatsu/989075_Diesel-drive-1280x1280:photo-3x2-lg" alt="Diesel drive" width="720" height="480" loading="lazy" decoding="async">
+        <h2 class="tile-label"><a href="/en-us/products/parts">Parts</a></h2>
+      </article>
+      <article class="tile">
+        <img src="https://s7d9.scene7.com/is/image/komatsu/513702_Felling-Head_XA233_233-0003-sml_rev_cmyk_coated-1280x1280:photo-3x2-lg" alt="Felling head attachment" width="720" height="480" loading="lazy" decoding="async">
+        <h2 class="tile-label"><a href="/en-us/products/attachments">Attachments</a></h2>
+      </article>
+      <article class="tile">
+        <img src="https://s7d9.scene7.com/is/image/komatsu/295906_GPL11510:photo-3x2-lg" alt="Woman flying a mapping drone" width="720" height="480" loading="lazy" decoding="async">
+        <h2 class="tile-label"><a href="/en-us/technology">Technology</a></h2>
+      </article>
+      <article class="tile">
+        <img src="https://s7d9.scene7.com/is/image/komatsu/Dozer_D155CX-8%20K170%20Pipelayer_Granbury%20TX_DS_191217_KOM_4986:photo-3x2-lg" alt="Men talking in front of Komatsu equipment" width="720" height="480" loading="lazy" decoding="async">
+        <h2 class="tile-label"><a href="/en-us/services-and-support">Service and support</a></h2>
+      </article>
+    </div>
+  </div>
+</section>
+<section class="tech section" data-section="technology" data-intent="explore" data-layout="tabs-split-6-6" data-items="3" data-media="image" data-interactive="tabs" data-surface="daylight" aria-labelledby="tech-title">
+  <div class="wrap">
+    <h2 class="headline" id="tech-title">Technology</h2>
+    <div class="tablist" role="tablist" aria-label="Select a tab" hidden>
+      <button type="button" role="tab" id="tab-sc" aria-controls="panel-sc" aria-selected="true">Smart Construction</button>
+      <button type="button" role="tab" id="tab-sm" aria-controls="panel-sm" aria-selected="false" tabindex="-1">Smart Mining</button>
+      <button type="button" role="tab" id="tab-sq" aria-controls="panel-sq" aria-selected="false" tabindex="-1">Smart Quarry</button>
+    </div>
+    <div class="tab-panel" id="panel-sc" data-tab="tab-sc">
+      <div class="panel-copy">
+        <h3 class="subtitle">Smart Construction</h3>
+        <p>Our industry is on the cusp of rapid change and innovation — where advanced automation and integrated technologies intersect. Use these Smart Construction solutions to harness technology for accurate data, comprehensive reporting and remote capabilities.</p>
+        <ul class="link-list">
+          <li><a href="/en-us/technology/smart-construction/3d-machine-guidance">3D Machine Guidance</a></li>
+          <li><a href="/en-us/technology/smart-construction/3d-machine-guidance-flex">3D Machine Guidance Flex</a></li>
+          <li><a href="/en-us/technology/smart-construction/base-rover">Base / rover</a></li>
+          <li><a href="/en-us/technology/smart-construction/dashboard">Dashboard</a></li>
+          <li><a href="/en-us/technology/smart-construction/design">Design</a></li>
+          <li><a href="/en-us/technology/smart-construction/drone">Drone</a></li>
+          <li><a href="/en-us/technology/smart-construction/field">Field</a></li>
+          <li><a href="/en-us/technology/smart-construction/fleet">Fleet</a></li>
+          <li><a href="/en-us/technology/smart-construction/intelligent-machine-control">Intelligent Machine Control</a></li>
+          <li><a href="/en-us/technology/smart-construction/office">Office</a></li>
+          <li><a href="/en-us/technology/smart-construction/remote">Remote</a></li>
+        </ul>
+        <a class="btn btn-primary" href="/en-us/technology/smart-construction">Learn more</a>
+      </div>
+      <img class="panel-photo" src="https://www.komatsu.com/content/dam/komatsu/photos-images/equipment-product/technology/smart-construction/188500_Smart-Construction_Pleasant-Prairie-Wi-_-Zion-Il_DS_191029_KOM_2852-.jpg/_jcr_content/renditions/cq5dam.web.1280.1280.jpeg" alt="Smart Construction drone flying" width="1280" height="853" loading="lazy" decoding="async">
+    </div>
+    <div class="tab-panel" id="panel-sm" data-tab="tab-sm">
+      <div class="panel-copy">
+        <h3 class="subtitle">Smart Mining</h3>
+        <p>See how our smart mining approach delivers Customer Success Programs that drive more value for your operations. Whether your needs begin at the task, process or enterprise optimization level, we equip you with the technology, scalable solutions and flexible support you need to meet your business goals.</p>
+        <ul class="link-list">
+          <li><a href="/en-us/technology/smart-mining/drilling-and-blasting">Drilling and blasting</a></li>
+          <li><a href="/en-us/technology/smart-mining/loading-and-haulage">Loading and haulage</a></li>
+          <li><a href="/en-us/technology/smart-mining/asset-management">Asset management</a></li>
+          <li><a href="/en-us/technology/smart-mining/modular">Modular ecosystem</a></li>
+        </ul>
+        <a class="btn btn-primary" href="/en-us/technology/smart-mining">Learn More</a>
+      </div>
+      <img class="panel-photo" src="https://www.komatsu.com/content/dam/komatsu/websites/en-us/miscellaneous-web-site-assets/What-we-do_Landing-Page_Hero-V2.jpg/_jcr_content/renditions/cq5dam.web.1280.1280.jpeg" alt="Smart mining" width="1280" height="853" loading="lazy" decoding="async">
+    </div>
+    <div class="tab-panel" id="panel-sq" data-tab="tab-sq">
+      <div class="panel-copy">
+        <h3 class="subtitle">Smart Quarry</h3>
+        <p>Let Smart Quarry consultants do the heavy mental lifting for you. With minimal impact to your day and operation, Smart Quarry will assess the needs of your job site and recommend the best fleet to help meet your current and future production goals. Using expertise in digital solutions, Smart Quarry will help connect you with the right tools to better understand, track and optimize your mobile equipment. Together, this can result in a lower unit cost for improved bottom line.</p>
+        <ul class="link-list">
+          <li><a href="/en-us/technology/smart-quarry/site">Site</a></li>
+          <li><a href="/en-us/technology/smart-quarry/study">Study</a></li>
+        </ul>
+        <a class="btn btn-primary" href="/en-us/technology/smart-quarry">Learn More</a>
+      </div>
+      <img class="panel-photo" src="https://www.komatsu.com/content/dam/komatsu/websites/en-us/miscellaneous-web-site-assets/Smart-Quarry-2.jpg/_jcr_content/renditions/cq5dam.web.1280.1280.jpeg" alt="Smart Quarry" width="1280" height="853" loading="lazy" decoding="async">
+    </div>
+  </div>
+</section>
+<section class="parts" data-section="parts-band" data-intent="conversion" data-layout="band-split-5-7" data-items="1" data-media="image" data-system-component="cta-band" data-surface="komatsu-blue" aria-labelledby="parts-title">
+  <div class="wrap parts-inner">
+    <div class="parts-copy">
+      <span class="accent-rule" aria-hidden="true"></span>
+      <h2 class="headline" id="parts-title">Parts purchasing made easy</h2>
+      <p>Order Komatsu Genuine and Reman parts through My Komatsu, with options to pick up at your Komatsu dealer or direct delivery.</p>
+      <a class="btn btn-inverse" href="https://mykomatsu.komatsu/" target="_blank" rel="noopener">Order now<span class="sr-only"> opens in a new tab</span></a>
+    </div>
+  </div>
+  <img class="parts-photo" src="https://www.komatsu.com/content/dam/komatsu/websites/en-us/miscellaneous-web-site-assets/5789348_my-komatsu-banners-parts-a-1269x338px-no-logo.jpg" alt="" width="1269" height="338" loading="lazy" decoding="async">
+</section>
+<section class="news section" data-section="news" data-intent="editorial-feed" data-layout="feature-2-list-3" data-items="5" data-media="image" data-surface="yard-gray" aria-labelledby="news-title">
+  <div class="wrap">
+    <h2 class="headline" id="news-title">Dig into the latest</h2>
+    <div class="news-grid">
+      <article class="tile news-feature">
+        <img src="https://www.komatsu.com/content/dam/komatsu/websites/en-us/newsroom/NMO-Newberry%20SC-DS-261002-0039.SOCIAL-MEDIA-FIXED-HEIGHT.jpeg/_jcr_content/renditions/cq5dam.web.1280.1280.jpeg" alt="" width="1280" height="719" loading="lazy" decoding="async">
+        <div class="news-body">
+          <p class="meta"><span>3 min read</span><span><time datetime="2026-10-05" aria-label="Published on Oct 5, 2026">Oct 5, 2026</time></span></p>
+          <h3 class="tile-title"><a href="/en-us/newsroom/2026/komatsu-newberry-facility-celebrates-25-years">Komatsu’s Newberry facility celebrates 25 years of manufacturing, teamwork and continuous improvement</a></h3>
+          <p class="meta meta-tags"><span>Press release</span><span>Construction</span><span>Company</span></p>
+        </div>
+      </article>
+      <article class="tile news-feature news-feature--portrait">
+        <img src="https://s7d9.scene7.com/is/image/komatsu/Komatsu-electric-alternative-power-PC-2880x960:portrait-3x4?wid=776&amp;hei=1000" alt="" width="776" height="1000" loading="lazy" decoding="async">
+        <div class="news-body">
+          <p class="meta"><span>3 min read</span><span><time datetime="2026-09-17" aria-label="Published on Sep 17, 2026">Sep 17, 2026</time></span></p>
+          <h3 class="tile-title"><a href="/en-us/blog/2026/inside-komatsu-electrification">Powering progress responsibly: Inside Komatsu electrification</a></h3>
+          <p class="meta meta-tags"><span>Construction</span><span>Operational efficiency</span><span>Smart Construction</span><span>Forestry</span><span>Discover Komatsu</span><span>Underground hard rock mining</span><span>Surface mining</span><span>Underground soft rock mining</span><span>Blog</span></p>
+        </div>
+      </article>
+      <ul class="news-list">
+        <li class="news-item">
+          <img src="https://www.komatsu.com/content/dam/komatsu/websites/en-us/newsroom/1642350_people_SmartConstruction_3DMG_Mobile_AL_JQ_0222_3K1A6458.SOCIAL-MEDIA-FIXED-HEIGHT.jpeg/_jcr_content/renditions/cq5dam.thumbnail.319.319.png" alt="" width="319" height="213" loading="lazy" decoding="async">
+          <div class="item-copy">
+            <h3><a href="/en-us/newsroom/2026/komatsu-launches-workforce-development-campaign">Komatsu launches “The future you build starts here” campaign</a></h3>
+            <p class="meta"><span>3 min read</span><span><time datetime="2026-09-16" aria-label="Published on Sep 16, 2026">Sep 16, 2026</time></span></p>
+            <p class="sr-only">Press release, Career development, Distributors</p>
+          </div>
+        </li>
+        <li class="news-item">
+          <img src="https://www.komatsu.com/content/dam/komatsu/websites/en-us/newsroom/DSC04350.png/_jcr_content/renditions/cq5dam.thumbnail.319.319.png" alt="" width="319" height="213" loading="lazy" decoding="async">
+          <div class="item-copy">
+            <h3><a href="/en-us/newsroom/2026/komatsu-celebrates-opening-of-edmonton-parts-distribution-center">Komatsu celebrates grand opening of new Edmonton parts distribution center</a></h3>
+            <p class="meta"><span>3 min read</span><span><time datetime="2026-09-10" aria-label="Published on Sep 10, 2026">Sep 10, 2026</time></span></p>
+            <p class="sr-only">Press release, Company, Parts</p>
+          </div>
+        </li>
+        <li class="news-item">
+          <img src="https://www.komatsu.com/content/dam/komatsu/websites/en-us/blogs/6235462_Drill-ZR77-AZPG-AZ-2024-Teleop-06.jpg/_jcr_content/renditions/cq5dam.thumbnail.319.319.png" alt="" width="319" height="213" loading="lazy" decoding="async">
+          <div class="item-copy">
+            <h3><a href="/en-us/blog/2026/how-teleoperation-is-changing-work-in-heavy-industry">Redefining presence: How teleoperation is changing work in heavy industry</a></h3>
+            <p class="meta"><span>3 min read</span><span><time datetime="2026-09-04" aria-label="Published on Sep 4, 2026">Sep 4, 2026</time></span></p>
+            <p class="sr-only">Construction, Innovation and technology, Smart Construction, Discover Komatsu, Underground hard rock mining, Surface mining, Underground soft rock mining, Blog</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <a class="btn btn-primary news-more" href="/en-us/newsroom">Read more news</a>
+  </div>
+</section>
+<section class="contact section" data-section="get-in-touch" data-intent="contact" data-layout="grid-4" data-items="4" data-media="image" data-system-component="contact-router" data-surface="daylight" aria-labelledby="contact-title">
+  <div class="wrap">
+    <h2 class="headline" id="contact-title">Get in touch</h2>
+    <div class="contact-grid">
+      <article class="tile">
+        <img src="https://s7d9.scene7.com/is/image/komatsu/Dozer_D61PXi_Cartersvile%20GA_DS_190925_KOM_1648:photo-3x2-xl" alt="Man using tablet at job site" width="990" height="660" loading="lazy" decoding="async">
+        <h3 class="tile-label"><a href="/en-us/contact-us">Contact us</a></h3>
+      </article>
+      <article class="tile">
+        <img src="https://s7d9.scene7.com/is/image/komatsu/219877_GPL14821_KMC_6837-1280x1280:photo-3x2-lg" alt="Workers looking at a laptop" width="720" height="480" loading="lazy" decoding="async">
+        <h3 class="tile-label"><a href="/en-us/request-a-quote">Request a quote</a></h3>
+      </article>
+      <article class="tile">
+        <img src="https://s7d9.scene7.com/is/image/komatsu/1182786_Parts-store-V1-web-banner-4185x2799px_v2-1280x1280:photo-3x2-lg" alt="My Komatsu on tablet" width="720" height="480" loading="lazy" decoding="async">
+        <h3 class="tile-label"><a href="https://mykomatsu.komatsu/" target="_blank" rel="noopener" aria-describedby="newtab-hint">My Komatsu</a></h3>
+        <span id="newtab-hint" hidden>opens in a new tab</span>
+      </article>
+      <article class="tile">
+        <img src="https://s7d9.scene7.com/is/image/komatsu/1894158_Facility_South-Harbor_Milwaukee-WI_HMS_220618_DJI_0210-1280x1280:photo-3x2-lg" alt="South Harbor Komatsu office exterior" width="720" height="480" loading="lazy" decoding="async">
+        <h3 class="tile-label"><a href="/en-us/komatsu-locator">Find a location</a></h3>
+      </article>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="site-footer" data-section="footer" data-intent="navigate" data-layout="mega-4-col-brand" data-system-component="footer" data-surface="site-ground">
+  <div class="wrap">
+    <div class="footer-grid">
+      <nav class="footer-cols" aria-label="Footer">
+        <div class="footer-col"><h2>Discover</h2><ul>
+          <li><a href="/en-us/products/equipment">Equipment</a></li>
+          <li><a href="/en-us/products/parts">Parts</a></li>
+          <li><a href="/en-us/services-and-support">Services and support</a></li>
+          <li><a href="/en-us/industries">Industries</a></li>
+          <li><a href="/en-us/technology">Technology</a></li></ul></div>
+        <div class="footer-col"><h2>Tools</h2><ul>
+          <li><a href="/en-us/request-a-quote">Request a quote</a></li>
+          <li><a href="/en-us/komatsu-locator">Komatsu locator</a></li>
+          <li><a href="https://mykomatsu.komatsu/" target="_blank" rel="noopener">My Komatsu<span class="sr-only"> opens in a new tab</span></a></li>
+          <li><a href="/en-us/competitive-comparison">Competitive comparison tool</a></li>
+          <li><a href="https://kmap.datasolutions.komatsu/" target="_blank" rel="noopener">Mining Analytics Platform<span class="sr-only"> opens in a new tab</span></a></li></ul></div>
+        <div class="footer-col"><h2>Company</h2><ul>
+          <li><a href="/en-us/about">About us</a></li>
+          <li><a href="/en-us/careers">Careers</a></li>
+          <li><a href="/en-us/case-studies">Case studies</a></li>
+          <li><a href="/en-us/our-commitment">Commitment to society</a></li>
+          <li><a href="/en-us/merchandise">Merchandise</a></li>
+          <li><a href="/en-us/newsroom">Newsroom</a></li>
+          <li><a href="https://home.komatsu/en/ir/" target="_blank" rel="noopener">Investor relations<span class="sr-only"> opens in a new tab</span></a></li></ul></div>
+        <div class="footer-col"><h2>Connect</h2><ul>
+          <li><a href="/en-us/contact-us">Contact us</a></li>
+          <li><a href="/en-us/social-media-channels">Social media channels</a></li>
+          <li><a href="/en-us/customer-portals">Customer / dealer portals</a></li>
+          <li><a href="/en-us/suppliers">Suppliers</a></li></ul></div>
+      </nav>
+      <div class="footer-brand">
+        <img src="https://www.komatsu.com/content/dam/komatsu/icons/website-app/blue-logo.svg" alt="Komatsu" width="181" height="35" loading="lazy">
+        <p>Komatsu is a leading manufacturer of construction, mining, forestry, and industrial heavy equipment.</p>
+        <a class="footer-global" href="https://www.komatsu.jp/en">Global corporate website</a>
+        <ul class="social">
+          <li><a href="https://www.facebook.com/KomatsuLtd" target="_blank" rel="noopener"><img src="https://www.komatsu.com/content/dam/komatsu/icons/website-app/facebook-new.svg" alt="" width="40" height="40" loading="lazy"><span class="sr-only">Komatsu on Facebook (opens in a new tab)</span></a></li>
+          <li><a href="https://www.instagram.com/komatsuglobal/" target="_blank" rel="noopener"><img src="https://www.komatsu.com/content/dam/komatsu/icons/website-app/instagram-grey-new.svg" alt="" width="38" height="40" loading="lazy"><span class="sr-only">Komatsu on Instagram (opens in a new tab)</span></a></li>
+          <li><a href="https://www.youtube.com/c/komatsu" target="_blank" rel="noopener"><img src="https://www.komatsu.com/content/dam/komatsu/icons/website-app/youtube-new.svg" alt="" width="40" height="40" loading="lazy"><span class="sr-only">Komatsu on YouTube (opens in a new tab)</span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <ul class="legal-links">
+        <li><a href="/en-us/cookie-policy">Cookie policy</a></li>
+        <li><a href="/en-us/privacy-statement">Privacy statement</a></li>
+        <li><a href="/en-us/terms-of-use">Terms of use</a></li>
+        <li><a href="/en-us/transparency-in-coverage">Transparency in coverage</a></li>
+        <li><a href="/en-us/modular-mining-legal-notices">Modular Mining legal notices</a></li>
+        <li><a href="/en-us/california-supply-chain-transparency-act">California Supply Chain Transparency Act</a></li>
+        <li><a href="/en-us/california-voluntary-carbon-market-disclosures-act">California Voluntary Carbon Market Disclosures Act</a></li>
+        <li><a href="/en-us/privacy-notice-for-california-residents">Privacy notice for California residents</a></li>
+        <li><a href="/en-us/modern-slavery-statement">Fighting Against Forced Labour and Child Labour in Supply Chains Act (Canada)</a></li>
+        <li><a href="/en-us/sitemap">Sitemap</a></li>
+      </ul>
+      <p class="copyright"><span class="num">2026</span> Komatsu America Corp. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+<script>
+/* Progressive enhancement only: mobile nav a11y, header search, WAI-ARIA tabs, rail paging. No-JS keeps every path reachable. */
+(() => {
+  const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  // Mobile nav: aria-expanded sync, Enter/Space on label buttons, Escape, focus trap.
+  const t = $('#ds-nav-toggle'), b = $('.ds-nav-burger'), nav = $('#ds-nav-list'), close = $('.panel-close');
+  // JS upgrade: the labels become the buttons; the checkbox becomes pure state.
+  [b, close].forEach((el) => { el.setAttribute('role', 'button'); el.tabIndex = 0; el.setAttribute('aria-controls', 'ds-nav-list'); });
+  t.tabIndex = -1; t.setAttribute('aria-hidden', 'true');
+  const outside = [$('main'), $('footer'), $('.wordmark'), $('[data-search-toggle]')];
+  const sync = () => {
+    b.setAttribute('aria-expanded', t.checked);
+    const modal = t.checked && getComputedStyle(b).display !== 'none';
+    outside.forEach((el) => el && (el.inert = modal));
+    document.documentElement.style.overflow = modal ? 'hidden' : '';
+    if (modal) setTimeout(() => close.focus(), 50);
+  };
+  addEventListener('resize', () => { if (t.checked && getComputedStyle(b).display === 'none') { t.checked = false; sync(); } });
+  t.addEventListener('change', sync); sync();
+  [b, close].forEach((el) => el.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); t.checked = !t.checked; sync(); if (!t.checked) b.focus(); }
+  }));
+  close.addEventListener('click', () => setTimeout(() => b.focus(), 0));
+  addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && t.checked) { t.checked = false; sync(); b.focus(); }
+    if (e.key === 'Tab' && t.checked) {
+      const f = $$('a[href], [tabindex="0"]', nav).filter((el) => el.offsetParent !== null);
+      if (!f.length) return;
+      if (e.shiftKey && document.activeElement === f[0]) { e.preventDefault(); f[f.length - 1].focus(); }
+      else if (!e.shiftKey && document.activeElement === f[f.length - 1]) { e.preventDefault(); f[0].focus(); }
+    }
+  });
+  // Header search: the link becomes a disclosure for the inline input.
+  const st = $('[data-search-toggle]'), sb = $('#site-search');
+  st.setAttribute('role', 'button'); st.setAttribute('aria-controls', 'site-search'); st.setAttribute('aria-expanded', 'false');
+  const setSearch = (open) => { sb.hidden = !open; st.setAttribute('aria-expanded', open); if (open) $('input', sb).focus(); else st.focus(); };
+  st.addEventListener('click', (e) => { e.preventDefault(); setSearch(sb.hidden); });
+  st.addEventListener('keydown', (e) => { if (e.key === ' ') { e.preventDefault(); setSearch(sb.hidden); } });
+  $('[data-search-close]').addEventListener('click', () => setSearch(false));
+  sb.addEventListener('keydown', (e) => { if (e.key === 'Escape') setSearch(false); });
+  // Tabs (WAI-ARIA): arrows, Home, End; no transition on swap.
+  const tl = $('[role="tablist"]'), tabs = $$('[role="tab"]', tl);
+  tl.hidden = false;
+  tabs.forEach((x) => { const pnl = $('#' + x.getAttribute('aria-controls')); pnl.setAttribute('role', 'tabpanel'); pnl.setAttribute('aria-labelledby', x.id); pnl.tabIndex = 0; });
+  const select = (tab, focus) => {
+    tabs.forEach((x) => { const on = x === tab; x.setAttribute('aria-selected', on); x.tabIndex = on ? 0 : -1; $('#' + x.getAttribute('aria-controls')).hidden = !on; });
+    if (focus) tab.focus();
+    if (focus) tab.scrollIntoView({ inline: 'nearest', block: 'nearest' });
+  };
+  const more = () => tl.classList.toggle('has-more', tl.scrollLeft + tl.clientWidth < tl.scrollWidth - 2);
+  tl.addEventListener('scroll', more, { passive: true }); addEventListener('resize', more);
+  tabs.forEach((tab, i) => {
+    tab.addEventListener('click', () => select(tab, true));
+    tab.addEventListener('keydown', (e) => {
+      const k = { ArrowRight: i + 1, ArrowLeft: i - 1, Home: 0, End: tabs.length - 1 }[e.key];
+      if (k === undefined) return;
+      e.preventDefault(); select(tabs[(k + tabs.length) % tabs.length], true);
+    });
+  });
+  select(tabs[0]); more();
+  // Rail paging: arrows scroll one page; dots jump to a page.
+  const track = $('#rail-track'), ctr = $('.rail-controls'), dotWrap = $('.rail-dots'), arrows = $$('.rail-arrow');
+  ctr.hidden = false;
+  const step = () => track.clientWidth + parseFloat(getComputedStyle(track).columnGap || 24);
+  const pages = () => Math.max(1, Math.ceil(track.scrollWidth / step() - 0.05));
+  const atEnd = () => track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
+  const page = () => (atEnd() ? pages() - 1 : Math.round(track.scrollLeft / step()));
+  const go = (p) => track.scrollTo({ left: p * step() });
+  const ensureDots = (n) => {
+    while (dotWrap.children.length < n) {
+      const d = document.createElement('button');
+      d.type = 'button'; d.className = 'rail-dot'; d.setAttribute('aria-label', 'Go to page ' + (dotWrap.children.length + 1));
+      dotWrap.append(d);
+    }
+    $$('.rail-dot', dotWrap).forEach((d, i) => { d.hidden = i >= n; d.onclick = () => go(i); });
+  };
+  const update = () => {
+    const n = pages(), p = page();
+    ensureDots(n);
+    $$('.rail-dot', dotWrap).forEach((d, i) => (i === p ? d.setAttribute('aria-current', 'true') : d.removeAttribute('aria-current')));
+    arrows[0].disabled = track.scrollLeft <= 2;
+    arrows[1].disabled = atEnd();
+  };
+  arrows.forEach((a) => a.addEventListener('click', () => go(page() + Number(a.dataset.dir))));
+  track.addEventListener('scroll', () => requestAnimationFrame(update), { passive: true });
+  addEventListener('resize', update); update();
+})();
+</script>
+</body>
+</html>

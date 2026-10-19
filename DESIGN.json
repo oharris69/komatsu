@@ -582,7 +582,18 @@
         "focus": "2px boom-blue outline",
         "synthesized": true
       },
-      "dualCTAPattern": null
+      "dualCTAPattern": null,
+      "pageLevelDeviations": [
+        {
+          "page": "en-us",
+          "file": "stardust/prototypes/en-us-proposed.html",
+          "component": "button-inverse (Parts band \"Order now\")",
+          "deviation": "filled Daylight fill + Komatsu Blue text instead of the transparent Daylight outline; hover Komatsu Yellow / Track Steel and yellow focus ring unchanged",
+          "userPhrase": "Solid white button",
+          "at": "2026-10-19T16:05Z",
+          "systemChange": false
+        }
+      ]
     },
     "systemComponentRoles": {
       "header": {
@@ -775,7 +786,8 @@
         "picked_by": "user-constraint",
         "retired": [
           "Roboto (news tags only; T-font-fork)"
-        ]
+        ],
+        "notes": "Noto Sans is variable (wght 100-900, captured woff2). en-us-proposed.html engages wght at intermediate positions (760 display, 680 title, 640 label/subtitle, 590 meta, 500 links) per Discipline 7."
       },
       "palette": {
         "source": "inherited from _brand-extraction.json (palette + cssUtilityRamps)",
@@ -903,7 +915,41 @@
         "offToolboxAudit": "see audit_adjustments[1]",
         "tripletAudit": "pass (no authored display copy)",
         "pickedByAllDeterministic": false
-      }
+      },
+      "prototype_audits": [
+        {
+          "file": "stardust/prototypes/en-us-proposed.html",
+          "at": "2026-10-19T15:10:00Z",
+          "phase": "prototype Phase 2 validation",
+          "hits": [],
+          "checked": {
+            "genericSaasSilhouette": "0/4 (display max 61px, single hero CTA, header not sticky, no serial footer)",
+            "statCalloutBar": false,
+            "heroTextWithoutScrim": false,
+            "creamGround": false,
+            "stickyNav": false,
+            "numberedEyebrows": false,
+            "uppercaseCondensedDisplay": false,
+            "monospaceMicrocopy": false,
+            "motifKit": false,
+            "editorialVocabulary": false,
+            "fabricatedContent": false,
+            "gradientText": false,
+            "sideStripe": false
+          },
+          "falsePositives": [
+            "regex clamp() hit on 3.815rem (61px max, below the 72px threshold)",
+            "border-right:2px on the rail arrow chevron (rotated-border glyph, not a side stripe)"
+          ],
+          "offToolboxMovesRealised": [
+            "machine-yellow reserved mark (48x4 accent rule on the Parts band; yellow focus rings on photo/blue grounds; inverse-button hover)",
+            "chrome-less cut-out equipment rail"
+          ],
+          "amendments": [
+            "none required — 0 hits"
+          ]
+        }
+      ]
     },
     "iaPriorities": [
       {

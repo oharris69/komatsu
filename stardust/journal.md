@@ -81,3 +81,42 @@ See `skills/stardust/reference/journal-format.md` for entry format.
 **Next:** `$stardust prototype en-us` — render the canonical modernized homepage against DESIGN.md and the improvements brief.
 
 ---
+
+## render — en-us-proposed.html authored by impeccable craft (2026-10-19)
+
+**Skill:** stardust:prototype Phases 2 → 2.7 (2.8 skipped: static, no motion). Brief `stardust/prototypes/en-us-shape.md` CONFIRMED by the user ("Yes, build it"). Open question 2 resolved: "Use larger versions", so the same Scene7/AEM asset IDs are used at higher resolution (larger named presets, or preset + aspect-preserving wid&hei). Oversized DAM originals use their `cq5dam.web.1280` / `thumbnail.319` renditions. Other open questions use the brief defaults.
+
+**What happened:**
+- **Phase 2 render:** impeccable craft (new-work flow, brief-pinned, no seed roll) wrote `stardust/prototypes/en-us-proposed.html` (≈112 KB, 9 landmarks and sections). Detector `[]`. The finish reviewer ran 2 rounds: 5 fixes resolved and 2 partial (no seed key because the direction is user-pinned; the Parts banner has no larger rendition).
+- **Contract:** `:root` is complete and first; data attributes are on all 9 sections; provenance is the first child of head; favicon is a data URI; no external CSS/JS (Noto Sans woff2 via a relative path); 0 placeholders. Type ratios are 1.563 at every step. Anti-toolbox: 0 hits, recorded in `DESIGN.json.extensions.divergence.prototype_audits`. Disciplines: 6 bypassed (Mode A Noto Sans); 7 uses wght at 760/680/640/590/500; 8 `refined`; 9 copy-cadence bypass scoped to the proposed file.
+- **Phase 2.5–2.6 critique + audit:** critique scored 25/32 (dual-agent) and audit 15/20. They found 2 P1s: news-feature meta contrast at 2.39:1 and inactive rail dots at 1.91:1. Harden fixed both (≥9.5:1 and 7.5:1), plus 9 P2s. Polish fixed one regression: mobile "Company" was invisible in the panel. Three overlay hits were dismissed as brand-faithful or false positives. Vision gate: pass.
+- **Phase 2.7 adapt:** no overflow at any of 320–1920px; the mobile-nav audit passes at 360px; the burger CSS source order is OK. Validation at 1440, 768 and 390: 0 console errors, 0 failed requests, landmarks OK, no heading skips, every image has alt, "Explore more" is keyboard-reachable.
+
+**Artifacts touched:**
+- `stardust/prototypes/en-us-proposed.html`: created.
+- `stardust/prototypes/en-us-shape.md`: confirmation and decisions added.
+- `DESIGN.json`: the `extensions.divergence.prototype_audits` and `font_deck.notes` fields only.
+- `stardust/validation/en-us-proposed/`: screenshots and `report.json`.
+- `.impeccable/critique/`: snapshot.
+- `stardust/state.json`: en-us moved directed → prototyped.
+
+**Open (advisory P2/P3):**
+- Parts "Order now" ghost button (it follows DESIGN.md button-inverse).
+- Scene7 serves JPEG; WebP is about 60% smaller.
+- News thumbnails are PNG.
+- Spacing-token literals.
+- Text-only 200% zoom header at 1280.
+- News-list headline wrap.
+- Rail shows 6 per page instead of 7 (deviation recorded).
+
+**Next:** the user reviews and approves (`$stardust prototype en-us` approval), then `$stardust deploy` to `/en-us/home-modern`.
+
+## iterate + approval — en-us approved (2026-10-19)
+
+- **Iterate:** the user said "Solid white button". impeccable `bolder` changed the Parts band "Order now" to a filled Daylight button with Komatsu Blue text. Contrast: text 13.64:1; hover (Komatsu Yellow, Track Steel text) 10.27:1; hover fill against the band 8.80:1; yellow focus ring against the band 8.80:1. This is recorded as a page-level, direction-authorized deviation in `_provenance.directionAuthorizedDeviations` and `DESIGN.json.extensions.componentStyle.pageLevelDeviations`. It is not a system change. Validation at 1440, 768 and 390 is clean, and the screenshots in `stardust/validation/en-us-proposed/` were refreshed.
+- **Approval:** the user said "Approve and deploy".
+  - The provenance cites the active direction (2026-10-17T16:06:00Z).
+  - Fold-back is a no-op because ia-fidelity is verbatim.
+  - State moved en-us prototyped → approved.
+
+**Next:** `$stardust deploy` to `/en-us/home-modern` with namespaced blocks. The existing `/en-us` page stays untouched.

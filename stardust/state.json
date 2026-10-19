@@ -1,7 +1,7 @@
 {
   "_provenance": {
-    "writtenBy": "stardust:direct",
-    "writtenAt": "2026-10-17T16:06:24Z",
+    "writtenBy": "stardust:prototype",
+    "writtenAt": "2026-10-19T16:28:12Z",
     "stardustVersion": "0.29.1"
   },
   "site": {
@@ -117,7 +117,7 @@
       "url": "https://www.komatsu.com/en-us",
       "title": "Construction, Mining and Industrial Equipment | Komatsu",
       "type": null,
-      "status": "directed",
+      "status": "approved",
       "history": [
         {
           "status": "extracted",
@@ -126,12 +126,20 @@
         {
           "status": "directed",
           "at": "2026-10-17T16:06:24Z"
+        },
+        {
+          "status": "prototyped",
+          "at": "2026-10-19T15:48:48Z"
+        },
+        {
+          "status": "approved",
+          "at": "2026-10-19T16:28:12Z"
         }
       ],
       "stale": false,
       "staleReason": null,
       "currentStatePath": "stardust/current/pages/en-us.json",
-      "prototypePath": null,
+      "prototypePath": "stardust/prototypes/en-us-proposed.html",
       "migratedPath": null
     }
   ]
