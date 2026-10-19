@@ -1,5 +1,7 @@
 sitemaps:
   default:
+    # no production domain is configured for the site yet — switch to the CDN host at launch
+    origin: https://main--komatsu--oharris69.aem.live
     source: /query-index.json
     destination: /sitemap.xml
     lastmod: YYYY-MM-DD
