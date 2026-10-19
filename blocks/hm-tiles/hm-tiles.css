@@ -1,0 +1,219 @@
+@import url('../../styles/home-modern.css');
+
+/* hm-tiles — 4px photo tiles, steel scrim, one whole-tile link each */
+.hm-tiles .hm-tiles-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-auto-rows: clamp(200px, 17vw, 300px);
+  gap: var(--hm-gutter);
+}
+
+.hm-tiles .hm-tile {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  grid-column: span 3;
+  overflow: hidden;
+  border-radius: var(--hm-radius);
+  background-color: var(--hm-track-steel);
+  box-shadow: var(--hm-shadow-rest);
+  color: var(--hm-daylight);
+  transition: box-shadow var(--hm-dur) var(--hm-ease-out);
+}
+
+.hm-tiles .hm-tile-lead {
+  grid-column: 1 / span 6;
+  grid-row: span 2;
+}
+
+.hm-tiles .hm-tile::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(to top, var(--hm-scrim-strong) 0%, var(--hm-scrim-mid) 38%, transparent 70%);
+}
+
+.hm-tiles .hm-tile-media,
+.hm-tiles .hm-tile-media picture,
+.hm-tiles .hm-tile-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+.hm-tiles .hm-tile-media {
+  z-index: -2;
+}
+
+.hm-tiles .hm-tile-media picture {
+  display: block;
+  overflow: hidden;
+}
+
+.hm-tiles .hm-tile-media img {
+  max-width: none;
+  object-fit: cover;
+  transition: transform 400ms var(--hm-ease-out);
+}
+
+.hm-tiles .hm-tile:hover {
+  box-shadow: var(--hm-shadow-lift);
+}
+
+.hm-tiles .hm-tile:hover .hm-tile-media img {
+  transform: scale(1.03);
+}
+
+.hm-tiles .hm-tile-label {
+  padding: 24px;
+  color: var(--hm-daylight);
+  font-size: var(--hm-type-title);
+  font-weight: var(--hm-wght-title);
+  line-height: 1.25;
+}
+
+.hm-tiles .hm-tile-label :is(h1, h2, h3, h4, h5, h6, p) {
+  margin: 0;
+  color: inherit;
+  font: inherit;
+  text-wrap: balance;
+}
+
+.hm-tiles .hm-tile-label :is(h1, h2, h3, h4, h5, h6, p)::after {
+  content: '→' / '';
+  display: inline-block;
+  margin-left: 10px;
+  font-weight: 400;
+  transition: transform var(--hm-dur) var(--hm-ease-out);
+}
+
+.hm-tiles .hm-tile:hover .hm-tile-label :is(h1, h2, h3, h4, h5, h6, p)::after {
+  transform: translateX(4px);
+}
+
+.hm-tiles .hm-tile-label a:any-link {
+  color: inherit;
+  font: inherit;
+  text-decoration: none;
+}
+
+.hm-tiles .hm-tile-label a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* the heading link covers the whole tile (styles.css gives a::after an icon-font chevron) */
+.hm-tiles .hm-tile-label a::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  float: none;
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  border-radius: var(--hm-radius);
+}
+
+.hm-tiles .hm-tile-label a:focus-visible {
+  outline: none;
+}
+
+.hm-tiles .hm-tile-label a:focus-visible::after {
+  outline: 2px solid var(--hm-boom-blue);
+  outline-offset: -2px;
+  box-shadow: inset 0 0 0 4px var(--hm-daylight);
+}
+
+/* contact variant: four equal 4:3 tiles locked to the bento column lines */
+.hm-tiles.contact .hm-tiles-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-rows: auto;
+}
+
+.hm-tiles.contact .hm-tile {
+  grid-column: auto;
+  aspect-ratio: 4 / 3;
+}
+
+@media (width <= 899px) {
+  .hm-tiles .hm-tiles-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: 220px;
+  }
+
+  .hm-tiles .hm-tile {
+    grid-column: span 1;
+    grid-row: auto;
+  }
+
+  .hm-tiles .hm-tile-lead {
+    grid-column: 1 / -1;
+    grid-row: span 1;
+  }
+
+  .hm-tiles.contact .hm-tiles-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: auto;
+  }
+
+  .hm-tiles.contact .hm-tile {
+    grid-column: auto;
+  }
+}
+
+@media (width <= 640px) {
+  .hm-tiles .hm-tile-label {
+    padding: 16px;
+  }
+}
+
+@media (width <= 449px) {
+  .hm-tiles .hm-tiles-grid {
+    grid-auto-rows: auto;
+    gap: 16px;
+  }
+
+  .hm-tiles .hm-tile {
+    aspect-ratio: 1;
+  }
+
+  .hm-tiles .hm-tile-lead {
+    aspect-ratio: 16 / 11;
+  }
+
+  .hm-tiles .hm-tile .hm-tile-label {
+    padding: 12px;
+    font-size: var(--hm-step-0);
+  }
+
+  .hm-tiles .hm-tile-lead .hm-tile-label {
+    font-size: var(--hm-step-1);
+  }
+
+  .hm-tiles.contact .hm-tiles-grid {
+    grid-template-columns: 1fr;
+    gap: var(--hm-gutter);
+  }
+
+  .hm-tiles.contact .hm-tile {
+    aspect-ratio: 4 / 3;
+  }
+
+  .hm-tiles.contact .hm-tile .hm-tile-label {
+    padding: 16px;
+    font-size: var(--hm-type-title);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hm-tiles .hm-tile:hover .hm-tile-media img,
+  .hm-tiles .hm-tile:hover .hm-tile-label :is(h1, h2, h3, h4, h5, h6, p)::after {
+    transform: none;
+  }
+}

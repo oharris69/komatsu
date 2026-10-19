@@ -120,3 +120,23 @@ See `skills/stardust/reference/journal-format.md` for entry format.
   - State moved en-us prototyped → approved.
 
 **Next:** `$stardust deploy` to `/en-us/home-modern` with namespaced blocks. The existing `/en-us` page stays untouched.
+
+## deploy (runtime-probe → local-qa) — en-us-proposed.html converted to /en-us/home-modern (2026-10-19)
+
+- **runtime-probe:** `stardust/runtime-contract.json` written. This runtime is an older boilerplate: it buttonizes bare links, uses `p.button-container`, and turns metadata `template` into a body class. The header overlay only switches on for `.hero-banner`.
+- **1-audit / 2-decide / 2b-section:** 7 sections. The fingerprint is in `.work/deploy/fingerprint.json`. Schema: `stardust/eds-schema/home-modern.json`. Names locked in `stardust/eds-conversion-log.md`: hm-hero, hm-rail, hm-tiles (+ `contact` variant, so routing tiles and Get in touch share one block), hm-tech, hm-band, hm-news. Section heads and "Read more news" are default content.
+- **3-foundation (page-scoped, by user constraint):** `styles/home-modern.css` scopes everything under `body.home-modern`, with `--hm-*` tokens. Every hm- block imports it. No existing file changed. Fonts reuse the site's Noto Sans variable.
+- **6-chrome:** the shared header/footer are kept. The header overlay is repeated under `body.home-modern`, and the non-home breadcrumb is hidden on this page only.
+- **7/8/9:** 6 blocks were built. `content/en-us/home-modern.plain.html` was written: one h1, Robots noindex/nofollow, larger komatsu.com renditions, and root-relative links only to the 5 local pages.
+- **local-qa:**
+  - davids-model-lint: 0 🔴 / 0 🟡.
+  - block-roundtrip: closed, EW 75/75.
+  - EW simulate: 0 dead.
+  - qa-gate: PASS 32/0/0 on the served page.
+  - Token grep: clean.
+  - Lint: clean.
+  - Regression: 3 existing pages load clean.
+  - Visual check: 1440 and 390 match the prototype. Two fixes came out of it: italic `<em>` CTA and meta separators.
+- **Handoff:** run. 1 page, 8 sections, 0 img srcs localised; the image srcs are external komatsu.com URLs and the uploader rehosts them.
+
+**Next:** the user uploads/previews from the UI. Step 10 (reconcile on the deployed URL, CLS) has not run.

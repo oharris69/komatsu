@@ -1,0 +1,565 @@
+{
+ "source": "http://localhost:8791/en-us-proposed.html",
+ "width": 1280,
+ "profile": "eds",
+ "sections": [
+  {
+   "section": "hero",
+   "items": [
+    {
+     "role": "heading",
+     "order": 0,
+     "text": "Here's to progress"
+    },
+    {
+     "role": "body",
+     "order": 1,
+     "text": "For more than a century, Komatsu has helped build the world beneath our feet. Now, we're helping imagine how people could one day build beyond it."
+    },
+    {
+     "role": "cta",
+     "order": 2,
+     "text": "Explore more",
+     "href": "/en-us/about/discover-komatsu/heres-to-progress"
+    }
+   ],
+   "imgCount": 1,
+   "editableTexts": 2,
+   "repeats": []
+  },
+  {
+   "section": "equipment-rail",
+   "items": [],
+   "imgCount": 21,
+   "editableTexts": 1,
+   "repeats": [
+    {
+     "unitSelector": "LI.rail-item",
+     "count": 21,
+     "unit": {
+      "headings": 0,
+      "ctas": 0,
+      "imgs": 1,
+      "textRuns": 1
+     },
+     "uniform": true
+    }
+   ]
+  },
+  {
+   "section": "routing-tiles",
+   "items": [
+    {
+     "role": "cta",
+     "order": 0,
+     "text": "Equipment",
+     "href": "/en-us/products/equipment"
+    },
+    {
+     "role": "cta",
+     "order": 1,
+     "text": "Parts",
+     "href": "/en-us/products/parts"
+    },
+    {
+     "role": "cta",
+     "order": 2,
+     "text": "Attachments",
+     "href": "/en-us/products/attachments"
+    },
+    {
+     "role": "cta",
+     "order": 3,
+     "text": "Technology",
+     "href": "/en-us/technology"
+    },
+    {
+     "role": "cta",
+     "order": 4,
+     "text": "Service and support",
+     "href": "/en-us/services-and-support"
+    }
+   ],
+   "imgCount": 5,
+   "editableTexts": 5,
+   "repeats": [
+    {
+     "unitSelector": "ARTICLE.tile",
+     "count": 5,
+     "unit": {
+      "headings": 1,
+      "ctas": 1,
+      "imgs": 1,
+      "textRuns": 1
+     },
+     "uniform": true
+    }
+   ]
+  },
+  {
+   "section": "technology",
+   "items": [
+    {
+     "role": "heading",
+     "order": 0,
+     "text": "Technology"
+    },
+    {
+     "role": "body",
+     "order": 1,
+     "text": "Smart Construction"
+    },
+    {
+     "role": "body",
+     "order": 2,
+     "text": "Smart Mining"
+    },
+    {
+     "role": "body",
+     "order": 3,
+     "text": "Smart Quarry"
+    },
+    {
+     "role": "heading",
+     "order": 4,
+     "text": "Smart Construction"
+    },
+    {
+     "role": "body",
+     "order": 5,
+     "text": "Our industry is on the cusp of rapid change and innovation — where advanced automation and integrated technologies intersect. Use these Smart Construction solutions to harness technology for accurate data, comprehensive reporting and remote capabilities."
+    },
+    {
+     "role": "cta",
+     "order": 6,
+     "text": "3D Machine Guidance",
+     "href": "/en-us/technology/smart-construction/3d-machine-guidance"
+    },
+    {
+     "role": "cta",
+     "order": 7,
+     "text": "3D Machine Guidance Flex",
+     "href": "/en-us/technology/smart-construction/3d-machine-guidance-flex"
+    },
+    {
+     "role": "cta",
+     "order": 8,
+     "text": "Base / rover",
+     "href": "/en-us/technology/smart-construction/base-rover"
+    },
+    {
+     "role": "cta",
+     "order": 9,
+     "text": "Dashboard",
+     "href": "/en-us/technology/smart-construction/dashboard"
+    },
+    {
+     "role": "cta",
+     "order": 10,
+     "text": "Design",
+     "href": "/en-us/technology/smart-construction/design"
+    },
+    {
+     "role": "cta",
+     "order": 11,
+     "text": "Drone",
+     "href": "/en-us/technology/smart-construction/drone"
+    },
+    {
+     "role": "cta",
+     "order": 12,
+     "text": "Field",
+     "href": "/en-us/technology/smart-construction/field"
+    },
+    {
+     "role": "cta",
+     "order": 13,
+     "text": "Fleet",
+     "href": "/en-us/technology/smart-construction/fleet"
+    },
+    {
+     "role": "cta",
+     "order": 14,
+     "text": "Intelligent Machine Control",
+     "href": "/en-us/technology/smart-construction/intelligent-machine-control"
+    },
+    {
+     "role": "cta",
+     "order": 15,
+     "text": "Office",
+     "href": "/en-us/technology/smart-construction/office"
+    },
+    {
+     "role": "cta",
+     "order": 16,
+     "text": "Remote",
+     "href": "/en-us/technology/smart-construction/remote"
+    },
+    {
+     "role": "cta",
+     "order": 17,
+     "text": "Learn more",
+     "href": "/en-us/technology/smart-construction"
+    },
+    {
+     "role": "heading",
+     "order": 18,
+     "text": "Smart Mining"
+    },
+    {
+     "role": "body",
+     "order": 19,
+     "text": "See how our smart mining approach delivers Customer Success Programs that drive more value for your operations. Whether your needs begin at the task, process or enterprise optimization level, we equip you with the technology, scalable solutions and flexible support you need to meet your business goals."
+    },
+    {
+     "role": "cta",
+     "order": 20,
+     "text": "Drilling and blasting",
+     "href": "/en-us/technology/smart-mining/drilling-and-blasting"
+    },
+    {
+     "role": "cta",
+     "order": 21,
+     "text": "Loading and haulage",
+     "href": "/en-us/technology/smart-mining/loading-and-haulage"
+    },
+    {
+     "role": "cta",
+     "order": 22,
+     "text": "Asset management",
+     "href": "/en-us/technology/smart-mining/asset-management"
+    },
+    {
+     "role": "cta",
+     "order": 23,
+     "text": "Modular ecosystem",
+     "href": "/en-us/technology/smart-mining/modular"
+    },
+    {
+     "role": "cta",
+     "order": 24,
+     "text": "Learn More",
+     "href": "/en-us/technology/smart-mining"
+    },
+    {
+     "role": "heading",
+     "order": 25,
+     "text": "Smart Quarry"
+    },
+    {
+     "role": "body",
+     "order": 26,
+     "text": "Let Smart Quarry consultants do the heavy mental lifting for you. With minimal impact to your day and operation, Smart Quarry will assess the needs of your job site and recommend the best fleet to help meet your current and future production goals. Using expertise in digital solutions, Smart Quarry will help connect you with the right tools to better understand, track and optimize your mobile equipment. Together, this can result in a lower unit cost for improved bottom line."
+    },
+    {
+     "role": "cta",
+     "order": 27,
+     "text": "Site",
+     "href": "/en-us/technology/smart-quarry/site"
+    },
+    {
+     "role": "cta",
+     "order": 28,
+     "text": "Study",
+     "href": "/en-us/technology/smart-quarry/study"
+    },
+    {
+     "role": "cta",
+     "order": 29,
+     "text": "Learn More",
+     "href": "/en-us/technology/smart-quarry"
+    }
+   ],
+   "imgCount": 3,
+   "editableTexts": 10,
+   "repeats": [
+    {
+     "unitSelector": "DIV.tab-panel",
+     "count": 3,
+     "unit": {
+      "headings": 1,
+      "ctas": 12,
+      "imgs": 1,
+      "textRuns": 14
+     },
+     "uniform": false
+    }
+   ]
+  },
+  {
+   "section": "parts-band",
+   "items": [
+    {
+     "role": "heading",
+     "order": 0,
+     "text": "Parts purchasing made easy"
+    },
+    {
+     "role": "body",
+     "order": 1,
+     "text": "Order Komatsu Genuine and Reman parts through My Komatsu, with options to pick up at your Komatsu dealer or direct delivery."
+    },
+    {
+     "role": "cta",
+     "order": 2,
+     "text": "Order now opens in a new tab",
+     "href": "https://mykomatsu.komatsu/"
+    }
+   ],
+   "imgCount": 1,
+   "editableTexts": 2,
+   "repeats": []
+  },
+  {
+   "section": "news",
+   "items": [
+    {
+     "role": "heading",
+     "order": 0,
+     "text": "Dig into the latest"
+    },
+    {
+     "role": "body",
+     "order": 1,
+     "text": "3 min read"
+    },
+    {
+     "role": "body",
+     "order": 2,
+     "text": "Oct 5, 2026"
+    },
+    {
+     "role": "cta",
+     "order": 3,
+     "text": "Komatsu’s Newberry facility celebrates 25 years of manufacturing, teamwork and continuous improvement",
+     "href": "/en-us/newsroom/2026/komatsu-newberry-facility-celebrates-25-years"
+    },
+    {
+     "role": "body",
+     "order": 4,
+     "text": "Press release"
+    },
+    {
+     "role": "body",
+     "order": 5,
+     "text": "Construction"
+    },
+    {
+     "role": "body",
+     "order": 6,
+     "text": "Company"
+    },
+    {
+     "role": "body",
+     "order": 7,
+     "text": "3 min read"
+    },
+    {
+     "role": "body",
+     "order": 8,
+     "text": "Sep 17, 2026"
+    },
+    {
+     "role": "cta",
+     "order": 9,
+     "text": "Powering progress responsibly: Inside Komatsu electrification",
+     "href": "/en-us/blog/2026/inside-komatsu-electrification"
+    },
+    {
+     "role": "body",
+     "order": 10,
+     "text": "Construction"
+    },
+    {
+     "role": "body",
+     "order": 11,
+     "text": "Operational efficiency"
+    },
+    {
+     "role": "body",
+     "order": 12,
+     "text": "Smart Construction"
+    },
+    {
+     "role": "body",
+     "order": 13,
+     "text": "Forestry"
+    },
+    {
+     "role": "body",
+     "order": 14,
+     "text": "Discover Komatsu"
+    },
+    {
+     "role": "body",
+     "order": 15,
+     "text": "Underground hard rock mining"
+    },
+    {
+     "role": "body",
+     "order": 16,
+     "text": "Surface mining"
+    },
+    {
+     "role": "body",
+     "order": 17,
+     "text": "Underground soft rock mining"
+    },
+    {
+     "role": "body",
+     "order": 18,
+     "text": "Blog"
+    },
+    {
+     "role": "cta",
+     "order": 19,
+     "text": "Komatsu launches “The future you build starts here” campaign",
+     "href": "/en-us/newsroom/2026/komatsu-launches-workforce-development-campaign"
+    },
+    {
+     "role": "body",
+     "order": 20,
+     "text": "3 min read"
+    },
+    {
+     "role": "body",
+     "order": 21,
+     "text": "Sep 16, 2026"
+    },
+    {
+     "role": "body",
+     "order": 22,
+     "text": "Press release, Career development, Distributors"
+    },
+    {
+     "role": "cta",
+     "order": 23,
+     "text": "Komatsu celebrates grand opening of new Edmonton parts distribution center",
+     "href": "/en-us/newsroom/2026/komatsu-celebrates-opening-of-edmonton-parts-distribution-center"
+    },
+    {
+     "role": "body",
+     "order": 24,
+     "text": "3 min read"
+    },
+    {
+     "role": "body",
+     "order": 25,
+     "text": "Sep 10, 2026"
+    },
+    {
+     "role": "body",
+     "order": 26,
+     "text": "Press release, Company, Parts"
+    },
+    {
+     "role": "cta",
+     "order": 27,
+     "text": "Redefining presence: How teleoperation is changing work in heavy industry",
+     "href": "/en-us/blog/2026/how-teleoperation-is-changing-work-in-heavy-industry"
+    },
+    {
+     "role": "body",
+     "order": 28,
+     "text": "3 min read"
+    },
+    {
+     "role": "body",
+     "order": 29,
+     "text": "Sep 4, 2026"
+    },
+    {
+     "role": "body",
+     "order": 30,
+     "text": "Construction, Innovation and technology, Smart Construction, Discover Komatsu, Underground hard rock mining, Surface mining, Underground soft rock mining, Blog"
+    },
+    {
+     "role": "cta",
+     "order": 31,
+     "text": "Read more news",
+     "href": "/en-us/newsroom"
+    }
+   ],
+   "imgCount": 5,
+   "editableTexts": 8,
+   "repeats": [
+    {
+     "unitSelector": "ARTICLE.tile",
+     "count": 2,
+     "unit": {
+      "headings": 1,
+      "ctas": 1,
+      "imgs": 1,
+      "textRuns": 6
+     },
+     "uniform": false
+    },
+    {
+     "unitSelector": "LI.news-item",
+     "count": 3,
+     "unit": {
+      "headings": 1,
+      "ctas": 1,
+      "imgs": 1,
+      "textRuns": 4
+     },
+     "uniform": true
+    }
+   ]
+  },
+  {
+   "section": "get-in-touch",
+   "items": [
+    {
+     "role": "heading",
+     "order": 0,
+     "text": "Get in touch"
+    },
+    {
+     "role": "cta",
+     "order": 1,
+     "text": "Contact us",
+     "href": "/en-us/contact-us"
+    },
+    {
+     "role": "cta",
+     "order": 2,
+     "text": "Request a quote",
+     "href": "/en-us/request-a-quote"
+    },
+    {
+     "role": "cta",
+     "order": 3,
+     "text": "My Komatsu",
+     "href": "https://mykomatsu.komatsu/"
+    },
+    {
+     "role": "body",
+     "order": 4,
+     "text": "opens in a new tab"
+    },
+    {
+     "role": "cta",
+     "order": 5,
+     "text": "Find a location",
+     "href": "/en-us/komatsu-locator"
+    }
+   ],
+   "imgCount": 4,
+   "editableTexts": 5,
+   "repeats": [
+    {
+     "unitSelector": "ARTICLE.tile",
+     "count": 4,
+     "unit": {
+      "headings": 1,
+      "ctas": 1,
+      "imgs": 1,
+      "textRuns": 1
+     },
+     "uniform": false
+    }
+   ]
+  }
+ ]
+}

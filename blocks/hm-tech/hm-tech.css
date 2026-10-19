@@ -1,0 +1,219 @@
+@import url('../../styles/home-modern.css');
+
+/* hm-tech — signature text tabs (3px Survey Blue indicator on a Grade Line rule) + split panel */
+.hm-tech .hm-tablist {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 40px;
+  border-bottom: 1px solid var(--hm-grade-line);
+}
+
+.hm-tech .hm-tab {
+  position: relative;
+  padding: 12px 0 14px;
+  color: var(--hm-cab-slate);
+  font-size: var(--hm-body);
+  font-weight: var(--hm-wght-button);
+  line-height: var(--hm-line-height-body);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color var(--hm-dur) var(--hm-ease-out);
+}
+
+.hm-tech .hm-tab :is(p, h1, h2, h3, h4, h5, h6) {
+  margin: 0;
+  color: inherit;
+  font: inherit;
+}
+
+.hm-tech .hm-tab:hover,
+.hm-tech .hm-tab[aria-selected='true'] {
+  color: var(--hm-track-steel);
+}
+
+.hm-tech .hm-tab::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: -1px;
+  left: 0;
+  height: 3px;
+  background-color: var(--hm-survey-blue);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.hm-tech .hm-tab[aria-selected='true']::after {
+  transform: scaleX(1);
+}
+
+.hm-tech .hm-tab:focus-visible {
+  outline: 2px solid var(--hm-boom-blue);
+  outline-offset: 2px;
+}
+
+.hm-tech .hm-tab-panel {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  align-items: start;
+  gap: var(--hm-gutter);
+}
+
+.hm-tech .hm-tab-panel[hidden] {
+  display: none;
+}
+
+.hm-tech .hm-tab-panel:focus-visible {
+  outline: 2px solid var(--hm-boom-blue);
+  outline-offset: 8px;
+}
+
+.hm-tech .hm-panel-copy {
+  display: grid;
+  grid-column: 1 / span 6;
+  justify-items: start;
+  gap: 20px;
+}
+
+.hm-tech .subtitle {
+  color: var(--hm-track-steel);
+  font-size: var(--hm-step-1);
+  font-weight: var(--hm-wght-label);
+  line-height: 1.35;
+}
+
+.hm-tech .subtitle :is(h1, h2, h3, h4, h5, h6) {
+  margin: 0;
+  color: inherit;
+  font: inherit;
+  text-wrap: balance;
+}
+
+.hm-tech .body {
+  max-width: 70ch;
+  color: var(--hm-track-steel);
+}
+
+.hm-tech .body p {
+  margin: 0;
+  color: inherit;
+  text-wrap: pretty;
+}
+
+.hm-tech .links {
+  width: 100%;
+}
+
+.hm-tech .links :is(ul, ol) {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: var(--hm-gutter);
+  width: 100%;
+  margin: 4px 0 12px;
+  padding: 0;
+  border-top: 1px solid var(--hm-grade-line);
+  list-style: none;
+}
+
+.hm-tech .links li {
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid var(--hm-grade-line);
+  line-height: var(--hm-line-height-body);
+}
+
+.hm-tech .links a:any-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 0;
+  background: linear-gradient(var(--hm-boom-blue), var(--hm-boom-blue)) left bottom / 0 1px no-repeat;
+  color: var(--hm-komatsu-blue);
+  font-weight: 500;
+  text-decoration: none;
+  transition:
+    background-size var(--hm-dur) var(--hm-ease-out),
+    color var(--hm-dur) var(--hm-ease-out);
+}
+
+.hm-tech .links a::after {
+  content: '→' / '';
+  float: none;
+  width: auto;
+  height: auto;
+  padding: 0;
+  color: inherit;
+  font-family: var(--hm-font);
+  font-size: inherit;
+  font-weight: inherit;
+  transition: transform var(--hm-dur) var(--hm-ease-out);
+}
+
+.hm-tech .links a:hover {
+  background-size: 100% 1px;
+  color: var(--hm-boom-blue);
+  text-decoration: none;
+}
+
+.hm-tech .links a:hover::after {
+  transform: translateX(4px);
+}
+
+.hm-tech .actions p {
+  margin: 0;
+}
+
+.hm-tech .hm-panel-photo {
+  grid-column: 7 / span 6;
+}
+
+.hm-tech .hm-panel-photo picture {
+  display: block;
+  overflow: hidden;
+  border-radius: var(--hm-radius);
+}
+
+.hm-tech .hm-panel-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: var(--hm-radius);
+}
+
+@media (width <= 899px) {
+  .hm-tech .hm-tablist {
+    gap: 24px;
+    margin-bottom: 32px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .hm-tech .hm-panel-copy,
+  .hm-tech .hm-panel-photo {
+    grid-column: 1 / -1;
+  }
+
+  .hm-tech .links :is(ul, ol) {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (width <= 640px) {
+  .hm-tech .hm-tablist {
+    gap: 20px;
+    padding-right: 32px;
+  }
+
+  .hm-tech .hm-tablist.has-more {
+    mask-image: linear-gradient(to right, #000 82%, transparent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hm-tech .links a:hover::after {
+    transform: none;
+  }
+}

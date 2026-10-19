@@ -1,0 +1,135 @@
+@import url('../../styles/home-modern.css');
+
+/* hm-band — the single saturated rhythm break (Komatsu Blue) */
+.hm-band {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--hm-komatsu-blue);
+  color: var(--hm-daylight);
+}
+
+.hm-band .hm-band-inner {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--hm-gutter);
+  padding-block: 64px;
+}
+
+.hm-band .hm-band-copy {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-column: 1 / span 5;
+  justify-items: start;
+  gap: 20px;
+}
+
+.hm-band .hm-accent-rule {
+  display: block;
+  width: 48px;
+  height: 4px;
+  border-radius: 1px;
+  background-color: var(--hm-komatsu-yellow);
+}
+
+.hm-band .headline {
+  color: var(--hm-daylight);
+  font-size: var(--hm-type-headline);
+  font-weight: var(--hm-wght-headline);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.hm-band .headline :is(h1, h2, h3, h4, h5, h6) {
+  margin: 0;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  text-wrap: balance;
+}
+
+.hm-band .body {
+  max-width: 44ch;
+  color: var(--hm-daylight);
+  font-size: var(--hm-step-1);
+  line-height: 1.5;
+}
+
+.hm-band .body p {
+  margin: 0;
+  color: inherit;
+  font: inherit;
+  text-wrap: pretty;
+}
+
+.hm-band .actions p {
+  margin: 0;
+}
+
+/* page-level deviation (user: "Solid white button"): filled Daylight on the band */
+body.home-modern .hm-band a.button:any-link,
+body.home-modern .hm-band a.button.primary:any-link {
+  border-color: var(--hm-daylight);
+  background-color: var(--hm-daylight);
+  color: var(--hm-komatsu-blue);
+  box-shadow: none;
+}
+
+body.home-modern .hm-band a.button:hover,
+body.home-modern .hm-band a.button.primary:hover {
+  border-color: var(--hm-komatsu-yellow);
+  background-color: var(--hm-komatsu-yellow);
+  color: var(--hm-track-steel);
+}
+
+.hm-band :focus-visible,
+body.home-modern .hm-band a.button:focus-visible {
+  outline: 2px solid var(--hm-komatsu-yellow);
+  outline-offset: 2px;
+}
+
+.hm-band .hm-band-photo {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: calc(50% - var(--hm-gutter) / 2);
+}
+
+.hm-band .hm-band-photo picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.hm-band .hm-band-photo img {
+  display: block;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  object-fit: cover;
+  object-position: 6% 100%;
+}
+
+@media (width <= 899px) {
+  .hm-band {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hm-band .hm-band-inner {
+    grid-template-columns: 1fr;
+    padding-block: 0 48px;
+  }
+
+  .hm-band .hm-band-copy {
+    grid-column: 1;
+  }
+
+  .hm-band .hm-band-photo {
+    position: static;
+    order: -1;
+    width: 100%;
+    height: 220px;
+  }
+}

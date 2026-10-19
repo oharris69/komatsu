@@ -34,3 +34,22 @@
 {"ts":"2026-10-19T16:28:12Z","skill":"stardust:prototype","phase":"iterate","event":"end","detail":"impeccable bolder: Order now now solid white (user 'Solid white button'); 13.64 / 10.27 / ring 8.8:1; validation 1440/768/390 clean"}
 {"ts":"2026-10-19T16:28:12Z","skill":"stardust:prototype","phase":"approval","event":"start","detail":"user: 'Approve and deploy'"}
 {"ts":"2026-10-19T16:28:23Z","skill":"stardust:prototype","phase":"approval","event":"end","detail":"en-us approved; direction verified current; fold-back no-op (ia-fidelity verbatim)","artifact":"stardust/prototypes/en-us-proposed.html","next":"stardust deploy en-us to /en-us/home-modern"}
+{"ts":"2026-10-19T16:30:46Z","skill":"stardust:deploy","phase":"steps-1-9","event":"start"}
+{"ts":"2026-10-19T16:33:18Z","skill":"stardust:deploy","phase":"runtime-probe","event":"start"}
+{"ts":"2026-10-19T16:34:00Z","skill":"stardust:deploy","phase":"runtime-probe","event":"end"}
+{"ts":"2026-10-19T16:34:00Z","skill":"stardust:deploy","phase":"1-audit","event":"start"}
+{"ts":"2026-10-19T16:35:53Z","skill":"stardust:deploy","phase":"1-audit","event":"end"}
+{"ts":"2026-10-19T16:35:54Z","skill":"stardust:deploy","phase":"2b-section","event":"start"}
+{"ts":"2026-10-19T16:39:33Z","skill":"stardust:deploy","phase":"2b-section","event":"end"}
+{"ts":"2026-10-19T16:39:33Z","skill":"stardust:deploy","phase":"2-decide","event":"start"}
+{"ts":"2026-10-19T16:39:33Z","skill":"stardust:deploy","phase":"2-decide","event":"end"}
+{"ts":"2026-10-19T16:39:33Z","skill":"stardust:deploy","phase":"3-foundation","event":"start"}
+{"ts":"2026-10-19T16:47:51Z","skill":"stardust:deploy","phase":"3-foundation","event":"end"}
+{"ts":"2026-10-19T16:47:51Z","skill":"stardust:deploy","phase":"7-blocks","event":"start"}
+{"ts":"2026-10-19T16:47:51Z","skill":"stardust:deploy","phase":"7-blocks","event":"end"}
+{"ts":"2026-10-19T16:47:51Z","skill":"stardust:deploy","phase":"8-block","event":"start"}
+{"ts":"2026-10-19T16:47:51Z","skill":"stardust:deploy","phase":"8-block","event":"end"}
+{"ts":"2026-10-19T16:47:51Z","skill":"stardust:deploy","phase":"9-content","event":"start"}
+{"ts":"2026-10-19T16:47:51Z","skill":"stardust:deploy","phase":"9-content","event":"end"}
+{"ts":"2026-10-19T16:47:51Z","skill":"stardust:deploy","phase":"local-qa","event":"start"}
+{"ts":"2026-10-19T17:00:26Z","skill":"stardust:deploy","phase":"local-qa","event":"end"}

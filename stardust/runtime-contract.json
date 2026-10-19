@@ -1,0 +1,20 @@
+{
+  "runtime": "vanilla-eds",
+  "vintage": "older aem-boilerplate clone with project additions (DM/Scene7 auto-block, section data-image backgrounds, template/theme body classes)",
+  "probedFrom": ["scripts/aem.js", "scripts/scripts.js", "styles/styles.css", "styles/komatsu.css", "blocks/header/header.js"],
+  "probedAt": "2026-10-19T16:35:00Z",
+  "blockWrapperClass": "block",
+  "blockDom": "div.section.<name>-container > div.<name>-wrapper > div.<name>.block[data-block-name]",
+  "buttonClasses": "a.button (bare) / a.button.primary (<strong>) / a.button.secondary (<em>), parent p.button-container (or the block-cell div when the link is its only child)",
+  "buttonization": "bare-links-too",
+  "buttonizationNote": "aem.js decorateButtons: a link that is the ONLY child of a <p> or <div> becomes a.button even without emphasis; links inside <h1-h6>/<li> or sharing a <p> with other nodes stay plain. No accent (<em><strong>) slot.",
+  "templateBodyClass": "metadata `template` -> decorateTemplateAndTheme() adds toClassName(value) to <body> in loadEager, before decorateMain",
+  "sectionMetadata": "style -> classes on .section; other keys -> data-* (data-sec-spacing etc. consumed by styles.css)",
+  "fragmentScriptPolicy": "inert-innerHTML",
+  "emptySectionCollapse": false,
+  "emptySectionNote": "local dev server and DA pipeline consume the metadata block into <head>; no empty leading section is emitted",
+  "headerOverlay": "header.js adds header.header-overlay only when the first section contains .hero-banner; otherwise the header is a solid Komatsu Blue bar (position relative <900px, static >=900px)",
+  "globalLinkSkin": "styles.css gives every <a> nowrap/ellipsis/Font Awesome ::after; komatsu.css resets a:any-link to inline and ::after to none; main a.button gets the Komatsu outline/filled skin",
+  "imageDecoration": "authored <img>/<picture> pass through untouched (no createOptimizedPicture on block images); buildDynamicMediaImages only rewrites DM/Scene7 URLs carried on <a href>",
+  "localPreview": "http://localhost:3000/content/<path> (dev server renders content/<path>.plain.html with head.html + metadata meta tags)"
+}

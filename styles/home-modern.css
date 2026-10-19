@@ -1,0 +1,295 @@
+/*
+ * home-modern — page-scoped foundation for /en-us/home-modern (stardust deploy of
+ * stardust/prototypes/en-us-proposed.html). Applies ONLY when the page metadata sets
+ * `template: home-modern` (decorateTemplateAndTheme adds body.home-modern). Pulled in by
+ * @import from every hm-* block stylesheet; never linked globally. Every token is --hm-*
+ * so nothing the shared header/footer inherits changes on this page.
+ */
+
+/* === Tokens (lifted from the prototype :root; values from DESIGN.md) === */
+body.home-modern {
+  --hm-font: 'Noto Sans', system-ui, sans-serif;
+
+  /* brand-native roles */
+  --hm-komatsu-blue: #140a9a;
+  --hm-boom-blue: #253fc8;
+  --hm-survey-blue: #36c;
+  --hm-track-steel: #1b232a;
+  --hm-cab-slate: #4d545a;
+  --hm-grade-line: #ededed;
+  --hm-daylight: #fff;
+  --hm-yard-gray: #f4f5f5;
+  --hm-site-ground: #fafafa;
+  --hm-komatsu-yellow: #ffc82f; /* reserved: blue / dark-photo grounds only */
+  --hm-news-rule: #dcdfe1;
+
+  /* formal 1.25 type scale */
+  --hm-body: 1rem;
+  --hm-step-minus-1: 0.8rem;
+  --hm-step-0: 1rem;
+  --hm-step-1: 1.25rem;
+  --hm-type-display: clamp(2.441rem, 1.5rem + 3.4vw, 3.815rem);
+  --hm-type-headline: clamp(1.953rem, 1.4rem + 1.6vw, 2.441rem);
+  --hm-type-title: clamp(1.25rem, 1rem + 0.9vw, 1.563rem);
+  --hm-line-height-heading: 1.1;
+  --hm-line-height-body: 1.5;
+
+  /* variable-axis weights (Noto Sans variable, wght 100–900) */
+  --hm-wght-display: 760;
+  --hm-wght-headline: 700;
+  --hm-wght-title: 680;
+  --hm-wght-label: 640;
+  --hm-wght-button: 600;
+  --hm-wght-meta: 590;
+  --hm-wght-body: 400;
+
+  /* layout */
+  --hm-section-padding: 64px;
+  --hm-max-width: 1920px;
+  --hm-radius: 4px;
+  --hm-gutter: 24px;
+  --hm-outer: 48px;
+  --hm-header-h: 88px;
+
+  /* surfaces + motion */
+  --hm-scrim-strong: oklch(25.1% 0.018 245deg / 82%);
+  --hm-scrim-mid: oklch(25.1% 0.018 245deg / 45%);
+  --hm-scrim-band: oklch(25.1% 0.018 245deg / 55%);
+  --hm-scrim-fade: oklch(25.1% 0.018 245deg / 60%);
+  --hm-scrim-plate: oklch(25.1% 0.018 245deg / 90%);
+  --hm-meta-on-photo: oklch(96% 0.004 245deg);
+  --hm-shadow-rest: 0 1px 2px oklch(25.1% 0.018 245deg / 16%);
+  --hm-shadow-lift: 0 6px 16px oklch(25.1% 0.018 245deg / 18%);
+  --hm-shadow-action: 0 1px 3px oklch(25.1% 0.018 245deg / 30%);
+  --hm-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --hm-dur: 200ms;
+
+  background-color: var(--hm-daylight);
+}
+
+@media (width <= 1100px) {
+  body.home-modern {
+    --hm-outer: 32px;
+  }
+}
+
+@media (width <= 899px) {
+  body.home-modern {
+    --hm-section-padding: 48px;
+    --hm-header-h: 72px;
+  }
+}
+
+@media (width <= 449px) {
+  body.home-modern {
+    --hm-outer: 24px;
+    --hm-section-padding: 32px;
+  }
+}
+
+/* === Shared header floats over the hero photo (mirrors header.css header.header-overlay,
+   which the header block only sets when the first section holds a .hero-banner) === */
+body.home-modern > header {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 100;
+  background-color: transparent;
+}
+
+/* the header block renders a URL breadcrumb after <header> on every non-home path; this page
+   is a homepage copy (the live /en-us shows none) and its hero starts under the header */
+body.home-modern > nav.breadcrumb {
+  display: none;
+}
+
+/* === Section scaffold: neutralise the site-wide section box (styles.css + komatsu.css
+   give main > .section a 32px bottom margin and a 1900px/52px-gutter inner column);
+   on this page every block paints its own full-bleed section and builds its own .hm-wrap === */
+body.home-modern main {
+  color: var(--hm-track-steel);
+  font-family: var(--hm-font);
+  font-size: var(--hm-body);
+  line-height: var(--hm-line-height-body);
+  font-weight: var(--hm-wght-body);
+}
+
+body.home-modern main > .section {
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+}
+
+body.home-modern main > .section > div {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+body.home-modern main .hm-wrap,
+body.home-modern main > .section > .default-content-wrapper {
+  width: 100%;
+  max-width: var(--hm-max-width);
+  margin-inline: auto;
+  padding-inline: var(--hm-outer);
+}
+
+/* section grounds + rhythm (daylight / yard-gray alternation, one blue band) */
+body.home-modern main > .section.hm-rail-container {
+  padding-block: 40px 48px;
+  background-color: var(--hm-daylight);
+}
+
+body.home-modern main > .section:is(.hm-tiles-container, .hm-tech-container, .hm-news-container) {
+  padding-block: var(--hm-section-padding);
+}
+
+body.home-modern main > .section:is(.hm-tiles-container, .hm-news-container) {
+  background-color: var(--hm-yard-gray);
+}
+
+body.home-modern main > .section.hm-tiles-container:has(.hm-tiles.contact),
+body.home-modern main > .section.hm-tech-container {
+  background-color: var(--hm-daylight);
+}
+
+@media (width <= 449px) {
+  body.home-modern main > .section.hm-rail-container {
+    padding-block: 32px;
+  }
+}
+
+/* === Section heads + trailing CTAs authored as default content (D1) — styled in place.
+   Descendant selectors only (EW10: the editor inserts two wrapper divs above each element). === */
+body.home-modern main > .section > .default-content-wrapper h2 {
+  margin: 0 0 32px;
+  color: var(--hm-track-steel);
+  font-family: var(--hm-font);
+  font-size: var(--hm-type-headline);
+  font-weight: var(--hm-wght-headline);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  text-align: left;
+  text-wrap: balance;
+}
+
+body.home-modern main > .section > .default-content-wrapper p {
+  margin: 0;
+}
+
+/* "Read more news" sits 40px under the news grid */
+body.home-modern main > .section.hm-news-container .hm-news-wrapper + .default-content-wrapper {
+  padding-top: 40px;
+}
+
+@media (width <= 899px) {
+  body.home-modern main > .section > .default-content-wrapper h2 {
+    margin-bottom: 24px;
+  }
+}
+
+/* === Buttons for this page (prototype .btn system). The runtime classes authored links:
+   <strong><a> → a.button.primary, <em><a> → a.button.secondary, bare → a.button. === */
+body.home-modern main .button-container {
+  margin: 0;
+}
+
+body.home-modern main a.button:any-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 10px 22px;
+  border: 2px solid var(--hm-boom-blue);
+  border-radius: var(--hm-radius);
+  background-color: var(--hm-daylight);
+  color: var(--hm-komatsu-blue);
+  font-family: var(--hm-font);
+  font-size: var(--hm-body);
+  font-style: normal; /* this runtime keeps the authored <em> around a.button.secondary */
+  font-weight: var(--hm-wght-button);
+  line-height: 1.25;
+  text-align: left;
+  text-decoration: none;
+  white-space: normal;
+  transition:
+    background-color var(--hm-dur) var(--hm-ease-out),
+    color var(--hm-dur) var(--hm-ease-out),
+    box-shadow var(--hm-dur) var(--hm-ease-out),
+    border-color var(--hm-dur) var(--hm-ease-out);
+}
+
+body.home-modern main a.button:hover,
+body.home-modern main a.button:focus {
+  background-color: var(--hm-grade-line);
+  color: var(--hm-komatsu-blue);
+  text-decoration: none;
+}
+
+body.home-modern main a.button.primary:any-link {
+  border-color: transparent;
+  background-color: var(--hm-komatsu-blue);
+  color: var(--hm-daylight);
+}
+
+body.home-modern main a.button.primary:hover,
+body.home-modern main a.button.primary:focus {
+  background-color: var(--hm-boom-blue);
+  color: var(--hm-daylight);
+  box-shadow: var(--hm-shadow-action);
+}
+
+body.home-modern main a.button:focus-visible {
+  outline: 2px solid var(--hm-boom-blue);
+  outline-offset: 2px;
+}
+
+/* visually hidden, still announced (new-tab hints, list-item tags) */
+body.home-modern .hm-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* === Experience Workspace edit mode. EW6: a label paragraph moved into a card <a> re-renders
+   its inner link while editing — keep it reading like the card text. === */
+body.home-modern a .prosemirror-editor a:any-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* EW3: the editor re-renders CTAs from their authored marks without the runtime classes —
+   repaint them from <strong>/<em>. */
+body.home-modern .prosemirror-editor p > :is(strong, em) > a:any-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 10px 22px;
+  border: 2px solid var(--hm-boom-blue);
+  border-radius: var(--hm-radius);
+  background-color: var(--hm-daylight);
+  color: var(--hm-komatsu-blue);
+  font-weight: var(--hm-wght-button);
+  line-height: 1.25;
+  text-decoration: none;
+}
+
+body.home-modern .prosemirror-editor p > strong > a:any-link {
+  border-color: transparent;
+  background-color: var(--hm-komatsu-blue);
+  color: var(--hm-daylight);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.home-modern main *,
+  body.home-modern main *::before,
+  body.home-modern main *::after {
+    transition-duration: 0s !important;
+    animation-duration: 0s !important;
+  }
+}
