@@ -11,6 +11,35 @@
  * authored label <p>. The tablist aria-label "Select a tab" is captured a11y chrome.
  */
 
+// Responsive renditions: the pipeline gives each <picture> only a 750px and a 2000px file. Point
+// the SAME elements at a width ladder plus the slot's display size, so a 200px slot fetches a
+// ~400px file. Attributes only — the authored <img> keeps its identity (and data-image-index).
+function sizePicture(media, sizes, widths) {
+  const pic = media.tagName === 'PICTURE' ? media : media.closest('picture');
+  if (!pic) return;
+  const ladder = (src) => {
+    const u = new URL(src, window.location.href);
+    if (!u.pathname.includes('/media_')) return null;
+    return widths.map((w) => {
+      u.searchParams.set('width', w);
+      return `${u.pathname}${u.search} ${w}w`;
+    }).join(', ');
+  };
+  pic.querySelectorAll('source').forEach((s) => {
+    const set = ladder(s.getAttribute('srcset').split(' ')[0]);
+    if (!set) return;
+    s.srcset = set;
+    s.sizes = sizes;
+    s.removeAttribute('media');
+  });
+  const img = pic.querySelector('img');
+  const set = img && ladder(img.getAttribute('src'));
+  if (set) {
+    img.srcset = set;
+    img.sizes = sizes;
+  }
+}
+
 function wrapNode(node, className) {
   const w = document.createElement('div');
   w.className = className;
@@ -35,6 +64,7 @@ function buildPanel(cell) {
     if (media) {
       const img = media.tagName === 'IMG' ? media : media.querySelector('img');
       if (img) img.loading = 'lazy';
+      sizePicture(media, '(min-width: 900px) 50vw, 100vw', [480, 640, 960, 1280]);
       photo.append(media.tagName === 'IMG' && media.closest('picture') ? media.closest('picture') : media);
     } else if (/^H[1-6]$/.test(node.tagName)) {
       copy.append(wrapNode(node, 'subtitle'));

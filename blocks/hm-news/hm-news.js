@@ -11,6 +11,35 @@
  * on list items they are visually hidden (prototype sr-only). The "·" separators are CSS.
  */
 
+// Responsive renditions: the pipeline gives each <picture> only a 750px and a 2000px file. Point
+// the SAME elements at a width ladder plus the slot's display size, so a 200px slot fetches a
+// ~400px file. Attributes only — the authored <img> keeps its identity (and data-image-index).
+function sizePicture(media, sizes, widths) {
+  const pic = media.tagName === 'PICTURE' ? media : media.closest('picture');
+  if (!pic) return;
+  const ladder = (src) => {
+    const u = new URL(src, window.location.href);
+    if (!u.pathname.includes('/media_')) return null;
+    return widths.map((w) => {
+      u.searchParams.set('width', w);
+      return `${u.pathname}${u.search} ${w}w`;
+    }).join(', ');
+  };
+  pic.querySelectorAll('source').forEach((s) => {
+    const set = ladder(s.getAttribute('srcset').split(' ')[0]);
+    if (!set) return;
+    s.srcset = set;
+    s.sizes = sizes;
+    s.removeAttribute('media');
+  });
+  const img = pic.querySelector('img');
+  const set = img && ladder(img.getAttribute('src'));
+  if (set) {
+    img.srcset = set;
+    img.sizes = sizes;
+  }
+}
+
 function wrapNode(node, className) {
   const w = document.createElement('div');
   w.className = className;
@@ -59,6 +88,9 @@ function buildFeature(p, portrait) {
   card.className = portrait ? 'hm-news-feature hm-news-portrait' : 'hm-news-feature';
   if (p.media) {
     lazy(p.media);
+    sizePicture(p.media, portrait
+      ? '(min-width: 1280px) 25vw, (min-width: 900px) 42vw, 100vw'
+      : '(min-width: 1280px) 42vw, (min-width: 900px) 58vw, 100vw', [480, 640, 960, 1280]);
     card.append(wrapNode(p.media, 'hm-news-media'));
   }
   const body = document.createElement('div');
@@ -76,6 +108,7 @@ function buildItem(p) {
   li.className = 'hm-news-item';
   if (p.media) {
     lazy(p.media);
+    sizePicture(p.media, '88px', [100, 200]);
     li.append(wrapNode(p.media, 'hm-news-thumb'));
   }
   const copy = document.createElement('div');

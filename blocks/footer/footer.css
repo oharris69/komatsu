@@ -35,7 +35,7 @@ footer .footer a::after {
   content: none;
 }
 
-footer .footer h6,
+footer .footer h2,
 footer .footer p,
 footer .footer ul {
   margin: 0;
@@ -91,7 +91,7 @@ footer .footer .footer-column {
   border-bottom: 1px solid var(--footer-rule);
 }
 
-footer .footer .footer-column h6 {
+footer .footer .footer-column h2 {
   position: relative;
   padding: 20px 0;
   border-bottom: 1px solid var(--footer-rule);
@@ -102,7 +102,7 @@ footer .footer .footer-column h6 {
   line-height: 22px;
 }
 
-footer .footer .footer-column h6::after {
+footer .footer .footer-column h2::after {
   content: '';
   position: absolute;
   top: 31px;
@@ -114,7 +114,7 @@ footer .footer .footer-column h6::after {
   transform: translateY(-10px);
 }
 
-footer .footer .footer-column.is-open h6::after {
+footer .footer .footer-column.is-open h2::after {
   mask-image: var(--footer-icon-minus);
 }
 
@@ -251,13 +251,13 @@ footer .footer .footer-legal a:focus {
     padding: 0 0 32px;
   }
 
-  footer .footer .footer-column h6 {
+  footer .footer .footer-column h2 {
     margin: 0 0 15px;
     padding: 0;
     border-bottom: 0;
   }
 
-  footer .footer .footer-column h6::after {
+  footer .footer .footer-column h2::after {
     content: none;
   }
 

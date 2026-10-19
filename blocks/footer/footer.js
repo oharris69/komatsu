@@ -69,11 +69,22 @@ function buildColumns(section) {
   const columns = el('div', { class: 'footer-columns' });
   let column = null;
   [...section.children].forEach((child) => {
-    if (/^H[1-6]$/.test(child.tagName) || !column) {
+    let node = child;
+    if (/^H[1-6]$/.test(child.tagName)) {
+      column = el('div', { class: 'footer-column' });
+      columns.append(column);
+      // the fragment authors column titles as h6; in the page outline they follow the main
+      // content's h2/h3, so render them as h2 (same look) to keep heading levels sequential
+      if (child.tagName !== 'H2') {
+        node = document.createElement('h2');
+        [...child.attributes].forEach((attr) => node.setAttribute(attr.name, attr.value));
+        node.append(...child.childNodes);
+      }
+    } else if (!column) {
       column = el('div', { class: 'footer-column' });
       columns.append(column);
     }
-    column.append(child);
+    column.append(node);
   });
   return columns;
 }
@@ -83,7 +94,7 @@ function buildColumns(section) {
  * @param {Element} columns
  */
 function decorateAccordions(columns) {
-  const headings = [...columns.querySelectorAll('.footer-column > h6')];
+  const headings = [...columns.querySelectorAll('.footer-column > h2')];
   const toggle = (heading) => {
     if (!ACCORDION.matches) return;
     const open = heading.parentElement.classList.toggle('is-open');
