@@ -140,7 +140,9 @@ async function copyImage(raw, ctx) {
     ctx.manifest[key] = entry;
     return { raw, entry, status: 'exists' };
   }
-  const file = path.join(ctx.tmp, path.basename(daPath));
+  // DAM rendition URLs share basenames (…/renditions/cq5dam.web.1280.1280.jpeg) and download in
+  // parallel, so the temp name must be unique per asset
+  const file = path.join(ctx.tmp, daPath.replace(/[^a-z0-9._-]+/gi, '_'));
   let meta = await download(key, file);
   if (meta.bytes > MAX_IMAGE_BYTES) {
     const rendition = await downloadRendition(key, file);

@@ -53,3 +53,5 @@
 {"ts":"2026-10-19T16:47:51Z","skill":"stardust:deploy","phase":"9-content","event":"end"}
 {"ts":"2026-10-19T16:47:51Z","skill":"stardust:deploy","phase":"local-qa","event":"start"}
 {"ts":"2026-10-19T17:00:26Z","skill":"stardust:deploy","phase":"local-qa","event":"end"}
+{"ts":"2026-10-19T17:26:35Z","skill":"stardust:deploy","phase":"deliver","event":"start","detail":"publish en-us/home-modern"}
+{"ts":"2026-10-19T17:26:36Z","skill":"stardust:deploy","phase":"deliver","event":"end","detail":"published https://main--komatsu--oharris69.aem.live/en-us/home-modern: 7 blocks loaded, 41 imgs, 0 about:error, 1 h1, CLS 0.027 (fonts delayed), noindex"}
