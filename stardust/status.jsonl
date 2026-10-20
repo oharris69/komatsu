@@ -55,3 +55,10 @@
 {"ts":"2026-10-19T17:00:26Z","skill":"stardust:deploy","phase":"local-qa","event":"end"}
 {"ts":"2026-10-19T17:26:35Z","skill":"stardust:deploy","phase":"deliver","event":"start","detail":"publish en-us/home-modern"}
 {"ts":"2026-10-19T17:26:36Z","skill":"stardust:deploy","phase":"deliver","event":"end","detail":"published https://main--komatsu--oharris69.aem.live/en-us/home-modern: 7 blocks loaded, 41 imgs, 0 about:error, 1 h1, CLS 0.027 (fonts delayed), noindex"}
+{"ts":"2026-10-19T17:42:48Z","skill":"stardust:qa","phase":"sweep","event":"start","detail":"single page /en-us/home-modern"}
+{"ts":"2026-10-19T17:47:00Z","skill":"stardust:qa","phase":"sweep","event":"end","detail":"8 error / 8 warn / 12 info; 0 page-specific defects in the hm blocks; site-wide: sitemap missing, /content/ fragment 404s, DM viewer JS in head, footer h6, og:type; wheel-loader redirects pending migration"}
+{"ts":"2026-10-19T19:12:23Z","skill":"stardust:qa","phase":"sweep","event":"start","detail":"re-run /en-us/home-modern after fixes"}
+{"ts":"2026-10-19T19:14:39Z","skill":"stardust:qa","phase":"sweep","event":"end","detail":"re-run: 5 error / 100 warn / 10 info; resolved request-failed, sitemap-missing, og:type, js budget, console errors; new warns are sitemap parity of the single-page sweep; no visual diff vs baseline"}
+{"ts":"2026-10-19T19:42:26Z","skill":"stardust:qa","phase":"sweep","event":"end","detail":"browse/perf/editability/ai re-run after image sizing + footer h2: 0 error; transfer 1567→831KB, LCP 216ms, CLS 0.025; heading-order resolved; visual diff 0.97/1.85% = 100% inside images (resampled renditions), baselines refreshed"}
+{"ts":"2026-10-19T20:04:18Z","skill":"stardust:qa","phase":"sweep","event":"start","detail":"full re-run /en-us/home-modern"}
+{"ts":"2026-10-19T20:06:10Z","skill":"stardust:qa","phase":"sweep","event":"end","detail":"full re-run: 5 error / 99 warn / 10 info — all errors known non-defects (noindex demo, 4 redirects); heading-order resolved; no visual diff vs refreshed baseline; 832KB, LCP 208ms, CLS 0.025"}
