@@ -10,23 +10,9 @@ import {
   isInternalPage,
 } from './utils.js';
 
-// Adobe Target - start
-
-window.targetGlobalSettings = {
-  bodyHidingEnabled: false,
-};
-
-function loadAT() {
-  function targetPageParams() {
-    return {
-      "at_property": "549d426b-0bcc-be60-ce27-b9923bfcad4f"
-    };
-  }
-    loadScript(window.hlx.codeBasePath+'/scripts/at-lsig.js');
-  
-}
-// Adobe Target - end
-
+// Adobe Target: not loaded on the demo site. scripts/at-lsig.js (at.js) stays in the repo —
+// to re-enable, set window.targetGlobalSettings and load
+// `${window.hlx.codeBasePath}/scripts/at-lsig.js` with Komatsu's own Target property.
 
 
 // refactor tweetable links function
@@ -102,7 +88,4 @@ function buildTwitterLinks() {
 if (!window.location.hostname.includes('localhost')) {
   
   embedCustomLibraries();
-  if (window.parent && !(window.parent.location.pathname.indexOf('/canvas/') > -1)) {
-    loadAT();
-  }
 }
