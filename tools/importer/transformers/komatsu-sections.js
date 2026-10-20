@@ -42,11 +42,16 @@ export default function transform(hookName, element, payload) {
   const doc = element.ownerDocument || document;
 
   if (hookName === 'beforeTransform') {
+    // one break per element: when two template sections resolve to the same container (e.g. the
+    // wheel-loaders listing wraps its media panels and closing tiles in one container), a second
+    // break would leave an empty section between them
+    const broken = new Set();
     for (let i = sections.length - 1; i >= 0; i -= 1) {
       const section = sections[i];
       if (i === 0 && !section.style) continue; // first section: no break, no metadata
       const sectionEl = querySection(element, section.selector);
-      if (!sectionEl) continue;
+      if (!sectionEl || broken.has(sectionEl)) continue;
+      broken.add(sectionEl);
 
       const hr = doc.createElement('hr');
       if (section.style) hr.setAttribute(SECTION_MARKER_ATTR, section.id);

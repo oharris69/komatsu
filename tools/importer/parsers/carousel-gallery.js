@@ -84,7 +84,11 @@ function parseVideos(element, document, items) {
     // Title: first bold-only paragraph; description: the other non-empty paragraphs
     let title = '';
     const desc = [];
-    item.querySelectorAll('.textcontent p, .cmp-text p').forEach((p) => {
+    // the title sometimes sits in a bare <div><b>…</b></div> rather than a <p> (WE-series loaders);
+    // a div only counts when it holds no paragraphs of its own (those are read as <p>)
+    const textNodes = [...item.querySelectorAll('.textcontent p, .cmp-text p, .cmp-text > div')]
+      .filter((el) => el.tagName === 'P' || !el.querySelector('p'));
+    textNodes.forEach((p) => {
       const t = clean(p.textContent);
       if (!t) return;
       const bold = p.querySelector('b, strong');
