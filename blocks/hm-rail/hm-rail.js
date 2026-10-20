@@ -62,7 +62,12 @@ function buildItem(row) {
   const card = el('a', { class: 'hm-rail-link', href: link.getAttribute('href') });
   if (media) {
     const img = media.tagName === 'IMG' ? media : media.querySelector('img');
-    if (img) img.loading = 'lazy';
+    if (img) {
+      img.loading = 'lazy';
+      // the card is one link whose visible label already names the category: the cut-out is
+      // decorative, so its alt would only repeat the label to screen readers
+      img.alt = '';
+    }
     sizePicture(media, '(min-width: 1280px) 220px, (min-width: 900px) 25vw, 45vw', [240, 360, 480, 720]);
     card.append(wrapNode(media, 'hm-rail-media'));
   }
