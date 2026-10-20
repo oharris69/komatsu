@@ -71,7 +71,7 @@ function buildTile(row, index, lead) {
     const img = media.tagName === 'IMG' ? media : media.querySelector('img');
     if (img) img.loading = 'lazy';
     const sizes = index === 0 && lead ? '(min-width: 900px) 50vw, 100vw' : '(min-width: 900px) 25vw, 50vw';
-    sizePicture(media, sizes, [320, 480, 640, 960, 1280, 1600]);
+    sizePicture(media, sizes, [320, 480, 640, 800, 960, 1280, 1600]);
     tile.append(wrapNode(media, 'hm-tile-media'));
   }
   // a heading link is never buttonized; a <p> fallback label may be — undo that skin

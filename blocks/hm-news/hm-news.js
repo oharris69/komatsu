@@ -90,7 +90,7 @@ function buildFeature(p, portrait) {
     lazy(p.media);
     sizePicture(p.media, portrait
       ? '(min-width: 1280px) 25vw, (min-width: 900px) 42vw, 100vw'
-      : '(min-width: 1280px) 42vw, (min-width: 900px) 58vw, 100vw', [480, 640, 960, 1280, 1600]);
+      : '(min-width: 1280px) 42vw, (min-width: 900px) 58vw, 100vw', [480, 640, 800, 960, 1280, 1600]);
     card.append(wrapNode(p.media, 'hm-news-media'));
   }
   const body = document.createElement('div');

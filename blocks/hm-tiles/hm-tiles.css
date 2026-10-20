@@ -111,6 +111,9 @@
 .hm-tiles .hm-tile-label a::after {
   content: '';
   position: absolute;
+
+  /* drop the inherited icon font: even an empty overlay makes the browser fetch it (77KB) */
+  font-family: inherit;
   inset: 0;
   float: none;
   width: auto;
